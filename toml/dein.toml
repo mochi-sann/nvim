@@ -1,0 +1,7 @@
+[[plugins]]
+repo = "lambdalisue/fern.vim"
+[[plugins]]
+repo = 'dracula/vim'
+
+[[plugins]]
+repo = 'vim-scripts/vim-auto-save'
