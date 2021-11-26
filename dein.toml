@@ -1,0 +1,4 @@
+[[plugins]]
+repo = "preservim/nerdtree"
+# [[plugins]]
+# repo = "dracula/vim"
