@@ -73,29 +73,26 @@ repo = 'vim-jp/vimdoc-ja'
 hook_add = 'set helplang=ja'
 [[plugins]]
 repo = "nathanaelkane/vim-indent-guides"
-
-hook_add = '''
-IndentGuidesEnable
-'''
+# hook_add = '''
+# IndentGuidesEnable
+# '''
 # set show_end_of_line = true
-
-[[plugins]]
-repo = "prettier/vim-prettier"
-build = 'npm install'
-on_ft = ['javascript', 'typescript', 'vue', 'css', 'scss', 'json', 'markdown']
-hook_add = '''
-" @formatアノテーションを持ったファイルの自動フォーマットを無効にする
-let g:prettier#autoformat = 0
-
-" Prettierのパースエラーをquickfixに表示しない
-let g:prettier#quickfix_enabled = 0
-
-autocmd BufWritePre *.js,*.ts,*.vue,*.css,*.scss,*.json,*.md PrettierAsync
-'''
 
 
 [[plugins]]
   repo = "vim-airline/vim-airline"
 
+# [[plugins]]
+  # repo = "vim-airline/vim-airline-themes"
+
 [[plugins]]
-  repo = "vim-airline/vim-airline-themes"
+  repo ="cespare/vim-toml"
+[[plugins]]
+  repo = "cohama/lexima.vim"
+
+[[plugins]]
+  repo = 'neoclide/coc.nvim'
+  rev = 'release'
+  on_i = 1
+  merged = '0'
+  hook_source = 'call coil398#init#coc#hook_source()'
