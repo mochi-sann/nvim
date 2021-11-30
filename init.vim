@@ -20,15 +20,15 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/Users/mochi/.config/nvim/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/Users/mochi/.config/nvim/dein')
-  call dein#begin('/Users/mochi/.config/nvim/dein')
+if dein#load_state('~/.config/nvim/dein')
+  call dein#begin('~/.config/nvim/dein')
 
   " Let dein manage dein
   " Required:
-  call dein#add('/Users/mochi/.config/nvim/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add('~/.config/nvim/dein/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here like this:
   "call dein#add('Shougo/neosnippet.vim')
@@ -57,9 +57,9 @@ filetype plugin indent on
 syntax enable
 
 " If you want to install not installed plugins on startup.
-"f dein#check_install()
-"  call dein#install()
-"endif
+if dein#check_install()
+  call dein#install()
+endif
 
 "End dein Scripts-------------------------
 
@@ -72,3 +72,9 @@ colorschem dracula
 let g:fern#renderer = 'nerdfont'
 
 
+" vim.opt.list = true
+" vim.opt.listchars:append("eol:↴")
+
+" require("indent_blankline").setup {
+"     show_end_of_line = true,
+" }

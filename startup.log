@@ -1,0 +1,87 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.006  000.006: --- NVIM STARTING ---
+000.953  000.946: locale set
+001.437  000.485: inits 1
+001.459  000.022: window checked
+001.463  000.004: parsing arguments
+001.711  000.249: expanding arguments
+001.772  000.061: inits 2
+002.169  000.396: init highlight
+002.170  000.001: waiting for UI
+007.274  005.104: done waiting for UI
+007.303  000.029: init screen for UI
+009.245  000.878  000.878: sourcing /Users/mochi/.config/nvim/dein/repos/github.com/Shougo/dein.vim/autoload/dein.vim
+009.949  000.454  000.454: sourcing /Users/mochi/.config/nvim/dein/repos/github.com/Shougo/dein.vim/autoload/dein/min.vim
+017.726  000.468  000.468: sourcing /usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/ftoff.vim
+018.547  003.176  002.708: sourcing /Users/mochi/.config/nvim/dein/state_nvim.vim
+027.062  008.294  008.294: sourcing /usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/filetype.vim
+028.706  000.885  000.885: sourcing /usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/ftplugin.vim
+029.544  000.251  000.251: sourcing /usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/indent.vim
+033.131  001.538  001.538: sourcing /usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/syntax/syncolor.vim
+034.153  003.155  001.618: sourcing /usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/syntax/synload.vim
+034.411  004.342  001.187: sourcing /usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/syntax/syntax.vim
+036.159  000.171  000.171: sourcing /usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/syntax/syncolor.vim
+036.994  000.142  000.142: sourcing /usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/syntax/syncolor.vim
+038.143  000.538  000.538: sourcing /Users/mochi/.config/nvim/dein/.cache/init.vim/.dein/autoload/dracula.vim
+041.415  006.592  005.741: sourcing /Users/mochi/.config/nvim/dein/.cache/init.vim/.dein/colors/dracula.vim
+041.451  033.710  008.837: sourcing /Users/mochi/.config/nvim/init.vim
+041.467  000.453: sourcing vimrc file(s)
+043.875  000.384  000.384: sourcing /Users/mochi/.config/nvim/dein/.cache/init.vim/.dein/plugin/airline-themes.vim
+044.235  000.265  000.265: sourcing /Users/mochi/.config/nvim/dein/.cache/init.vim/.dein/plugin/AutoSave.vim
+044.517  000.171  000.171: sourcing /Users/mochi/.config/nvim/dein/.cache/init.vim/.dein/plugin/fern.vim
+044.693  000.087  000.087: sourcing /Users/mochi/.config/nvim/dein/.cache/init.vim/.dein/plugin/fern_git_status.vim
+045.139  000.359  000.359: sourcing /Users/mochi/.config/nvim/dein/.cache/init.vim/.dein/plugin/fern_hijack.vim
+047.359  001.018  001.018: sourcing /Users/mochi/.config/nvim/dein/.cache/init.vim/.dein/autoload/vital/fern.vim
+048.044  000.331  000.331: sourcing /Users/mochi/.config/nvim/dein/repos/github.com/Shougo/dein.vim/autoload/dein/autoload.vim
+049.373  001.073  001.073: sourcing /Users/mochi/.config/nvim/dein/.cache/init.vim/.dein/autoload/vital/_fern/Async/Promise.vim
+050.147  000.251  000.251: sourcing /Users/mochi/.config/nvim/dein/.cache/init.vim/.dein/autoload/vital/_fern.vim
+051.203  000.385  000.385: sourcing /Users/mochi/.config/nvim/dein/.cache/init.vim/.dein/autoload/vital/_fern/Async/Later.vim
+057.328  005.572  005.572: sourcing /Users/mochi/.config/nvim/dein/.cache/init.vim/.dein/autoload/vital/_fern/Prompt.vim
+058.152  012.411  003.782: sourcing /Users/mochi/.config/nvim/dein/.cache/init.vim/.dein/autoload/fern/scheme/file/mapping.vim
+058.175  012.943  000.532: sourcing /Users/mochi/.config/nvim/dein/.cache/init.vim/.dein/plugin/fern_preview.vim
+059.639  000.274  000.274: sourcing /Users/mochi/.config/nvim/dein/.cache/init.vim/.dein/autoload/vital/_fern/Config.vim
+060.127  001.362  001.088: sourcing /Users/mochi/.config/nvim/dein/.cache/init.vim/.dein/autoload/fern.vim
+060.141  001.834  000.472: sourcing /Users/mochi/.config/nvim/dein/.cache/init.vim/.dein/plugin/fern_renderer_nerdfont.vim
+061.763  001.529  001.529: sourcing /Users/mochi/.config/nvim/dein/.cache/init.vim/.dein/plugin/fzf.vim
+062.558  000.202  000.202: sourcing /Users/mochi/.config/nvim/dein/.cache/init.vim/.dein/autoload/glyph_palette/defaults.vim
+063.040  001.144  000.941: sourcing /Users/mochi/.config/nvim/dein/.cache/init.vim/.dein/plugin/glyph_palette.vim
+065.533  000.583  000.583: sourcing /usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/plugin/gzip.vim
+065.883  000.242  000.242: sourcing /usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/plugin/health.vim
+066.155  000.180  000.180: sourcing /usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/plugin/man.vim
+068.010  000.559  000.559: sourcing /usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+068.268  001.976  001.417: sourcing /usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/plugin/matchit.vim
+068.783  000.410  000.410: sourcing /usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/plugin/matchparen.vim
+069.517  000.630  000.630: sourcing /usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/plugin/netrwPlugin.vim
+070.621  000.646  000.646: sourcing /Users/mochi/.local/share/nvim/rplugin.vim
+070.631  000.999  000.353: sourcing /usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/plugin/rplugin.vim
+070.905  000.168  000.168: sourcing /usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/plugin/shada.vim
+071.109  000.107  000.107: sourcing /usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/plugin/spellfile.vim
+071.406  000.203  000.203: sourcing /usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/plugin/tarPlugin.vim
+071.751  000.251  000.251: sourcing /usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/plugin/tohtml.vim
+071.934  000.090  000.090: sourcing /usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/plugin/tutor.vim
+072.255  000.228  000.228: sourcing /usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/plugin/zipPlugin.vim
+073.345  007.096: loading plugins
+073.536  000.191: loading packages
+075.487  000.750  000.750: sourcing /Users/mochi/.config/nvim/dein/repos/github.com/Shougo/dein.vim/autoload/dein/util.vim
+076.588  002.465  001.715: sourcing /Users/mochi/.config/nvim/dein/.cache/init.vim/.dein/after/plugin/dracula.vim
+077.077  001.076: loading after plugins
+077.088  000.010: inits 3
+078.927  001.839: reading ShaDa
+079.013  000.086: opening buffers
+079.897  000.568  000.568: sourcing /Users/mochi/.config/nvim/dein/.cache/init.vim/.dein/autoload/fern/util.vim
+080.009  000.428: BufEnter autocommands
+080.012  000.003: editing files in windows
+080.804  000.134  000.134: sourcing /Users/mochi/.config/nvim/dein/.cache/init.vim/.dein/autoload/vital/_fern/Async/CancellationToken.vim
+081.241  001.063  000.928: sourcing /Users/mochi/.config/nvim/dein/.cache/init.vim/.dein/autoload/fern_git_status.vim
+081.812  000.273  000.273: sourcing /Users/mochi/.config/nvim/dein/.cache/init.vim/.dein/autoload/fern/hook.vim
+081.943  000.595: VimEnter autocommands
+081.946  000.002: UIEnter autocommands
+082.851  000.740  000.740: sourcing /usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/autoload/provider/clipboard.vim
+082.863  000.178: before starting main loop
+084.457  001.594: first screen update
+084.459  000.002: --- NVIM STARTED ---
