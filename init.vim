@@ -7,6 +7,11 @@ set expandtab          "タブ入力を空白に変換
 set splitright         "画面を縦分割する際に右に開く
 set clipboard=unnamed  "yank した文字列をクリップボードにコピー
 set hls                "検索した文字をハイライトする
+set laststatus=2     
+set showtabline=2      "タブバーを常時表示する
+tnoremap <Esc> <C-\><C-n>
+"ターミナルでescでノーマルモードに戻る
+
 
 
 "dein Scripts-----------------------------
@@ -59,3 +64,11 @@ syntax enable
 "End dein Scripts-------------------------
 
 let g:auto_save = 1  
+
+colorschem dracula
+" Ctrl+nでファイルツリーを表示/非表示する
+" // nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=40<CR>
+" ファイルアイコンを表示
+let g:fern#renderer = 'nerdfont'
+
+
