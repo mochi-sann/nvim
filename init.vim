@@ -13,7 +13,6 @@ tnoremap <Esc> <C-\><C-n>
 "ターミナルでescでノーマルモードに戻る
 
 
-
 "dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
@@ -56,7 +55,7 @@ endif
 filetype plugin indent on
 syntax enable
 
-" If you want to install not installed plugins on startup.
+"If you want to install not installed plugins on startup.
 if dein#check_install()
   call dein#install()
 endif
@@ -65,7 +64,6 @@ endif
 
 let g:auto_save = 1  
 
-colorschem dracula
 " Ctrl+nでファイルツリーを表示/非表示する
 " // nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=40<CR>
 " ファイルアイコンを表示
@@ -78,3 +76,20 @@ let g:fern#renderer = 'nerdfont'
 " require("indent_blankline").setup {
 "     show_end_of_line = true,
 " }
+
+
+
+
+" 背景をなくす
+augroup TransparentBG
+  autocmd!
+	autocmd Colorscheme * highlight Normal ctermbg=none
+	autocmd Colorscheme * highlight NonText ctermbg=none
+	autocmd Colorscheme * highlight LineNr ctermbg=none
+	autocmd Colorscheme * highlight Folded ctermbg=none
+	autocmd Colorscheme * highlight EndOfBuffer ctermbg=none 
+augroup END
+
+
+colorschem dracula
+
