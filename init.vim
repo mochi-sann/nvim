@@ -97,6 +97,7 @@ augroup END
 colorschem dracula
 
 
+
 call ddc#custom#patch_global('completionMenu', 'pum.vim')
 call ddc#custom#patch_global('sources', [
  \ 'around',
@@ -123,5 +124,11 @@ call ddc#custom#patch_global('sourceOptions', {
 call ddc#enable()
 inoremap <Tab> <Cmd>call pum#map#insert_relative(+1)<CR>
 inoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
+
+
+
+
+let g:lsp_settings_servers_dir  = "~/.config/nvim/vim-lsp/server"
+
 
 

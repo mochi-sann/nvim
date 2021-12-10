@@ -134,6 +134,11 @@ hook_add = 'set helplang=ja'
   repo = "Shougo/ddc-sorter_rank"
 [[plugins]]
   repo = "Shougo/ddc-converter_remove_overlap"
+
+
+
+
+
 [[plugins]]
   repo = "prabirshrestha/vim-lsp"
 hook_add = '''
@@ -193,7 +198,6 @@ hook_post_source = '''
 
 [[plugins]]
   repo = "github/copilot.vim"
-
 [[plugins]]
   repo = "lukas-reineke/indent-blankline.nvim"
   hook_add = '''
