@@ -3,6 +3,10 @@
   "suggest.preferCompleteThanJumpPlaceholder": true,
   "coc.preferences.extensionUpdateCheck": "daily",
 
+  "coc.preferences.formatOnSaveFiletypes": [
+    "prisma"
+  ],
+
   "languageserver": {
     "clangd": {
       "command": "clangd",
@@ -37,6 +41,5 @@
       "filetypes": ["typescript", "typescriptreact", "graphql"]
     }
   },
-  "python.jediEnabled": false,
   "svelte.enable-ts-plugin": true
 }

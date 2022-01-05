@@ -2,7 +2,9 @@
 repo = "lambdalisue/fern.vim"
 hook_add = '''
 let g:fern#renderer = 'nerdfont'
-nnoremap <C-n> :Fern . -reveal=% -drawer -right -toggle -width=40  <CR>
+nnoremap <C-n> :Fern . -reveal=% -drawer -right -width=35  <CR>
+
+
 let g:fern#default_hidden=1 "不可視ファイルを表示する
 
 '''
@@ -51,41 +53,50 @@ augroup END
 # repo = 'dracula/vim'
 # name = 'dracula-vim'
 [[plugins]]
-repo = "crusoexia/vim-dracula"
+repo = "dracula/vim"
 hook_add='''
-highlight Normal ctermbg=none
-highlight NonText ctermbg=none
-highlight LineNr ctermbg=none
-highlight Folded ctermbg=none
-highlight EndOfBuffer ctermbg=none 
 
 '''
-[[plugins]]
-repo = "sonph/onehalf"
 
 
 [[plugins]]
 repo = 'vim-scripts/vim-auto-save'
+hook_add = '''
+let g:auto_save = 1
+let g:auto_save_in_insert_mode = 0
+'''
 
 [[plugins]]
 repo = 'junegunn/fzf'
+build = '''
+./install --all
+'''
+merged = 0
 #build_on = '''
 #./install -all
 #'''
 
-[[plugins]]
-repo = 'junegunn/fzf.vim'
+#[[plugins]]
+# repo = 'junegunn/fzf.vim'
 # colorscheme = "dracula"
 # colorscheme_bg = "dark"
 
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
+
+
 # [[plugins]]
 # repo ="neoclide/coc.nvim"
 # rev = 'release'
 # on_i = 1
 # merged = '0'
 # hook_source = 'call coil398#init#coc#hook_source()'
+# ここに入れるのです
+
+
+
+
+
+
+
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
 hook_add = 'set helplang=ja'
@@ -100,99 +111,73 @@ hook_add = 'set helplang=ja'
 [[plugins]]
   repo = "vim-airline/vim-airline"
 
-# [[plugins]]
+# '''lugins]]
   # repo = "vim-airline/vim-airline-themes"
 
-[[plugins]]
-  repo ="cespare/vim-toml"
+#//[[plugins]]
+# // repo ="cespare/vim-toml"
 [[plugins]]
   repo = "cohama/lexima.vim"
 
-#[[plugins]]
- # repo = 'neoclide/coc.nvim'
- # rev = 'release'
- # on_i = 1
- # merged = '0'
- # hook_add = ''' 
- #   source ~/.config/nvim/coc.vim
- # '''
 [[plugins]]
-  repo = "Shougo/ddc.vim"
+ repo = 'neoclide/coc.nvim'
+ rev = 'release'
+#  on_i = 1
+ merged = 0
+ hook_add = '''
+   source ~/.config/nvim/coc.vim
+ '''
+# [[plugins]]
+#   repo = "Shougo/ddc.vim"
 
-[[plugins]]
-  repo = "vim-denops/denops.vim"
+# [[plugins]]
+#   repo = "vim-denops/denops.vim"
 
-[[plugins]]
-  repo = "Shougo/pum.vim"
-[[plugins]]
-  repo = "Shougo/ddc-around"
-[[plugins]]
-  repo = "Shougo/ddc-matcher_head"
-[[plugins]]  
-  repo = "LumaKernel/ddc-file"
-[[plugins]]
-  repo = "Shougo/ddc-sorter_rank"
-[[plugins]]
-  repo = "Shougo/ddc-converter_remove_overlap"
+# [[plugins]]
+#   repo = "Shougo/pum.vim"
+#  hook_add = '''
+#  inoremap <Tab>   <Cmd>call pum#map#insert_relative(+1)<CR>
+# inoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
+# inoremap <C-n>   <Cmd>call pum#map#insert_relative(+1)<CR>
+# inoremap <C-p>  <Cmd>call pum#map#insert_relative(-1)<CR>
+# inoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
+# inoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
+# inoremap <PageDown> <Cmd>call pum#map#insert_relative_page(+1)<CR>
+# inoremap <PageUp>   <Cmd>call pum#map#insert_relative_page(-1)<CR>
+
+#   '''
+# [[plugins]]
+#   repo = "Shougo/ddc-around"
+# [[plugins]]
+#   repo = "Shougo/ddc-matcher_head"
+# [[plugins]]  
+#   repo = "LumaKernel/ddc-file"
+# [[plugins]]
+#   repo = "Shougo/ddc-sorter_rank"
+# [[plugins]]
+#   repo = "Shougo/ddc-converter_remove_overlap"
+
+#######################################
 
 
 
+# [[plugins]]
+#   repo = "prabirshrestha/vim-lsp"
+# hook_add = '''
+# '''
+# [[plugins]]
+#   repo =  "mattn/vim-lsp-settings"
+# hook_add = '''
+#   " Hide signcolumn.
+#   let g:lsp_diagnostics_signs_enabled = 0
+# '''
+# hook_post_source = '''
+#   " Highlight LSP warnings strongly (like errors)
+#   highlight link LspWarningHighlight Error
+#     " Show diagnostics message to status line
+#   let g:lsp_diagnostics_echo_cursor = 1
 
-
-[[plugins]]
-  repo = "prabirshrestha/vim-lsp"
-hook_add = '''
-if executable('pyls')
-    " pip install python-language-server
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'allowlist': ['python'],
-        \ })
-endif
-
-function! s:on_lsp_buffer_enabled() abort
-    setlocal omnifunc=lsp#complete
-    setlocal signcolumn=yes
-    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
-    nmap <buffer> gd <plug>(lsp-definition)
-    nmap <buffer> gs <plug>(lsp-document-symbol-search)
-    nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
-    nmap <buffer> gr <plug>(lsp-references)
-    nmap <buffer> gi <plug>(lsp-implementation)
-    nmap <buffer> gt <plug>(lsp-type-definition)
-    nmap <buffer> <leader>rn <plug>(lsp-rename)
-    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
-    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
-    nmap <buffer> K <plug>(lsp-hover)
-    inoremap <buffer> <expr><c-f> lsp#scroll(+4)
-    inoremap <buffer> <expr><c-d> lsp#scroll(-4)
-
-    let g:lsp_format_sync_timeout = 1000
-    autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
-    
-    " refer to doc to add more commands
-endfunction
-
-augroup lsp_install
-    au!
-    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
-    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-augroup END
-'''
-[[plugins]]
-  repo =  "mattn/vim-lsp-settings"
-hook_add = '''
-  " Hide signcolumn.
-  let g:lsp_diagnostics_signs_enabled = 0
-'''
-hook_post_source = '''
-  " Highlight LSP warnings strongly (like errors)
-  highlight link LspWarningHighlight Error
-    " Show diagnostics message to status line
-  let g:lsp_diagnostics_echo_cursor = 1
-
-'''
+# '''
 [[plugins]]
   repo ="alvan/vim-closetag"
 
@@ -214,14 +199,86 @@ hook_post_source = '''
 let g:rustfmt_autosave = 1
 
   '''
+#[[plugins]]
+#  repo = "mxw/vim-jsx"
+#  hook_add = '''
+#  let g:jsx_indent_level = 2
+#  let g:jsx_indent_props = 2
+#  '''
+
+
+
+
+
 [[plugins]]
-  repo = "mxw/vim-jsx"
-  hook_add = '''
-  let g:jsx_indent_level = 2
-  let g:jsx_indent_props = 2
-  '''
+  repo ="nvim-treesitter/nvim-treesitter"
+  merged = 0
+
+
+ 
+
+# [[plugins]]
+# repo = "nathanaelkane/vim-indent-guides"
+# hook_add = '''
+# IndentGuidesEnable
+# '''
+# set show_end_of_line = true
+
+
+
+# '''lugins]]
+  # repo = "vim-airline/vim-airline-themes"
+
+#//[[plugins]]
+# // repo ="cespare/vim-toml"
+#[[plugins]]
+#  repo = "cohama/lexima.vim"
+
+# [[plugins]]
+#   repo = "Shougo/ddc.vim"
+
+# [[plugins]]
+#   repo = "vim-denops/denops.vim"
+
+# [[plugins]]
+#   repo = "Shougo/pum.vim"
+#  hook_add = '''
+#  inoremap <Tab>   <Cmd>call pum#map#insert_relative(+1)<CR>
+# inoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
+# inoremap <C-n>   <Cmd>call pum#map#insert_relative(+1)<CR>
+# inoremap <C-p>   <md>call pum#map#insert_relative(-1)<CR>
+# inoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
+# inoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
+# inoremap <PageDown> <Cmd>call pum#map#insert_relative_page(+1)<CR>
+# inoremap <PageUp>   <Cmd>call pum#map#insert_relative_page(-1)<CR>
+
+#   '''
+# [[plugins]]
+#   repo = "Shougo/ddc-around"
+# [[plugins]]
+#   repo = "Shougo/ddc-matcher_head"
+# [[plugins]]  
+#   repo = "LumaKernel/ddc-file"
+# [[plugins]]
+#   repo = "Shougo/ddc-sorter_rank"
+# [[plugins]]
+#   repo = "Shougo/ddc-converter_remove_overlap"
 
 
 
 
+#[[plugins]]
+#repo = 't9md/vim-quickhl'
+#hook_add = '''
+#    nmap <Space>m <Plug>(quickhl-manual-this)
+#    xmap <Space>m <Plug>(quickhl-manual-this)
+#    nmap <F9>     <Plug>(quickhl-manual-toggle)
+#    xmap <F9>     <Plug>(quickhl-manual-toggle)
+#    nmap <Space>M <Plug>(quickhl-manual-reset)
+#    xmap <Space>M <Plug>(quickhl-manual-reset)
+#    nmap <Space>j <Plug>(quickhl-cword-toggle)
+#    nmap <Space>] <Plug>(quickhl-tag-toggle)
+#    map H <Plug>(operator-quickhl-manual-this-motion)
+#
+#'''
 

@@ -1,0 +1,10 @@
+[[plugins]]
+# ホバーしたときにハイライトする
+ # let g:brightest#pattern = '\k\+'
+repo = "osyo-manga/vim-brightest"
+hook_add =  '''
+let g:brightest#highlight = { "group" : "BrightestReverse" }
+let g:brightest#enable_on_CursorHold = 1;  
+'''
+
+
