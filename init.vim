@@ -9,6 +9,7 @@ set clipboard=unnamed  "yank した文字列をクリップボードにコピー
 set hls                "検索した文字をハイライトする
 set laststatus=2     
 set showtabline=2      "タブバーを常時表示する
+set title             "タイトルバーにファイル名を表示
 tnoremap <Esc> <C-\><C-n>
  set cursorline             "カーソル行をハイライト
 " hi clear CursorLine
@@ -256,4 +257,27 @@ function! CocJumpAction() abort
 endfunction
 
 nnoremap <silent> <C-t> :<C-u>call CocActionAsync('jumpDefinition', CocJumpAction())<CR>
+
+
+
+" auto reload .vimrc
+augroup source-vimrc
+  autocmd!
+  autocmd BufWritePost *vimrc source $MYVIMRC | set foldmethod=marker
+  autocmd BufWritePost *gvimrc if has('gui_running') source $MYGVIMRC
+augroup END
+
+" auto comment off
+augroup auto_comment_off
+  autocmd!
+  autocmd BufEnter * setlocal formatoptions-=r
+  autocmd BufEnter * setlocal formatoptions-=o
+augroup END
+
+" HTML/XML閉じタグ自動補完
+augroup MyXML
+  autocmd!
+  autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
+  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
+augroup END
 

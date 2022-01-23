@@ -214,8 +214,10 @@ let g:rustfmt_autosave = 1
   repo ="nvim-treesitter/nvim-treesitter"
   merged = 0
 
-
- 
+[[plugins]]
+  repo ="tomtom/tcomment_vim"
+[[plugins]] 
+repo = "mattn/emmet-vim"
 
 # [[plugins]]
 # repo = "nathanaelkane/vim-indent-guides"
