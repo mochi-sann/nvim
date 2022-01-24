@@ -125,7 +125,6 @@ hook_add = 'set helplang=ja'
 #  on_i = 1
  merged = 0
  hook_add = '''
-   source ~/.config/nvim/coc.vim
  '''
 # [[plugins]]
 #   repo = "Shougo/ddc.vim"
@@ -219,68 +218,30 @@ let g:rustfmt_autosave = 1
 [[plugins]] 
 repo = "mattn/emmet-vim"
 
-# [[plugins]]
-# repo = "nathanaelkane/vim-indent-guides"
-# hook_add = '''
-# IndentGuidesEnable
-# '''
-# set show_end_of_line = true
+
+[[plugins]]
+repo ="t9md/vim-quickhl"
+hook_add = '''
+nmap <Space>m <Plug>(quickhl-manual-this)
+xmap <Space>m <Plug>(quickhl-manual-this)
+nmap <Space>M <Plug>(quickhl-manual-reset)
+xmap <Space>M <Plug>(quickhl-manual-reset)
+'''
 
 
+[[plugins]]
+repo  ="luochen1990/rainbow"
+hook_add = '''
+let  g:rainbow_active = 1 
 
-# '''lugins]]
-  # repo = "vim-airline/vim-airline-themes"
+'''
+[[plugins]]
+repo ="rbtnn/vim-coloredit"
+hook_add =  '''
+nnoremap ce    :<C-u>ColorEdit<cr>  
+'''
+[[plugins]]
+repo = "shmargum/vim-sass-colors"
 
-#//[[plugins]]
-# // repo ="cespare/vim-toml"
-#[[plugins]]
-#  repo = "cohama/lexima.vim"
-
-# [[plugins]]
-#   repo = "Shougo/ddc.vim"
-
-# [[plugins]]
-#   repo = "vim-denops/denops.vim"
-
-# [[plugins]]
-#   repo = "Shougo/pum.vim"
-#  hook_add = '''
-#  inoremap <Tab>   <Cmd>call pum#map#insert_relative(+1)<CR>
-# inoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
-# inoremap <C-n>   <Cmd>call pum#map#insert_relative(+1)<CR>
-# inoremap <C-p>   <md>call pum#map#insert_relative(-1)<CR>
-# inoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
-# inoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
-# inoremap <PageDown> <Cmd>call pum#map#insert_relative_page(+1)<CR>
-# inoremap <PageUp>   <Cmd>call pum#map#insert_relative_page(-1)<CR>
-
-#   '''
-# [[plugins]]
-#   repo = "Shougo/ddc-around"
-# [[plugins]]
-#   repo = "Shougo/ddc-matcher_head"
-# [[plugins]]  
-#   repo = "LumaKernel/ddc-file"
-# [[plugins]]
-#   repo = "Shougo/ddc-sorter_rank"
-# [[plugins]]
-#   repo = "Shougo/ddc-converter_remove_overlap"
-
-
-
-
-#[[plugins]]
-#repo = 't9md/vim-quickhl'
-#hook_add = '''
-#    nmap <Space>m <Plug>(quickhl-manual-this)
-#    xmap <Space>m <Plug>(quickhl-manual-this)
-#    nmap <F9>     <Plug>(quickhl-manual-toggle)
-#    xmap <F9>     <Plug>(quickhl-manual-toggle)
-#    nmap <Space>M <Plug>(quickhl-manual-reset)
-#    xmap <Space>M <Plug>(quickhl-manual-reset)
-#    nmap <Space>j <Plug>(quickhl-cword-toggle)
-#    nmap <Space>] <Plug>(quickhl-tag-toggle)
-#    map H <Plug>(operator-quickhl-manual-this-motion)
-#
-#'''
-
+[[plugins]]
+repo ="airblade/vim-gitgutter"
