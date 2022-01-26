@@ -8,6 +8,13 @@ nnoremap <C-n> :Fern . -reveal=% -drawer -right -width=35  <CR>
 let g:fern#default_hidden=1 "不可視ファイルを表示する
 
 '''
+
+[[plugins]]
+repo = 'junegunn/fzf'
+build = '''
+./install --all
+'''
+merged = 0
 [[plugins]]
   repo = "lambdalisue/fern-git-status.vim"
 
@@ -16,6 +23,10 @@ let g:fern#default_hidden=1 "不可視ファイルを表示する
 
 [[plugins]]
   repo = "lambdalisue/fern-renderer-nerdfont.vim"
+
+[[plugins]]
+repo = 'LumaKernel/fern-mapping-fzf.vim'
+depends = ['fzf', 'fern.vim']
 
 [[plugins]]
   repo ="lambdalisue/glyph-palette.vim"
@@ -66,12 +77,6 @@ let g:auto_save = 1
 let g:auto_save_in_insert_mode = 0
 '''
 
-[[plugins]]
-repo = 'junegunn/fzf'
-build = '''
-./install --all
-'''
-merged = 0
 #build_on = '''
 #./install -all
 #'''
@@ -129,8 +134,8 @@ hook_add = 'set helplang=ja'
 # [[plugins]]
 #   repo = "Shougo/ddc.vim"
 
-# [[plugins]]
-#   repo = "vim-denops/denops.vim"
+ [[plugins]]
+   repo = "vim-denops/denops.vim"
 
 # [[plugins]]
 #   repo = "Shougo/pum.vim"
@@ -180,22 +185,14 @@ hook_add = 'set helplang=ja'
 [[plugins]]
   repo ="alvan/vim-closetag"
 
-[[plugins]]
-  repo = "github/copilot.vim"
+#[[plugins]]
+#  repo = "github/copilot.vim"
 [[plugins]]
   repo = "lukas-reineke/indent-blankline.nvim"
   hook_add = '''
 
 
 
-
-  '''
-[[plugins]]
-  repo= "evanleck/vim-svelte"
-[[plugins]]
-  repo = "rust-lang/rust.vim"
-  hook_add = '''
-let g:rustfmt_autosave = 1
 
   '''
 #[[plugins]]
@@ -208,6 +205,10 @@ let g:rustfmt_autosave = 1
 
 
 
+[[plugins]]
+repo = "p00f/nvim-ts-rainbow"
+hook_add =  '''
+'''
 
 [[plugins]]
   repo ="nvim-treesitter/nvim-treesitter"
@@ -230,12 +231,6 @@ xmap <Space>M <Plug>(quickhl-manual-reset)
 
 
 [[plugins]]
-repo  ="luochen1990/rainbow"
-hook_add = '''
-let  g:rainbow_active = 1 
-
-'''
-[[plugins]]
 repo ="rbtnn/vim-coloredit"
 hook_add =  '''
 nnoremap ce    :<C-u>ColorEdit<cr>  
@@ -245,3 +240,23 @@ repo = "shmargum/vim-sass-colors"
 
 [[plugins]]
 repo ="airblade/vim-gitgutter"
+
+[[plugins]]
+repo = "MunifTanjim/nui.nvim"
+
+# [[plugins]]
+# repo = 'SirVer/ultisnips'
+# hook_add = '''
+#   let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/UltiSnips']
+#   let g:UltiSnipsExpandTrigger="<Down>"
+# '''
+
+
+
+
+
+
+
+
+
+
