@@ -3,7 +3,7 @@
   "suggest.preferCompleteThanJumpPlaceholder": true,
   "coc.preferences.extensionUpdateCheck": "daily",
 
-  "coc.preferences.formatOnSaveFiletypes": ["prisma"],
+  "coc.preferences.formatOnSaveFiletypes": ["prisma", "typescriptreact","typescript"],
 
   "languageserver": {
     "clangd": {
@@ -39,7 +39,6 @@
       "filetypes": ["typescript", "typescriptreact", "graphql"]
     }
   },
-  "svelte.enable-ts-plugin": true,
-  "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/UltiSnips"]
+  "svelte.enable-ts-plugin": true
 }
 
