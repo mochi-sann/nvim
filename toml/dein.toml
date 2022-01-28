@@ -300,7 +300,15 @@ repo = "MunifTanjim/nui.nvim"
 repo ="lambdalisue/gina.vim"
 
 
+[[plugins]]
+repo ="RRethy/vim-illuminate"
+hook_add = '''
+let g:Illuminate_delay ="300"
+'''
 
+
+[[plugins]]
+repo ="editorconfig/editorconfig-vim"
 
 
 
