@@ -3,7 +3,7 @@
   "suggest.preferCompleteThanJumpPlaceholder": true,
   "coc.preferences.extensionUpdateCheck": "daily",
 
-  "coc.preferences.formatOnSaveFiletypes": ["prisma", "typescriptreact","typescript"],
+  "coc.preferences.formatOnSaveFiletypes": ["prisma" ],
 
   "languageserver": {
     "clangd": {

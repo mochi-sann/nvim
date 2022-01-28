@@ -154,14 +154,12 @@ let g:airline_theme='deus'
   \  "coc-prettier",
   \  "coc-prisma",
   \  "coc-react-refactor",
-  \  "coc-rg",
   \  "coc-rls",
   \  "coc-rust-analyzer",
   \  "coc-sh",
   \  "coc-simple-react-snippets",
   \  "coc-snippets",
   \  "coc-solargraph",
-  \  "coc-spell-checker",
   \  "coc-svelte",
   \  "coc-tabnine",
   \  "coc-tailwindcss",
@@ -171,8 +169,15 @@ let g:airline_theme='deus'
   \  "coc-webview",
   \  "coc-yaml"
   \]
+  " Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
  '''
 # [[plugins]]
+
 #   repo = "Shougo/ddc.vim"
 
  [[plugins]]
