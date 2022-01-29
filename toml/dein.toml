@@ -77,26 +77,6 @@ let g:auto_save = 1
 let g:auto_save_in_insert_mode = 0
 '''
 
-#build_on = '''
-#./install -all
-#'''
-
-#[[plugins]]
-# repo = 'junegunn/fzf.vim'
-# colorscheme = "dracula"
-# colorscheme_bg = "dark"
-
-
-
-# [[plugins]]
-# repo ="neoclide/coc.nvim"
-# rev = 'release'
-# on_i = 1
-# merged = '0'
-# hook_source = 'call coil398#init#coc#hook_source()'
-# ここに入れるのです
-
-
 
 
 
@@ -183,51 +163,6 @@ let g:coc_snippet_prev = '<c-k>'
  [[plugins]]
    repo = "vim-denops/denops.vim"
 
-# [[plugins]]
-#   repo = "Shougo/pum.vim"
-#  hook_add = '''
-#  inoremap <Tab>   <Cmd>call pum#map#insert_relative(+1)<CR>
-# inoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
-# inoremap <C-n>   <Cmd>call pum#map#insert_relative(+1)<CR>
-# inoremap <C-p>  <Cmd>call pum#map#insert_relative(-1)<CR>
-# inoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
-# inoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
-# inoremap <PageDown> <Cmd>call pum#map#insert_relative_page(+1)<CR>
-# inoremap <PageUp>   <Cmd>call pum#map#insert_relative_page(-1)<CR>
-
-#   '''
-# [[plugins]]
-#   repo = "Shougo/ddc-around"
-# [[plugins]]
-#   repo = "Shougo/ddc-matcher_head"
-# [[plugins]]  
-#   repo = "LumaKernel/ddc-file"
-# [[plugins]]
-#   repo = "Shougo/ddc-sorter_rank"
-# [[plugins]]
-#   repo = "Shougo/ddc-converter_remove_overlap"
-
-#######################################
-
-
-
-# [[plugins]]
-#   repo = "prabirshrestha/vim-lsp"
-# hook_add = '''
-# '''
-# [[plugins]]
-#   repo =  "mattn/vim-lsp-settings"
-# hook_add = '''
-#   " Hide signcolumn.
-#   let g:lsp_diagnostics_signs_enabled = 0
-# '''
-# hook_post_source = '''
-#   " Highlight LSP warnings strongly (like errors)
-#   highlight link LspWarningHighlight Error
-#     " Show diagnostics message to status line
-#   let g:lsp_diagnostics_echo_cursor = 1
-
-# '''
 [[plugins]]
   repo ="alvan/vim-closetag"
 
@@ -262,8 +197,8 @@ hook_add =  '''
 
 [[plugins]]
   repo ="tomtom/tcomment_vim"
-[[plugins]] 
-repo = "mattn/emmet-vim"
+#[[plugins]] 
+#repo = "mattn/emmet-vim"
 
 
 [[plugins]]
