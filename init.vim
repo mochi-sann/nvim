@@ -11,6 +11,8 @@ set laststatus=2
 set showtabline=2      "タブバーを常時表示する
 set title             "タイトルバーにファイル名を表示
 set termguicolors    "ターミナルの色を設定
+set noswapfile        " swap fileを無効化する
+set mouse=a            " mouse操作ができるようにする
 tnoremap <Esc> <C-\><C-n>
  set cursorline             "カーソル行をハイライト
 " hi clear CursorLine

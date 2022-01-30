@@ -139,7 +139,6 @@ let g:airline_theme='deus'
   \  "coc-sh",
   \  "coc-simple-react-snippets",
   \  "coc-snippets",
-  \  "coc-solargraph",
   \  "coc-svelte",
   \  "coc-tabnine",
   \  "coc-tailwindcss",
@@ -216,8 +215,8 @@ repo ="rbtnn/vim-coloredit"
 hook_add =  '''
 nnoremap ce    :<C-u>ColorEdit<cr>  
 '''
-[[plugins]]
-repo = "shmargum/vim-sass-colors"
+#[[plugins]]
+#repo = "shmargum/vim-sass-colors"
 
 [[plugins]]
 repo ="airblade/vim-gitgutter"
