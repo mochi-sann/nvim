@@ -16,22 +16,22 @@ build = '''
 '''
 merged = 0
 [[plugins]]
-  repo = "lambdalisue/fern-git-status.vim"
+repo = "lambdalisue/fern-git-status.vim"
 
 [[plugins]]
-  repo = "lambdalisue/nerdfont.vim"
+repo = "lambdalisue/nerdfont.vim"
 
 [[plugins]]
-  repo = "lambdalisue/fern-renderer-nerdfont.vim"
+repo = "lambdalisue/fern-renderer-nerdfont.vim"
+
+# [[plugins]]
+# repo = 'LumaKernel/fern-mapping-fzf.vim'
+# depends = ['fzf', 'fern.vim']
 
 [[plugins]]
-repo = 'LumaKernel/fern-mapping-fzf.vim'
-depends = ['fzf', 'fern.vim']
+repo = "lambdalisue/glyph-palette.vim"
 
-[[plugins]]
-  repo ="lambdalisue/glyph-palette.vim"
-
-  hook_add = '''
+hook_add = '''
   augroup my-glyph-palette
   autocmd! *
   autocmd FileType fern call glyph_palette#apply()
@@ -39,47 +39,39 @@ depends = ['fzf', 'fern.vim']
 augroup END
 
 '''
-[[plugins]]
-  repo = "yuki-yano/fern-preview.vim"
-  hook_add='''
-  function! s:fern_settings() abort
-  nmap <silent> <buffer> p     <Plug>(fern-action-preview:toggle)
-  nmap <silent> <buffer> <C-p> <Plug>(fern-action-preview:auto:toggle)
-  nmap <silent> <buffer> <C-d> <Plug>(fern-action-preview:scroll:down:half)
-  nmap <silent> <buffer> <C-u> <Plug>(fern-action-preview:scroll:up:half)
-endfunction
+# [[plugins]]
+# repo = "yuki-yano/fern-preview.vim"
+# hook_add = '''
+#   function! s:fern_settings() abort
+#   nmap <silent> <buffer> p     <Plug>(fern-action-preview:toggle)
+#   nmap <silent> <buffer> <C-p> <Plug>(fern-action-preview:auto:toggle)
+#   nmap <silent> <buffer> <C-d> <Plug>(fern-action-preview:scroll:down:half)
+#   nmap <silent> <buffer> <C-u> <Plug>(fern-action-preview:scroll:up:half)
+# endfunction
+# 
+# augroup fern-settings
+#   autocmd!
+#   autocmd FileType fern call s:fern_settings()
+# augroup END
+# '''
 
-augroup fern-settings
-  autocmd!
-  autocmd FileType fern call s:fern_settings()
-augroup END
-'''
-
 [[plugins]]
-  repo = "lambdalisue/fern-bookmark.vim"
+repo = "lambdalisue/fern-bookmark.vim"
 [[plugins]]
-  repo = "lambdalisue/fern-hijack.vim"
+repo = "lambdalisue/fern-hijack.vim"
 
 # [[plugins]]
 # repo = 'dracula/vim'
 # name = 'dracula-vim'
 [[plugins]]
 repo = "dracula/vim"
-hook_add='''
-
-'''
 
 
 [[plugins]]
 repo = 'vim-scripts/vim-auto-save'
 hook_add = '''
 let g:auto_save = 1
-let g:auto_save_in_insert_mode = 0
 '''
-
-
-
-
 
 
 [[plugins]]
@@ -94,10 +86,10 @@ hook_add = 'set helplang=ja'
 
 
 [[plugins]]
-  repo = "vim-airline/vim-airline"
+repo = "vim-airline/vim-airline"
 
 [[plugins]]
- repo = "vim-airline/vim-airline-themes"
+repo = "vim-airline/vim-airline-themes"
 hook_add = '''
 let g:airline_theme='deus'
 
@@ -106,14 +98,14 @@ let g:airline_theme='deus'
 #//[[plugins]]
 # // repo ="cespare/vim-toml"
 [[plugins]]
-  repo = "cohama/lexima.vim"
+repo = "cohama/lexima.vim"
 
 [[plugins]]
- repo = 'neoclide/coc.nvim'
- rev = 'release'
+repo = 'neoclide/coc.nvim'
+rev = 'release'
 #  on_i = 1
- merged = 0
- hook_add = '''
+merged = 0
+hook_add = '''
   let g:coc_global_extensions = [
   \  "coc-clangd",
   \  "coc-css",
@@ -159,22 +151,16 @@ let g:coc_snippet_prev = '<c-k>'
 
 #   repo = "Shougo/ddc.vim"
 
- [[plugins]]
-   repo = "vim-denops/denops.vim"
+[[plugins]]
+repo = "vim-denops/denops.vim"
 
 [[plugins]]
-  repo ="alvan/vim-closetag"
+repo = "alvan/vim-closetag"
 
 #[[plugins]]
 #  repo = "github/copilot.vim"
 [[plugins]]
-  repo = "lukas-reineke/indent-blankline.nvim"
-  hook_add = '''
-
-
-
-
-  '''
+repo = "lukas-reineke/indent-blankline.nvim"
 #[[plugins]]
 #  repo = "mxw/vim-jsx"
 #  hook_add = '''
@@ -183,25 +169,23 @@ let g:coc_snippet_prev = '<c-k>'
 #  '''
 
 
-
-
 [[plugins]]
 repo = "p00f/nvim-ts-rainbow"
-hook_add =  '''
+hook_add = '''
 '''
 
 [[plugins]]
-  repo ="nvim-treesitter/nvim-treesitter"
-  merged = 0
+repo = "nvim-treesitter/nvim-treesitter"
+merged = 0
 
 [[plugins]]
-  repo ="tomtom/tcomment_vim"
+repo = "tomtom/tcomment_vim"
 #[[plugins]] 
 #repo = "mattn/emmet-vim"
 
 
 [[plugins]]
-repo ="t9md/vim-quickhl"
+repo = "t9md/vim-quickhl"
 hook_add = '''
 nmap <Space>m <Plug>(quickhl-manual-this)
 xmap <Space>m <Plug>(quickhl-manual-this)
@@ -209,17 +193,16 @@ nmap <Space>M <Plug>(quickhl-manual-reset)
 xmap <Space>M <Plug>(quickhl-manual-reset)
 '''
 
-
-[[plugins]]
-repo ="rbtnn/vim-coloredit"
-hook_add =  '''
-nnoremap ce    :<C-u>ColorEdit<cr>  
-'''
+#[[plugins]]
+#repo = "rbtnn/vim-coloredit"
+#hook_add = '''
+#nnoremap ce    :<C-u>ColorEdit<cr>  
+#'''
 #[[plugins]]
 #repo = "shmargum/vim-sass-colors"
 
 [[plugins]]
-repo ="airblade/vim-gitgutter"
+repo = "airblade/vim-gitgutter"
 
 [[plugins]]
 repo = "MunifTanjim/nui.nvim"
@@ -231,19 +214,18 @@ repo = "MunifTanjim/nui.nvim"
 #   let g:UltiSnipsExpandTrigger="<Down>"
 # '''
 [[plugins]]
-repo ="lambdalisue/gina.vim"
+repo = "lambdalisue/gina.vim"
 
 
 [[plugins]]
-repo ="RRethy/vim-illuminate"
+repo = "RRethy/vim-illuminate"
 hook_add = '''
 let g:Illuminate_delay ="300"
 '''
 
 
 [[plugins]]
-repo ="editorconfig/editorconfig-vim"
+repo = "editorconfig/editorconfig-vim"
 
-
-
-
+[[plugins]]
+repo = "windwp/nvim-ts-autotag"
