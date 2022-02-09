@@ -13,6 +13,8 @@ set title             "タイトルバーにファイル名を表示
 set termguicolors    "ターミナルの色を設定
 set noswapfile        " swap fileを無効化する
 set mouse=a            " mouse操作ができるようにする
+set cursorline             "カーソル行をハイライト
+set showtabline=2 " 常にタブラインを表示
 
 
 
@@ -35,7 +37,6 @@ let g:loaded_zipPlugin          = 1
 let g:skip_loading_mswin        = 1
 
 tnoremap <Esc> <C-\><C-n>
- set cursorline             "カーソル行をハイライト
 " hi clear CursorLine
 " autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
@@ -87,7 +88,7 @@ endif
 
 " Required:
 filetype plugin indent on
-syntax enable
+ syntax enable
 
 
 "If you want to install not installed plugins on startup.
@@ -107,8 +108,8 @@ nmap     m        [dev]
 xmap     m        [dev]
 nnoremap [ff]     <Nop>
 xnoremap [ff]     <Nop>
-nmap     z        [ff]
-xmap     z        [ff]
+nmap     Z        [ff]
+xmap     Z        [ff]
 
 
 "" coc vim settings
@@ -119,7 +120,7 @@ xmap     z        [ff]
 set encoding=utf-8
 
 " TextEdit might fail if hidden is not set.
-set hidden
+"set hidden
 
 " Some servers have issues with backup files, see #649.
 "set nobackup
@@ -254,7 +255,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
@@ -436,7 +437,6 @@ function! s:my_tabline()  "{{{
   return s
 endfunction "}}}
 let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
-set showtabline=2 " 常にタブラインを表示
 
 " The prefix key.
 nnoremap    [Tag]   <Nop>
