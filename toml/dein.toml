@@ -229,3 +229,8 @@ repo = "editorconfig/editorconfig-vim"
 
 [[plugins]]
 repo = "windwp/nvim-ts-autotag"
+
+[[plugins]]
+repo ="terryma/vim-expand-region"
+
+
