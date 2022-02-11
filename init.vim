@@ -18,23 +18,6 @@ set showtabline=2 " 常にタブラインを表示
 
 
 
-let g:did_install_default_menus = 1
-let g:did_install_syntax_menu   = 1
-let g:did_indent_on             = 1
-let g:did_load_filetypes        = 1
-let g:loaded_2html_plugin       = 1
-let g:loaded_gzip               = 1
-let g:loaded_man                = 2
-let g:loaded_matchit            = 1
-let g:loaded_matchparen         = 1
-let g:loaded_netrwPlugin        = 1
-let g:loaded_remote_plugins     = 1
-let g:loaded_shada_plugin       = 1
-let g:loaded_spellfile_plugin   = 1
-let g:loaded_tarPlugin          = 1
-let g:loaded_tutor_mode_plugin  = 1
-let g:loaded_zipPlugin          = 1
-let g:skip_loading_mswin        = 1
 
 tnoremap <Esc> <C-\><C-n>
 " hi clear CursorLine
@@ -44,59 +27,146 @@ tnoremap <Esc> <C-\><C-n>
 ":T コマンドでVSCodeみたいにターミナルを起動する
 command! -nargs=* T split | wincmd j | resize 20 | terminal <args>
 autocmd TermOpen * startinsert
+call plug#begin()
+Plug 'lambdalisue/fern.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
+Plug 'lambdalisue/fern-git-status.vim'
+Plug 'lambdalisue/nerdfont.vim'
+Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+Plug 'lambdalisue/glyph-palette.vim'
+Plug 'lambdalisue/fern-bookmark.vim'
+Plug 'lambdalisue/fern-hijack.vim'
+Plug 'dracula/vim'
+Plug 'vim-scripts/vim-auto-save'
+Plug 'vim-jp/vimdoc-ja'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'cohama/lexima.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vim-denops/denops.vim'
+Plug 'alvan/vim-closetag'
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'p00f/nvim-ts-rainbow'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 't9md/vim-quickhl'
+Plug 'tomtom/tcomment_vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'RRethy/vim-illuminate'
+Plug 'MunifTanjim/nui.nvim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'windwp/nvim-ts-autotag'
+Plug 'terryma/vim-expand-region'
+Plug 'lambdalisue/gina.vim'
+call plug#end()
+source ~/.config/nvim/config/fern.vim
 
 
-"dein Scripts-----------------------------
-if &compatible
-  set nocompatible               " Be iMproved
-endif
 
-" Required:
-set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
+" plugin settings
 
-" Required:
-if dein#load_state('~/.config/nvim/dein')
-  call dein#begin('~/.config/nvim/dein')
+colorschem dracula
+let g:airline_theme='dracula'
+let g:auto_save = 1
+set helplang=ja
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:Illuminate_delay ="300"
+nmap <Space>m <Plug>(quickhl-manual-this)
+xmap <Space>m <Plug>(quickhl-manual-this)
+nmap <Space>M <Plug>(quickhl-manual-reset)
+xmap <Space>M <Plug>(quickhl-manual-reset)
 
-  " Let dein manage dein
-  " Required:
-  call dein#add('~/.config/nvim/dein/repos/github.com/Shougo/dein.vim')
+  let g:coc_global_extensions = [
+  \  "coc-clangd",
+  \  "coc-css",
+  \  "coc-deno",
+  \  "coc-docker",
+  \  "coc-emmet",
+  \  "coc-eslint",
+  \  "coc-flutter",
+  \  "coc-fzf-preview",
+  \  "coc-git",
+  \  "coc-json",
+  \  "coc-jsref",
+  \  "coc-lists",
+  \  "coc-markdown-preview-enhanced",
+  \  "coc-markdownlint",
+  \  "coc-marketplace",
+  \  "coc-npm-version",
+  \  "coc-prettier",
+  \  "coc-prisma",
+  \  "coc-react-refactor",
+  \  "coc-rls",
+  \  "coc-rust-analyzer",
+  \  "coc-sh",
+  \  "coc-simple-react-snippets",
+  \  "coc-snippets",
+  \  "coc-svelte",
+  \  "coc-tabnine",
+  \  "coc-tailwindcss",
+  \  "coc-toml",
+  \  "coc-tsserver",
+  \  "coc-vetur",
+  \  "coc-webview",
+  \  "coc-yaml"
+  \]
+  " Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
 
-  " Add or remove your plugins here like this:
-  "call dein#add('Shougo/neosnippet.vim')
-  "call dein#add('Shougo/neosnippet-snippets')
-
-  " dein begin
-  call dein#begin($HOME . '/.config/nvim/dein')
-
- " プラグインリストを収めた TOML ファイル
- " 予め TOML ファイル（後述）を用意しておく
- let s:toml_dir  = $HOME . '/.config/nvim/toml' 
-" let s:tomlb     = s:toml_dir . '/brightest.toml'
- let s:toml      = s:toml_dir . '/dein.toml'
- let s:lazy_toml = s:toml_dir . '/dein_lazy.toml'
-
- " TOML を読み込み、キャッシュしておく
- call dein#load_toml(s:toml,      {'lazy': 0})
-" call dein#load_toml(s:tomlb,     {'lazy': 0})
- call dein#load_toml(s:lazy_toml, {'lazy': 1})
-
-  " Required:
-  call dein#end()
-  call dein#save_state()
-endif
-
-" Required:
-filetype plugin indent on
- syntax enable
-
-
-"If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
-
-"End dein Scripts-------------------------
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+" plugin Settings end 
+""dein Scripts-----------------------------
+"if &compatible
+"  set nocompatible               " Be iMproved
+"endif
+"
+"" Required:
+"set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
+"
+"" Required:
+"if dein#load_state('~/.config/nvim/dein')
+"  call dein#begin('~/.config/nvim/dein')
+"
+"  " Let dein manage dein
+"  " Required:
+"  call dein#add('~/.config/nvim/dein/repos/github.com/Shougo/dein.vim')
+"
+"  " Add or remove your plugins here like this:
+"  "call dein#add('Shougo/neosnippet.vim')
+"  "call dein#add('Shougo/neosnippet-snippets')
+"
+"  " dein begin
+"  call dein#begin($HOME . '/.config/nvim/dein')
+"
+" " プラグインリストを収めた TOML ファイル
+" " 予め TOML ファイル（後述）を用意しておく
+" let s:toml_dir  = $HOME . '/.config/nvim/toml' 
+"" let s:tomlb     = s:toml_dir . '/brightest.toml'
+" let s:toml      = s:toml_dir . '/dein.toml'
+" let s:lazy_toml = s:toml_dir . '/dein_lazy.toml'
+"
+" " TOML を読み込み、キャッシュしておく
+" call dein#load_toml(s:toml,      {'lazy': 0})
+"" call dein#load_toml(s:tomlb,     {'lazy': 0})
+" call dein#load_toml(s:lazy_toml, {'lazy': 1})
+"
+"  " Required:
+"  call dein#end()
+"  call dein#save_state()
+"endif
+"
+"" Required:
+"filetype plugin indent on
+" syntax enable
+"
+"
+""If you want to install not installed plugins on startup.
+"if dein#check_install()
+"  call dein#install()
+"endif
+"
+""End dein Scripts-------------------------
 " map prefix
 
 let g:mapleader = "\<Space>"
@@ -327,17 +397,14 @@ let g:fern#renderer = 'nerdfont'
 
 
 " 背景をなくす
-augroup TransparentBG
-  autocmd!
-	" autocmd Colorscheme * highlight Normal ctermbg=none
-"	autocmd Colorscheme * highlight NonText ctermbg=none
-"	autocmd Colorscheme * highlight LineNr ctermbg=none
-"	autocmd Colorscheme * highlight Folded ctermbg=none
-"	autocmd Colorscheme * highlight EndOfBuffer ctermbg=none 
-augroup END
-
-
-colorschem dracula
+ augroup TransparentBG
+   autocmd!
+ 	" autocmd Colorscheme * highlight Normal ctermbg=none
+ "	autocmd Colorscheme * highlight NonText ctermbg=none
+ "	autocmd Colorscheme * highlight LineNr ctermbg=none
+ "	autocmd Colorscheme * highlight Folded ctermbg=none
+ "	autocmd Colorscheme * highlight EndOfBuffer ctermbg=none 
+ augroup END
 
 
 
