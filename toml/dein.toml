@@ -213,8 +213,6 @@ repo = "MunifTanjim/nui.nvim"
 #   let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/UltiSnips']
 #   let g:UltiSnipsExpandTrigger="<Down>"
 # '''
-[[plugins]]
-repo = "lambdalisue/gina.vim"
 
 
 [[plugins]]
@@ -231,6 +229,9 @@ repo = "editorconfig/editorconfig-vim"
 repo = "windwp/nvim-ts-autotag"
 
 [[plugins]]
-repo ="terryma/vim-expand-region"
+repo = "terryma/vim-expand-region"
 
-
+[[plugins]]
+repo = "lambdalisue/gina.vim"
+# on_cmd = "Gina"
+# on_ft = ["gitcommit", "gitrebase"]
