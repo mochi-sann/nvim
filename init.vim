@@ -16,6 +16,24 @@ set mouse=a            " mouse操作ができるようにする
 set cursorline             "カーソル行をハイライト
 
 
+let g:did_install_default_menus = 1
+let g:did_install_syntax_menu   = 1
+let g:did_indent_on             = 1
+let g:did_load_filetypes        = 1
+let g:did_load_ftplugin         = 1
+let g:loaded_2html_plugin       = 1
+let g:loaded_gzip               = 1
+let g:loaded_man                = 1
+let g:loaded_matchit            = 1
+let g:loaded_matchparen         = 1
+let g:loaded_netrwPlugin        = 1
+let g:loaded_remote_plugins     = 1
+let g:loaded_shada_plugin       = 1
+let g:loaded_spellfile_plugin   = 1
+let g:loaded_tarPlugin          = 1
+let g:loaded_tutor_mode_plugin  = 1
+let g:loaded_zipPlugin          = 1
+let g:skip_loading_mswin        = 1
 
 
 tnoremap <Esc> <C-\><C-n>
@@ -43,8 +61,8 @@ call plug#begin()
   Plug 'dracula/vim', { 'as': 'dracula' }
   Plug 'vim-scripts/vim-auto-save'
   Plug 'vim-jp/vimdoc-ja'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
+  Plug 'vim-airline/vim-airline', {'on':[]}
+  Plug 'vim-airline/vim-airline-themes', {'on':[]}
 
 
   " Plug 'cohama/lexima.vim'
@@ -78,6 +96,8 @@ function! s:LazyLoadPlugs(timer) abort
         \   'nvim-treesitter',
         \   'nvim-ts-rainbow',
         \   'nvim-ts-autotag',
+        \   'vim-airline',
+        \   'vim-airline-themes',
         \ )
   normal! g`Z
 source ~/.config/nvim/config/coc.nvim.vim
