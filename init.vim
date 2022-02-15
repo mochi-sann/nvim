@@ -7,14 +7,13 @@ set expandtab          "タブ入力を空白に変換
 set splitright         "画面を縦分割する際に右に開く
 set clipboard=unnamed  "yank した文字列をクリップボードにコピー
 set hls                "検索した文字をハイライトする
-set laststatus=2     
+""set laststatus=2     
 set showtabline=2      "タブバーを常時表示する
 set title             "タイトルバーにファイル名を表示
 set termguicolors    "ターミナルの色を設定
 set noswapfile        " swap fileを無効化する
 set mouse=a            " mouse操作ができるようにする
 set cursorline             "カーソル行をハイライト
-set showtabline=2 " 常にタブラインを表示
 
 
 
@@ -46,44 +45,42 @@ call plug#begin()
   Plug 'vim-jp/vimdoc-ja'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+
+
   " Plug 'cohama/lexima.vim'
   Plug 'neoclide/coc.nvim', {'on':[],'branch': 'release'}
   Plug 'vim-denops/denops.vim'
   Plug 'alvan/vim-closetag',{}
   Plug 'lukas-reineke/indent-blankline.nvim'
-  Plug 'p00f/nvim-ts-rainbow'
-  Plug 'nvim-treesitter/nvim-treesitter' 
+  Plug 'p00f/nvim-ts-rainbow',{'on':[]}
+  Plug 'nvim-treesitter/nvim-treesitter' , {'on':[]}
   " Plug 'tomtom/tcomment_vim'
   Plug 'airblade/vim-gitgutter'
   " Plug 'RRethy/vim-illuminate'
   Plug 'MunifTanjim/nui.nvim'
   " Plug 'editorconfig/editorconfig-vim'
-  Plug 'windwp/nvim-ts-autotag' 
+  Plug 'windwp/nvim-ts-autotag' ,{'on':[]}
   " Plug 'kyazdani42/nvim-web-devicons'
   Plug 'echasnovski/mini.nvim', { 'branch': 'stable' }
   Plug 'mhinz/vim-startify'
   Plug 'folke/which-key.nvim'
   Plug 'ryanoasis/vim-devicons'
-
-  Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
+  " Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
 
 call plug#end()
 " Load Event
-augroup load_us_insert
-    autocmd!
-    autocmd InsertEnter * call plug#load(
-                \ 'coc.nvim',
-                \ )| autocmd! load_us_insert
-augroup END
-source ~/.config/nvim/config/coc.nvim.vim
-
+" 遅延読み込み"
 function! s:LazyLoadPlugs(timer) abort
   " save current position by marking Z because plug#load reloads current buffer
   normal! mZ
   call plug#load(
-        \   'nvim-treesitter/nvim-treesitter',
+        \   'coc.nvim',
+        \   'nvim-treesitter',
+        \   'nvim-ts-rainbow',
+        \   'nvim-ts-autotag',
         \ )
   normal! g`Z
+source ~/.config/nvim/config/coc.nvim.vim
   delmarks Z
 lua <<EOF
 
@@ -110,7 +107,7 @@ EOF
 
 endfunction
 
-call timer_start(20, function("s:LazyLoadPlugs"))
+call timer_start(40, function("s:LazyLoadPlugs"))
 
 let g:mapleader = "\<Space>"
 nnoremap <Leader> <Nop>
@@ -131,10 +128,10 @@ xmap     f        [fzf-p]
 " plugin settings
 
 colorschem dracula
-let g:airline_theme='dracula'
+"let g:airline_theme='dracula'
 let g:auto_save = 1
 set helplang=ja
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+"let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:Illuminate_delay ="300"
 nmap <Space>m <Plug>(quickhl-manual-this)
 xmap <Space>m <Plug>(quickhl-manual-this)
@@ -168,7 +165,7 @@ set encoding=utf-8
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=300
+""set updatetime=300
 
 " Don't pass messages to |ins-completion-menu|.
 "set shortmess+=c
@@ -196,14 +193,14 @@ let g:fern#renderer = 'nerdfont'
 
 
 " 背景をなくす
- augroup TransparentBG
-   autocmd!
- 	" autocmd Colorscheme * highlight Normal ctermbg=none
- "	autocmd Colorscheme * highlight NonText ctermbg=none
- "	autocmd Colorscheme * highlight LineNr ctermbg=none
- "	autocmd Colorscheme * highlight Folded ctermbg=none
- "	autocmd Colorscheme * highlight EndOfBuffer ctermbg=none 
- augroup END
+ ""augroup TransparentBG
+ ""  autocmd!
+ ""	" autocmd Colorscheme * highlight Normal ctermbg=none
+ """	autocmd Colorscheme * highlight NonText ctermbg=none
+ """	autocmd Colorscheme * highlight LineNr ctermbg=none
+ """	autocmd Colorscheme * highlight Folded ctermbg=none
+ """	autocmd Colorscheme * highlight EndOfBuffer ctermbg=none 
+ ""augroup END
 
 
 " ------------------------------ vim-startify settings
@@ -375,8 +372,12 @@ augroup MyXML
 
 augroup END
 
+"
+" set laststatus=2
 
-
+let g:airline_theme = 'dracula'               " テーマの指定
+let g:airline#extensions#tabline#enabled = 1 " タブラインを表示
+let g:airline_powerline_fonts = 1            " Powerline Fontsを利用
 
 
 
@@ -389,4 +390,5 @@ lua require('mini')
 lua require('whichikey')
 source ~/.config/nvim/config/fern.vim
 source ~/.config/nvim/config/mini.vim
+
 
