@@ -1,0 +1,142 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.006  000.006: --- NVIM STARTING ---
+000.666  000.660: locale set
+001.228  000.562: inits 1
+001.252  000.024: window checked
+004.972  003.721: parsing arguments
+005.246  000.274: expanding arguments
+005.332  000.085: inits 2
+005.861  000.530: init highlight
+005.866  000.005: waiting for UI
+010.030  004.164: done waiting for UI
+010.062  000.032: init screen for UI
+010.093  000.031: init default mappings
+010.274  000.181: init default autocommands
+012.643  001.577  001.577: sourcing /Users/mochi/.local/share/nvim/site/autoload/plug.vim
+028.282  000.019  000.019: sourcing /Users/mochi/.local/share/nvim/plugged/nvim-treesitter/ftdetect/fusion.vim
+028.351  000.020  000.020: sourcing /Users/mochi/.local/share/nvim/plugged/nvim-treesitter/ftdetect/gdresource.vim
+028.410  000.012  000.012: sourcing /Users/mochi/.local/share/nvim/plugged/nvim-treesitter/ftdetect/gdscript.vim
+028.464  000.012  000.012: sourcing /Users/mochi/.local/share/nvim/plugged/nvim-treesitter/ftdetect/glimmer.vim
+028.517  000.012  000.012: sourcing /Users/mochi/.local/share/nvim/plugged/nvim-treesitter/ftdetect/glsl.vim
+028.584  000.017  000.017: sourcing /Users/mochi/.local/share/nvim/plugged/nvim-treesitter/ftdetect/gowork.vim
+028.659  000.022  000.022: sourcing /Users/mochi/.local/share/nvim/plugged/nvim-treesitter/ftdetect/graphql.vim
+028.720  000.019  000.019: sourcing /Users/mochi/.local/share/nvim/plugged/nvim-treesitter/ftdetect/hack.vim
+028.800  000.021  000.021: sourcing /Users/mochi/.local/share/nvim/plugged/nvim-treesitter/ftdetect/hcl.vim
+028.855  000.014  000.014: sourcing /Users/mochi/.local/share/nvim/plugged/nvim-treesitter/ftdetect/heex.vim
+028.914  000.017  000.017: sourcing /Users/mochi/.local/share/nvim/plugged/nvim-treesitter/ftdetect/hjson.vim
+028.972  000.015  000.015: sourcing /Users/mochi/.local/share/nvim/plugged/nvim-treesitter/ftdetect/json5.vim
+029.035  000.021  000.021: sourcing /Users/mochi/.local/share/nvim/plugged/nvim-treesitter/ftdetect/ledger.vim
+029.093  000.015  000.015: sourcing /Users/mochi/.local/share/nvim/plugged/nvim-treesitter/ftdetect/nix.vim
+029.160  000.019  000.019: sourcing /Users/mochi/.local/share/nvim/plugged/nvim-treesitter/ftdetect/prisma.vim
+029.223  000.020  000.020: sourcing /Users/mochi/.local/share/nvim/plugged/nvim-treesitter/ftdetect/pug.vim
+029.291  000.022  000.022: sourcing /Users/mochi/.local/share/nvim/plugged/nvim-treesitter/ftdetect/ql.vim
+029.367  000.030  000.030: sourcing /Users/mochi/.local/share/nvim/plugged/nvim-treesitter/ftdetect/query.vim
+029.428  000.018  000.018: sourcing /Users/mochi/.local/share/nvim/plugged/nvim-treesitter/ftdetect/surface.vim
+029.488  000.017  000.017: sourcing /Users/mochi/.local/share/nvim/plugged/nvim-treesitter/ftdetect/teal.vim
+029.553  000.018  000.018: sourcing /Users/mochi/.local/share/nvim/plugged/nvim-treesitter/ftdetect/tlaplus.vim
+029.622  000.021  000.021: sourcing /Users/mochi/.local/share/nvim/plugged/nvim-treesitter/ftdetect/yang.vim
+029.968  007.583  007.179: sourcing /usr/local/Cellar/neovim/0.6.1/share/nvim/runtime/filetype.vim
+030.167  000.035  000.035: sourcing /usr/local/Cellar/neovim/0.6.1/share/nvim/runtime/ftplugin.vim
+030.338  000.033  000.033: sourcing /usr/local/Cellar/neovim/0.6.1/share/nvim/runtime/indent.vim
+030.645  000.072  000.072: sourcing /usr/local/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/synload.vim
+030.770  000.359  000.288: sourcing /usr/local/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/syntax.vim
+031.868  000.078  000.078: sourcing /Users/mochi/.local/share/nvim/plugged/dracula/autoload/dracula.vim
+034.810  003.905  003.828: sourcing /Users/mochi/.local/share/nvim/plugged/dracula/colors/dracula.vim
+049.239  001.124  001.124: sourcing /Users/mochi/.config/nvim/config/coc.nvim.vim
+056.509  000.096  000.096: sourcing /Users/mochi/.config/nvim/config/fern.vim
+056.625  000.016  000.016: sourcing /Users/mochi/.config/nvim/config/mini.vim
+056.632  046.170  031.441: sourcing /Users/mochi/.config/nvim/init.vim
+056.647  000.204: sourcing vimrc file(s)
+057.925  000.694  000.694: sourcing /Users/mochi/.local/share/nvim/plugged/fzf/plugin/fzf.vim
+058.377  000.097  000.097: sourcing /Users/mochi/.local/share/nvim/plugged/glyph-palette.vim/autoload/glyph_palette/defaults.vim
+058.675  000.496  000.399: sourcing /Users/mochi/.local/share/nvim/plugged/glyph-palette.vim/plugin/glyph_palette.vim
+058.952  000.081  000.081: sourcing /Users/mochi/.local/share/nvim/plugged/fern-hijack.vim/plugin/fern_hijack.vim
+059.260  000.111  000.111: sourcing /Users/mochi/.local/share/nvim/plugged/vim-auto-save/plugin/AutoSave.vim
+059.921  000.117  000.117: sourcing /Users/mochi/.local/share/nvim/plugged/vim-airline/autoload/airline/init.vim
+060.418  000.128  000.128: sourcing /Users/mochi/.local/share/nvim/plugged/vim-airline/autoload/airline/parts.vim
+060.746  000.028  000.028: sourcing /Users/mochi/.local/share/nvim/plugged/vim-airline/autoload/airline/formatter/short_path.vim
+062.276  000.215  000.215: sourcing /Users/mochi/.local/share/nvim/plugged/vim-airline/autoload/airline/util.vim
+062.430  002.905  002.417: sourcing /Users/mochi/.local/share/nvim/plugged/vim-airline/plugin/airline.vim
+062.661  000.044  000.044: sourcing /Users/mochi/.local/share/nvim/plugged/vim-airline-themes/plugin/airline-themes.vim
+063.094  000.064  000.064: sourcing /Users/mochi/.local/share/nvim/plugged/denops.vim/autoload/denops.vim
+063.228  000.322  000.258: sourcing /Users/mochi/.local/share/nvim/plugged/denops.vim/plugin/denops.vim
+063.702  000.300  000.300: sourcing /Users/mochi/.local/share/nvim/plugged/vim-closetag/plugin/closetag.vim
+064.256  000.376  000.376: sourcing /Users/mochi/.local/share/nvim/plugged/indent-blankline.nvim/plugin/indent_blankline.vim
+065.296  000.852  000.852: sourcing /Users/mochi/.local/share/nvim/plugged/nvim-ts-rainbow/plugin/rainbow.vim
+066.731  001.026  001.026: sourcing /Users/mochi/.local/share/nvim/plugged/nvim-treesitter/plugin/nvim-treesitter.vim
+067.553  000.150  000.150: sourcing /Users/mochi/.local/share/nvim/plugged/vim-gitgutter/autoload/gitgutter/utility.vim
+068.017  000.129  000.129: sourcing /Users/mochi/.local/share/nvim/plugged/vim-gitgutter/autoload/gitgutter/highlight.vim
+068.935  001.870  001.591: sourcing /Users/mochi/.local/share/nvim/plugged/vim-gitgutter/plugin/gitgutter.vim
+069.901  000.567  000.567: sourcing /Users/mochi/.local/share/nvim/plugged/nvim-ts-autotag/plugin/nvim-ts-autotag.vim
+070.323  000.145  000.145: sourcing /Users/mochi/.local/share/nvim/plugged/vim-startify/plugin/startify.vim
+070.590  000.029  000.029: sourcing /Users/mochi/.local/share/nvim/plugged/which-key.nvim/plugin/which-key.vim
+071.782  000.182  000.182: sourcing /Users/mochi/.local/share/nvim/plugged/vim-airline/autoload/airline.vim
+073.242  000.033  000.033: sourcing /Users/mochi/.local/share/nvim/plugged/vim-devicons/autoload/devicons/plugins/startify.vim
+073.271  002.509  002.294: sourcing /Users/mochi/.local/share/nvim/plugged/vim-devicons/plugin/webdevicons.vim
+074.530  000.244  000.244: sourcing /usr/local/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/gzip.vim
+074.617  000.021  000.021: sourcing /usr/local/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/health.vim
+074.764  000.073  000.073: sourcing /usr/local/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/man.vim
+076.818  000.257  000.257: sourcing /usr/local/Cellar/neovim/0.6.1/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+077.109  002.294  002.036: sourcing /usr/local/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/matchit.vim
+077.359  000.174  000.174: sourcing /usr/local/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/matchparen.vim
+077.814  000.395  000.395: sourcing /usr/local/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/netrwPlugin.vim
+078.266  000.050  000.050: sourcing /Users/mochi/.local/share/nvim/rplugin.vim
+078.294  000.406  000.356: sourcing /usr/local/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/rplugin.vim
+078.606  000.151  000.151: sourcing /usr/local/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/shada.vim
+078.746  000.041  000.041: sourcing /usr/local/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/spellfile.vim
+079.032  000.143  000.143: sourcing /usr/local/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/tarPlugin.vim
+079.228  000.135  000.135: sourcing /usr/local/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/tohtml.vim
+079.312  000.025  000.025: sourcing /usr/local/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/tutor.vim
+079.513  000.143  000.143: sourcing /usr/local/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/zipPlugin.vim
+082.153  008.934: loading rtp plugins
+082.386  000.233: loading packages
+084.173  000.924  000.924: sourcing /Users/mochi/.local/share/nvim/plugged/dracula/after/plugin/dracula.vim
+084.463  001.152: loading after plugins
+084.489  000.027: inits 3
+088.978  004.489: reading ShaDa
+097.307  000.385  000.385: sourcing /usr/local/Cellar/neovim/0.6.1/share/nvim/runtime/ftplugin/vim.vim
+099.230  000.142  000.142: sourcing /usr/local/Cellar/neovim/0.6.1/share/nvim/runtime/indent/vim.vim
+102.940  000.774  000.774: sourcing /usr/local/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/lua.vim
+103.515  003.784  003.010: sourcing /usr/local/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/vim.vim
+105.867  002.195  002.195: sourcing /usr/local/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/vim/generated.vim
+106.066  000.062  000.062: sourcing /Users/mochi/.local/share/nvim/plugged/dracula/after/syntax/vim.vim
+106.849  000.287  000.287: sourcing /Users/mochi/.local/share/nvim/plugged/vim-airline/autoload/airline/extensions.vim
+107.050  000.065  000.065: sourcing /Users/mochi/.local/share/nvim/plugged/vim-airline/autoload/airline/extensions/quickfix.vim
+107.357  000.056  000.056: sourcing /Users/mochi/.local/share/nvim/plugged/vim-airline/autoload/airline/extensions/netrw.vim
+107.563  000.054  000.054: sourcing /Users/mochi/.local/share/nvim/plugged/vim-airline/autoload/airline/extensions/fzf.vim
+108.144  000.076  000.076: sourcing /Users/mochi/.local/share/nvim/plugged/vim-airline/autoload/airline/section.vim
+108.520  000.197  000.197: sourcing /Users/mochi/.local/share/nvim/plugged/vim-airline/autoload/airline/highlighter.vim
+108.785  000.912  000.638: sourcing /Users/mochi/.local/share/nvim/plugged/vim-airline/autoload/airline/extensions/term.vim
+109.076  000.104  000.104: sourcing /Users/mochi/.local/share/nvim/plugged/vim-airline/autoload/airline/extensions/hunks.vim
+109.553  000.273  000.273: sourcing /Users/mochi/.local/share/nvim/plugged/vim-airline/autoload/airline/extensions/branch.vim
+116.546  000.091  000.091: sourcing /Users/mochi/.local/share/nvim/plugged/vim-airline/autoload/airline/extensions/nvimlsp.vim
+116.865  000.131  000.131: sourcing /Users/mochi/.local/share/nvim/plugged/vim-airline/autoload/airline/extensions/whitespace.vim
+117.222  000.116  000.116: sourcing /Users/mochi/.local/share/nvim/plugged/vim-airline/autoload/airline/extensions/po.vim
+117.447  000.095  000.095: sourcing /Users/mochi/.local/share/nvim/plugged/vim-airline/autoload/airline/extensions/wordcount.vim
+117.674  000.047  000.047: sourcing /Users/mochi/.local/share/nvim/plugged/vim-airline/autoload/airline/extensions/keymap.vim
+117.983  000.060  000.060: sourcing /Users/mochi/.local/share/nvim/plugged/vim-airline/autoload/airline/extensions/searchcount.vim
+124.049  000.168  000.168: sourcing /Users/mochi/.local/share/nvim/plugged/vim-airline/autoload/airline/themes.vim
+124.868  001.218  001.050: sourcing /Users/mochi/.local/share/nvim/plugged/dracula/autoload/airline/themes/dracula.vim
+130.448  000.893  000.893: sourcing /Users/mochi/.local/share/nvim/plugged/dracula/autoload/airline/themes/dracula.vim
+144.672  000.148  000.148: sourcing /Users/mochi/.local/share/nvim/plugged/vim-airline/autoload/airline/builder.vim
+145.177  000.121  000.121: sourcing /Users/mochi/.local/share/nvim/plugged/vim-airline/autoload/airline/extensions/default.vim
+178.323  078.106: opening buffers
+178.832  000.149  000.149: sourcing /Users/mochi/.local/share/nvim/plugged/vim-gitgutter/autoload/gitgutter.vim
+179.066  000.593: BufEnter autocommands
+179.068  000.003: editing files in windows
+188.352  000.068  000.068: sourcing /Users/mochi/.local/share/nvim/plugged/denops.vim/autoload/denops/util.vim
+188.657  000.497  000.429: sourcing /Users/mochi/.local/share/nvim/plugged/denops.vim/autoload/denops/server.vim
+189.027  000.167  000.167: sourcing /Users/mochi/.local/share/nvim/plugged/denops.vim/autoload/denops/job.vim
+192.289  012.557: VimEnter autocommands
+192.297  000.008: UIEnter autocommands
+193.352  000.280  000.280: sourcing /usr/local/Cellar/neovim/0.6.1/share/nvim/runtime/autoload/provider/clipboard.vim
+193.363  000.786: before starting main loop
+256.323  000.530  000.530: sourcing /Users/mochi/.local/share/nvim/plugged/vim-gitgutter/autoload/gitgutter/hunk.vim
+257.606  000.369  000.369: sourcing /Users/mochi/.local/share/nvim/plugged/vim-airline/autoload/airline/async.vim
+271.941  077.679: first screen update
+271.950  000.009: --- NVIM STARTED ---

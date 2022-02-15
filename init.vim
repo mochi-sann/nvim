@@ -28,38 +28,104 @@ tnoremap <Esc> <C-\><C-n>
 command! -nargs=* T split | wincmd j | resize 20 | terminal <args>
 autocmd TermOpen * startinsert
 call plug#begin()
-Plug 'lambdalisue/fern.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  
+  Plug 'lambdalisue/fern.vim',{'on': 'Fern'}
+  Plug 'lambdalisue/fern-git-status.vim',{'on': 'Fern'}
+  Plug 'lambdalisue/nerdfont.vim',{'on': 'Fern'}
+  Plug 'lambdalisue/fern-renderer-nerdfont.vim',{'on': 'Fern'}
+  Plug 'lambdalisue/glyph-palette.vim'
+  Plug 'lambdalisue/fern-bookmark.vim',{'on': 'Fern'}
+  Plug 'lambdalisue/fern-hijack.vim' 
+  Plug 'lambdalisue/gina.vim', { 'on': 'Gina' }
+  Plug 't9md/vim-quickhl',{'on': ['<Plug>(quickhl-manual-this)','<Plug>(quickhl-manual-reset)']}
+  Plug 'terryma/vim-expand-region',{'on':[ '<Plug>(expand_region_expand)','<Plug>(expand_region_shrink)']}
+  Plug 'segeljakt/vim-silicon', { 'on': 'Silicon' }
+  Plug 'dracula/vim', { 'as': 'dracula' }
+  Plug 'vim-scripts/vim-auto-save'
+  Plug 'vim-jp/vimdoc-ja'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  " Plug 'cohama/lexima.vim'
+  Plug 'neoclide/coc.nvim', {'on':[],'branch': 'release'}
+  Plug 'vim-denops/denops.vim'
+  Plug 'alvan/vim-closetag',{}
+  Plug 'lukas-reineke/indent-blankline.nvim'
+  Plug 'p00f/nvim-ts-rainbow'
+  Plug 'nvim-treesitter/nvim-treesitter' 
+  " Plug 'tomtom/tcomment_vim'
+  Plug 'airblade/vim-gitgutter'
+  " Plug 'RRethy/vim-illuminate'
+  Plug 'MunifTanjim/nui.nvim'
+  " Plug 'editorconfig/editorconfig-vim'
+  Plug 'windwp/nvim-ts-autotag' 
+  " Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'echasnovski/mini.nvim', { 'branch': 'stable' }
+  Plug 'mhinz/vim-startify'
+  Plug 'folke/which-key.nvim'
+  Plug 'ryanoasis/vim-devicons'
 
-Plug 'lambdalisue/fern-git-status.vim'
-Plug 'lambdalisue/nerdfont.vim'
-Plug 'lambdalisue/fern-renderer-nerdfont.vim'
-Plug 'lambdalisue/glyph-palette.vim'
-Plug 'lambdalisue/fern-bookmark.vim'
-Plug 'lambdalisue/fern-hijack.vim'
-Plug 'dracula/vim'
-Plug 'vim-scripts/vim-auto-save'
-Plug 'vim-jp/vimdoc-ja'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'cohama/lexima.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'vim-denops/denops.vim'
-Plug 'alvan/vim-closetag'
-Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'p00f/nvim-ts-rainbow'
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 't9md/vim-quickhl'
-Plug 'tomtom/tcomment_vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'RRethy/vim-illuminate'
-Plug 'MunifTanjim/nui.nvim'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'windwp/nvim-ts-autotag'
-Plug 'terryma/vim-expand-region'
-Plug 'lambdalisue/gina.vim'
-Plug 'echasnovski/mini.nvim', { 'branch': 'stable' }
+  Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
+
 call plug#end()
+" Load Event
+augroup load_us_insert
+    autocmd!
+    autocmd InsertEnter * call plug#load(
+                \ 'coc.nvim',
+                \ )| autocmd! load_us_insert
+augroup END
+source ~/.config/nvim/config/coc.nvim.vim
+
+function! s:LazyLoadPlugs(timer) abort
+  " save current position by marking Z because plug#load reloads current buffer
+  normal! mZ
+  call plug#load(
+        \   'nvim-treesitter/nvim-treesitter',
+        \ )
+  normal! g`Z
+  delmarks Z
+lua <<EOF
+
+require("nvim-treesitter.configs").setup {
+  highlight = {
+      -- ...
+    enable = true,
+  },
+  ensure_installed = 'all',
+  rainbow = {
+    enable = true,
+    -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+    extended_mode = false, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+    max_file_lines = nil, -- Do not enable for files with more than n lines, int
+    -- colors = {}, -- table of hex strings
+    -- termcolors = {} -- table of colour name strings
+  },
+  autotag = {
+    enable = true,
+  }
+}
+
+EOF
+
+endfunction
+
+call timer_start(20, function("s:LazyLoadPlugs"))
+
+let g:mapleader = "\<Space>"
+nnoremap <Leader> <Nop>
+xnoremap <Leader> <Nop>
+nnoremap [dev]    <Nop>
+xnoremap [dev]    <Nop>
+nmap     m        [dev]
+xmap     m        [dev]
+nnoremap [ff]     <Nop>
+xnoremap [ff]     <Nop>
+nmap     +        [ff]
+xmap     +        [ff]
+nmap     f        [fzf-p]
+xmap     f        [fzf-p]
+
 
 
 " plugin settings
@@ -74,111 +140,13 @@ nmap <Space>m <Plug>(quickhl-manual-this)
 xmap <Space>m <Plug>(quickhl-manual-this)
 nmap <Space>M <Plug>(quickhl-manual-reset)
 xmap <Space>M <Plug>(quickhl-manual-reset)
-
-  let g:coc_global_extensions = [
-  \  "coc-clangd",
-  \  "coc-css",
-  \  "coc-deno",
-  \  "coc-docker",
-  \  "coc-emmet",
-  \  "coc-eslint",
-  \  "coc-flutter",
-  \  "coc-fzf-preview",
-  \  "coc-git",
-  \  "coc-json",
-  \  "coc-jsref",
-  \  "coc-lists",
-  \  "coc-markdown-preview-enhanced",
-  \  "coc-markdownlint",
-  \  "coc-marketplace",
-  \  "coc-npm-version",
-  \  "coc-prettier",
-  \  "coc-prisma",
-  \  "coc-react-refactor",
-  \  "coc-rls",
-  \  "coc-rust-analyzer",
-  \  "coc-sh",
-  \  "coc-simple-react-snippets",
-  \  "coc-snippets",
-  \  "coc-svelte",
-  \  "coc-tabnine",
-  \  "coc-tailwindcss",
-  \  "coc-toml",
-  \  "coc-tsserver",
-  \  "coc-vetur",
-  \  "coc-webview",
-  \  "coc-yaml"
-  \]
-  " Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
-
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
 " plugin Settings end 
-""dein Scripts-----------------------------
-"if &compatible
-"  set nocompatible               " Be iMproved
-"endif
-"
-"" Required:
-"set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
-"
-"" Required:
-"if dein#load_state('~/.config/nvim/dein')
-"  call dein#begin('~/.config/nvim/dein')
-"
-"  " Let dein manage dein
-"  " Required:
-"  call dein#add('~/.config/nvim/dein/repos/github.com/Shougo/dein.vim')
-"
-"  " Add or remove your plugins here like this:
-"  "call dein#add('Shougo/neosnippet.vim')
-"  "call dein#add('Shougo/neosnippet-snippets')
-"
-"  " dein begin
-"  call dein#begin($HOME . '/.config/nvim/dein')
-"
-" " プラグインリストを収めた TOML ファイル
-" " 予め TOML ファイル（後述）を用意しておく
-" let s:toml_dir  = $HOME . '/.config/nvim/toml' 
-"" let s:tomlb     = s:toml_dir . '/brightest.toml'
-" let s:toml      = s:toml_dir . '/dein.toml'
-" let s:lazy_toml = s:toml_dir . '/dein_lazy.toml'
-"
-" " TOML を読み込み、キャッシュしておく
-" call dein#load_toml(s:toml,      {'lazy': 0})
-"" call dein#load_toml(s:tomlb,     {'lazy': 0})
-" call dein#load_toml(s:lazy_toml, {'lazy': 1})
-"
-"  " Required:
-"  call dein#end()
-"  call dein#save_state()
-"endif
-"
-"" Required:
-"filetype plugin indent on
-" syntax enable
-"
-"
-""If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-"endif
-"
-""End dein Scripts-------------------------
 " map prefix
 
-let g:mapleader = "\<Space>"
-nnoremap <Leader> <Nop>
-xnoremap <Leader> <Nop>
-nnoremap [dev]    <Nop>
-xnoremap [dev]    <Nop>
-nmap     m        [dev]
-xmap     m        [dev]
-nnoremap [ff]     <Nop>
-xnoremap [ff]     <Nop>
-nmap     Z        [ff]
-xmap     Z        [ff]
+map <C-l> <Plug>(expand_region_expand)
+map <C-h> <Plug>(expand_region_shrink)
+
+
 
 
 "" coc vim settings
@@ -238,15 +206,41 @@ let g:fern#renderer = 'nerdfont'
  augroup END
 
 
+" ------------------------------ vim-startify settings
+" 'Most Recent Files' number
+ let g:startify_files_number           = 12
+ let g:startify_fortune_use_unicode = 1
+" " Update session automatically as you exit vim
+ let g:startify_session_persistence    = 1
+"
+" " Simplify the startify list to just recent files and sessions
+let g:startify_lists = [
+          \ { 'type': 'sessions',  'header': ['   Sessions']       },
+          \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+          \ { 'type': 'files',     'header': ['   Files']            },
+          \ { 'type': 'dir',       'header': ['   Current Directory '. getcwd()] },
+          \ ]
+let g:startify_bookmarks = [
+            \ { 'c': '~/.config/i3/config' },
+            \ { 'n': '~/.config/nvim/init.vim' },
+            \ { 'z': '~/.zshrc' },
+            \ ]
+  let g:startify_session_dir = '~/.config/nvim/session'
+ let g:startify_custom_header = [
+           \ '    _   _         __     ___         ',
+           \ '   | \ | | ___  __\ \   / (_)________  ',
+           \ '   |  \| |/ _ \/ _ \ \ / /| |  _   _ \  ',
+           \ '   | |\  |  __/ (_) \ V / | | | | | | |',
+           \ '   |_| \_|\___|\___/ \_/  |_|_| |_| |_| ',
+           \]
+
+" " `SPC l s` - save current session
+ nnoremap <leader>ls :SSave<CR>
+"
+" " `SPC l l` - list sessions / switch to different project
+ nnoremap <leader>ll :SClose<CR>
 
 
-
-
-lua <<EOF
-
-
-
-EOF
 
 
 "  vim.opt.listchars:append("space:⋅")
@@ -278,30 +272,6 @@ require("indent_blankline").setup {
 }
 
 EOF
-
-
-" fzf settings  https://github.com/yuki-yano/fzf-preview.vim
-nmap f [fzf-p]
-xmap f [fzf-p]
-
-nnoremap <silent> [fzf-p]p     :<C-u>CocCommand fzf-preview.FromResources project_mru git<CR>
-nnoremap <silent> [fzf-p]gs    :<C-u>CocCommand fzf-preview.GitStatus<CR>
-nnoremap <silent> [fzf-p]ga    :<C-u>CocCommand fzf-preview.GitActions<CR>
-nnoremap <silent> [fzf-p]b     :<C-u>CocCommand fzf-preview.Buffers<CR>
-nnoremap <silent> [fzf-p]B     :<C-u>CocCommand fzf-preview.AllBuffers<CR>
-nnoremap <silent> [fzf-p]o     :<C-u>CocCommand fzf-preview.FromResources buffer project_mru<CR>
-nnoremap <silent> [fzf-p]<C-o> :<C-u>CocCommand fzf-preview.Jumps<CR>
-nnoremap <silent> [fzf-p]g;    :<C-u>CocCommand fzf-preview.Changes<CR>
-nnoremap <silent> [fzf-p]/     :<C-u>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'"<CR>
-nnoremap <silent> [fzf-p]*     :<C-u>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
-nnoremap          [fzf-p]gr    :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
-xnoremap          [fzf-p]gr    "sy:CocCommand   fzf-preview.ProjectGrep<Space>-F<Space>"<C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>"
-nnoremap <silent> [fzf-p]t     :<C-u>CocCommand fzf-preview.BufferTags<CR>
-nnoremap <silent> [fzf-p]q     :<C-u>CocCommand fzf-preview.QuickFix<CR>
-nnoremap <silent> [fzf-p]l     :<C-u>CocCommand fzf-preview.LocationList<CR>
-
-
-
 
 
 
@@ -378,7 +348,6 @@ function! CocJumpAction() abort
   return ChoseAction(actions)
 endfunction
 
-nnoremap <silent> <C-t> :<C-u>call CocActionAsync('jumpDefinition', CocJumpAction())<CR>
 
 
 
@@ -409,53 +378,15 @@ augroup END
 
 
 
-lua <<EOF
-
-require("nvim-treesitter.configs").setup {
-  highlight = {
-      -- ...
-    enable = true,
-  },
-  ensure_installed = 'all',
-  rainbow = {
-    enable = true,
-    -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
-    extended_mode = false, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-    max_file_lines = nil, -- Do not enable for files with more than n lines, int
-    -- colors = {}, -- table of hex strings
-    -- termcolors = {} -- table of colour name strings
-  },
-  autotag = {
-    enable = true,
-  }
-}
-
-EOF
 
 
 
-" coc-snipet
-
-" Use <C-l> for trigger snippet expand.
-imap <C-l> <Plug>(coc-snippets-expand)
-
-" Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
-
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
-
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
-
-" Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 
 
-map K <Plug>(expand_region_expand)
-map J <Plug>(expand_region_shrink)
 
+lua require('mini')
+lua require('whichikey')
 source ~/.config/nvim/config/fern.vim
-source ~/.config/nvim/config/coc.nvim.vim
 source ~/.config/nvim/config/mini.vim
+

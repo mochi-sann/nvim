@@ -1,3 +1,43 @@
+  let g:coc_global_extensions = [
+  \  "coc-clangd",
+  \  "coc-css",
+  \  "coc-deno",
+  \  "coc-docker",
+  \  "coc-emmet",
+  \  "coc-eslint",
+  \  "coc-flutter",
+  \  "coc-fzf-preview",
+  \  "coc-git",
+  \  "coc-json",
+  \  "coc-jsref",
+  \  "coc-lists",
+  \  "coc-markdown-preview-enhanced",
+  \  "coc-markdownlint",
+  \  "coc-marketplace",
+  \  "coc-npm-version",
+  \  "coc-prettier",
+  \  "coc-prisma",
+  \  "coc-react-refactor",
+  \  "coc-rls",
+  \  "coc-rust-analyzer",
+  \  "coc-sh",
+  \  "coc-simple-react-snippets",
+  \  "coc-snippets",
+  \  "coc-svelte",
+  \  "coc-tabnine",
+  \  "coc-tailwindcss",
+  \  "coc-toml",
+  \  "coc-tsserver",
+  \  "coc-vetur",
+  \  "coc-webview",
+  \  "coc-yaml",
+  \  "coc-lua"
+  \]
+  " Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -136,21 +176,50 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " nnoremap <silent>fm <Plug>(coc-list-focus-minibuffer)
 
 "" fzf-preview
-let $BAT_THEME                     = 'gruvbox-dark'
-let $FZF_PREVIEW_PREVIEW_BAT_THEME = 'gruvbox-dark'
+ let $BAT_THEME                     = 'Dracula'
+ let $FZF_PREVIEW_PREVIEW_BAT_THEME = 'Dracula'
+ let g:fzf_preview_use_dev_icons = 1
 
 nnoremap <silent> <C-p>  :<C-u>CocCommand fzf-preview.FromResources buffer project_mru project<CR>
-nnoremap <silent> [ff]s  :<C-u>CocCommand fzf-preview.GitStatus<CR>
-nnoremap <silent> [ff]gg :<C-u>CocCommand fzf-preview.GitActions<CR>
-nnoremap <silent> [ff]b  :<C-u>CocCommand fzf-preview.Buffers<CR>
-nnoremap          [ff]f  :<C-u>CocCommand fzf-preview.ProjectGrep --add-fzf-arg=--exact --add-fzf-arg=--no-sort<Space>
-xnoremap          [ff]f  "sy:CocCommand fzf-preview.ProjectGrep --add-fzf-arg=--exact --add-fzf-arg=--no-sort<Space>-F<Space>"<C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>"
 
-nnoremap <silent> [ff]q  :<C-u>CocCommand fzf-preview.CocCurrentDiagnostics<CR>
-nnoremap <silent> [ff]rf :<C-u>CocCommand fzf-preview.CocReferences<CR>
-nnoremap <silent> [ff]d  :<C-u>CocCommand fzf-preview.CocDefinition<CR>
-nnoremap <silent> [ff]t  :<C-u>CocCommand fzf-preview.CocTypeDefinition<CR>
-nnoremap <silent> [ff]o  :<C-u>CocCommand fzf-preview.CocOutline --add-fzf-arg=--exact --add-fzf-arg=--no-sort<CR>
+
+" fzf settings  https://github.com/yuki-yano/fzf-preview.vim
+
+nnoremap <silent> [fzf-p]p     :<C-u>CocCommand fzf-preview.FromResources project_mru git<CR>
+nnoremap <silent> [fzf-p]gs    :<C-u>CocCommand fzf-preview.GitStatus<CR>
+nnoremap <silent> [fzf-p]ga    :<C-u>CocCommand fzf-preview.GitActions<CR>
+nnoremap <silent> [fzf-p]b     :<C-u>CocCommand fzf-preview.Buffers<CR>
+nnoremap <silent> [fzf-p]B     :<C-u>CocCommand fzf-preview.AllBuffers<CR>
+nnoremap <silent> [fzf-p]o     :<C-u>CocCommand fzf-preview.FromResources buffer project_mru<CR>
+nnoremap <silent> [fzf-p]<C-o> :<C-u>CocCommand fzf-preview.Jumps<CR>
+nnoremap <silent> [fzf-p]g;    :<C-u>CocCommand fzf-preview.Changes<CR>
+nnoremap <silent> [fzf-p]/     :<C-u>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'"<CR>
+nnoremap <silent> [fzf-p]*     :<C-u>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
+nnoremap          [fzf-p]gr    :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
+xnoremap          [fzf-p]gr    "sy:CocCommand   fzf-preview.ProjectGrep<Space>-F<Space>"<C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>"
+nnoremap <silent> [fzf-p]t     :<C-u>CocCommand fzf-preview.BufferTags<CR>
+nnoremap <silent> [fzf-p]q     :<C-u>CocCommand fzf-preview.QuickFix<CR>
+nnoremap <silent> [fzf-p]l     :<C-u>CocCommand fzf-preview.LocationList<CR>
+
+
+
+
+" coc-snipet
+
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 "" "nnoremap  <silent> <buffer> <Plug>mf <Cmd>CocCommand eslint.executeAutofix<CR><Cmd>CocCommand prettier.formatFile<CR>
  nnoremap <silent> mf <C-u>:call CocAction('format')<cr><C-u><cr>
@@ -166,4 +235,4 @@ nnoremap <silent> [ff]o  :<C-u>CocCommand fzf-preview.CocOutline --add-fzf-arg=-
     endif
   endfunction
 "" COc settings            
-
+nnoremap <silent> <C-t> :<C-u>call CocActionAsync('jumpDefinition', CocJumpAction())<CR>
