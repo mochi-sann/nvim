@@ -7,7 +7,7 @@ set expandtab          "タブ入力を空白に変換
 set splitright         "画面を縦分割する際に右に開く
 set clipboard=unnamed  "yank した文字列をクリップボードにコピー
 set hls                "検索した文字をハイライトする
-""set laststatus=2     
+set laststatus=2     
 set showtabline=2      "タブバーを常時表示する
 set title             "タイトルバーにファイル名を表示
 set termguicolors    "ターミナルの色を設定
@@ -408,5 +408,3 @@ lua require('mini')
 lua require('whichikey')
 source ~/.config/nvim/config/fern.vim
 source ~/.config/nvim/config/mini.vim
-
-
