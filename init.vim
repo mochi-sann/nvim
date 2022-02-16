@@ -14,6 +14,7 @@ set termguicolors    "ターミナルの色を設定
 set noswapfile        " swap fileを無効化する
 set mouse=a            " mouse操作ができるようにする
 set cursorline             "カーソル行をハイライト
+set whichwrap=b,s,h,l,<,>,[,] " hjklを使ってるときにカーソルを行頭、行末で止まらないようにする
 
 
 let g:did_install_default_menus = 1
@@ -83,8 +84,14 @@ call plug#begin()
   Plug 'mhinz/vim-startify'
   Plug 'folke/which-key.nvim'
   Plug 'ryanoasis/vim-devicons'
+  Plug 'heavenshell/vim-jsdoc', {
+  \ 'for': ['javascript', 'javascript.jsx','typescript'],
+  \ 'do': 'make install'
+\}
+
   " Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
 
+source ~/.config/nvim/config/airline.vim
 call plug#end()
 " Load Event
 " 遅延読み込み"
@@ -242,7 +249,7 @@ let g:startify_bookmarks = [
             \ { 'n': '~/.config/nvim/init.vim' },
             \ { 'z': '~/.zshrc' },
             \ ]
-  let g:startify_session_dir = '~/.config/nvim/session'
+"  let g:startify_session_dir = '~/.config/nvim/session'
  let g:startify_custom_header = [
            \ '    _   _         __     ___         ',
            \ '   | \ | | ___  __\ \   / (_)________  ',
@@ -394,15 +401,6 @@ augroup END
 
 "
 " set laststatus=2
-
-let g:airline_theme = 'dracula'               " テーマの指定
-let g:airline#extensions#tabline#enabled = 1 " タブラインを表示
-let g:airline_powerline_fonts = 1            " Powerline Fontsを利用
-
-
-
-
-
 
 
 
