@@ -1,4 +1,3 @@
-
 set number             "行番号を表示
 set autoindent         "改行時に自動でインデントする
 set tabstop=2          "タブを何文字の空白に変換するか
@@ -8,7 +7,7 @@ set splitright         "画面を縦分割する際に右に開く
 set clipboard=unnamed  "yank した文字列をクリップボードにコピー
 set hls                "検索した文字をハイライトする
 set laststatus=2     
-set showtabline=2      "タブバーを常時表示する
+""set showtabline=2      "タブバーを常時表示する
 set title             "タイトルバーにファイル名を表示
 set termguicolors    "ターミナルの色を設定
 set noswapfile        " swap fileを無効化する
@@ -16,25 +15,38 @@ set mouse=a            " mouse操作ができるようにする
 set cursorline             "カーソル行をハイライト
 set whichwrap=b,s,h,l,<,>,[,] " hjklを使ってるときにカーソルを行頭、行末で止まらないようにする
 
+nnoremap <Leader> <Nop>
+xnoremap <Leader> <Nop>
+nnoremap [dev]    <Nop>
+xnoremap [dev]    <Nop>
+nmap     m        [dev]
+xmap     m        [dev]
+nnoremap [ff]     <Nop>
+xnoremap [ff]     <Nop>
+nmap     +        [ff]
+xmap     +        [ff]
+nmap     f        [fzf-p]
+xmap     f        [fzf-p]
 
-let g:did_install_default_menus = 1
-let g:did_install_syntax_menu   = 1
-let g:did_indent_on             = 1
-let g:did_load_filetypes        = 1
-let g:did_load_ftplugin         = 1
-let g:loaded_2html_plugin       = 1
-let g:loaded_gzip               = 1
-let g:loaded_man                = 1
-let g:loaded_matchit            = 1
-let g:loaded_matchparen         = 1
-let g:loaded_netrwPlugin        = 1
-let g:loaded_remote_plugins     = 1
-let g:loaded_shada_plugin       = 1
-let g:loaded_spellfile_plugin   = 1
-let g:loaded_tarPlugin          = 1
-let g:loaded_tutor_mode_plugin  = 1
-let g:loaded_zipPlugin          = 1
-let g:skip_loading_mswin        = 1
+
+"let g:did_install_default_menus = 1
+"let g:did_install_syntax_menu   = 1
+"let g:did_indent_on             = 1
+"let g:did_load_filetypes        = 1
+"let g:did_load_ftplugin         = 1
+"let g:loaded_2html_plugin       = 1
+"let g:loaded_gzip               = 1
+"let g:loaded_man                = 1
+"let g:loaded_matchit            = 1
+"let g:loaded_matchparen         = 1
+"let g:loaded_netrwPlugin        = 1
+"let g:loaded_remote_plugins     = 1
+"let g:loaded_shada_plugin       = 1
+"let g:loaded_spellfile_plugin   = 1
+"let g:loaded_tarPlugin          = 1
+"let g:loaded_tutor_mode_plugin  = 1
+"let g:loaded_zipPlugin          = 1
+"let g:skip_loading_mswin        = 1
 
 
 tnoremap <Esc> <C-\><C-n>
@@ -55,7 +67,7 @@ call plug#begin()
   Plug 'lambdalisue/glyph-palette.vim'
   Plug 'lambdalisue/fern-bookmark.vim',{'on': 'Fern'}
   Plug 'lambdalisue/fern-hijack.vim' 
-  Plug 'lambdalisue/gina.vim', { 'on': 'Gina' }
+  Plug 'lambdalisue/gina.vim', { 'on': [] }
   Plug 't9md/vim-quickhl',{'on': ['<Plug>(quickhl-manual-this)','<Plug>(quickhl-manual-reset)']}
   Plug 'terryma/vim-expand-region',{'on':[ '<Plug>(expand_region_expand)','<Plug>(expand_region_shrink)']}
   Plug 'segeljakt/vim-silicon', { 'on': 'Silicon' }
@@ -84,6 +96,9 @@ call plug#begin()
   Plug 'mhinz/vim-startify'
   Plug 'folke/which-key.nvim'
   Plug 'ryanoasis/vim-devicons'
+  Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' , 'for':['javascript','javascriptreact','typescript','typescriptreact']}
+
+  Plug 'machakann/vim-highlightedyank', {'on':['<Plug>(highlightedyank)']}
   Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript'],
   \ 'do': 'make install'
@@ -92,6 +107,7 @@ call plug#begin()
   " Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
 
 source ~/.config/nvim/config/airline.vim
+
 call plug#end()
 " Load Event
 " 遅延読み込み"
@@ -105,12 +121,12 @@ function! s:LazyLoadPlugs(timer) abort
         \   'nvim-ts-autotag',
         \   'vim-airline',
         \   'vim-airline-themes',
+        \   'gina.vim',
         \ )
   normal! g`Z
-source ~/.config/nvim/config/coc.nvim.vim
+""
   delmarks Z
 lua <<EOF
-
 require("nvim-treesitter.configs").setup {
   highlight = {
       -- ...
@@ -131,24 +147,12 @@ require("nvim-treesitter.configs").setup {
 }
 
 EOF
-
+source ~/.config/nvim/config/coc.nvim.vim
 endfunction
 
 call timer_start(40, function("s:LazyLoadPlugs"))
 
 let g:mapleader = "\<Space>"
-nnoremap <Leader> <Nop>
-xnoremap <Leader> <Nop>
-nnoremap [dev]    <Nop>
-xnoremap [dev]    <Nop>
-nmap     m        [dev]
-xmap     m        [dev]
-nnoremap [ff]     <Nop>
-xnoremap [ff]     <Nop>
-nmap     +        [ff]
-xmap     +        [ff]
-nmap     f        [fzf-p]
-xmap     f        [fzf-p]
 
 
 
@@ -171,6 +175,12 @@ map <C-l> <Plug>(expand_region_expand)
 map <C-h> <Plug>(expand_region_shrink)
 
 
+""if !exists('##TextYankPost')
+  nmap y <Plug>(highlightedyank)
+  xmap y <Plug>(highlightedyank)
+  omap y <Plug>(highlightedyank)
+""endif
+let g:highlightedyank_highlight_duration = 500
 
 
 "" coc vim settings
@@ -376,28 +386,28 @@ endfunction
 
 
 " auto reload .vimrc
-augroup source-vimrc
-  autocmd!
-  autocmd BufWritePost *vimrc source $MYVIMRC | set foldmethod=marker
-  autocmd BufWritePost *gvimrc if has('gui_running') source $MYGVIMRC
-augroup END
-
-" auto comment off
-augroup auto_comment_off
-  autocmd!
-  autocmd BufEnter * setlocal formatoptions-=r
-  autocmd BufEnter * setlocal formatoptions-=o
-augroup END
-
-" HTML/XML閉じタグ自動補完
-augroup MyXML
-  autocmd!
-  autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
-  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
-  autocmd Filetype tsx inoremap <buffer> </ </<C-x><C-o>
-  autocmd Filetype typescriptreact inoremap <buffer> </ </<C-x><C-o>
-
-augroup END
+ " "augroup source-vimrc
+ " "  autocmd!
+ " "  autocmd BufWritePost *vimrc source $MYVIMRC | set foldmethod=marker
+ " "  autocmd BufWritePost *gvimrc if has('gui_running') source $MYGVIMRC
+ " "augroup END
+ " "
+ " "" auto comment off
+ " "augroup auto_comment_off
+ " "  autocmd!
+ " "  autocmd BufEnter * setlocal formatoptions-=r
+ " "  autocmd BufEnter * setlocal formatoptions-=o
+ " "augroup END
+ " "
+ " "" HTML/XML閉じタグ自動補完
+ " "augroup MyXML
+ " "  autocmd!
+ " "  autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
+ " "  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
+ " "  autocmd Filetype tsx inoremap <buffer> </ </<C-x><C-o>
+ " "  autocmd Filetype typescriptreact inoremap <buffer> </ </<C-x><C-o>
+ " "
+ " "augroup END
 
 "
 " set laststatus=2
