@@ -7,16 +7,20 @@ set splitright         "画面を縦分割する際に右に開く
 set clipboard=unnamed  "yank した文字列をクリップボードにコピー
 set hls                "検索した文字をハイライトする
 set laststatus=2     
-""set showtabline=2      "タブバーを常時表示する
+set showtabline=2      "タブバーを常時表示する
 set title             "タイトルバーにファイル名を表示
 set termguicolors    "ターミナルの色を設定
 set noswapfile        " swap fileを無効化する
 set mouse=a            " mouse操作ができるようにする
 set cursorline             "カーソル行をハイライト
 set whichwrap=b,s,h,l,<,>,[,] " hjklを使ってるときにカーソルを行頭、行末で止まらないようにする
+set ignorecase            " 検索するときに大文字と小文字を区別しない
+set autoindent
+syntax on
+set showcmd
 
-nnoremap <Leader> <Nop>
-xnoremap <Leader> <Nop>
+" nnoremap <Leader> <Nop>
+" xnoremap <Leader> <Nop>
 nnoremap [dev]    <Nop>
 xnoremap [dev]    <Nop>
 nmap     m        [dev]
@@ -50,13 +54,14 @@ xmap     f        [fzf-p]
 
 
 tnoremap <Esc> <C-\><C-n>
+tnoremap <C-;> <C-\><C-n>
 " hi clear CursorLine
 " autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
 "ターミナルでescでノーマルモードに戻る
 ":T コマンドでVSCodeみたいにターミナルを起動する
 command! -nargs=* T split | wincmd j | resize 20 | terminal <args>
-autocmd TermOpen * startinsert
+" autocmd TermOpen * startinsert
 call plug#begin()
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   
@@ -67,19 +72,19 @@ call plug#begin()
   Plug 'lambdalisue/glyph-palette.vim'
   Plug 'lambdalisue/fern-bookmark.vim',{'on': 'Fern'}
   Plug 'lambdalisue/fern-hijack.vim' 
-  Plug 'lambdalisue/gina.vim', { 'on': [] }
+  Plug 'lambdalisue/gina.vim'
   Plug 't9md/vim-quickhl',{'on': ['<Plug>(quickhl-manual-this)','<Plug>(quickhl-manual-reset)']}
   Plug 'terryma/vim-expand-region',{'on':[ '<Plug>(expand_region_expand)','<Plug>(expand_region_shrink)']}
   Plug 'segeljakt/vim-silicon', { 'on': 'Silicon' }
   Plug 'dracula/vim', { 'as': 'dracula' }
   Plug 'vim-scripts/vim-auto-save'
   Plug 'vim-jp/vimdoc-ja'
-  Plug 'vim-airline/vim-airline', {'on':[]}
-  Plug 'vim-airline/vim-airline-themes', {'on':[]}
-
-
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'github/copilot.vim'
+  " Plug 'neovide/neovide'
   " Plug 'cohama/lexima.vim'
-  Plug 'neoclide/coc.nvim', {'on':[],'branch': 'release'}
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'vim-denops/denops.vim'
   Plug 'alvan/vim-closetag',{}
   Plug 'lukas-reineke/indent-blankline.nvim'
@@ -93,20 +98,23 @@ call plug#begin()
   Plug 'windwp/nvim-ts-autotag' ,{'on':[]}
   " Plug 'kyazdani42/nvim-web-devicons'
   Plug 'echasnovski/mini.nvim', { 'branch': 'stable' }
-  Plug 'mhinz/vim-startify'
+  " Plug 'mhinz/vim-startify'
   Plug 'folke/which-key.nvim'
   Plug 'ryanoasis/vim-devicons'
-  Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' , 'for':['javascript','javascriptreact','typescript','typescriptreact']}
+  "Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' , 'for':['javascript','javascriptreact','typescript','typescriptreact']}
 
   Plug 'machakann/vim-highlightedyank', {'on':['<Plug>(highlightedyank)']}
   Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript'],
   \ 'do': 'make install'
-\}
+  \}
+  " Plug 'glepnir/dashboard-nvim'
+
+" Plug 'hrsh7th/vim-vsnip'
+" Plug 'hrsh7th/vim-vsnip-integ'
 
   " Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
 
-source ~/.config/nvim/config/airline.vim
 
 call plug#end()
 " Load Event
@@ -148,6 +156,7 @@ require("nvim-treesitter.configs").setup {
 
 EOF
 source ~/.config/nvim/config/coc.nvim.vim
+" source ~/.config/nvim/config/airline.vim
 endfunction
 
 call timer_start(40, function("s:LazyLoadPlugs"))
@@ -158,7 +167,6 @@ let g:mapleader = "\<Space>"
 
 " plugin settings
 
-colorschem dracula
 "let g:airline_theme='dracula'
 let g:auto_save = 1
 set helplang=ja
@@ -230,49 +238,50 @@ let g:fern#renderer = 'nerdfont'
 
 
 " 背景をなくす
- ""augroup TransparentBG
- ""  autocmd!
- ""	" autocmd Colorscheme * highlight Normal ctermbg=none
- """	autocmd Colorscheme * highlight NonText ctermbg=none
- """	autocmd Colorscheme * highlight LineNr ctermbg=none
- """	autocmd Colorscheme * highlight Folded ctermbg=none
- """	autocmd Colorscheme * highlight EndOfBuffer ctermbg=none 
- ""augroup END
+ augroup TransparentBG
+  autocmd!
+  autocmd Colorscheme * highlight Normal ctermbg=none
+  autocmd Colorscheme * highlight NonText ctermbg=none
+  autocmd Colorscheme * highlight LineNr ctermbg=none
+  autocmd Colorscheme * highlight Folded ctermbg=none
+  autocmd Colorscheme * highlight EndOfBuffer ctermbg=none 
+ augroup END
+colorschem dracula
 
 
 " ------------------------------ vim-startify settings
-" 'Most Recent Files' number
- let g:startify_files_number           = 12
- let g:startify_fortune_use_unicode = 1
-" " Update session automatically as you exit vim
- let g:startify_session_persistence    = 1
+" " 'Most Recent Files' number
+"  let g:startify_files_number           = 12
+"  let g:startify_fortune_use_unicode = 1
+" " " Update session automatically as you exit vim
+"  let g:startify_session_persistence    = 1
+" "
+" " " Simplify the startify list to just recent files and sessions
+" let g:startify_lists = [
+"           \ { 'type': 'sessions',  'header': ['   Sessions']       },
+"           \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+"           \ { 'type': 'files',     'header': ['   Files']            },
+"           \ { 'type': 'dir',       'header': ['   Current Directory '. getcwd()] },
+"           \ ]
+" let g:startify_bookmarks = [
+"             \ { 'c': '~/.config/i3/config' },
+"             \ { 'n': '~/.config/nvim/init.vim' },
+"             \ { 'z': '~/.zshrc' },
+"             \ ]
+" "  let g:startify_session_dir = '~/.config/nvim/session'
+"  let g:startify_custom_header = [
+"            \ '    _   _         __     ___         ',
+"            \ '   | \ | | ___  __\ \   / (_)________  ',
+"            \ '   |  \| |/ _ \/ _ \ \ / /| |  _   _ \  ',
+"            \ '   | |\  |  __/ (_) \ V / | | | | | | |',
+"            \ '   |_| \_|\___|\___/ \_/  |_|_| |_| |_| ',
+"            \]
 "
-" " Simplify the startify list to just recent files and sessions
-let g:startify_lists = [
-          \ { 'type': 'sessions',  'header': ['   Sessions']       },
-          \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
-          \ { 'type': 'files',     'header': ['   Files']            },
-          \ { 'type': 'dir',       'header': ['   Current Directory '. getcwd()] },
-          \ ]
-let g:startify_bookmarks = [
-            \ { 'c': '~/.config/i3/config' },
-            \ { 'n': '~/.config/nvim/init.vim' },
-            \ { 'z': '~/.zshrc' },
-            \ ]
-"  let g:startify_session_dir = '~/.config/nvim/session'
- let g:startify_custom_header = [
-           \ '    _   _         __     ___         ',
-           \ '   | \ | | ___  __\ \   / (_)________  ',
-           \ '   |  \| |/ _ \/ _ \ \ / /| |  _   _ \  ',
-           \ '   | |\  |  __/ (_) \ V / | | | | | | |',
-           \ '   |_| \_|\___|\___/ \_/  |_|_| |_| |_| ',
-           \]
-
-" " `SPC l s` - save current session
- nnoremap <leader>ls :SSave<CR>
-"
-" " `SPC l l` - list sessions / switch to different project
- nnoremap <leader>ll :SClose<CR>
+" " " `SPC l s` - save current session
+"  nnoremap <leader>ls :SSave<CR>
+" "
+" " " `SPC l l` - list sessions / switch to different project
+"  nnoremap <leader>ll :SClose<CR>
 
 
 
@@ -344,9 +353,9 @@ let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
 nnoremap    [Tag]   <Nop>
 nmap    t [Tag]
 " Tab jump
-for n in range(1, 9)
-  execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
-endfor
+" for n in range(1, 9)
+"   execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
+" endfor
 " t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
 
 map <silent> [Tag]c :tablast <bar> tabnew<CR>
@@ -384,6 +393,7 @@ endfunction
 
 
 
+let g:dashboard_default_executive ='fzf'
 
 " auto reload .vimrc
  " "augroup source-vimrc
@@ -418,3 +428,4 @@ lua require('mini')
 lua require('whichikey')
 source ~/.config/nvim/config/fern.vim
 source ~/.config/nvim/config/mini.vim
+source ~/.config/nvim/config/airline.vim
