@@ -92,8 +92,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap [fzf-p]f  <Plug>(coc-format-selected)
+nmap [fzf-p]f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -200,6 +200,7 @@ nnoremap <silent> [fzf-p]t     :<C-u>CocCommand fzf-preview.BufferTags<CR>
 nnoremap <silent> [fzf-p]q     :<C-u>CocCommand fzf-preview.QuickFix<CR>
 nnoremap <silent> [fzf-p]l     :<C-u>CocCommand fzf-preview.LocationList<CR>
 
+nnoremap <silent> [fzf-p]j :<C-u>call CocActionAsync('jumpDefinition', CocJumpAction())<CR>
 
 
 
@@ -234,4 +235,3 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
     endif
   endfunction
 "" COc settings            
-nnoremap <silent> <C-t> :<C-u>call CocActionAsync('jumpDefinition', CocJumpAction())<CR>
