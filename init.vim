@@ -1,3 +1,9 @@
+" denops プラグイン開発するためのところ"
+"set runtimepath^=~/workspace/color-code-hilight.vim
+"let g:denops#debug = 0   "1でデバッグモードになる"
+
+
+
 set number             "行番号を表示
 set autoindent         "改行時に自動でインデントする
 set tabstop=2          "タブを何文字の空白に変換するか
@@ -12,7 +18,7 @@ set title             "タイトルバーにファイル名を表示
 set termguicolors    "ターミナルの色を設定
 set noswapfile        " swap fileを無効化する
 set mouse=a            " mouse操作ができるようにする
-set cursorline             "カーソル行をハイライト
+set nocursorline             "カーソル行をハイライト
 set whichwrap=b,s,h,l,<,>,[,] " hjklを使ってるときにカーソルを行頭、行末で止まらないようにする
 set ignorecase            " 検索するときに大文字と小文字を区別しない
 set autoindent
@@ -33,24 +39,24 @@ nmap     f        [fzf-p]
 xmap     f        [fzf-p]
 
 
-"let g:did_install_default_menus = 1
-"let g:did_install_syntax_menu   = 1
-"let g:did_indent_on             = 1
-"let g:did_load_filetypes        = 1
-"let g:did_load_ftplugin         = 1
-"let g:loaded_2html_plugin       = 1
-"let g:loaded_gzip               = 1
-"let g:loaded_man                = 1
-"let g:loaded_matchit            = 1
-"let g:loaded_matchparen         = 1
-"let g:loaded_netrwPlugin        = 1
-"let g:loaded_remote_plugins     = 1
-"let g:loaded_shada_plugin       = 1
-"let g:loaded_spellfile_plugin   = 1
-"let g:loaded_tarPlugin          = 1
-"let g:loaded_tutor_mode_plugin  = 1
-"let g:loaded_zipPlugin          = 1
-"let g:skip_loading_mswin        = 1
+let g:did_install_default_menus = 1
+let g:did_install_syntax_menu   = 1
+let g:did_indent_on             = 1
+let g:did_load_filetypes        = 1
+let g:did_load_ftplugin         = 1
+let g:loaded_2html_plugin       = 1
+let g:loaded_gzip               = 1
+let g:loaded_man                = 1
+let g:loaded_matchit            = 1
+let g:loaded_matchparen         = 1
+let g:loaded_netrwPlugin        = 1
+let g:loaded_remote_plugins     = 1
+let g:loaded_shada_plugin       = 1
+let g:loaded_spellfile_plugin   = 1
+let g:loaded_tarPlugin          = 1
+let g:loaded_tutor_mode_plugin  = 1
+let g:loaded_zipPlugin          = 1
+let g:skip_loading_mswin        = 1
 
 
 tnoremap <Esc> <C-\><C-n>
@@ -79,13 +85,14 @@ call plug#begin()
   Plug 'dracula/vim', { 'as': 'dracula' }
   Plug 'vim-scripts/vim-auto-save'
   Plug 'vim-jp/vimdoc-ja'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
+  Plug 'vim-airline/vim-airline' ,{'on' : []}
+  Plug 'vim-airline/vim-airline-themes' ,{'on' : []}
   Plug 'github/copilot.vim'
   " Plug 'neovide/neovide'
   " Plug 'cohama/lexima.vim'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'vim-denops/denops.vim'
+
   Plug 'alvan/vim-closetag',{}
   Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'p00f/nvim-ts-rainbow',{'on':[]}
@@ -129,7 +136,6 @@ function! s:LazyLoadPlugs(timer) abort
         \   'nvim-ts-autotag',
         \   'vim-airline',
         \   'vim-airline-themes',
-        \   'gina.vim',
         \ )
   normal! g`Z
 ""
@@ -237,6 +243,7 @@ let g:fern#renderer = 'nerdfont'
 
 
 
+colorschem dracula
 " 背景をなくす
  augroup TransparentBG
   autocmd!
@@ -246,8 +253,6 @@ let g:fern#renderer = 'nerdfont'
   autocmd Colorscheme * highlight Folded ctermbg=none
   autocmd Colorscheme * highlight EndOfBuffer ctermbg=none 
  augroup END
-colorschem dracula
-
 
 " ------------------------------ vim-startify settings
 " " 'Most Recent Files' number
