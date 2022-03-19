@@ -5,6 +5,7 @@
 
 
 set number             "行番号を表示
+set laststatus=3
 set signcolumn=yes
 set autoindent         "改行時に自動でインデントする
 set tabstop=2          "タブを何文字の空白に変換するか
@@ -36,8 +37,8 @@ nnoremap [ff]     <Nop>
 xnoremap [ff]     <Nop>
 nmap     +        [ff]
 xmap     +        [ff]
-nmap     <Space>f        [fzf-p]
-xmap     <Space>f        [fzf-p]
+nmap    <C-g>        [fzf-p]
+xmap     <C-g>        [fzf-p]
 
 
 let g:did_install_default_menus = 1
