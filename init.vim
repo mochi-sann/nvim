@@ -105,6 +105,7 @@ call plug#begin()
   Plug 'windwp/nvim-ts-autotag' ,{'on':[]}
   " Plug 'kyazdani42/nvim-web-devicons'
   Plug 'echasnovski/mini.nvim', { 'branch': 'stable' }
+  Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
   " Plug 'mhinz/vim-startify'
   Plug 'folke/which-key.nvim'
   Plug 'ryanoasis/vim-devicons'
