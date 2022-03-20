@@ -14,7 +14,6 @@ set expandtab          "タブ入力を空白に変換
 set splitright         "画面を縦分割する際に右に開く
 set clipboard=unnamed  "yank した文字列をクリップボードにコピー
 set hls                "検索した文字をハイライトする
-set laststatus=2     
 set showtabline=2      "タブバーを常時表示する
 set title             "タイトルバーにファイル名を表示
 set termguicolors    "ターミナルの色を設定
@@ -62,7 +61,7 @@ let g:skip_loading_mswin        = 1
 
 
 tnoremap <Esc> <C-\><C-n>
-tnoremap <C-;> <C-\><C-n>
+" tnoremap <C-;> <C-\><C-n>
 " hi clear CursorLine
 " autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
@@ -90,7 +89,6 @@ call plug#begin()
   Plug 'vim-airline/vim-airline' ,{'on' : []}
   Plug 'vim-airline/vim-airline-themes' ,{'on' : []}
   Plug 'github/copilot.vim'
-  " Plug 'neovide/neovide'
   " Plug 'cohama/lexima.vim'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'vim-denops/denops.vim'
@@ -243,9 +241,8 @@ let g:fern#renderer = 'nerdfont'
 " }
 
 
-
-
 colorschem dracula
+
 " 背景をなくす
  augroup TransparentBG
   autocmd!
@@ -391,7 +388,6 @@ endfunction
 function! CocJumpAction() abort
   let actions = [
         \ {"text": "(s)plit", "value": "split"},
-        \ {"text": "(o)pen vsplit", "value": "vsplit"},
         \ {"text": "(v)slit", "value": "vsplit"},
         \ {"text": "(t)ab", "value": "tabedit"},
         \ ]
