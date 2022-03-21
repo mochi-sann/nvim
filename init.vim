@@ -234,6 +234,19 @@ set encoding=utf-8
 let g:fern#renderer = 'nerdfont'
 
 
+let g:fern#renderer = 'nerdfont'
+let g:fern#disable_drawer_auto_restore_focus = 1
+let g:fern#renderer#default#leading = "hogehogeho "
+nnoremap <C-n> :Fern . -reveal=% -drawer -right -width=35  <CR>
+let g:fern#default_hidden=1 "不可視ファイルを表示する
+
+
+ augroup my-glyph-palette
+   autocmd! *
+   autocmd FileType fern call glyph_palette#apply()
+   autocmd FileType nerdtree,startify call glyph_palette#apply()
+ augroup END
+
 " vim.opt.list = true
 " vim.opt.listchars:append("eol:↴")
 
@@ -430,6 +443,5 @@ let g:dashboard_default_executive ='fzf'
 
 lua require('mini')
 lua require('whichikey')
-source ~/.config/nvim/config/fern.vim
 source ~/.config/nvim/config/mini.vim
 source ~/.config/nvim/config/airline.vim
