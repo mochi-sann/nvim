@@ -110,20 +110,18 @@ call plug#begin()
   " Plug 'mhinz/vim-startify'
   Plug 'folke/which-key.nvim'
   Plug 'ryanoasis/vim-devicons'
-  "Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' , 'for':['javascript','javascriptreact','typescript','typescriptreact']}
-
+  Plug 'relastle/vim-colorrange', { 'on': ['ColorrangeIncrement' , 'ColorrangeDecrement'] }
+  Plug 'lilydjwg/colorizer'
   Plug 'machakann/vim-highlightedyank', {'on':['<Plug>(highlightedyank)']}
   Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript'],
   \ 'do': 'make install'
   \}
   " Plug 'glepnir/dashboard-nvim'
-
 " Plug 'hrsh7th/vim-vsnip'
 " Plug 'hrsh7th/vim-vsnip-integ'
 
   " Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
-
 
 call plug#end()
 " Load Event
@@ -257,13 +255,15 @@ let g:fern#default_hidden=1 "不可視ファイルを表示する
 colorschem dracula
 
 " 背景をなくす
- augroup TransparentBG
+hi Normal guibg=NONE ctermbg=NONE
+augroup TransparentBG
   autocmd!
-  autocmd Colorscheme * highlight Normal ctermbg=none
-  autocmd Colorscheme * highlight NonText ctermbg=none
-  autocmd Colorscheme * highlight LineNr ctermbg=none
-  autocmd Colorscheme * highlight Folded ctermbg=none
-  autocmd Colorscheme * highlight EndOfBuffer ctermbg=none 
+  autocmd Colorscheme * hi Normal guibg=NONE ctermbg=NONE
+  " autocmd Colorscheme * highlight Normal ctermbg=none
+  " autocmd Colorscheme * highlight NonText ctermbg=none
+  " autocmd Colorscheme * highlight LineNr ctermbg=none
+  " autocmd Colorscheme * highlight Folded ctermbg=none
+  " autocmd Colorscheme * highlight EndOfBuffer ctermbg=none 
  augroup END
 
 " ------------------------------ vim-startify settings
@@ -334,8 +334,11 @@ require("indent_blankline").setup {
 EOF
 
 
+"relastle/vim-colorrange
+"------------------------------------------------------"
 
-
+nnoremap <A-a> :ColorrangeIncrement<CR>
+nnoremap <A-x> :ColorrangeDecrement<CR>
 
 
 
@@ -439,7 +442,7 @@ let g:dashboard_default_executive ='fzf'
 " set laststatus=2
 ""
 
-"""" Coc.vim settings ------------------------
+"""" Coc.vim settings -----------------------------------
 
   let g:coc_global_extensions = [
   \  "coc-clangd",
