@@ -3,7 +3,6 @@
 "let g:denops#debug = 0   "1でデバッグモードになる"
 
 
-
 set number             "行番号を表示
 set laststatus=3
 set signcolumn=yes
@@ -38,6 +37,9 @@ nmap     +        [ff]
 xmap     +        [ff]
 " nmap    <C-g>        [fzf-p]
 " xmap     <C-g>        [fzf-p]
+nnoremap [fzf-p] <Nop>
+xmap [fzf-p] <Nop>
+
 nmap <C-p> [fzf-p]
 xmap <C-p> [fzf-p]
 
@@ -85,6 +87,7 @@ call plug#begin()
   Plug 'terryma/vim-expand-region',{'on':[ '<Plug>(expand_region_expand)','<Plug>(expand_region_shrink)']}
   Plug 'segeljakt/vim-silicon', { 'on': 'Silicon' }
   Plug 'dracula/vim', { 'as': 'dracula' }
+  Plug 'joshdick/onedark.vim'
   Plug 'vim-scripts/vim-auto-save'
   Plug 'vim-jp/vimdoc-ja'
   Plug 'vim-airline/vim-airline' ,{'on' : []}
@@ -117,6 +120,9 @@ call plug#begin()
   \ 'for': ['javascript', 'javascript.jsx','typescript'],
   \ 'do': 'make install'
   \}
+  Plug 'tyru/open-browser.vim'
+  Plug 't9md/vim-choosewin'
+
   " Plug 'glepnir/dashboard-nvim'
 " Plug 'hrsh7th/vim-vsnip'
 " Plug 'hrsh7th/vim-vsnip-integ'
@@ -173,6 +179,9 @@ let g:mapleader = "\<Space>"
 
 "let g:airline_theme='dracula'
 let g:auto_save = 1
+let g:auto_save_no_updatetime = 1  " do not change the 'updatetime' option
+ let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
+
 set helplang=ja
 "let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:Illuminate_delay ="300"
@@ -463,7 +472,6 @@ let g:dashboard_default_executive ='fzf'
   \  "coc-prettier",
   \  "coc-prisma",
   \  "coc-react-refactor",
-  \  "coc-rls",
   \  "coc-rust-analyzer",
   \  "coc-sh",
   \  "coc-simple-react-snippets",
@@ -633,10 +641,11 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 nnoremap <silent> [fzf-p]p     :<C-u>CocCommand fzf-preview.FromResources project_mru git<CR>
 nnoremap <silent> [fzf-p]gs    :<C-u>CocCommand fzf-preview.GitStatus<CR>
 nnoremap <silent> [fzf-p]ga    :<C-u>CocCommand fzf-preview.GitActions<CR>
+nnoremap <silent> [fzf-p]gl    :<C-u>CocCommand fzf-preview.GitLogs<CR>
 " nnoremap <silent> [fzf-p]b     :<C-u>CocCommand fzf-preview.Buffers<CR>
 nnoremap <silent> [fzf-p]b     :<C-u>CocCommand fzf-preview.AllBuffers<CR>
 nnoremap <silent> [fzf-p]o     :<C-u>CocCommand fzf-preview.FromResources buffer project_mru<CR>
-nnoremap <silent> [fzf-p]<C-o> :<C-u>CocCommand fzf-preview.Jumps<CR>
+nnoremap <silent> [fzf-p]<C-o>     :<C-u>CocCommand fzf-preview.Jumps<CR>
 nnoremap <silent> [fzf-p]g;    :<C-u>CocCommand fzf-preview.Changes<CR>
 nnoremap <silent> [fzf-p]/     :<C-u>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'"<CR>
 nnoremap <silent> [fzf-p]*     :<C-u>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
@@ -682,7 +691,34 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
   endfunction
 "" COc settings end--------------------------
 
+
+
+
+
+" -------------------------"
+"               t9md/vim-choosewin                "
+" ----------------------------------------------------------------------------""
+nmap  =  <Plug>(choosewin)
+" オーバーレイ機能を有効にしたい場合
+let g:choosewin_overlay_enable          = 1
+
+" オーバーレイ・フォントをマルチバイト文字を含むバッファでも綺麗に表示する。
+let g:choosewin_overlay_clear_multibyte = 1
+
+
+
 lua require('mini')
 lua require('whichikey')
 source ~/.config/nvim/config/mini.vim
 source ~/.config/nvim/config/airline.vim
+
+
+
+
+
+
+
+
+
+
+
