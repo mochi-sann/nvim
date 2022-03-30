@@ -22,8 +22,12 @@ set nocursorline             "カーソル行をハイライト
 set whichwrap=b,s,h,l,<,>,[,] " hjklを使ってるときにカーソルを行頭、行末で止まらないようにする
 set ignorecase            " 検索するときに大文字と小文字を区別しない
 set autoindent
+set autoread           "ファイルが更新されたら自動で採用見込みする"
+set nobackup
+set fenc=utf-8
 syntax on
 set showcmd
+set wildmode=list:longest
 
 nnoremap <Leader> <Nop>
 xnoremap <Leader> <Nop>
@@ -62,6 +66,8 @@ xmap <C-p> [fzf-p]
 " let g:loaded_zipPlugin          = 1
 " let g:skip_loading_mswin        = 1
 
+nmap <Esc><Esc> :nohlsearch<CR><Esc>
+"検索結果のハイライトを、ESC キー連打で解除する。"
 
 tnoremap <Esc> <C-\><C-n>
 " tnoremap <C-;> <C-\><C-n>
@@ -92,9 +98,10 @@ call plug#begin()
   Plug 'vim-jp/vimdoc-ja'
   Plug 'vim-airline/vim-airline' ,{'on' : []}
   Plug 'vim-airline/vim-airline-themes' ,{'on' : []}
-  Plug 'github/copilot.vim'
+  " Plug 'github/copilot.vim'
   " Plug 'cohama/lexima.vim'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
   Plug 'vim-denops/denops.vim'
 
   Plug 'alvan/vim-closetag',{}
@@ -121,7 +128,7 @@ call plug#begin()
   \ 'do': 'make install'
   \}
   Plug 'tyru/open-browser.vim'
-  Plug 't9md/vim-choosewin'
+  Plug 't9md/vim-choosewin' , {'on': ['<Plug>(choosewin)']}
 
   " Plug 'glepnir/dashboard-nvim'
 " Plug 'hrsh7th/vim-vsnip'
@@ -179,8 +186,8 @@ let g:mapleader = "\<Space>"
 
 "let g:airline_theme='dracula'
 let g:auto_save = 1
-let g:auto_save_no_updatetime = 1  " do not change the 'updatetime' option
- let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
+" let g:auto_save_no_updatetime = 1  " do not change the 'updatetime' option
+ " let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
 
 set helplang=ja
 "let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
@@ -212,18 +219,18 @@ let g:highlightedyank_highlight_duration = 500
 set encoding=utf-8
 
 " TextEdit might fail if hidden is not set.
-"set hidden
+set hidden
 
 " Some servers have issues with backup files, see #649.
-"set nobackup
-"set nowritebackup
+set nobackup
+set nowritebackup
 
 " Give more space for displaying messages.
-"set cmdheight=2
+set cmdheight=1
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-""set updatetime=300
+set updatetime=300
 
 " Don't pass messages to |ins-completion-menu|.
 "set shortmess+=c
@@ -237,7 +244,6 @@ set encoding=utf-8
 " Ctrl+nでファイルツリーを表示/非表示する
 " // nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=40<CR>
 " ファイルアイコンを表示
-let g:fern#renderer = 'nerdfont'
 
 
 let g:fern#renderer = 'nerdfont'
@@ -546,8 +552,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap [fzf-p]f  <Plug>(coc-format-selected)
-nmap [fzf-p]f  <Plug>(coc-format-selected)
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -566,6 +572,8 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
+" Run the Code Lens action on the current line.
+nmap <leader>cl  <Plug>(coc-codelens-action)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
@@ -605,7 +613,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
@@ -615,7 +623,7 @@ nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.
 nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document.
-""nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols.
 nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
@@ -665,7 +673,7 @@ nnoremap <silent> [fzf-p]j :<C-u>call CocActionAsync('jumpDefinition', CocJumpAc
 imap <C-l> <Plug>(coc-snippets-expand)
 
 " Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
+vmap <C-h> <Plug>(coc-snippets-select)
 
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
 let g:coc_snippet_next = '<c-j>'
