@@ -35,6 +35,8 @@ nnoremap <Leader> <Nop>
 xnoremap <Leader> <Nop>
 nnoremap [dev]    <Nop>
 xnoremap [dev]    <Nop>
+nnoremap    [Tag]   <Nop>
+nmap    t [Tag]
 nmap     m        [dev]
 xmap     m        [dev]
 nnoremap [ff]     <Nop>
@@ -199,10 +201,160 @@ augroup TransparentBG
 
 
 
+"-------------------------------------------
+" インデントにいろをつけるところ
+
+lua <<EOF
+vim.opt.termguicolors = true
+vim.cmd [[highlight IndentBlanklineIndent1 guifg=#3F0D11 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent2 guifg=#664914 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent3 guifg=#324921 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent4 guifg=#215359 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent5 guifg=#1060A1 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent6 guifg=#67207D gui=nocombine]]
+
+vim.opt.list = true
+vim.opt.listchars:append("space:⋅")
+
+require("indent_blankline").setup {
+    space_char_blankline = " ",
+    char_highlight_list = {
+        "IndentBlanklineIndent1",
+        "IndentBlanklineIndent2",
+        "IndentBlanklineIndent3",
+        "IndentBlanklineIndent4",
+        "IndentBlanklineIndent5",
+        "IndentBlanklineIndent6",
+    },
+}
+
+EOF
+
+"------------------------------------------------------"
+"relastle/vim-colorrange
+"カラーコードを編集するところ
+
+nnoremap <A-a> :ColorrangeIncrement<CR>
+nnoremap <A-x> :ColorrangeDecrement<CR>
+
+
+
+"------------------------------------------------------"
+" タブを使いやすくする設定
+
+" https://qiita.com/wadako111/items/755e753677dd72d8036d を参考にした
+" Anywhere SID. vim のタブの設定
+function! s:SID_PREFIX()
+  return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
+endfunction
+
+" Set tabline.
+function! s:my_tabline()  "{{{
+  let s = ''
+  for i in range(1, tabpagenr('$'))
+    let bufnrs = tabpagebuflist(i)
+    let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
+    let no = i  " display 0-origin tabpagenr.
+    let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
+    let title = fnamemodify(bufname(bufnr), ':t')
+    let title = '[' . title . ']'
+    let s .= '%'.i.'T'
+    let s .= '%#' . (i == tabpagenr() ? 'TabLineSel' : 'TabLine') . '#'
+    let s .= no . ':' . title
+    let s .= mod
+    let s .= '%#TabLineFill# '
+  endfor
+  let s .= '%#TabLineFill#%T%=%#TabLine#'
+  return s
+endfunction "}}}
+let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
+
+" The prefix key.
+" Tab jump
+" for n in range(1, 9)
+"   execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
+" endfor
+" t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
+
+map <silent> [Tag]c :tablast <bar> tabnew<CR>
+" tc 新しいタブを一番右に作る
+map <silent> [Tag]x :tabclose<CR>
+" tx タブを閉じる
+map <silent> [Tag]n :tabnext<CR>
+" tn 次のタブ
+map <silent> [Tag]p :tabprevious<CR>
+" tp 前のタブ
+
+
+"------------------------------------------------------"
+"定義元にジャンプする
+
+" 定義にジャンプする https://zenn.dev/skanehira/articles/2021-12-12-vim-coc-nvim-jump-split
+" [
+"   {"text": "(e)dit", "value": "edit"}
+"   {"text": "(n)ew", "value": "new"}
+" ]
+" NOTE: text must contains '()' to detect input and its must be 1 character
+function! ChoseAction(actions) abort
+  echo join(map(copy(a:actions), { _, v -> v.text }), ", ") .. ": "
+  let result = getcharstr()
+  let result = filter(a:actions, { _, v -> v.text =~# printf(".*\(%s\).*", result)})
+  return len(result) ? result[0].value : ""
+endfunction
+
+function! CocJumpAction() abort
+  let actions = [
+        \ {"text": "(s)plit", "value": "split"},
+        \ {"text": "(v)slit", "value": "vsplit"},
+        \ {"text": "(t)ab", "value": "tabedit"},
+        \ ]
+  return ChoseAction(actions)
+endfunction
+
+
 
 
 "---------------------------------------------------------- coc.nvim の設定
+"" ---------------------
+" 拡張機能の一覧 ---------------------------------------------
+  let g:coc_global_extensions = [
+  \  "coc-clangd",
+  \  "coc-css",
+  \  "coc-deno",
+  \  "coc-docker",
+  \  "coc-emmet",
+  \  "coc-eslint",
+  \  "coc-flutter",
+  \  "coc-fzf-preview",
+  \  "coc-git",
+  \  "coc-json",
+  \  "coc-jsref",
+  \  "coc-lists",
+  \  "coc-markdown-preview-enhanced",
+  \  "coc-markdownlint",
+  \  "coc-marketplace",
+  \  "coc-prettier",
+  \  "coc-prisma",
+  \  "coc-react-refactor",
+  \  "coc-rust-analyzer",
+  \  "coc-sh",
+  \  "coc-simple-react-snippets",
+  \  "coc-snippets",
+  \  "coc-svelte",
+  \  "coc-tabnine",
+  \  "coc-tailwindcss",
+  \  "coc-toml",
+  \  "coc-tsserver",
+  \  "coc-vetur",
+  \  "coc-webview",
+  \  "coc-yaml",
+  \  "coc-lua"
+  \]"
+" 次のスニペットに移動----------------------------
+  let g:coc_snippet_next = '<c-j>'
 
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
