@@ -146,15 +146,63 @@ EOF
 endfunction
 " 40ms ごに ロードする
 call timer_start(40, function("s:LazyLoadPlugs"))
+"--------------------------------
+" 小規模プラグインは先に書く
+" -------------------- 
+"  vim auto save
+let g:auto_save = 1
+" let g:auto_save_no_updatetime = 1  " do not change the 'updatetime' option
+ let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
+" help の言語を日本語にする
+set helplang=ja
+
+"--------------------------------
+" ヤンクしたときにhighlightする
+""if !exists('##TextYankPost')
+  nmap y <Plug>(highlightedyank)
+  xmap y <Plug>(highlightedyank)
+  omap y <Plug>(highlightedyank)
+""endif
+let g:highlightedyank_highlight_duration = 500
+
+
+
+"--------------------------------
+" Fern settings 
+
+
+let g:fern#renderer = 'nerdfont'
+let g:fern#disable_drawer_auto_restore_focus = 1
+let g:fern#renderer#default#leading = "hogehogeho "
+nnoremap <C-n> :Fern . -reveal=% -drawer -right -width=35  <CR>
+let g:fern#default_hidden=1 "不可視ファイルを表示する
+
+
+ augroup my-glyph-palette
+   autocmd! *
+   autocmd FileType fern call glyph_palette#apply()
+   autocmd FileType nerdtree,startify call glyph_palette#apply()
+ augroup END
+
+
+"--------------------------------
+"  colorschem settings 
+"
+colorschem dracula
+
+" 背景をなくす
+hi Normal guibg=NONE ctermbg=NONE
+augroup TransparentBG
+  autocmd!
+  autocmd Colorscheme * hi Normal guibg=NONE ctermbg=NONE
+ augroup END
+
+
+
+
 
 "---------------------------------------------------------- coc.nvim の設定
 
-if has("nvim-0.5.0") || has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
