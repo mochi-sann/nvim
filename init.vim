@@ -23,11 +23,11 @@ set whichwrap=b,s,h,l,<,>,[,] " hjklを使ってるときにカーソルを行�
 set ignorecase            " 検索するときに大文字と小文字を区別しない
 set autoindent
 set autoread           "ファイルが更新されたら自動で採用見込みする"
-set nobackup
-set fenc=utf-8
+" set nobackup
+" set fenc=utf-8
 syntax on
 set showcmd
-set wildmode=list:longest
+" set wildmode=list:longest
 
 nnoremap <Leader> <Nop>
 xnoremap <Leader> <Nop>
