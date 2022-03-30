@@ -48,13 +48,106 @@ xmap [fzf-p] <Nop>
 
 nmap <C-p> [fzf-p]
 xmap <C-p> [fzf-p]
-
+" ---------------------------------------------------------------------
 " --------------- plugin liest
+"  ---------------------------------------------------------
 call plug#begin()
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  
+  Plug 'lambdalisue/fern.vim',{'on': 'Fern'}
+  Plug 'lambdalisue/fern-git-status.vim',{'on': 'Fern'}
+  Plug 'lambdalisue/nerdfont.vim',{'on': 'Fern'}
+  Plug 'lambdalisue/fern-renderer-nerdfont.vim',{'on': 'Fern'}
+  Plug 'lambdalisue/glyph-palette.vim'
+  Plug 'lambdalisue/fern-bookmark.vim',{'on': 'Fern'}
+  Plug 'lambdalisue/fern-hijack.vim' 
+  Plug 'lambdalisue/gina.vim'
+  Plug 't9md/vim-quickhl',{'on': ['<Plug>(quickhl-manual-this)','<Plug>(quickhl-manual-reset)']}
+  Plug 'terryma/vim-expand-region',{'on':[ '<Plug>(expand_region_expand)','<Plug>(expand_region_shrink)']}
+  Plug 'segeljakt/vim-silicon', { 'on': 'Silicon' }
+  Plug 'dracula/vim', { 'as': 'dracula' }
+  Plug 'joshdick/onedark.vim'
+  Plug 'vim-scripts/vim-auto-save'
+  Plug 'vim-jp/vimdoc-ja'
+  Plug 'vim-airline/vim-airline' ,{'on' : []}
+  Plug 'vim-airline/vim-airline-themes' ,{'on' : []}
+  " Plug 'github/copilot.vim'
+  " Plug 'cohama/lexima.vim'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+  Plug 'vim-denops/denops.vim'
+
+  Plug 'alvan/vim-closetag',{}
+  Plug 'lukas-reineke/indent-blankline.nvim'
+  Plug 'p00f/nvim-ts-rainbow',{'on':[]}
+  Plug 'nvim-treesitter/nvim-treesitter' , {'on':[]}
+  " Plug 'tomtom/tcomment_vim'
+  Plug 'airblade/vim-gitgutter'
+  " Plug 'RRethy/vim-illuminate'
+  Plug 'MunifTanjim/nui.nvim'
+  " Plug 'editorconfig/editorconfig-vim'
+  Plug 'windwp/nvim-ts-autotag' ,{'on':[]}
+  " Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'echasnovski/mini.nvim', { 'branch': 'stable' }
+  Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
+  " Plug 'mhinz/vim-startify'
+  Plug 'folke/which-key.nvim'
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'relastle/vim-colorrange', { 'on': ['ColorrangeIncrement' , 'ColorrangeDecrement'] }
+  Plug 'lilydjwg/colorizer'
+  Plug 'machakann/vim-highlightedyank', {'on':['<Plug>(highlightedyank)']}
+  Plug 'heavenshell/vim-jsdoc', {
+  \ 'for': ['javascript', 'javascript.jsx','typescript'],
+  \ 'do': 'make install'
+  \}
+  Plug 'tyru/open-browser.vim'
+  Plug 't9md/vim-choosewin' , {'on': ['<Plug>(choosewin)']}
 
 call plug#end()
+" ---------------------------------------------
+"  遅延読み込み
+"  --------------------------------------------------
+function! s:LazyLoadPlugs(timer) abort
+  " save current position by marking Z because plug#load reloads current buffer
+  normal! mZ
+  call plug#load(
+        \   'nvim-treesitter',
+        \   'nvim-ts-rainbow',
+        \   'nvim-ts-autotag',
+        \   'vim-airline',
+        \   'vim-airline-themes',
+        \ )
+  normal! g`Z
+""
+  delmarks Z
+lua <<EOF
+require("nvim-treesitter.configs").setup {
+  highlight = {
+      -- ...
+    enable = true,
+  },
+  ensure_installed = 'all',
+  rainbow = {
+    enable = true,
+    -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+    extended_mode = false, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+    max_file_lines = nil, -- Do not enable for files with more than n lines, int
+    -- colors = {}, -- table of hex strings
+    -- termcolors = {} -- table of colour name strings
+  },
+  autotag = {
+    enable = true,
+  }
+}
 
+EOF
+" source ~/.config/nvim/config/airline.vim
+endfunction
+" 40ms ごに ロードする
+call timer_start(40, function("s:LazyLoadPlugs"))
+
+"---------------------------------------------------------- coc.nvim の設定
 
 if has("nvim-0.5.0") || has("patch-8.1.1564")
   " Recently vim can merge signcolumn and number column into one
