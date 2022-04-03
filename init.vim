@@ -2,7 +2,7 @@ set encoding=utf-8
 set hidden
 set nobackup
 set nowritebackup
-set cmdheight=2
+set cmdheight=1
 set updatetime=300
 set shortmess+=c
 set number             "行番号を表示
@@ -105,6 +105,11 @@ call plug#begin()
   \}
   Plug 'tyru/open-browser.vim'
   Plug 't9md/vim-choosewin' , {'on': ['<Plug>(choosewin)']}
+  Plug 'skanehira/vsession'
+  Plug 'atelierbram/vim-colors_duotones'
+  Plug 'uloco/vim-bluloco-dark'
+  Plug 'skanehira/jumpcursor.vim'
+
 
 call plug#end()
 " ---------------------------------------------
@@ -158,6 +163,18 @@ let g:auto_save = 1
 " help の言語を日本語にする
 set helplang=ja
 
+nmap <Esc><Esc> :nohlsearch<CR><Esc>
+"検索結果のハイライトを、ESC キー連打で解除する。"
+
+tnoremap <Esc> <C-\><C-n>
+" tnoremap <C-;> <C-\><C-n>
+" hi clear CursorLine
+" autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+
+"ターミナルでescでノーマルモードに戻る
+":T コマンドでVSCodeみたいにターミナルを起動する
+command! -nargs=* T split | wincmd j | resize 20 | terminal <args>
+"
 "--------------------------------
 " ヤンクしたときにhighlightする
 ""if !exists('##TextYankPost')
@@ -168,6 +185,13 @@ set helplang=ja
 let g:highlightedyank_highlight_duration = 500
 
 
+"------------------------------------------------
+"skanehira/vsession
+let g:vsession_ui = 'fzf'
+
+"------------------------------------------------
+" skanehira/jumpcursor.vim
+nmap [j <Plug>(jumpcursor-jump)
 
 "--------------------------------
 " Fern settings 
@@ -319,7 +343,7 @@ nmap  =  <Plug>(choosewin)
 let g:choosewin_overlay_enable          = 1
 
 " オーバーレイ・フォントをマルチバイト文字を含むバッファでも綺麗に表示する。
-let g:choosewin_overlay_clear_multibyte = 1
+" let g:choosewin_overlay_clear_multibyte = 1
 
 
 
