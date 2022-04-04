@@ -1,8 +1,3 @@
-set encoding=utf-8
-set hidden
-set nobackup
-set nowritebackup
-set cmdheight=1
 set updatetime=300
 set shortmess+=c
 set number             "行番号を表示
@@ -106,8 +101,8 @@ call plug#begin()
   Plug 'tyru/open-browser.vim'
   Plug 't9md/vim-choosewin' , {'on': ['<Plug>(choosewin)']}
   Plug 'skanehira/vsession'
-  Plug 'atelierbram/vim-colors_duotones'
-  Plug 'uloco/vim-bluloco-dark'
+  " Plug 'atelierbram/vim-colors_duotones'
+  " Plug 'uloco/vim-bluloco-dark'
   Plug 'skanehira/jumpcursor.vim'
 
 
@@ -173,7 +168,7 @@ tnoremap <Esc> <C-\><C-n>
 
 "ターミナルでescでノーマルモードに戻る
 ":T コマンドでVSCodeみたいにターミナルを起動する
-command! -nargs=* T split | wincmd j | resize 20 | terminal <args>
+command! -nargs=* T split | wincmd j | resize 15 | terminal <args>
 "
 "--------------------------------
 " ヤンクしたときにhighlightする
@@ -338,7 +333,7 @@ endfunction
 " -------------------------"
 "               t9md/vim-choosewin                "
 " ----------------------------------------------------------------------------""
-nmap  =  <Plug>(choosewin)
+nmap  -  <Plug>(choosewin)
 " オーバーレイ機能を有効にしたい場合
 let g:choosewin_overlay_enable          = 1
 
@@ -381,7 +376,8 @@ let g:choosewin_overlay_enable          = 1
   \  "coc-vetur",
   \  "coc-webview",
   \  "coc-yaml",
-  \  "coc-lua"
+  \  "coc-lua",
+  \  "coc-pairs"
   \]"
 " 次のスニペットに移動----------------------------
   let g:coc_snippet_next = '<c-j>'
