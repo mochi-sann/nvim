@@ -48,10 +48,11 @@ xmap <C-p> [fzf-p]
 " ---------------------------------------------------------------------
 " --------------- plugin liest
 "  ---------------------------------------------------------
+
 call plug#begin()
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
   Plug 'lambdalisue/fern.vim',{'on': 'Fern'}
   Plug 'lambdalisue/fern-git-status.vim',{'on': 'Fern'}
   Plug 'lambdalisue/nerdfont.vim',{'on': 'Fern'}
@@ -100,13 +101,15 @@ call plug#begin()
   \}
   Plug 'tyru/open-browser.vim'
   Plug 't9md/vim-choosewin' , {'on': ['<Plug>(choosewin)']}
-  Plug 'skanehira/vsession'
+  " Plug 'skanehira/vsession'
   " Plug 'atelierbram/vim-colors_duotones'
   " Plug 'uloco/vim-bluloco-dark'
   Plug 'skanehira/jumpcursor.vim'
+  Plug 'petertriho/nvim-scrollbar'
 
 
-call plug#end()
+
+ call plug#end()
 " ---------------------------------------------
 "  遅延読み込み
 "  --------------------------------------------------
@@ -181,10 +184,6 @@ let g:highlightedyank_highlight_duration = 500
 
 
 "------------------------------------------------
-"skanehira/vsession
-let g:vsession_ui = 'fzf'
-
-"------------------------------------------------
 " skanehira/jumpcursor.vim
 nmap [j <Plug>(jumpcursor-jump)
 
@@ -257,6 +256,20 @@ nnoremap <A-a> :ColorrangeIncrement<CR>
 nnoremap <A-x> :ColorrangeDecrement<CR>
 
 
+
+"------------------------------------------------------"
+" カーソル下の単語をGoogleで検索する
+function! s:search_by_google() 
+    let line = line(".")
+    let col  = col(".")
+    let searchWord = expand("<cword>")
+    if searchWord  != ''
+        execute 'read !open https://www.google.co.jp/search\?q\=' . searchWord
+        execute 'call cursor(' . line . ',' . col . ')'
+    endif
+endfunction
+command! SearchByGoogle call s:search_by_google()
+nnoremap <silent> <Space>g :SearchByGoogle<CR>
 
 "------------------------------------------------------"
 " タブを使いやすくする設定
