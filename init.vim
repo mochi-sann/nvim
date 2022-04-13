@@ -74,7 +74,7 @@ call plug#begin()
   Plug 'lambdalisue/fern-git-status.vim',{'on': 'Fern'}
   Plug 'lambdalisue/nerdfont.vim',{'on': 'Fern'}
   Plug 'lambdalisue/fern-renderer-nerdfont.vim',{'on': 'Fern'}
-  Plug 'lambdalisue/glyph-palette.vim'
+  Plug 'lambdalisue/glyph-palette.vim',{'on':'Fern'}
   Plug 'lambdalisue/fern-bookmark.vim',{'on': 'Fern'}
   Plug 'lambdalisue/fern-hijack.vim' 
   Plug 'lambdalisue/gina.vim'
@@ -82,7 +82,6 @@ call plug#begin()
   Plug 'terryma/vim-expand-region',{'on':[ '<Plug>(expand_region_expand)','<Plug>(expand_region_shrink)']}
   Plug 'segeljakt/vim-silicon', { 'on': 'Silicon' }
   Plug 'dracula/vim', { 'as': 'dracula' }
-  Plug 'joshdick/onedark.vim'
   Plug 'vim-scripts/vim-auto-save'
   Plug 'vim-jp/vimdoc-ja'
   Plug 'vim-airline/vim-airline' ,{'on' : []}
@@ -93,7 +92,7 @@ call plug#begin()
 
   Plug 'vim-denops/denops.vim'
 
-  Plug 'alvan/vim-closetag',{}
+  Plug 'alvan/vim-closetag',{'for': ['html','vue','javascript','javascriptreact','typescriptreact','typescript']}
   Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'p00f/nvim-ts-rainbow',{'on':[]}
   Plug 'nvim-treesitter/nvim-treesitter' , {'on':[]}
@@ -114,7 +113,8 @@ call plug#begin()
   Plug 'machakann/vim-highlightedyank', {'on':['<Plug>(highlightedyank)']}
   Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript'],
-  \ 'do': 'make install'
+  \ 'do': 'make install',
+  \ 'on': ['JsDoc']
   \}
   Plug 'tyru/open-browser.vim'
   Plug 't9md/vim-choosewin' , {'on': ['<Plug>(choosewin)']}
@@ -623,9 +623,11 @@ nnoremap <silent> [fzf-p]l     :<C-u>FzfPreviewLocationListRpc<CR>
 "
 
 
- lua require('mini')
- lua require('whichikey')
+lua require('mini')
+lua require('whichikey')
 lua require('nvim-cmp')
+lua require('nvim-scrollbar')
+
 source ~/.config/nvim/config/mini.vim
 source ~/.config/nvim/config/airline.vim
 
