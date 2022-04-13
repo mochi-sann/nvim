@@ -1,7 +1,7 @@
 set updatetime=300
 set shortmess+=c
 set number             "行番号を表示
-set laststatus=3
+set laststatus=3        "ステータスラインを画面いっぱいに描画する"
 set signcolumn=yes
 set autoindent         "改行時に自動でインデントする
 set tabstop=2          "タブを何文字の空白に変換するか
@@ -19,7 +19,7 @@ set nocursorline             "カーソル行をハイライト
 set whichwrap=b,s,h,l,<,>,[,] " hjklを使ってるときにカーソルを行頭、行末で止まらないようにする
 set ignorecase            " 検索するときに大文字と小文字を区別しない
 set autoindent
-set autoread           "ファイルが更新されたら自動で採用見込みする"
+set autoread ar           "ファイルが更新されたら自動で採用見込みする"
 " set nobackup
 " set fenc=utf-8
 syntax on
