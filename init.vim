@@ -26,7 +26,6 @@ set autoread ar           "ファイルが更新されたら自動で採用見�
 syntax on
 set showcmd
 " set wildmode=list:longest
-
 set completeopt=menu,menuone,noselect
 
 nnoremap <Leader> <Nop>
@@ -66,6 +65,8 @@ call plug#begin()
   Plug 'hrsh7th/cmp-cmdline'
   Plug 'hrsh7th/nvim-cmp'
   Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
+
+  Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 
   Plug 'SirVer/ultisnips'
   Plug 'quangnguyen30192/cmp-nvim-ultisnips'
@@ -601,7 +602,6 @@ xnoremap          [fzf-p]gr    "sy:FzfPreviewProjectGrepRpc<Space>-F<Space>"<C-r
 nnoremap <silent> [fzf-p]t     :<C-u>FzfPreviewBufferTagsRpc<CR>
 nnoremap <silent> [fzf-p]q     :<C-u>FzfPreviewQuickFixRpc<CR>
 nnoremap <silent> [fzf-p]l     :<C-u>FzfPreviewLocationListRpc<CR>
-
 "------------------------- coc snipet の設定
 
 " imap <C-l> <Plug>(coc-snippets-expand)
@@ -630,4 +630,3 @@ lua require('nvim-scrollbar')
 
 source ~/.config/nvim/config/mini.vim
 source ~/.config/nvim/config/airline.vim
-
