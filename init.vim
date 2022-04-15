@@ -68,8 +68,9 @@ call plug#begin()
   Plug 'hrsh7th/cmp-nvim-lsp-document-symbol'
   Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 
-  Plug 'SirVer/ultisnips'
-  Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+  Plug 'hrsh7th/cmp-vsnip'
+  Plug 'hrsh7th/vim-vsnip'
+
 
   Plug 'lambdalisue/fern.vim',{'on': 'Fern'}
   Plug 'lambdalisue/fern-git-status.vim',{'on': 'Fern'}
@@ -172,6 +173,11 @@ call timer_start(40, function("s:LazyLoadPlugs"))
 "--------------------------------
 " 小規模プラグインは先に書く
 " -------------------- 
+" --------------------  vsnip
+let g:vsnip_filetypes = {}
+
+let g:vsnip_filetypes.javascriptreact = ['javascript']
+let g:vsnip_filetypes.typescriptreact = ['typescript']
 "  vim auto save
 let g:auto_save = 1
 " let g:auto_save_no_updatetime = 1  " do not change the 'updatetime' option
