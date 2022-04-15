@@ -1,13 +1,9 @@
 # @mochi-sann のneovimの設定集です
 
-## プラグインマネージャー
-
-https://github.com/Shougo/dein.vim#quick-start
-
-dein.vim
-プラグインの更新&追加
-```:bash
-call dein#install()
+# install 方法
+```bash
+cd ~/.config
+git clone https://github.com/mochi-sann/nvim-settings nvim
+npm i -g emmet-ls
+brew install fzf
 ```
-## ファイルマネージャー
-https://github.com/lambdalisue/fern.vim
