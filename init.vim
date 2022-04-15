@@ -50,7 +50,6 @@ xmap <C-p> [fzf-p]
 " ---------------------------------------------------------------------
 " --------------- plugin liest
 "  ---------------------------------------------------------
-
 call plug#begin()
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
@@ -65,7 +64,8 @@ call plug#begin()
   Plug 'hrsh7th/cmp-cmdline'
   Plug 'hrsh7th/nvim-cmp'
   Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
-
+  Plug 'hrsh7th/cmp-emoji'
+  Plug 'hrsh7th/cmp-nvim-lsp-document-symbol'
   Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 
   Plug 'SirVer/ultisnips'
