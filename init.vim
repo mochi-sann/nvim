@@ -23,7 +23,7 @@ set autoread ar           "ファイルが更新されたら自動で採用見�
 " set viminfo=100
 " set nobackup
 " set fenc=utf-8
-syntax on
+syntax off 
 set showcmd
 " set wildmode=list:longest
 set completeopt=menu,menuone,noselect
@@ -67,10 +67,13 @@ call plug#begin()
   Plug 'hrsh7th/cmp-emoji'
   Plug 'hrsh7th/cmp-nvim-lsp-document-symbol'
   Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+  Plug 'onsails/lspkind.nvim'
 
   Plug 'hrsh7th/cmp-vsnip'
   Plug 'hrsh7th/vim-vsnip'
 
+  Plug 'jose-elias-alvarez/null-ls.nvim'
+  Plug 'nvim-lua/plenary.nvim'
 
   Plug 'lambdalisue/fern.vim',{'on': 'Fern'}
   Plug 'lambdalisue/fern-git-status.vim',{'on': 'Fern'}
@@ -97,7 +100,9 @@ call plug#begin()
   Plug 'alvan/vim-closetag',{'for': ['html','vue','javascript','javascriptreact','typescriptreact','typescript']}
   Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'p00f/nvim-ts-rainbow',{'on':[]}
-  Plug 'nvim-treesitter/nvim-treesitter' , {'on':[]}
+  " Plug 'nvim-treesitter/nvim-treesitter' , {'on':[]}
+  Plug 'nvim-treesitter/nvim-treesitter', {'on': [],'do': ':TSUpdate'}
+
   " Plug 'tomtom/tcomment_vim'
   Plug 'airblade/vim-gitgutter'
   " Plug 'RRethy/vim-illuminate'
@@ -124,7 +129,7 @@ call plug#begin()
   " Plug 'atelierbram/vim-colors_duotones'
   " Plug 'uloco/vim-bluloco-dark'
   Plug 'skanehira/jumpcursor.vim'
-  Plug 'petertriho/nvim-scrollbar'
+  " Plug 'petertriho/nvim-scrollbar'
 
 
 
@@ -156,7 +161,7 @@ require("nvim-treesitter.configs").setup {
     enable = true,
     -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
     extended_mode = false, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-    max_file_lines = nil, -- Do not enable for files with more than n lines, int
+    max_file_lines = 20, -- Do not enable for files with more than n lines, int
     -- colors = {}, -- table of hex strings
     -- termcolors = {} -- table of colour name strings
   },
@@ -205,6 +210,7 @@ command! -nargs=* T split | wincmd j | resize 15 | terminal <args>
   omap y <Plug>(highlightedyank)
 ""endif
 let g:highlightedyank_highlight_duration = 500
+"----------------------------
 
 
 "------------------------------------------------
@@ -608,31 +614,14 @@ xnoremap          [fzf-p]gr    "sy:FzfPreviewProjectGrepRpc<Space>-F<Space>"<C-r
 nnoremap <silent> [fzf-p]t     :<C-u>FzfPreviewBufferTagsRpc<CR>
 nnoremap <silent> [fzf-p]q     :<C-u>FzfPreviewQuickFixRpc<CR>
 nnoremap <silent> [fzf-p]l     :<C-u>FzfPreviewLocationListRpc<CR>
-"------------------------- coc snipet の設定
 
-" imap <C-l> <Plug>(coc-snippets-expand)
-"
-" " Use <C-j> for select text for visual placeholder of snippet.
-" vmap <C-h> <Plug>(coc-snippets-select)
-"
-" " Use <C-j> for jump to next placeholder, it's default of coc.nvim
-" let g:coc_snippet_next = '<c-j>'
-"
-" " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-" let g:coc_snippet_prev = '<c-k>'
-"
-" " Use <C-j> for both expand and jump (make expand higher priority.)
-" imap <C-j> <Plug>(coc-snippets-expand-jump)
-"
-" "" "nnoremap  <silent> <buffer> <Plug>mf <Cmd>CocCommand eslint.executeAutofix<CR><Cmd>CocCommand prettier.formatFile<CR>
-"  nnoremap <silent> mf <C-u>:call CocAction('format')<cr><C-u><cr>
-"
-
+nnoremap <silent> mf           :lua vim.lsp.buf.formatting()<CR>
 
 lua require('mini')
 lua require('whichikey')
 lua require('nvim-cmp')
-lua require('nvim-scrollbar')
+" lua require('null-ls')
+" lua require('nvim-scrollbar')
 
 source ~/.config/nvim/config/mini.vim
 source ~/.config/nvim/config/airline.vim
