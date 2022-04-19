@@ -130,9 +130,6 @@ call plug#begin()
   " Plug 'uloco/vim-bluloco-dark'
   Plug 'skanehira/jumpcursor.vim'
   " Plug 'petertriho/nvim-scrollbar'
-
-
-
  call plug#end()
 " ---------------------------------------------
 "  遅延読み込み
@@ -211,8 +208,6 @@ command! -nargs=* T split | wincmd j | resize 15 | terminal <args>
 ""endif
 let g:highlightedyank_highlight_duration = 500
 "----------------------------
-
-
 "------------------------------------------------
 " skanehira/jumpcursor.vim
 nmap [j <Plug>(jumpcursor-jump)
