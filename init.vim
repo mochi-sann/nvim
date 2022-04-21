@@ -50,39 +50,70 @@ xmap <C-p> [fzf-p]
 " ---------------------------------------------------------------------
 " --------------- plugin liest
 "  ---------------------------------------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+
+" Required:
+set runtimepath+=/Users/mochi/.cache/dein/repos/github.com/Shougo/dein.vim
+
+" Required:
+call dein#begin('/Users/mochi/.cache/dein')
+
+" Let dein manage dein
+" Required:
+call dein#add('/Users/mochi/.cache/dein/repos/github.com/Shougo/dein.vim')
+
+" Add or remove your plugins here like this:
+"call dein#add('Shougo/neosnippet.vim')
+"call dein#add('Shougo/neosnippet-snippets')
+call dein#add('wsdjeg/dein-ui.vim')
+
+call dein#add('junegunn/fzf',{'build': 'fzf#install()'})
+call dein#add('yuki-yano/fzf-preview.vim', { 'rev' : 'release/rpc'})
+
+call dein#add('neovim/nvim-lspconfig')
+call dein#add('williamboman/nvim-lsp-installer')
+call dein#add('hrsh7th/cmp-nvim-lsp')
+call dein#add('hrsh7th/cmp-buffer')
+call dein#add('hrsh7th/cmp-path')
+call dein#add('hrsh7th/cmp-cmdline')
+call dein#add('hrsh7th/nvim-cmp')
+call dein#add('hrsh7th/cmp-emoji')
+call dein#add('hrsh7th/cmp-nvim-lsp-signature-help')
+call dein#add('tzachar/cmp-tabnine', {'build' : './install.sh'})
+call dein#add('onsails/lspkind.nvim')
+
+
+call dein#add('hrsh7th/cmp-vsnip')
+call dein#add('hrsh7th/vim-vsnip')
+
+call dein#add('lambdalisue/fern.vim', {'on_event': 'Fern'})
+call dein#add('lambdalisue/fern-git-status.vim', {'on_event': 'Fern'})
+call dein#add('lambdalisue/nerdfont.vim', {'on_event': 'Fern'})
+call dein#add('lambdalisue/fern-renderer-nerdfont.vim', {'on_event': 'Fern'})
+call dein#add('lambdalisue/glyph-palette.vim', {'on_event': 'Fern'})
+call dein#add('lambdalisue/fern-bookmark.vim', {'on_event': 'Fern'})
+call dein#add('lambdalisue/fern-hijack.vim', )
+call dein#add('lambdalisue/gina.vim',)
+" Required:
+call dein#end()
+
+" Required:
+filetype plugin indent on
+syntax enable
+
+" If you want to install not installed plugins on startup.
+"if dein#check_install()
+"  call dein#install()
+"endif
 call plug#begin()
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 
-  Plug 'neovim/nvim-lspconfig'
 
-  Plug 'williamboman/nvim-lsp-installer'
-
-  Plug 'hrsh7th/cmp-nvim-lsp'
-  Plug 'hrsh7th/cmp-buffer'
-  Plug 'hrsh7th/cmp-path'
-  Plug 'hrsh7th/cmp-cmdline'
-  Plug 'hrsh7th/nvim-cmp'
-  Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
-  Plug 'hrsh7th/cmp-emoji'
-  Plug 'hrsh7th/cmp-nvim-lsp-document-symbol'
-  Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
-  Plug 'onsails/lspkind.nvim'
-
-  Plug 'hrsh7th/cmp-vsnip'
-  Plug 'hrsh7th/vim-vsnip'
 
   Plug 'jose-elias-alvarez/null-ls.nvim'
   Plug 'nvim-lua/plenary.nvim'
 
-  Plug 'lambdalisue/fern.vim',{'on': 'Fern'}
-  Plug 'lambdalisue/fern-git-status.vim',{'on': 'Fern'}
-  Plug 'lambdalisue/nerdfont.vim',{'on': 'Fern'}
-  Plug 'lambdalisue/fern-renderer-nerdfont.vim',{'on': 'Fern'}
-  Plug 'lambdalisue/glyph-palette.vim',{'on':'Fern'}
-  Plug 'lambdalisue/fern-bookmark.vim',{'on': 'Fern'}
-  Plug 'lambdalisue/fern-hijack.vim' , {'on': 'VimEnter'}
-  Plug 'lambdalisue/gina.vim'
   Plug 't9md/vim-quickhl',{'on': ['<Plug>(quickhl-manual-this)','<Plug>(quickhl-manual-reset)']}
   Plug 'terryma/vim-expand-region',{'on':[ '<Plug>(expand_region_expand)','<Plug>(expand_region_shrink)']}
   Plug 'segeljakt/vim-silicon', { 'on': 'Silicon' }
