@@ -50,110 +50,100 @@ xmap <C-p> [fzf-p]
 " ---------------------------------------------------------------------
 " --------------- plugin liest
 "  ---------------------------------------------------------
-call plug#begin()
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
+packadd vim-jetpack
 
-  Plug 'neovim/nvim-lspconfig'
+call jetpack#begin()
+  Jetpack 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Jetpack 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 
-  Plug 'williamboman/nvim-lsp-installer'
+  Jetpack 'neovim/nvim-lspconfig'
 
-  Plug 'hrsh7th/cmp-nvim-lsp'
-  Plug 'hrsh7th/cmp-buffer'
-  Plug 'hrsh7th/cmp-path'
-  Plug 'hrsh7th/cmp-cmdline'
-  Plug 'hrsh7th/nvim-cmp'
-  Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
-  Plug 'hrsh7th/cmp-emoji'
-  Plug 'hrsh7th/cmp-nvim-lsp-document-symbol'
-  Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
-  Plug 'onsails/lspkind.nvim'
+  Jetpack 'williamboman/nvim-lsp-installer'
 
-  Plug 'hrsh7th/cmp-vsnip'
-  Plug 'hrsh7th/vim-vsnip'
+  Jetpack 'hrsh7th/cmp-nvim-lsp'
+  Jetpack 'hrsh7th/cmp-buffer'
+  Jetpack 'hrsh7th/cmp-path'
+  Jetpack 'hrsh7th/cmp-cmdline'
+  Jetpack 'hrsh7th/nvim-cmp'
+  Jetpack 'hrsh7th/cmp-nvim-lsp-signature-help'
+  Jetpack 'hrsh7th/cmp-emoji'
+  Jetpack 'hrsh7th/cmp-nvim-lsp-document-symbol'
+  Jetpack 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+  Jetpack 'onsails/lspkind.nvim'
 
-  Plug 'jose-elias-alvarez/null-ls.nvim'
-  Plug 'nvim-lua/plenary.nvim'
+  Jetpack 'hrsh7th/cmp-vsnip'
+  Jetpack 'hrsh7th/vim-vsnip'
 
-  Plug 'lambdalisue/fern.vim',{'on': 'Fern'}
-  Plug 'lambdalisue/fern-git-status.vim',{'on': 'Fern'}
-  Plug 'lambdalisue/nerdfont.vim',{'on': 'Fern'}
-  Plug 'lambdalisue/fern-renderer-nerdfont.vim',{'on': 'Fern'}
-  Plug 'lambdalisue/glyph-palette.vim',{'on':'Fern'}
-  Plug 'lambdalisue/fern-bookmark.vim',{'on': 'Fern'}
-  Plug 'lambdalisue/fern-hijack.vim' 
-  Plug 'lambdalisue/gina.vim'
-  Plug 't9md/vim-quickhl',{'on': ['<Plug>(quickhl-manual-this)','<Plug>(quickhl-manual-reset)']}
-  Plug 'terryma/vim-expand-region',{'on':[ '<Plug>(expand_region_expand)','<Plug>(expand_region_shrink)']}
-  Plug 'segeljakt/vim-silicon', { 'on': 'Silicon' }
-  Plug 'dracula/vim', { 'as': 'dracula' }
-  Plug 'vim-scripts/vim-auto-save'
-  Plug 'vim-jp/vimdoc-ja'
-  Plug 'vim-airline/vim-airline' ,{'on' : []}
-  Plug 'vim-airline/vim-airline-themes' ,{'on' : []}
-  " Plug 'github/copilot.vim'
-  " Plug 'cohama/lexima.vim'
-  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Jetpack 'jose-elias-alvarez/null-ls.nvim'
+  Jetpack 'nvim-lua/plenary.nvim'
 
-  Plug 'vim-denops/denops.vim'
+  Jetpack 'lambdalisue/fern.vim',{'on': 'Fern'}
+  Jetpack 'lambdalisue/fern-git-status.vim',{'on': 'Fern'}
+  Jetpack 'lambdalisue/nerdfont.vim',{'on': 'Fern'}
+  Jetpack 'lambdalisue/fern-renderer-nerdfont.vim',{'on': 'Fern'}
+  Jetpack 'lambdalisue/glyph-palette.vim',{'on':'Fern'}
+  Jetpack 'lambdalisue/fern-bookmark.vim',{'on': 'Fern'}
+  Jetpack 'lambdalisue/fern-hijack.vim' 
+  Jetpack 'lambdalisue/gina.vim'
+  Jetpack 't9md/vim-quickhl',{'on': ['<jetpack>(quickhl-manual-this)','<jetpack>(quickhl-manual-reset)']}
+  Jetpack 'terryma/vim-expand-region',{'on':[ '<jetpack>(expand_region_expand)','<jetpack>(expand_region_shrink)']}
+  Jetpack 'segeljakt/vim-silicon', { 'on': 'Silicon' }
+  Jetpack 'dracula/vim', { 'as': 'dracula' }
+  Jetpack 'vim-scripts/vim-auto-save'
+  Jetpack 'vim-jp/vimdoc-ja'
+  Jetpack 'vim-airline/vim-airline' 
+  Jetpack 'vim-airline/vim-airline-themes' 
+  " jetpack 'github/copilot.vim'
+  " jetpack 'cohama/lexima.vim'
+  " jetpack 'neoclide/coc.nvim', {'branch': 'release'}
 
-  Plug 'alvan/vim-closetag',{'for': ['html','vue','javascript','javascriptreact','typescriptreact','typescript']}
-  Plug 'lukas-reineke/indent-blankline.nvim'
-  Plug 'p00f/nvim-ts-rainbow',{'on':[]}
-  " Plug 'nvim-treesitter/nvim-treesitter' , {'on':[]}
-  Plug 'nvim-treesitter/nvim-treesitter', {'on': [],'do': ':TSUpdate'}
+  Jetpack 'vim-denops/denops.vim'
 
-  " Plug 'tomtom/tcomment_vim'
-  Plug 'airblade/vim-gitgutter'
-  " Plug 'RRethy/vim-illuminate'
-  Plug 'MunifTanjim/nui.nvim'
-  " Plug 'editorconfig/editorconfig-vim'
-  Plug 'windwp/nvim-ts-autotag' ,{'on':[]}
-  " Plug 'kyazdani42/nvim-web-devicons'
-  Plug 'echasnovski/mini.nvim', { 'branch': 'stable' }
-  Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
-  " Plug 'mhinz/vim-startify'
-  Plug 'folke/which-key.nvim'
-  Plug 'ryanoasis/vim-devicons'
-  Plug 'relastle/vim-colorrange', { 'on': ['ColorrangeIncrement' , 'ColorrangeDecrement'] }
-  Plug 'lilydjwg/colorizer'
-  Plug 'machakann/vim-highlightedyank', {'on':['<Plug>(highlightedyank)']}
-  Plug 'heavenshell/vim-jsdoc', {
+  Jetpack 'alvan/vim-closetag',{'for': ['html','vue','javascript','javascriptreact','typescriptreact','typescript']}
+  Jetpack 'lukas-reineke/indent-blankline.nvim'
+  Jetpack 'p00f/nvim-ts-rainbow'
+  " jetpack 'nvim-treesitter/nvim-treesitter' , {'on':[]}
+  Jetpack 'nvim-treesitter/nvim-treesitter',{'on':[]}
+
+  " jetpack 'tomtom/tcomment_vim'
+  Jetpack 'airblade/vim-gitgutter'
+  " jetpack 'RRethy/vim-illuminate'
+  Jetpack 'MunifTanjim/nui.nvim'
+  " jetpack 'editorconfig/editorconfig-vim'
+  Jetpack 'windwp/nvim-ts-autotag' 
+  " jetpack 'kyazdani42/nvim-web-devicons'
+  Jetpack 'echasnovski/mini.nvim', { 'branch': 'stable' }
+  Jetpack 'tversteeg/registers.nvim', { 'branch': 'main' }
+  " jetpack 'mhinz/vim-startify'
+  Jetpack 'folke/which-key.nvim'
+  Jetpack 'ryanoasis/vim-devicons'
+  Jetpack 'relastle/vim-colorrange', { 'on': ['ColorrangeIncrement' , 'ColorrangeDecrement'] }
+  Jetpack 'lilydjwg/colorizer'
+  Jetpack 'machakann/vim-highlightedyank', {'on':['<jetpack>(highlightedyank)']}
+  Jetpack 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript'],
   \ 'do': 'make install',
   \ 'on': ['JsDoc']
   \}
-  Plug 'tyru/open-browser.vim'
-  Plug 't9md/vim-choosewin' , {'on': ['<Plug>(choosewin)']}
-  " Plug 'skanehira/vsession'
-  " Plug 'atelierbram/vim-colors_duotones'
-  " Plug 'uloco/vim-bluloco-dark'
-  Plug 'skanehira/jumpcursor.vim'
-  " Plug 'petertriho/nvim-scrollbar'
- call plug#end()
+  Jetpack 'tyru/open-browser.vim'
+  Jetpack 't9md/vim-choosewin' , {'on': ['<jetpack>(choosewin)']}
+  " jetpack 'skanehira/vsession'
+  " jetpack 'atelierbram/vim-colors_duotones'
+  " jetpack 'uloco/vim-bluloco-dark'
+  Jetpack 'skanehira/jumpcursor.vim'
+  " jetpack 'petertriho/nvim-scrollbar'
+ call jetpack#end()
 " ---------------------------------------------
 "  遅延読み込み
 "  --------------------------------------------------
-function! s:LazyLoadPlugs(timer) abort
-  " save current position by marking Z because plug#load reloads current buffer
-  normal! mZ
-  call plug#load(
-        \   'nvim-treesitter',
-        \   'nvim-ts-rainbow',
-        \   'nvim-ts-autotag',
-        \   'vim-airline',
-        \   'vim-airline-themes',
-        \ )
-  normal! g`Z
-""
-  delmarks Z
 lua <<EOF
 require("nvim-treesitter.configs").setup {
   highlight = {
       -- ...
     enable = true,
   },
-  ensure_installed = 'all',
+    ensure_installed = { "c", "lua", "rust","astro", "bash" , "cmake","dockerfile","go","html","javascript","json","json5","latex","lua","markdown","php","prisma","python","ruby", "rust","svelte","tsx","typescript", "vim","vue","yaml" },
+
   rainbow = {
     enable = true,
     -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
@@ -169,9 +159,6 @@ require("nvim-treesitter.configs").setup {
 
 EOF
 " source ~/.config/nvim/config/airline.vim
-endfunction
-" 40ms ごに ロードする
-call timer_start(40, function("s:LazyLoadPlugs"))
 "--------------------------------
 " 小規模プラグインは先に書く
 " -------------------- 
