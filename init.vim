@@ -81,13 +81,13 @@ call plug#begin()
   Plug 'lambdalisue/fern-renderer-nerdfont.vim',{'on': 'Fern'}
   Plug 'lambdalisue/glyph-palette.vim',{'on':'Fern'}
   Plug 'lambdalisue/fern-bookmark.vim',{'on': 'Fern'}
-  Plug 'lambdalisue/fern-hijack.vim' 
+  Plug 'lambdalisue/fern-hijack.vim' , {'on': 'VimEnter'}
   Plug 'lambdalisue/gina.vim'
   Plug 't9md/vim-quickhl',{'on': ['<Plug>(quickhl-manual-this)','<Plug>(quickhl-manual-reset)']}
   Plug 'terryma/vim-expand-region',{'on':[ '<Plug>(expand_region_expand)','<Plug>(expand_region_shrink)']}
   Plug 'segeljakt/vim-silicon', { 'on': 'Silicon' }
   Plug 'dracula/vim', { 'as': 'dracula' }
-  Plug 'vim-scripts/vim-auto-save'
+  Plug 'vim-scripts/vim-auto-save', {'on': 'VimEnter'}
   Plug 'vim-jp/vimdoc-ja'
   Plug 'vim-airline/vim-airline' ,{'on' : []}
   Plug 'vim-airline/vim-airline-themes' ,{'on' : []}
@@ -104,7 +104,7 @@ call plug#begin()
   Plug 'nvim-treesitter/nvim-treesitter', {'on': [],'do': ':TSUpdate'}
 
   " Plug 'tomtom/tcomment_vim'
-  Plug 'airblade/vim-gitgutter'
+  Plug 'airblade/vim-gitgutter', {'on': 'VimEnter'}
   " Plug 'RRethy/vim-illuminate'
   Plug 'MunifTanjim/nui.nvim'
   " Plug 'editorconfig/editorconfig-vim'
@@ -128,7 +128,7 @@ call plug#begin()
   " Plug 'skanehira/vsession'
   " Plug 'atelierbram/vim-colors_duotones'
   " Plug 'uloco/vim-bluloco-dark'
-  Plug 'skanehira/jumpcursor.vim'
+  Plug 'skanehira/jumpcursor.vim', {'on': 'VimEnter'}
   " Plug 'petertriho/nvim-scrollbar'
  call plug#end()
 " ---------------------------------------------
