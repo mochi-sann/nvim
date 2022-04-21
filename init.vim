@@ -23,10 +23,29 @@ set autoread ar           "ファイルが更新されたら自動で採用見�
 " set viminfo=100
 " set nobackup
 " set fenc=utf-8
-syntax off 
+syntax on 
 set showcmd
 " set wildmode=list:longest
 set completeopt=menu,menuone,noselect
+
+" let g:did_install_default_menus = 1
+" let g:did_install_syntax_menu   = 1
+" let g:did_indent_on             = 1
+" let g:did_load_filetypes        = 1
+" let g:did_load_ftplugin         = 1
+" let g:loaded_2html_plugin       = 1
+" let g:loaded_gzip               = 1
+" let g:loaded_man                = 1
+" let g:loaded_matchit            = 1
+" let g:loaded_matchparen         = 1
+" let g:loaded_netrwPlugin        = 1
+" let g:loaded_remote_plugins     = 1
+" let g:loaded_shada_plugin       = 1
+" let g:loaded_spellfile_plugin   = 1
+" let g:loaded_tarPlugin          = 1
+" let g:loaded_tutor_mode_plugin  = 1
+" let g:loaded_zipPlugin          = 1
+" let g:skip_loading_mswin        = 1
 
 nnoremap <Leader> <Nop>
 xnoremap <Leader> <Nop>
@@ -85,14 +104,15 @@ call jetpack#begin()
   Jetpack 'lambdalisue/fern-bookmark.vim',{'on': 'Fern'}
   Jetpack 'lambdalisue/fern-hijack.vim' 
   Jetpack 'lambdalisue/gina.vim'
-  Jetpack 't9md/vim-quickhl',{'on': ['<jetpack>(quickhl-manual-this)','<jetpack>(quickhl-manual-reset)']}
-  Jetpack 'terryma/vim-expand-region',{'on':[ '<jetpack>(expand_region_expand)','<jetpack>(expand_region_shrink)']}
+
+  Jetpack 't9md/vim-quickhl',{'on': ['<Plug>(quickhl-manual-this)','<Plug>(quickhl-manual-reset)']}
+  Jetpack 'terryma/vim-expand-region',{'on':[ '<Plug>(expand_region_expand)','<Plug>(expand_region_shrink)']}
   Jetpack 'segeljakt/vim-silicon', { 'on': 'Silicon' }
   Jetpack 'dracula/vim', { 'as': 'dracula' }
-  Jetpack 'vim-scripts/vim-auto-save'
+  Jetpack 'vim-scripts/vim-auto-save', {'on': ['BufRead']}
   Jetpack 'vim-jp/vimdoc-ja'
-  Jetpack 'vim-airline/vim-airline' 
-  Jetpack 'vim-airline/vim-airline-themes' 
+  Jetpack 'vim-airline/vim-airline' , {'on': ['BufRead']}
+  Jetpack 'vim-airline/vim-airline-themes' , {'on': ['BufRead']}
   " jetpack 'github/copilot.vim'
   " jetpack 'cohama/lexima.vim'
   " jetpack 'neoclide/coc.nvim', {'branch': 'release'}
@@ -103,14 +123,14 @@ call jetpack#begin()
   Jetpack 'lukas-reineke/indent-blankline.nvim'
   Jetpack 'p00f/nvim-ts-rainbow'
   " jetpack 'nvim-treesitter/nvim-treesitter' , {'on':[]}
-  Jetpack 'nvim-treesitter/nvim-treesitter',{'on':[]}
+  Jetpack 'nvim-treesitter/nvim-treesitter'
 
   " jetpack 'tomtom/tcomment_vim'
-  Jetpack 'airblade/vim-gitgutter'
+  Jetpack 'airblade/vim-gitgutter', {'on': ['BufRead']}
   " jetpack 'RRethy/vim-illuminate'
   Jetpack 'MunifTanjim/nui.nvim'
   " jetpack 'editorconfig/editorconfig-vim'
-  Jetpack 'windwp/nvim-ts-autotag' 
+  Jetpack 'windwp/nvim-ts-autotag' , {'on': ['BufRead']}
   " jetpack 'kyazdani42/nvim-web-devicons'
   Jetpack 'echasnovski/mini.nvim', { 'branch': 'stable' }
   Jetpack 'tversteeg/registers.nvim', { 'branch': 'main' }
@@ -119,27 +139,27 @@ call jetpack#begin()
   Jetpack 'ryanoasis/vim-devicons'
   Jetpack 'relastle/vim-colorrange', { 'on': ['ColorrangeIncrement' , 'ColorrangeDecrement'] }
   Jetpack 'lilydjwg/colorizer'
-  Jetpack 'machakann/vim-highlightedyank', {'on':['<jetpack>(highlightedyank)']}
+  Jetpack 'machakann/vim-highlightedyank', {'on':['<Plug>(highlightedyank)']}
   Jetpack 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript'],
   \ 'do': 'make install',
   \ 'on': ['JsDoc']
   \}
-  Jetpack 'tyru/open-browser.vim'
-  Jetpack 't9md/vim-choosewin' , {'on': ['<jetpack>(choosewin)']}
+  " Jetpack 'tyru/open-browser.vim'
+  Jetpack 't9md/vim-choosewin' , {'on': ['<Plug>(choosewin)']}
   " jetpack 'skanehira/vsession'
-  " jetpack 'atelierbram/vim-colors_duotones'
+  " jetpack 'atelierbra/vim-colors_duotones'
   " jetpack 'uloco/vim-bluloco-dark'
-  Jetpack 'skanehira/jumpcursor.vim'
+  Jetpack 'skanehira/jumpcursor.vim'. {'on': ['<Plug>(jumpcursor-jump)']}
   " jetpack 'petertriho/nvim-scrollbar'
  call jetpack#end()
+ let g:jetpack#optimization=2
 " ---------------------------------------------
 "  遅延読み込み
 "  --------------------------------------------------
 lua <<EOF
 require("nvim-treesitter.configs").setup {
   highlight = {
-      -- ...
     enable = true,
   },
     ensure_installed = { "c", "lua", "rust","astro", "bash" , "cmake","dockerfile","go","html","javascript","json","json5","latex","lua","markdown","php","prisma","python","ruby", "rust","svelte","tsx","typescript", "vim","vue","yaml" },
