@@ -50,30 +50,13 @@ xmap <C-p> [fzf-p]
 " ---------------------------------------------------------------------
 " --------------- plugin liest
 "  ---------------------------------------------------------
+
+lua require('plugins')
+
 call plug#begin()
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 
-  Plug 'neovim/nvim-lspconfig'
 
-  Plug 'williamboman/nvim-lsp-installer'
 
-  Plug 'hrsh7th/cmp-nvim-lsp'
-  Plug 'hrsh7th/cmp-buffer'
-  Plug 'hrsh7th/cmp-path'
-  Plug 'hrsh7th/cmp-cmdline'
-  Plug 'hrsh7th/nvim-cmp'
-  Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
-  Plug 'hrsh7th/cmp-emoji'
-  Plug 'hrsh7th/cmp-nvim-lsp-document-symbol'
-  Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
-  Plug 'onsails/lspkind.nvim'
-
-  Plug 'hrsh7th/cmp-vsnip'
-  Plug 'hrsh7th/vim-vsnip'
-
-  Plug 'jose-elias-alvarez/null-ls.nvim'
-  Plug 'nvim-lua/plenary.nvim'
 
   Plug 'lambdalisue/fern.vim',{'on': 'Fern'}
   Plug 'lambdalisue/fern-git-status.vim',{'on': 'Fern'}
@@ -404,7 +387,7 @@ nnoremap <silent> mf           :lua vim.lsp.buf.formatting()<CR>
 
 lua require('mini')
 lua require('whichikey')
-lua require('nvim-cmp')
+""lua require('nvim-cmp')
 " lua require('null-ls')
 " lua require('nvim-scrollbar')
 
