@@ -79,7 +79,6 @@ call dein#end()
 
 " Required:
 filetype plugin indent on
-syntax enable
 
 " If you want to install not installed plugins on startup.
 "if dein#check_install()
@@ -92,30 +91,12 @@ syntax enable
   " save current position by marking Z because plug#load reloads current buffer
 
 lua <<EOF
-require("nvim-treesitter.configs").setup {
-  highlight = {
-      -- ...
-    enable = true,
-  },
-  ensure_installed = { "c", "lua", "rust","astro", "bash" , "cmake","dockerfile","go","html","javascript","json","json5","latex","lua","markdown","php","prisma","python","ruby", "rust","svelte","tsx","typescript", "vim","vue","yaml" ,"toml"},
-  rainbow = {
-    enable = true,
-    -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
-    extended_mode = false, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-    max_file_lines = 20, -- Do not enable for files with more than n lines, int
-    -- colors = {}, -- table of hex strings
-    -- termcolors = {} -- table of colour name strings
-  },
-  autotag = {
-    enable = true,
-  }
-}
 
 EOF
 " source ~/.config/nvim/config/airline.vim
 
 " 40ms ごに ロードする
-call timer_start(40, function("s:LazyLoadPlugs"))
+" call timer_start(40, function("s:LazyLoadPlugs"))
 "--------------------------------
 " 小規模プラグインは先に書く
 " -------------------- 
@@ -162,7 +143,6 @@ nmap [j <Plug>(jumpcursor-jump)
 
 let g:fern#renderer = 'nerdfont'
 let g:fern#disable_drawer_auto_restore_focus = 1
-let g:fern#renderer#default#leading = "hogehogeho "
 nnoremap <C-n> :Fern . -reveal=% -drawer -right -width=35  <CR>
 let g:fern#default_hidden=1 "不可視ファイルを表示する
 
@@ -347,7 +327,6 @@ nnoremap <silent> [fzf-p]l     :<C-u>FzfPreviewLocationListRpc<CR>
 nnoremap <silent> mf           :lua vim.lsp.buf.formatting()<CR>
 
 lua require('mini')
-lua require('whichikey')
 lua require('nvim-cmp')
 " lua require('null-ls')
 " lua require('nvim-scrollbar')

@@ -44,18 +44,12 @@ repo = "jose-elias-alvarez/null-ls.nvim"
 [[plugins]]
 repo = "nvim-lua/plenary.nvim"
 
-[[plugins]]
-repo = "jose-elias-alvarez/null-ls.nvim"
-[[plugins]]
-repo = "jose-elias-alvarez/null-ls.nvim"
-[[plugins]]
-repo = "jose-elias-alvarez/null-ls.nvim"
 
 [[plugins]]
 repo =  "lambdalisue/glyph-palette.vim"
+[[plugins]]
+repo = "lambdalisue/nerdfont.vim"
 
-[[multiple_plugins]]
-plugins = ["lambdalisue/fern.vim" ,"lambdalisue/fern-git-status" ,"lambdalisue/nerdfont.vim","lambdalisue/fern-renderer-nerdfont.vim" ,"lambdalisue/fern-bookmark.vim"]
 
 [[plugins]]
 repo = "lambdalisue/fern-hijack.vim"
@@ -73,12 +67,15 @@ repo = "vim-airline/vim-airline-themes"
 [[plugins]]
 repo = "vim-denops/denops.vim"
 
- [[plugins]]
+[[plugins]]
  repo = "lukas-reineke/indent-blankline.nvim"
   
 [[plugins]]
 repo = "nvim-treesitter/nvim-treesitter"
 build_on = ":TSUpdate"
+hook_add="""
+lua require("treesitte")
+"""
 [[plugins]]
 repo = "windwp/nvim-ts-autotag"
 

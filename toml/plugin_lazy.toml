@@ -13,6 +13,11 @@ on_cmd =[ "VimEnter"]
 [[plugins]]
 repo = "airblade/vim-gitgutter"
 on_cmd =[ "VimEnter"]
+# [[plugins]]
+# repo ="liuchengxu/vim-which-key"
+# hook_add = """
+# lua require('whichikey')
+# """
 [[plugins]]
 repo = "relastle/vim-colorrange"
 on_cmd =[ "ColorrangeIncrement","ColorrangeDecrement"]
@@ -26,3 +31,22 @@ on_cmd =[ "JsDoc"]
 [[plugins]]
 repo = "t9md/vim-choosewin"
 on_cmd =[ "<Plug>(choosewin)"]
+
+[[plugins]]
+repo = "lambdalisue/fern.vim"
+on_cmd =[ "Fern"]
+[[plugins]]
+repo = "lambdalisue/fern-git-status.vim"
+on_cmd =[ "Fern"]
+[[plugins]]
+repo = "lambdalisue/fern-renderer-nerdfont.vim"
+hook_add = """
+let g:fern#renderer = "nerdfont"
+"""
+on_cmd =[ "Fern"]
+
+[[plugins]]
+repo = "lambdalisue/fern-bookmark.vim"
+on_cmd =[ "Fern"]
+
+
