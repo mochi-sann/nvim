@@ -103,7 +103,7 @@ call jetpack#begin()
   Jetpack 'lambdalisue/glyph-palette.vim',{'on':'Fern'}
   Jetpack 'lambdalisue/fern-bookmark.vim',{'on': 'Fern'}
   Jetpack 'lambdalisue/fern-hijack.vim' 
-  Jetpack 'lambdalisue/gina.vim'
+  Jetpack 'lambdalisue/gina.vim', {'on': ['VimEnter']}
 
   Jetpack 't9md/vim-quickhl',{'on': ['<Plug>(quickhl-manual-this)','<Plug>(quickhl-manual-reset)']}
   Jetpack 'terryma/vim-expand-region',{'on':[ '<Plug>(expand_region_expand)','<Plug>(expand_region_shrink)']}
@@ -111,8 +111,8 @@ call jetpack#begin()
   Jetpack 'dracula/vim', { 'as': 'dracula' }
   Jetpack 'vim-scripts/vim-auto-save', {'on': ['BufRead']}
   Jetpack 'vim-jp/vimdoc-ja'
-  Jetpack 'vim-airline/vim-airline' , {'on': ['BufRead']}
-  Jetpack 'vim-airline/vim-airline-themes' , {'on': ['BufRead']}
+  Jetpack 'vim-airline/vim-airline' , {'on': ['VimEnter']}
+  Jetpack 'vim-airline/vim-airline-themes' , {'on': ['VimEnter']}
   " jetpack 'github/copilot.vim'
   " jetpack 'cohama/lexima.vim'
   " jetpack 'neoclide/coc.nvim', {'branch': 'release'}
@@ -126,11 +126,11 @@ call jetpack#begin()
   Jetpack 'nvim-treesitter/nvim-treesitter'
 
   " jetpack 'tomtom/tcomment_vim'
-  Jetpack 'airblade/vim-gitgutter', {'on': ['BufRead']}
+  Jetpack 'airblade/vim-gitgutter', {'on': ['VimEnter']}
   " jetpack 'RRethy/vim-illuminate'
   Jetpack 'MunifTanjim/nui.nvim'
   " jetpack 'editorconfig/editorconfig-vim'
-  Jetpack 'windwp/nvim-ts-autotag' , {'on': ['BufRead']}
+  Jetpack 'windwp/nvim-ts-autotag' , {'on': ['VimEnter']}
   " jetpack 'kyazdani42/nvim-web-devicons'
   Jetpack 'echasnovski/mini.nvim', { 'branch': 'stable' }
   Jetpack 'tversteeg/registers.nvim', { 'branch': 'main' }
@@ -158,24 +158,6 @@ call jetpack#begin()
 "  遅延読み込み
 "  --------------------------------------------------
 lua <<EOF
-require("nvim-treesitter.configs").setup {
-  highlight = {
-    enable = true,
-  },
-    ensure_installed = { "c", "lua", "rust","astro", "bash" , "cmake","dockerfile","go","html","javascript","json","json5","latex","lua","markdown","php","prisma","python","ruby", "rust","svelte","tsx","typescript", "vim","vue","yaml" },
-
-  rainbow = {
-    enable = true,
-    -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
-    extended_mode = false, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-    max_file_lines = 20, -- Do not enable for files with more than n lines, int
-    -- colors = {}, -- table of hex strings
-    -- termcolors = {} -- table of colour name strings
-  },
-  autotag = {
-    enable = true,
-  }
-}
 
 EOF
 " source ~/.config/nvim/config/airline.vim
@@ -254,31 +236,6 @@ augroup TransparentBG
 "-------------------------------------------
 " インデントにいろをつけるところ
 
-lua <<EOF
-vim.opt.termguicolors = true
-vim.cmd [[highlight IndentBlanklineIndent1 guifg=#3F0D11 gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineIndent2 guifg=#664914 gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineIndent3 guifg=#324921 gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineIndent4 guifg=#215359 gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineIndent5 guifg=#1060A1 gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineIndent6 guifg=#67207D gui=nocombine]]
-
-vim.opt.list = true
-vim.opt.listchars:append("space:⋅")
-
-require("indent_blankline").setup {
-    space_char_blankline = " ",
-    char_highlight_list = {
-        "IndentBlanklineIndent1",
-        "IndentBlanklineIndent2",
-        "IndentBlanklineIndent3",
-        "IndentBlanklineIndent4",
-        "IndentBlanklineIndent5",
-        "IndentBlanklineIndent6",
-    },
-}
-
-EOF
 
 "------------------------------------------------------"
 "relastle/vim-colorrange
@@ -412,6 +369,8 @@ nnoremap <silent> mf           :lua vim.lsp.buf.formatting()<CR>
 lua require('mini')
 lua require('whichikey')
 lua require('nvim-cmp')
+lua require('treesitter')
+lua require('indent-blank-line')
 " lua require('null-ls')
 " lua require('nvim-scrollbar')
 
