@@ -111,8 +111,8 @@ call jetpack#begin()
   Jetpack 'dracula/vim', { 'as': 'dracula' }
   Jetpack 'vim-scripts/vim-auto-save', {'on': ['BufRead']}
   Jetpack 'vim-jp/vimdoc-ja'
-  Jetpack 'vim-airline/vim-airline' , {'on': ['VimEnter']}
-  Jetpack 'vim-airline/vim-airline-themes' , {'on': ['VimEnter']}
+  " Jetpack 'vim-airline/vim-airline' , {'on': ['VimEnter']}
+  " Jetpack 'vim-airline/vim-airline-themes' , {'on': ['VimEnter']}
   " jetpack 'github/copilot.vim'
   " jetpack 'cohama/lexima.vim'
   " jetpack 'neoclide/coc.nvim', {'branch': 'release'}
@@ -131,7 +131,9 @@ call jetpack#begin()
   Jetpack 'MunifTanjim/nui.nvim'
   " jetpack 'editorconfig/editorconfig-vim'
   Jetpack 'windwp/nvim-ts-autotag' , {'on': ['VimEnter']}
-  " jetpack 'kyazdani42/nvim-web-devicons'
+  Jetpack 'nvim-lualine/lualine.nvim'
+
+  Jetpack 'kyazdani42/nvim-web-devicons'
   Jetpack 'echasnovski/mini.nvim', { 'branch': 'stable' }
   Jetpack 'tversteeg/registers.nvim', { 'branch': 'main' }
   " jetpack 'mhinz/vim-startify'
@@ -158,7 +160,6 @@ call jetpack#begin()
 "  遅延読み込み
 "  --------------------------------------------------
 
-source ~/.config/nvim/config/airline.vim
 
 " source ~/.config/nvim/config/airline.vim
 "
@@ -372,7 +373,9 @@ lua require('whichikey')
 lua require('nvim-cmp')
 lua require('treesitter')
 lua require('indent-blank-line')
+lua require('nvim-lualine')
 " lua require('null-ls')
 " lua require('nvim-scrollbar')
-
+set laststatus=3
 source ~/.config/nvim/config/mini.vim
+" source ~/.config/nvim/config/airline.vim
