@@ -73,7 +73,7 @@ xmap <C-p> [fzf-p]
 
 call jetpack#begin()
   Jetpack 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Jetpack 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
+  Jetpack 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc','on':['VimEnter'] }
 
   Jetpack 'neovim/nvim-lspconfig'
 
@@ -109,7 +109,7 @@ call jetpack#begin()
   Jetpack 'terryma/vim-expand-region',{'on':[ '<Plug>(expand_region_expand)','<Plug>(expand_region_shrink)']}
   Jetpack 'segeljakt/vim-silicon', { 'on': 'Silicon' }
   Jetpack 'dracula/vim', { 'as': 'dracula' }
-  Jetpack 'vim-scripts/vim-auto-save', {'on': ['BufRead']}
+  Jetpack 'vim-scripts/vim-auto-save', {'on': ['VimEnter']}
   Jetpack 'vim-jp/vimdoc-ja'
   " Jetpack 'vim-airline/vim-airline' , {'on': ['VimEnter']}
   " Jetpack 'vim-airline/vim-airline-themes' , {'on': ['VimEnter']}
