@@ -20,10 +20,12 @@ set whichwrap=b,s,h,l,<,>,[,] " hjklを使ってるときにカーソルを行�
 set ignorecase            " 検索するときに大文字と小文字を区別しない
 set autoindent
 set autoread ar           "ファイルが更新されたら自動で採用見込みする"
+set ttyfast
+
 " set viminfo=100
 " set nobackup
 " set fenc=utf-8
-syntax off 
+syntax on
 set showcmd
 " set wildmode=list:longest
 set completeopt=menu,menuone,noselect
@@ -62,40 +64,16 @@ call dein#begin('/Users/mochi/.cache/dein')
 
 " Let dein manage dein
 " Required:
+"" call dein#load_toml('~/.vim/userautoload/dein/lazy.toml', {'lazy': 1})
+
 call dein#add('/Users/mochi/.cache/dein/repos/github.com/Shougo/dein.vim')
 
 " Add or remove your plugins here like this:
 "call dein#add('Shougo/neosnippet.vim')
 "call dein#add('Shougo/neosnippet-snippets')
-call dein#add('wsdjeg/dein-ui.vim')
+ call dein#load_toml('~/.config/nvim/toml/plugin.toml', {'lazy': 0})
+ call dein#load_toml('~/.config/nvim/toml/plugin_lazy.toml', {'lazy': 1})
 
-call dein#add('junegunn/fzf',{'build': 'fzf#install()'})
-call dein#add('yuki-yano/fzf-preview.vim', { 'rev' : 'release/rpc'})
-
-call dein#add('neovim/nvim-lspconfig')
-call dein#add('williamboman/nvim-lsp-installer')
-call dein#add('hrsh7th/cmp-nvim-lsp')
-call dein#add('hrsh7th/cmp-buffer')
-call dein#add('hrsh7th/cmp-path')
-call dein#add('hrsh7th/cmp-cmdline')
-call dein#add('hrsh7th/nvim-cmp')
-call dein#add('hrsh7th/cmp-emoji')
-call dein#add('hrsh7th/cmp-nvim-lsp-signature-help')
-call dein#add('tzachar/cmp-tabnine', {'build' : './install.sh'})
-call dein#add('onsails/lspkind.nvim')
-
-
-call dein#add('hrsh7th/cmp-vsnip')
-call dein#add('hrsh7th/vim-vsnip')
-
-call dein#add('lambdalisue/fern.vim', {'on_event': 'Fern'})
-call dein#add('lambdalisue/fern-git-status.vim', {'on_event': 'Fern'})
-call dein#add('lambdalisue/nerdfont.vim', {'on_event': 'Fern'})
-call dein#add('lambdalisue/fern-renderer-nerdfont.vim', {'on_event': 'Fern'})
-call dein#add('lambdalisue/glyph-palette.vim', {'on_event': 'Fern'})
-call dein#add('lambdalisue/fern-bookmark.vim', {'on_event': 'Fern'})
-call dein#add('lambdalisue/fern-hijack.vim', )
-call dein#add('lambdalisue/gina.vim',)
 " Required:
 call dein#end()
 
@@ -107,84 +85,19 @@ syntax enable
 "if dein#check_install()
 "  call dein#install()
 "endif
-call plug#begin()
-
-
-
-  Plug 'jose-elias-alvarez/null-ls.nvim'
-  Plug 'nvim-lua/plenary.nvim'
-
-  Plug 't9md/vim-quickhl',{'on': ['<Plug>(quickhl-manual-this)','<Plug>(quickhl-manual-reset)']}
-  Plug 'terryma/vim-expand-region',{'on':[ '<Plug>(expand_region_expand)','<Plug>(expand_region_shrink)']}
-  Plug 'segeljakt/vim-silicon', { 'on': 'Silicon' }
-  Plug 'dracula/vim', { 'as': 'dracula' }
-  Plug 'vim-scripts/vim-auto-save', {'on': 'VimEnter'}
-  Plug 'vim-jp/vimdoc-ja'
-  Plug 'vim-airline/vim-airline' ,{'on' : []}
-  Plug 'vim-airline/vim-airline-themes' ,{'on' : []}
-  " Plug 'github/copilot.vim'
-  " Plug 'cohama/lexima.vim'
-  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-  Plug 'vim-denops/denops.vim'
-
-  Plug 'alvan/vim-closetag',{'for': ['html','vue','javascript','javascriptreact','typescriptreact','typescript']}
-  Plug 'lukas-reineke/indent-blankline.nvim'
-  Plug 'p00f/nvim-ts-rainbow',{'on':[]}
-  " Plug 'nvim-treesitter/nvim-treesitter' , {'on':[]}
-  Plug 'nvim-treesitter/nvim-treesitter', {'on': [],'do': ':TSUpdate'}
-
-  " Plug 'tomtom/tcomment_vim'
-  Plug 'airblade/vim-gitgutter', {'on': 'VimEnter'}
-  " Plug 'RRethy/vim-illuminate'
-  Plug 'MunifTanjim/nui.nvim'
-  " Plug 'editorconfig/editorconfig-vim'
-  Plug 'windwp/nvim-ts-autotag' ,{'on':[]}
-  " Plug 'kyazdani42/nvim-web-devicons'
-  Plug 'echasnovski/mini.nvim', { 'branch': 'stable' }
-  Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
-  " Plug 'mhinz/vim-startify'
-  Plug 'folke/which-key.nvim'
-  Plug 'ryanoasis/vim-devicons'
-  Plug 'relastle/vim-colorrange', { 'on': ['ColorrangeIncrement' , 'ColorrangeDecrement'] }
-  Plug 'lilydjwg/colorizer'
-  Plug 'machakann/vim-highlightedyank', {'on':['<Plug>(highlightedyank)']}
-  Plug 'heavenshell/vim-jsdoc', {
-  \ 'for': ['javascript', 'javascript.jsx','typescript'],
-  \ 'do': 'make install',
-  \ 'on': ['JsDoc']
-  \}
-  Plug 'tyru/open-browser.vim'
-  Plug 't9md/vim-choosewin' , {'on': ['<Plug>(choosewin)']}
-  " Plug 'skanehira/vsession'
-  " Plug 'atelierbram/vim-colors_duotones'
-  " Plug 'uloco/vim-bluloco-dark'
-  Plug 'skanehira/jumpcursor.vim', {'on': 'VimEnter'}
-  " Plug 'petertriho/nvim-scrollbar'
- call plug#end()
 " ---------------------------------------------
 "  遅延読み込み
 "  --------------------------------------------------
-function! s:LazyLoadPlugs(timer) abort
+
   " save current position by marking Z because plug#load reloads current buffer
-  normal! mZ
-  call plug#load(
-        \   'nvim-treesitter',
-        \   'nvim-ts-rainbow',
-        \   'nvim-ts-autotag',
-        \   'vim-airline',
-        \   'vim-airline-themes',
-        \ )
-  normal! g`Z
-""
-  delmarks Z
+
 lua <<EOF
 require("nvim-treesitter.configs").setup {
   highlight = {
       -- ...
     enable = true,
   },
-  ensure_installed = 'all',
+  ensure_installed = { "c", "lua", "rust","astro", "bash" , "cmake","dockerfile","go","html","javascript","json","json5","latex","lua","markdown","php","prisma","python","ruby", "rust","svelte","tsx","typescript", "vim","vue","yaml" ,"toml"},
   rainbow = {
     enable = true,
     -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
@@ -200,7 +113,7 @@ require("nvim-treesitter.configs").setup {
 
 EOF
 " source ~/.config/nvim/config/airline.vim
-endfunction
+
 " 40ms ごに ロードする
 call timer_start(40, function("s:LazyLoadPlugs"))
 "--------------------------------

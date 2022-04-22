@@ -1,0 +1,123 @@
+[[plugins]]
+repo = "wsdjeg/dein-ui.vim"
+[[plugins]]
+repo = "junegunn/fzf"
+build_on = """
+fzf#install()
+"""
+[[plugins]]
+repo = "yuki-yano/fzf-preview.vim"
+rev = "release/rpc"
+[[plugins]]
+repo = "neovim/nvim-lspconfig"
+
+[[plugins]]
+repo = "williamboman/nvim-lsp-installer"
+
+[[plugins]]
+repo = "hrsh7th/cmp-nvim-lsp"
+
+[[plugins]]
+repo = "hrsh7th/cmp-buffer"
+[[plugins]]
+repo = "hrsh7th/cmp-path"
+[[plugins]]
+repo = "hrsh7th/cmp-cmdline"
+[[plugins]]
+repo = "hrsh7th/nvim-cmp"
+[[plugins]]
+repo = "hrsh7th/cmp-nvim-lsp-signature-help"
+[[plugins]]
+repo = "hrsh7th/cmp-nvim-lsp-document-symbol"
+[[plugins]]
+repo = "onsails/lspkind.nvim"
+[[plugins]]
+repo = "tzachar/cmp-tabnine"
+build_on ="""
+./install.sh
+"""
+[[multiple_plugins]]
+plugins = ["hrsh7th/cmp-vsnip", "hrsh7th/vim-vsnip"]
+
+[[plugins]]
+repo = "jose-elias-alvarez/null-ls.nvim"
+[[plugins]]
+repo = "nvim-lua/plenary.nvim"
+
+[[plugins]]
+repo = "jose-elias-alvarez/null-ls.nvim"
+[[plugins]]
+repo = "jose-elias-alvarez/null-ls.nvim"
+[[plugins]]
+repo = "jose-elias-alvarez/null-ls.nvim"
+
+[[plugins]]
+repo =  "lambdalisue/glyph-palette.vim"
+
+[[multiple_plugins]]
+plugins = ["lambdalisue/fern.vim" ,"lambdalisue/fern-git-status" ,"lambdalisue/nerdfont.vim","lambdalisue/fern-renderer-nerdfont.vim" ,"lambdalisue/fern-bookmark.vim"]
+
+[[plugins]]
+repo = "lambdalisue/fern-hijack.vim"
+[[plugins]]
+repo = "dracula/vim"
+[[plugins]]
+repo = "vim-scripts/vim-auto-save"
+[[plugins]]
+repo = "vim-jp/vimdoc-ja"
+
+[[plugins]]
+repo = "vim-airline/vim-airline"
+[[plugins]]
+repo = "vim-airline/vim-airline-themes"
+[[plugins]]
+repo = "vim-denops/denops.vim"
+
+ [[plugins]]
+ repo = "lukas-reineke/indent-blankline.nvim"
+  
+[[plugins]]
+repo = "nvim-treesitter/nvim-treesitter"
+build_on = ":TSUpdate"
+[[plugins]]
+repo = "windwp/nvim-ts-autotag"
+
+[[plugins]]
+repo = "p00f/nvim-ts-rainbow"
+[[plugins]]
+repo = "MunifTanjim/nui.nvim"
+[[plugins]]
+repo = "echasnovski/mini.nvim"
+rev ="stable"
+
+[[plugins]]
+repo = "tversteeg/registers.nvim"
+rev ="main"
+[[plugins]]
+repo = "folke/which-key"
+
+[[plugins]]
+repo = "ryanoasis/vim-devicons"
+[[plugins]]
+repo = "lilydjwg/colorizer"
+
+[[plugins]]
+repo = "tyru/open-browser.vim"
+[[plugins]]
+repo = "skanehira/jumpcursor.vim"
+
+
+
+
+  # " Plug 'skanehira/vsession'
+  # " Plug 'atelierbram/vim-colors_duotones'
+  # " Plug 'uloco/vim-bluloco-dark'
+  # " Plug 'petertriho/nvim-scrollbar'
+  # " Plug 'github/copilot.vim'
+  # " Plug 'cohama/lexima.vim'
+  # " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  # " Plug 'tomtom/tcomment_vim'
+  # " Plug 'RRethy/vim-illuminate'
+  # " Plug 'editorconfig/editorconfig-vim'
+  # " Plug 'kyazdani42/nvim-web-devicons'
+  # " Plug 'mhinz/vim-startify'

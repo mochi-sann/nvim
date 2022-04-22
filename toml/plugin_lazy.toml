@@ -1,0 +1,28 @@
+[[plugins]]
+repo = "t9md/vim-quickhl"
+on_cmd =[ "<Plug>(quickhl-manual-this)" , "<Plug>(quickhl-manual-reset)"]
+[[plugins]]
+repo = "terryma/vim-expand-region"
+on_cmd =[ "<Plug>(expand_region_expand)","<Plug>(expand_region_shrink)"]
+[[plugins]]
+repo = "segeljakt/vim-silicon"
+on_cmd =[ "Silicon"]
+[[plugins]]
+repo = "alvan/vim-closetag"
+on_cmd =[ "VimEnter"]
+[[plugins]]
+repo = "airblade/vim-gitgutter"
+on_cmd =[ "VimEnter"]
+[[plugins]]
+repo = "relastle/vim-colorrange"
+on_cmd =[ "ColorrangeIncrement","ColorrangeDecrement"]
+[[plugins]]
+repo = "machakann/vim-highlightedyank"
+on_cmd =[ "<Plug>(highlightedyank)"]
+[[plugins]]
+repo = "heavenshell/vim-jsdoc"
+build_on ="make install"
+on_cmd =[ "JsDoc"]
+[[plugins]]
+repo = "t9md/vim-choosewin"
+on_cmd =[ "<Plug>(choosewin)"]
