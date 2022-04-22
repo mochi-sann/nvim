@@ -157,10 +157,11 @@ call jetpack#begin()
 " ---------------------------------------------
 "  遅延読み込み
 "  --------------------------------------------------
-lua <<EOF
 
-EOF
+source ~/.config/nvim/config/airline.vim
+
 " source ~/.config/nvim/config/airline.vim
+"
 "--------------------------------
 " 小規模プラグインは先に書く
 " -------------------- 
@@ -375,4 +376,3 @@ lua require('indent-blank-line')
 " lua require('nvim-scrollbar')
 
 source ~/.config/nvim/config/mini.vim
-source ~/.config/nvim/config/airline.vim
