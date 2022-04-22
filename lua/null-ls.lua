@@ -1,4 +1,4 @@
-ocal null_ls = require('null-ls')
+local null_ls = require('null-ls')
 
 require("null-ls").setup({
     sources = {

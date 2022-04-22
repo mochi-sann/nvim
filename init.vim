@@ -69,7 +69,7 @@ xmap <C-p> [fzf-p]
 " ---------------------------------------------------------------------
 " --------------- plugin liest
 "  ---------------------------------------------------------
-packadd vim-jetpack
+" packadd vim-jetpack
 
 call jetpack#begin()
   Jetpack 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -150,7 +150,7 @@ call jetpack#begin()
   " jetpack 'skanehira/vsession'
   " jetpack 'atelierbra/vim-colors_duotones'
   " jetpack 'uloco/vim-bluloco-dark'
-  Jetpack 'skanehira/jumpcursor.vim'. {'on': ['<Plug>(jumpcursor-jump)']}
+  Jetpack 'skanehira/jumpcursor.vim', {'on': ['<Plug>(jumpcursor-jump)']}
   " jetpack 'petertriho/nvim-scrollbar'
  call jetpack#end()
  let g:jetpack#optimization=2
