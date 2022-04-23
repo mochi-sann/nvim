@@ -190,6 +190,11 @@ tnoremap <Esc> <C-\><C-n>
 ":T コマンドでVSCodeみたいにターミナルを起動する
 command! -nargs=* T split | wincmd j | resize 15 | terminal <args>
 "
+nmap <Space>m <Plug>(quickhl-manual-this)
+xmap <Space>m <Plug>(quickhl-manual-this)
+nmap <Space>M <Plug>(quickhl-manual-reset)
+xmap <Space>M <Plug>(quickhl-manual-reset)
+
 "--------------------------------
 " ヤンクしたときにhighlightする
 ""if !exists('##TextYankPost')
