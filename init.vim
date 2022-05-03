@@ -28,24 +28,24 @@ set showcmd
 " set wildmode=list:longest
 set completeopt=menu,menuone,noselect
 
-" let g:did_install_default_menus = 1
-" let g:did_install_syntax_menu   = 1
-" let g:did_indent_on             = 1
-" let g:did_load_filetypes        = 1
-" let g:did_load_ftplugin         = 1
-" let g:loaded_2html_plugin       = 1
-" let g:loaded_gzip               = 1
-" let g:loaded_man                = 1
-" let g:loaded_matchit            = 1
-" let g:loaded_matchparen         = 1
-" let g:loaded_netrwPlugin        = 1
-" let g:loaded_remote_plugins     = 1
-" let g:loaded_shada_plugin       = 1
-" let g:loaded_spellfile_plugin   = 1
-" let g:loaded_tarPlugin          = 1
-" let g:loaded_tutor_mode_plugin  = 1
-" let g:loaded_zipPlugin          = 1
-" let g:skip_loading_mswin        = 1
+let g:did_install_default_menus = 1
+let g:did_install_syntax_menu   = 1
+let g:did_indent_on             = 1
+let g:did_load_filetypes        = 1
+let g:did_load_ftplugin         = 1
+let g:loaded_2html_plugin       = 1
+let g:loaded_gzip               = 1
+let g:loaded_man                = 1
+let g:loaded_matchit            = 1
+let g:loaded_matchparen         = 1
+let g:loaded_netrwPlugin        = 1
+let g:loaded_remote_plugins     = 1
+let g:loaded_shada_plugin       = 1
+let g:loaded_spellfile_plugin   = 1
+let g:loaded_tarPlugin          = 1
+let g:loaded_tutor_mode_plugin  = 1
+let g:loaded_zipPlugin          = 1
+let g:skip_loading_mswin        = 1
 
 nnoremap <Leader> <Nop>
 xnoremap <Leader> <Nop>
@@ -73,7 +73,7 @@ xmap <C-p> [fzf-p]
 
 call jetpack#begin()
   Jetpack 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Jetpack 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc','on':['VimEnter'] }
+  Jetpack 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 
   Jetpack 'neovim/nvim-lspconfig'
 
@@ -149,6 +149,8 @@ call jetpack#begin()
   \}
   " Jetpack 'tyru/open-browser.vim'
   Jetpack 't9md/vim-choosewin' , {'on': ['<Plug>(choosewin)']}
+  Jetpack 'mhinz/vim-startify'
+  Jetpack 'rmagatti/auto-session'
   " jetpack 'skanehira/vsession'
   " jetpack 'atelierbra/vim-colors_duotones'
   " jetpack 'uloco/vim-bluloco-dark'
@@ -222,7 +224,7 @@ let g:fern#default_hidden=1 "不可視ファイルを表示する
  augroup my-glyph-palette
    autocmd! *
    autocmd FileType fern call glyph_palette#apply()
-   autocmd FileType nerdtree,startify call glyph_palette#apply()
+   autocmd FileType nerdtree call glyph_palette#apply()
  augroup END
 
 
@@ -379,7 +381,8 @@ lua require('nvim-cmp')
 lua require('treesitter')
 lua require('indent-blank-line')
 lua require('nvim-lualine')
-" lua require('null-ls')
+lua require('nvim-auto-session')
+lua require('nvim-null-ls')
 " lua require('nvim-scrollbar')
 set laststatus=3
 source ~/.config/nvim/config/mini.vim
