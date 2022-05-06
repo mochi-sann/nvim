@@ -1,0 +1,254 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.021  000.021: --- NVIM STARTING ---
+001.792  001.771: locale set
+002.586  000.794: inits 1
+002.625  000.039: window checked
+003.170  000.545: parsing arguments
+012.748  009.578: expanding arguments
+015.163  002.415: inits 2
+016.729  001.566: init highlight
+016.747  000.018: waiting for UI
+033.767  017.020: done waiting for UI
+033.801  000.033: init screen for UI
+033.834  000.033: init default mappings
+034.071  000.237: init default autocommands
+039.198  000.555  000.555: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/ftplugin.vim
+039.809  000.272  000.272: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/indent.vim
+041.834  000.389  000.389: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/synload.vim
+042.954  000.630  000.630: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.lua
+051.884  008.579  008.579: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.vim
+054.555  000.458  000.458: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/ftplugin/json.vim
+058.411  001.037  001.037: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/indent/json.vim
+063.702  002.994  002.994: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/json.vim
+066.463  025.660  011.573: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/syntax.vim
+068.952  001.508  001.508: sourcing /Users/mochi/.config/nvim/autoload/jetpack.vim
+104.336  000.461  000.461: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/nosyntax.vim
+104.994  000.295  000.295: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/ftplugof.vim
+105.381  000.274  000.274: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/indoff.vim
+139.945  000.093  000.093: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/synload.vim
+140.587  000.200  000.200: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/json.vim
+145.318  000.351  000.351: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/dracula/autoload/dracula.vim
+145.336  004.356  004.005: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/dracula/after/syntax/json.vim
+145.909  007.380  002.730: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/syntax.vim
+146.540  000.081  000.081: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.lua
+146.628  000.018  000.018: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.vim
+147.125  000.042  000.042: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/ftplugin.vim
+147.550  000.055  000.055: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/indent.vim
+153.738  004.997  004.997: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/dracula/colors/dracula.vim
+239.818  000.011  000.011: sourcing /Users/mochi/.config/nvim/config/mini.vim
+239.838  199.855  159.074: sourcing /Users/mochi/.config/nvim/init.vim
+239.847  005.094: sourcing vimrc file(s)
+241.630  000.795  000.795: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/colorizer/autoload/colorizer.vim
+241.964  001.612  000.818: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/colorizer/plugin/colorizer.vim
+244.673  002.200  002.200: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-devicons/plugin/webdevicons.vim
+245.027  000.096  000.096: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/which-key.nvim/plugin/which-key.vim
+245.652  000.386  000.386: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/registers.nvim/plugin/registers.vim
+246.265  000.299  000.299: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/nvim-web-devicons/plugin/nvim-web-devicons.vim
+248.298  001.348  001.348: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/nvim-treesitter/plugin/nvim-treesitter.vim
+250.065  000.941  000.941: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/nvim-ts-rainbow/plugin/rainbow.vim
+251.357  000.993  000.993: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/indent-blankline.nvim/plugin/indent_blankline.vim
+252.344  000.319  000.319: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/denops.vim/plugin/denops/debug.vim
+253.450  000.295  000.295: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/denops.vim/autoload/denops.vim
+253.579  001.138  000.843: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/denops.vim/plugin/denops.vim
+254.493  000.315  000.315: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/fern-hijack.vim/plugin/fern_hijack.vim
+255.048  000.289  000.289: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/plenary.nvim/plugin/plenary.vim
+258.995  000.851  000.851: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-vsnip/autoload/vital/vsnip.vim
+259.485  000.167  000.167: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Position.vim
+259.789  000.109  000.109: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-vsnip/autoload/vital/_vsnip.vim
+260.393  002.736  001.609: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-vsnip/autoload/vsnip/snippet.vim
+260.945  000.283  000.283: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-vsnip/autoload/vital/_vsnip/VS/LSP/TextEdit.vim
+261.403  000.149  000.149: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Text.vim
+261.985  000.216  000.216: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-vsnip/autoload/vital/_vsnip/VS/Vim/Buffer.vim
+262.505  000.160  000.160: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-vsnip/autoload/vital/_vsnip/VS/Vim/Option.vim
+263.191  000.319  000.319: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Diff.vim
+263.513  006.304  002.442: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-vsnip/autoload/vsnip/session.vim
+263.837  007.018  000.714: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-vsnip/autoload/vsnip.vim
+264.378  008.629  001.611: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-vsnip/plugin/vsnip.vim
+265.389  000.341  000.341: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/nvim-lsp-installer/plugin/nvim-lsp-installer.vim
+265.930  000.172  000.172: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/nvim-lspconfig/plugin/lspconfig.vim
+267.720  001.121  001.121: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/fzf/plugin/fzf.vim
+268.962  000.418  000.418: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/gzip.vim
+269.336  000.300  000.300: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/health.vim
+269.667  000.261  000.261: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/man.vim
+272.345  000.699  000.699: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+272.604  002.852  002.154: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchit.vim
+273.065  000.337  000.337: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchparen.vim
+274.314  001.169  001.169: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/netrwPlugin.vim
+277.556  000.348  000.348: sourcing /Users/mochi/.local/share/nvim/rplugin.vim
+277.586  002.950  002.602: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/rplugin.vim
+278.278  000.554  000.554: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/shada.vim
+278.678  000.293  000.293: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/spellfile.vim
+279.056  000.259  000.259: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tarPlugin.vim
+279.485  000.335  000.335: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tohtml.vim
+279.799  000.184  000.184: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tutor.vim
+280.215  000.274  000.274: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/zipPlugin.vim
+284.039  001.862  001.862: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/nvim-cmp/plugin/cmp.lua
+284.889  012.792: loading rtp plugins
+285.042  000.154: loading packages
+287.499  002.224  002.224: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/dracula/after/plugin/dracula.vim
+288.677  000.919  000.919: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/cmp-vsnip/after/plugin/cmp_vsnip.vim
+292.055  001.498  001.498: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/cmp-tabnine/after/plugin/cmp-tabnine.lua
+293.304  000.970  000.970: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/cmp-nvim-lsp-document-symbol/after/plugin/cmp_nvim_lsp_document_symbol.lua
+294.489  000.938  000.938: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/cmp-emoji/after/plugin/cmp_emoji.lua
+295.903  001.169  001.169: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/cmp-nvim-lsp-signature-help/after/plugin/cmp_nvim_lsp_signature_help.lua
+297.392  001.242  001.242: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/cmp-cmdline/after/plugin/cmp_cmdline.lua
+298.829  001.194  001.194: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/cmp-path/after/plugin/cmp_path.lua
+301.564  002.490  002.490: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/cmp-buffer/after/plugin/cmp_buffer.lua
+302.010  000.199  000.199: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua
+302.036  004.151: loading after plugins
+302.048  000.012: inits 3
+305.841  003.793: reading ShaDa
+310.904  000.225  000.225: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/json.vim
+311.055  000.048  000.048: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/dracula/after/syntax/json.vim
+312.324  000.034  000.034: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/ftplugin/json.vim
+314.151  000.037  000.037: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/indent/json.vim
+329.923  023.738: opening buffers
+393.430  063.508: BufEnter autocommands
+393.436  000.005: editing files in windows
+400.655  005.281  005.281: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/fzf-preview.vim/plugin/fzf_preview.vim
+403.094  000.335  000.335: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/gina.vim/plugin/gina.vim
+404.669  000.435  000.435: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-auto-save/plugin/AutoSave.vim
+408.640  000.548  000.548: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-gitgutter/autoload/gitgutter/utility.vim
+409.672  000.359  000.359: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-gitgutter/autoload/gitgutter/highlight.vim
+410.537  003.981  003.074: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-gitgutter/plugin/gitgutter.vim
+415.199  003.410  003.410: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/nvim-ts-autotag/plugin/nvim-ts-autotag.vim
+431.147  000.566  000.566: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/denops.vim/autoload/denops/util.vim
+432.382  002.520  001.954: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/denops.vim/autoload/denops/server.vim
+432.941  000.289  000.289: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/denops.vim/autoload/denops/job.vim
+449.937  040.250: VimEnter autocommands
+449.940  000.003: UIEnter autocommands
+451.345  000.583  000.583: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/autoload/provider/clipboard.vim
+451.393  000.870: before starting main loop
+460.438  009.045: first screen update
+460.440  000.003: --- NVIM STARTED ---
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.020  000.020: --- NVIM STARTING ---
+003.539  003.519: locale set
+004.999  001.459: inits 1
+005.032  000.033: window checked
+005.251  000.219: parsing arguments
+009.204  003.953: expanding arguments
+009.305  000.101: inits 2
+009.967  000.662: init highlight
+009.972  000.005: waiting for UI
+021.971  012.000: done waiting for UI
+022.009  000.038: init screen for UI
+022.047  000.037: init default mappings
+022.125  000.079: init default autocommands
+023.893  000.388  000.388: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/ftplugin.vim
+024.414  000.365  000.365: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/indent.vim
+026.716  000.411  000.411: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/synload.vim
+028.185  000.725  000.725: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.lua
+041.027  012.131  012.131: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.vim
+045.605  000.444  000.444: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/ftplugin/json.vim
+049.786  000.967  000.967: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/indent/json.vim
+052.056  000.992  000.992: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/json.vim
+053.757  028.138  012.468: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/syntax.vim
+055.390  001.389  001.389: sourcing /Users/mochi/.config/nvim/autoload/jetpack.vim
+094.800  000.444  000.444: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/nosyntax.vim
+095.462  000.291  000.291: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/ftplugof.vim
+095.851  000.274  000.274: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/indoff.vim
+123.195  000.100  000.100: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/synload.vim
+123.915  000.183  000.183: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/json.vim
+125.805  000.324  000.324: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/dracula/autoload/dracula.vim
+125.824  001.447  001.123: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/dracula/after/syntax/json.vim
+126.365  004.663  002.933: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/syntax.vim
+126.808  000.090  000.090: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.lua
+126.896  000.017  000.017: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.vim
+127.210  000.043  000.043: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/ftplugin.vim
+127.590  000.143  000.143: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/indent.vim
+132.291  003.862  003.862: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/dracula/colors/dracula.vim
+290.391  000.011  000.011: sourcing /Users/mochi/.config/nvim/config/mini.vim
+290.411  265.819  226.453: sourcing /Users/mochi/.config/nvim/init.vim
+290.422  001.725: sourcing vimrc file(s)
+292.267  000.793  000.793: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/colorizer/autoload/colorizer.vim
+292.595  001.639  000.847: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/colorizer/plugin/colorizer.vim
+295.323  002.230  002.230: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-devicons/plugin/webdevicons.vim
+295.676  000.099  000.099: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/which-key.nvim/plugin/which-key.vim
+296.326  000.392  000.392: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/registers.nvim/plugin/registers.vim
+296.936  000.297  000.297: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/nvim-web-devicons/plugin/nvim-web-devicons.vim
+298.847  001.228  001.228: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/nvim-treesitter/plugin/nvim-treesitter.vim
+300.844  001.367  001.367: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/nvim-ts-rainbow/plugin/rainbow.vim
+302.116  000.711  000.711: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/indent-blankline.nvim/plugin/indent_blankline.vim
+303.071  000.305  000.305: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/denops.vim/plugin/denops/debug.vim
+304.124  000.293  000.293: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/denops.vim/autoload/denops.vim
+304.248  001.093  000.800: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/denops.vim/plugin/denops.vim
+304.850  000.307  000.307: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/fern-hijack.vim/plugin/fern_hijack.vim
+305.384  000.284  000.284: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/plenary.nvim/plugin/plenary.vim
+308.964  000.638  000.638: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-vsnip/autoload/vital/vsnip.vim
+309.608  000.347  000.347: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Position.vim
+310.094  000.292  000.292: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-vsnip/autoload/vital/_vsnip.vim
+310.777  002.903  001.627: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-vsnip/autoload/vsnip/snippet.vim
+311.607  000.570  000.570: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-vsnip/autoload/vital/_vsnip/VS/LSP/TextEdit.vim
+312.202  000.281  000.281: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Text.vim
+312.970  000.409  000.409: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-vsnip/autoload/vital/_vsnip/VS/Vim/Buffer.vim
+313.616  000.282  000.282: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-vsnip/autoload/vital/_vsnip/VS/Vim/Option.vim
+314.558  000.584  000.584: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Diff.vim
+315.081  007.641  002.610: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-vsnip/autoload/vsnip/session.vim
+315.602  008.628  000.987: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-vsnip/autoload/vsnip.vim
+316.176  010.261  001.633: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-vsnip/plugin/vsnip.vim
+317.143  000.347  000.347: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/nvim-lsp-installer/plugin/nvim-lsp-installer.vim
+317.542  000.159  000.159: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/nvim-lspconfig/plugin/lspconfig.vim
+319.150  001.098  001.098: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/fzf/plugin/fzf.vim
+320.259  000.296  000.296: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/gzip.vim
+320.581  000.227  000.227: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/health.vim
+320.889  000.225  000.225: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/man.vim
+321.193  000.223  000.223: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchit.vim
+321.497  000.224  000.224: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchparen.vim
+321.809  000.228  000.228: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/netrwPlugin.vim
+322.103  000.215  000.215: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/rplugin.vim
+322.427  000.245  000.245: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/shada.vim
+322.716  000.211  000.211: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/spellfile.vim
+323.020  000.225  000.225: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tarPlugin.vim
+323.328  000.230  000.230: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tohtml.vim
+323.609  000.212  000.212: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tutor.vim
+323.939  000.257  000.257: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/zipPlugin.vim
+326.776  001.051  001.051: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/nvim-cmp/plugin/cmp.lua
+327.733  011.426: loading rtp plugins
+327.899  000.166: loading packages
+330.076  001.958  001.958: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/dracula/after/plugin/dracula.vim
+331.141  000.810  000.810: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/cmp-vsnip/after/plugin/cmp_vsnip.vim
+334.491  001.578  001.578: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/cmp-tabnine/after/plugin/cmp-tabnine.lua
+335.592  000.883  000.883: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/cmp-nvim-lsp-document-symbol/after/plugin/cmp_nvim_lsp_document_symbol.lua
+336.694  000.891  000.891: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/cmp-emoji/after/plugin/cmp_emoji.lua
+338.033  001.122  001.122: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/cmp-nvim-lsp-signature-help/after/plugin/cmp_nvim_lsp_signature_help.lua
+339.348  001.094  001.094: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/cmp-cmdline/after/plugin/cmp_cmdline.lua
+340.549  000.995  000.995: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/cmp-path/after/plugin/cmp_path.lua
+342.889  002.119  002.119: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/cmp-buffer/after/plugin/cmp_buffer.lua
+343.462  000.353  000.353: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua
+343.483  003.782: loading after plugins
+343.495  000.011: inits 3
+346.368  002.873: reading ShaDa
+351.123  000.256  000.256: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/json.vim
+351.236  000.047  000.047: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/dracula/after/syntax/json.vim
+352.256  000.030  000.030: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/ftplugin/json.vim
+353.977  000.038  000.038: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/indent/json.vim
+366.782  020.042: opening buffers
+437.053  070.271: BufEnter autocommands
+437.057  000.005: editing files in windows
+441.243  003.231  003.231: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/fzf-preview.vim/plugin/fzf_preview.vim
+442.984  000.337  000.337: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/gina.vim/plugin/gina.vim
+444.247  000.409  000.409: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-auto-save/plugin/AutoSave.vim
+447.242  000.629  000.629: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-gitgutter/autoload/gitgutter/utility.vim
+448.427  000.309  000.309: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-gitgutter/autoload/gitgutter/highlight.vim
+449.284  004.245  003.307: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/vim-gitgutter/plugin/gitgutter.vim
+453.149  003.135  003.135: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/nvim-ts-autotag/plugin/nvim-ts-autotag.vim
+466.897  000.385  000.385: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/denops.vim/autoload/denops/util.vim
+467.391  001.215  000.831: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/denops.vim/autoload/denops/server.vim
+467.907  000.331  000.331: sourcing /Users/mochi/.local/share/nvim/site/pack/jetpack/opt/denops.vim/autoload/denops/job.vim
+482.211  032.250: VimEnter autocommands
+482.215  000.004: UIEnter autocommands
+484.482  001.435  001.435: sourcing /usr/local/Cellar/neovim/0.7.0/share/nvim/runtime/autoload/provider/clipboard.vim
+484.501  000.851: before starting main loop
+494.869  010.368: first screen update
+494.872  000.003: --- NVIM STARTED ---
