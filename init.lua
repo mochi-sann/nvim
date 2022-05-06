@@ -1,10 +1,76 @@
-vim.opt.number=true;
-vim.opt.updatetime=300;
-vim.opt.laststatus=3;
-local globalSettings ={
-    number = true,
-    updatetime = 300,
-    showtabline = 2 ,
+vim.g.loaded_2html_plugin = 1
+vim.g.loaded_getscript = 1
+vim.g.loaded_getscriptPlugin = 1
+vim.g.loaded_gzip = 1
+vim.g.loaded_logiPat = 1
+vim.g.loaded_man = 1
+vim.g.loaded_matchit = 1
+vim.g.loaded_matchparen = 1
+vim.g.loaded_netrwFileHandlers = 1
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrwSettings = 1
+vim.g.loaded_remote_plugins = 1
+vim.g.loaded_rplugin = 1
+vim.g.loaded_rrhelper = 1
+vim.g.loaded_shada_plugin = 1
+vim.g.loaded_shada_plugin = 1
+vim.g.loaded_spec = 1
+vim.g.loaded_spellfile_plugin = 1
+vim.g.loaded_spellfile_plugin = 1
+vim.g.loaded_tar = 1
+vim.g.loaded_tarPlugin = 1
+vim.g.loaded_tutor_mode_plugin = 1
+vim.g.loaded_vimball = 1
+vim.g.loaded_vimballPlugin = 1
+vim.g.loaded_zip = 1
+vim.g.loaded_zipPlugin = 1
 
-}
-vim.opt = globalSettings;
+vim.g.load_black = 1
+vim.g.loaded_fzf = 1
+vim.g.loaded_gtags = 1
+vim.g.loaded_gtags_cscope = 1
+
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_python_provider = 0
+vim.g.loaded_pythonx_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.do_filetype_lua = 1
+vim.g.did_load_filetypes = 0
+
+
+
+
+vim.opt.number=true; -- 行番号を表示
+vim.opt.updatetime=300;
+vim.opt.laststatus=3; -- ステータスラインを画面いっぱいにする
+vim.o.cursorline = false; -- カーソルラインを非表示
+vim.o.showtabline = 2 --タブバーを常時表示
+vim.o.autoindent=true-- "改行時に自動でインデントする
+vim.o.clipboard="unnamed" -- ヤンクしたときにクリップボードに自動コピー
+vim.env.NVIM_TUI_ENABLE_TRUE_COLOR = 1
+vim.o.swapfile=false
+vim.o.termguicolors=true
+vim.o.autoread = true -- 他で書き換えられたら自動で読み直す
+vim.o.swapfile = false -- スワップファイル作らない
+vim.o.ouse="a" -- マウス操作ができるようにする
+
+vim.o.synmaxcol = 200
+-- ColorScheme
+vim.cmd([[ syntax enable ]]) -- シンタックスカラーリングオン
+vim.o.t_Co = 256
+vim.o.background = "dark"
+
+
+vim.o.display = "lastline" -- 長い行も一行で収まるように
+vim.o.showmode = false
+vim.o.showmatch = true -- 括弧の対応をハイライト
+vim.o.matchtime = 1 -- 括弧の対を見つけるミリ秒数
+vim.o.showcmd = true -- 入力中のコマンドを表示
+-- vim.o.relativenumber = true
+vim.o.wrap = true -- 画面幅で折り返す
+vim.o.title = false -- タイトル書き換えない
+vim.o.scrolloff = 5
+vim.o.sidescrolloff = 5
+
