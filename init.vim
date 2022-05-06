@@ -116,6 +116,7 @@ call jetpack#begin()
   " jetpack 'github/copilot.vim'
   " jetpack 'cohama/lexima.vim'
   " jetpack 'neoclide/coc.nvim', {'branch': 'release'}
+  Jetpack 'akinsho/toggleterm.nvim',{'tag': 'v1.*'}
 
   Jetpack 'vim-denops/denops.vim'
 
