@@ -385,6 +385,5 @@ lua require('nvim-lualine')
 lua require('nvim-auto-session')
 lua require('nvim-null-ls')
 " lua require('nvim-scrollbar')
-set laststatus=3
-source ~/.config/nvim/config/mini.vim
+"source ~/.config/nvim/config/mini.vim
 " source ~/.config/nvim/config/airline.vim
