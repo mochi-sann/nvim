@@ -39,30 +39,33 @@ vim.g.loaded_ruby_provider = 0
 vim.g.do_filetype_lua = 1
 vim.g.did_load_filetypes = 0
 
-
-
-
-vim.opt.number=true; -- 行番号を表示
-vim.opt.updatetime=300;
-vim.opt.laststatus=3; -- ステータスラインを画面いっぱいにする
-vim.o.cursorline = false; -- カーソルラインを非表示
+vim.opt.number = true -- 行番号を表示
+vim.opt.laststatus = 3 -- ステータスラインを画面いっぱいにする
+vim.o.cursorline = false -- カーソルラインを非表示
 vim.o.showtabline = 2 --タブバーを常時表示
-vim.o.autoindent=true-- "改行時に自動でインデントする
-vim.o.clipboard="unnamed" -- ヤンクしたときにクリップボードに自動コピー
+vim.o.autoindent = true -- "改行時に自動でインデントする
+vim.o.clipboard = "unnamed" -- ヤンクしたときにクリップボードに自動コピー
 vim.env.NVIM_TUI_ENABLE_TRUE_COLOR = 1
-vim.o.swapfile=false
-vim.o.termguicolors=true
+vim.o.swapfile = false --swapfileをなくす
+vim.o.termguicolors = true --ターミナルの色を設定
 vim.o.autoread = true -- 他で書き換えられたら自動で読み直す
-vim.o.swapfile = false -- スワップファイル作らない
-vim.o.mouse="a" -- マウス操作ができるようにする
-vim.o.splitright=true -- 分割するときに右側に開く
+vim.o.mouse = "a" -- マウス操作ができるようにする
+vim.o.splitright = true -- 分割するときに右側に開く
+vim.o.signcolumn = "yes" -- 行番号の目印桁を表示する
+vim.o.tabstop = 2 -- タブを何文字の空白に変換するか
+vim.o.shiftwidth = 2 --"自動インデント時に入力する空白の数
+vim.o.expandtab = true -- タブをスペースに変換
+vim.o.hls = true -- 検索結果を強調表示
+vim.o.ignorecase = true -- 大文字小文字を無視して検索する
+vim.o.smartcase = true -- 大文字を含んでいる時は完全一致で検索
+vim.o.backup = false --バックアップを作らない
+-- vim.o.completeopt
 
 vim.o.synmaxcol = 200
 -- ColorScheme
 vim.cmd([[ syntax enable ]]) -- シンタックスカラーリングオン
 vim.o.t_Co = 256
 vim.o.background = "dark"
-
 
 vim.o.display = "lastline" -- 長い行も一行で収まるように
 vim.o.showmode = false
@@ -74,15 +77,6 @@ vim.o.wrap = true -- 画面幅で折り返す
 vim.o.title = false -- タイトル書き換えない
 vim.o.scrolloff = 5
 vim.o.sidescrolloff = 5
-
-
-
-
-
-
-
-
-
 
 vim.cmd([[
 call jetpack#begin()
@@ -389,11 +383,11 @@ nnoremap <silent> mf           :lua vim.lsp.buf.formatting()<CR>
 
 
 ]])
-require('mini')
-require('whichikey')
-require('nvim-cmp')
-require('treesitter')
-require('indent-blank-line')
-require('nvim-lualine')
-require('nvim-auto-session')
-require('nvim-null-ls')
+require("mini")
+require("whichikey")
+require("nvim-cmp")
+require("treesitter")
+require("indent-blank-line")
+require("nvim-lualine")
+require("nvim-auto-session")
+require("nvim-null-ls")

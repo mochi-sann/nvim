@@ -1,28 +1,3 @@
-set updatetime=300
-set shortmess+=c
-set number             "行番号を表示
-set laststatus=3        "ステータスラインを画面いっぱいに描画する"
-set signcolumn=yes
-set autoindent         "改行時に自動でインデントする
-set tabstop=2          "タブを何文字の空白に変換するか
-set shiftwidth=2       "自動インデント時に入力する空白の数
-set expandtab          "タブ入力を空白に変換
-set splitright         "画面を縦分割する際に右に開く
-set clipboard=unnamed  "yank した文字列をクリップボードにコピー
-set hls                "検索した文字をハイライトする
-set showtabline=2      "タブバーを常時表示する
-set title             "タイトルバーにファイル名を表示
-set termguicolors    "ターミナルの色を設定
-set noswapfile        " swap fileを無効化する
-set mouse=a            " mouse操作ができるようにする
-set nocursorline             "カーソル行をハイライト
-set whichwrap=b,s,h,l,<,>,[,] " hjklを使ってるときにカーソルを行頭、行末で止まらないようにする
-set ignorecase            " 検索するときに大文字と小文字を区別しない
-set autoindent
-set autoread ar           "ファイルが更新されたら自動で採用見込みする"
-" set viminfo=100
-" set nobackup
-" set fenc=utf-8
 syntax on 
 set showcmd
 " set wildmode=list:longest
