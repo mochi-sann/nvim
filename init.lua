@@ -1,24 +1,13 @@
-require("rc/options")
+require("config/options")
+require("config/plugins")
+vim.cmd([[autocmd BufWritePost plugins.lua PackerCompile]])
 
 vim.cmd([[
 call jetpack#begin()
-  Jetpack 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Jetpack 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
+  ""Jetpack 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 
   Jetpack 'neovim/nvim-lspconfig'
 
-  Jetpack 'williamboman/nvim-lsp-installer'
-
-  Jetpack 'hrsh7th/cmp-nvim-lsp'
-  Jetpack 'hrsh7th/cmp-buffer'
-  Jetpack 'hrsh7th/cmp-path'
-  Jetpack 'hrsh7th/cmp-cmdline'
-  Jetpack 'hrsh7th/nvim-cmp'
-  Jetpack 'hrsh7th/cmp-nvim-lsp-signature-help'
-  Jetpack 'hrsh7th/cmp-emoji'
-  Jetpack 'hrsh7th/cmp-nvim-lsp-document-symbol'
-  Jetpack 'tzachar/cmp-tabnine', { 'do': './install.sh' }
-  Jetpack 'onsails/lspkind.nvim'
 
   Jetpack 'hrsh7th/cmp-vsnip'
   Jetpack 'hrsh7th/vim-vsnip'
@@ -282,32 +271,13 @@ let g:choosewin_overlay_enable          = 1
 
 "------------------------- fzf-preivew の設定
 " let $BAT_THEME                     = 'Dracula'
- let $FZF_PREVIEW_PREVIEW_BAT_THEME = 'Dracula'
- let g:fzf_preview_use_dev_icons = 1
-
-nnoremap <silent> [fzf-p]p     :<C-u>FzfPreviewFromResourcesRpc project_mru git<CR>
-nnoremap <silent> [fzf-p]gs    :<C-u>FzfPreviewGitStatusRpc<CR>
-nnoremap <silent> [fzf-p]ga    :<C-u>FzfPreviewGitActionsRpc<CR>
-nnoremap <silent> [fzf-p]b     :<C-u>FzfPreviewBuffersRpc<CR>
-nnoremap <silent> [fzf-p]B     :<C-u>FzfPreviewAllBuffersRpc<CR>
-nnoremap <silent> [fzf-p]o     :<C-u>FzfPreviewFromResourcesRpc buffer project_mru<CR>
-nnoremap <silent> [fzf-p]<C-o> :<C-u>FzfPreviewJumpsRpc<CR>
-nnoremap <silent> [fzf-p]g;    :<C-u>FzfPreviewChangesRpc<CR>
-nnoremap <silent> [fzf-p]/     :<C-u>FzfPreviewLinesRpc --add-fzf-arg=--no-sort --add-fzf-arg=--query="'"<CR>
-nnoremap <silent> [fzf-p]*     :<C-u>FzfPreviewLinesRpc --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
-nnoremap          [fzf-p]gr    :<C-u>FzfPreviewProjectGrepRpc<Space>
-xnoremap          [fzf-p]gr    "sy:FzfPreviewProjectGrepRpc<Space>-F<Space>"<C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>"
-nnoremap <silent> [fzf-p]t     :<C-u>FzfPreviewBufferTagsRpc<CR>
-nnoremap <silent> [fzf-p]q     :<C-u>FzfPreviewQuickFixRpc<CR>
-nnoremap <silent> [fzf-p]l     :<C-u>FzfPreviewLocationListRpc<CR>
-
 nnoremap <silent> mf           :lua vim.lsp.buf.formatting()<CR>
 
 
 ]])
 require("mini")
 require("whichikey")
-require("nvim-cmp")
+--require("nvim-cmp")
 require("treesitter")
 require("indent-blank-line")
 require("nvim-lualine")
