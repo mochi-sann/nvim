@@ -8,9 +8,20 @@ call jetpack#begin()
 
   Jetpack 'neovim/nvim-lspconfig'
 
+""  Jetpack 'williamboman/nvim-lsp-installer'
+""
+""  Jetpack 'hrsh7th/cmp-buffer'
+""  Jetpack 'hrsh7th/cmp-path'
+""  Jetpack 'hrsh7th/cmp-cmdline'
+""  Jetpack 'hrsh7th/nvim-cmp'
+""  Jetpack 'hrsh7th/cmp-nvim-lsp-signature-help'
+""  Jetpack 'hrsh7th/cmp-emoji'
+""  Jetpack 'hrsh7th/cmp-nvim-lsp-document-symbol'
+""  Jetpack 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+""  Jetpack 'onsails/lspkind.nvim'
 
-  Jetpack 'hrsh7th/cmp-vsnip'
-  Jetpack 'hrsh7th/vim-vsnip'
+""  Jetpack 'hrsh7th/cmp-vsnip'
+""  Jetpack 'hrsh7th/vim-vsnip'
 
   Jetpack 'jose-elias-alvarez/null-ls.nvim'
   Jetpack 'nvim-lua/plenary.nvim'
