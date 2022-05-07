@@ -3,6 +3,8 @@ vim.cmd([[packadd packer.nvim]])
 return require("packer").startup(function()
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
+	use("neovim/nvim-lspconfig") -- Collection of configurations for the built-in LSP client
+
 	use({ "junegunn/fzf", run = "fzf#install()" })
 	use({
 		"yuki-yano/fzf-preview.vim",
@@ -58,6 +60,13 @@ return require("packer").startup(function()
 		after = "nvim-cpm",
 		config = function()
 			require("plugconfig/vsnip")
+		end,
+	})
+	-- format and linter
+	use({
+		"jose-elias-alvarez/null-ls.nvim",
+		config = function()
+			require("plugconfig/null_ls")
 		end,
 	})
 end)

@@ -6,7 +6,7 @@ vim.cmd([[
 call jetpack#begin()
   ""Jetpack 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 
-  Jetpack 'neovim/nvim-lspconfig'
+  ""Jetpack 'neovim/nvim-lspconfig'
 
 ""  Jetpack 'williamboman/nvim-lsp-installer'
 ""
@@ -23,7 +23,7 @@ call jetpack#begin()
 ""  Jetpack 'hrsh7th/cmp-vsnip'
 ""  Jetpack 'hrsh7th/vim-vsnip'
 
-  Jetpack 'jose-elias-alvarez/null-ls.nvim'
+  ""Jetpack 'jose-elias-alvarez/null-ls.nvim'
   Jetpack 'nvim-lua/plenary.nvim'
 
   Jetpack 'lambdalisue/fern.vim',{'on': 'Fern'}
@@ -293,4 +293,4 @@ require("treesitter")
 require("indent-blank-line")
 require("nvim-lualine")
 require("nvim-auto-session")
-require("nvim-null-ls")
+-- require("nvim-null-ls")
