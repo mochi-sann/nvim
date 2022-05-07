@@ -11,26 +11,41 @@ return require("packer").startup(function()
 		branch = "release/rpc",
 		requires = { "junegunn/fzf" },
 		config = function()
-			require("plugconfig/fzf-preview")
+			require("plugconfig/fzf_preview")
 		end,
 	})
 	-- LSP settings
 	use({
 		"hrsh7th/nvim-cmp",
 		config = function()
-			require("plugconfig/nvim-cmp")
+			require("plugconfig/nvim_cmp")
 		end,
 	})
-	use({ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp", requires = "hrsh7th/nvim-cmp" })
-	use({ "hrsh7th/cmp-buffer", after = "nvim-cmp", requires = "hrsh7th/nvim-cmp" })
-	use({ "hrsh7th/cmp-path", after = "nvim-cmp", requires = "hrsh7th/nvim-cmp" })
-	use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp", requires = "hrsh7th/nvim-cmp" })
-	use({ "hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp", requires = "hrsh7th/nvim-cmp" })
-	use({ "hrsh7th/cmp-emoji", after = "nvim-cmp", requires = "hrsh7th/nvim-cmp" })
+	use({ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-path", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-emoji", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-nvim-lsp-document-symbol", after = "nvim-cmp" })
-	use({ "tzachar/cmp-tabnine", after = "nvim-cmp", run = "./install.sh", requires = "hrsh7th/nvim-cmp" })
+	use({
+		"tzachar/cmp-tabnine",
+		after = "nvim-cmp",
+		run = "./install.sh",
+		requires = "hrsh7th/nvim-cmp",
+		config = function()
+			require("plugconfig/cmp-tabnine")
+		end,
+	})
 
-	use({ "onsails/lspkind.nvim", after = "nvim-cmp", requires = "hrsh7th/nvim-cmp" })
+	-- use({
+	-- 	"onsails/lspkind.nvim",
+	-- 	after = "nvim-cmp",
+	-- 	requires = "hrsh7th/nvim-cmp",
+	-- 	config = function()
+	-- 		require("plugconfig/lspkind")
+	-- 	end,
+	-- })
 	use({
 		"williamboman/nvim-lsp-installer",
 		"neovim/nvim-lspconfig",
