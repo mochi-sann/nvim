@@ -1,8 +1,27 @@
 require("config/options")
 require("config/plugins")
-vim.cmd([[autocmd BufWritePost plugins.lua PackerCompile]])
+--vim.cmd([[autocmd BufWritePost config/plugins.lua PackerCompile]])
 
 vim.cmd([[
+nnoremap <Leader> <Nop>
+xnoremap <Leader> <Nop>
+nnoremap [dev]    <Nop>
+xnoremap [dev]    <Nop>
+nnoremap    [Tag]   <Nop>
+nmap    t [Tag]
+nmap     m        [dev]
+xmap     m        [dev]
+nnoremap [ff]     <Nop>
+xnoremap [ff]     <Nop>
+nmap     +        [ff]
+xmap     +        [ff]
+" nmap    <C-g>        [fzf-p]
+" xmap     <C-g>        [fzf-p]
+nnoremap [fzf-p] <Nop>
+xmap [fzf-p] <Nop>
+
+nmap <C-p> [fzf-p]
+xmap <C-p> [fzf-p]
 call jetpack#begin()
   ""Jetpack 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 
@@ -24,7 +43,7 @@ call jetpack#begin()
 ""  Jetpack 'hrsh7th/vim-vsnip'
 
   ""Jetpack 'jose-elias-alvarez/null-ls.nvim'
-  Jetpack 'nvim-lua/plenary.nvim'
+""  Jetpack 'nvim-lua/plenary.nvim'
 
   Jetpack 'lambdalisue/fern.vim',{'on': 'Fern'}
   Jetpack 'lambdalisue/fern-git-status.vim',{'on': 'Fern'}
@@ -33,6 +52,7 @@ call jetpack#begin()
   Jetpack 'lambdalisue/glyph-palette.vim',{'on':'Fern'}
   Jetpack 'lambdalisue/fern-bookmark.vim',{'on': 'Fern'}
   Jetpack 'lambdalisue/fern-hijack.vim' 
+
   Jetpack 'lambdalisue/gina.vim', {'on': ['VimEnter']}
 
   Jetpack 't9md/vim-quickhl',{'on': ['<Plug>(quickhl-manual-this)','<Plug>(quickhl-manual-reset)']}
@@ -282,7 +302,7 @@ let g:choosewin_overlay_enable          = 1
 
 "------------------------- fzf-preivew の設定
 " let $BAT_THEME                     = 'Dracula'
-nnoremap <silent> mf           :lua vim.lsp.buf.formatting()<CR>
+""nnoremap <silent> mf           :lua vim.lsp.buf.formatting()<CR>
 
 
 ]])

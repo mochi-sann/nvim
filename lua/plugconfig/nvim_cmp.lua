@@ -56,6 +56,7 @@ cmp.setup({
 		{ name = "nvim_lsp_signature_help" },
 		{ name = "emoji" },
 		{ name = "nvim_lsp_document_symbol" },
+		{ name = "nvim_lua" },
 
 		-- { name = 'luasnip' }, -- For luasnip users.
 		-- { name = 'ultisnips' }, -- For ultisnips users.

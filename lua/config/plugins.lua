@@ -3,19 +3,17 @@ vim.cmd([[packadd packer.nvim]])
 return require("packer").startup(function()
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
-	use("neovim/nvim-lspconfig") -- Collection of configurations for the built-in LSP client
+	use({ "junegunn/fzf", run = ":call fzf#install()" })
 
-	use({ "junegunn/fzf", run = "fzf#install()" })
+	-- fizzy finder
 	use({
-		"yuki-yano/fzf-preview.vim",
-		opt = true,
-		event = "VimEnter",
-		branch = "release/rpc",
-		requires = { "junegunn/fzf" },
+		"nvim-telescope/telescope.nvim",
+		requires = "nvim-lua/plenary.nvim",
 		config = function()
-			require("plugconfig/fzf_preview")
+			require("plugconfig/telescope")
 		end,
 	})
+
 	-- LSP settings
 	use({
 		"hrsh7th/nvim-cmp",
@@ -28,6 +26,7 @@ return require("packer").startup(function()
 	use({ "hrsh7th/cmp-path", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-emoji", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-nvim-lsp-document-symbol", after = "nvim-cmp" })
 	use({
@@ -69,6 +68,8 @@ return require("packer").startup(function()
 			require("plugconfig/null_ls")
 		end,
 	})
+
+	-- file tree
 end)
 --vim.cmd([[autocmd BufWritePost config/plugins.lua PackerCompile]])
 
