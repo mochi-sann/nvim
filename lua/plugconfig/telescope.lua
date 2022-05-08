@@ -1,11 +1,28 @@
 local telescope = require("telescope")
+local actions = require("telescope.actions")
+
 telescope.setup({
 	defaults = {
 		-- Default configuration for telescope goes here:
 		-- config_key = value,
+		borderchars = {
+			{ "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+			prompt = { "─", "│", " ", "│", "┌", "┐", "│", "│" },
+			results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
+			preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+		},
+
+		prompt_title = "",
+		results_title = "",
+		preview_title = "",
 		sorting_strategy = "ascending",
 		layout_config = {
-			horizontal = { width = 0.8, prompt_position = "top", show_line = true, sorting_strategy = "ascending" },
+			horizontal = {
+				width = 0.8,
+				prompt_position = "top",
+				show_line = true,
+				sorting_strategy = "ascending",
+			},
 			-- other layout configuration here
 		},
 
@@ -17,6 +34,7 @@ telescope.setup({
 				["<C-h>"] = "which_key",
 				["<C-j>"] = "move_selection_next",
 				["<C-k>"] = "move_selection_previous",
+				["<esc>"] = actions.close,
 			},
 		},
 	},
@@ -56,9 +74,11 @@ xmap [tel-p] <Nop>
 nmap <C-p> [tel-p]
 xmap <C-p> [tel-p]
 
-nnoremap [tel-p]f <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap [tel-p]g <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap [tel-p]p <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap [tel-p]gr <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap [tel-p]b <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap [tel-p]h <cmd>lua require('telescope.builtin').help_tags()<cr>
+nnoremap [tel-p]ba <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap [tel-p]c <cmd>lua require('telescope.builtin').command_history()<cr>
 
 ]])
