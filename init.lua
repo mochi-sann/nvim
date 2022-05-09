@@ -17,11 +17,6 @@ nmap     +        [ff]
 xmap     +        [ff]
 " nmap    <C-g>        [fzf-p]
 " xmap     <C-g>        [fzf-p]
-nnoremap [fzf-p] <Nop>
-xmap [fzf-p] <Nop>
-
-nmap <C-p> [fzf-p]
-xmap <C-p> [fzf-p]
 call jetpack#begin()
   ""Jetpack 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 
@@ -45,13 +40,13 @@ call jetpack#begin()
   ""Jetpack 'jose-elias-alvarez/null-ls.nvim'
 ""  Jetpack 'nvim-lua/plenary.nvim'
 
-  Jetpack 'lambdalisue/fern.vim',{'on': 'Fern'}
-  Jetpack 'lambdalisue/fern-git-status.vim',{'on': 'Fern'}
-  Jetpack 'lambdalisue/nerdfont.vim',{'on': 'Fern'}
-  Jetpack 'lambdalisue/fern-renderer-nerdfont.vim',{'on': 'Fern'}
-  Jetpack 'lambdalisue/glyph-palette.vim',{'on':'Fern'}
-  Jetpack 'lambdalisue/fern-bookmark.vim',{'on': 'Fern'}
-  Jetpack 'lambdalisue/fern-hijack.vim' 
+""  Jetpack 'lambdalisue/fern.vim',{'on': 'Fern'}
+""  Jetpack 'lambdalisue/fern-git-status.vim',{'on': 'Fern'}
+ "" Jetpack 'lambdalisue/nerdfont.vim',{'on': 'Fern'}
+ "" Jetpack 'lambdalisue/fern-renderer-nerdfont.vim',{'on': 'Fern'}
+  ""Jetpack 'lambdalisue/glyph-palette.vim',{'on':'Fern'}
+  ""Jetpack 'lambdalisue/fern-bookmark.vim',{'on': 'Fern'}
+  ""Jetpack 'lambdalisue/fern-hijack.vim' 
 
   Jetpack 'lambdalisue/gina.vim', {'on': ['VimEnter']}
 
@@ -117,14 +112,6 @@ call jetpack#begin()
 " 小規模プラグインは先に書く
 " -------------------- 
 " --------------------  vsnip
-let g:vsnip_filetypes = {}
-
-let g:vsnip_filetypes.javascriptreact = ['javascript']
-let g:vsnip_filetypes.typescriptreact = ['typescript']
-"  vim auto save
-let g:auto_save = 1
-" let g:auto_save_no_updatetime = 1  " do not change the 'updatetime' option
- let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
 " help の言語を日本語にする
 set helplang=ja
 
@@ -158,22 +145,7 @@ let g:highlightedyank_highlight_duration = 500
 " skanehira/jumpcursor.vim
 nmap [j <Plug>(jumpcursor-jump)
 
-"--------------------------------
-" Fern settings 
 
-
-let g:fern#renderer = 'nerdfont'
-let g:fern#disable_drawer_auto_restore_focus = 1
-let g:fern#renderer#default#leading = "hogehogeho "
-nnoremap <C-n> :Fern . -reveal=% -drawer -right -width=35  <CR>
-let g:fern#default_hidden=1 "不可視ファイルを表示する
-
-
- augroup my-glyph-palette
-   autocmd! *
-   autocmd FileType fern call glyph_palette#apply()
-   autocmd FileType nerdtree call glyph_palette#apply()
- augroup END
 
 
 "--------------------------------

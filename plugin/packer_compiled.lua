@@ -71,64 +71,80 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["cmp-buffer"] = {
     after_files = { "/Users/mochi/.local/share/nvim/site/pack/packer/opt/cmp-buffer/after/plugin/cmp_buffer.lua" },
-    load_after = {},
-    loaded = true,
+    load_after = {
+      ["nvim-cmp"] = true
+    },
+    loaded = false,
     needs_bufread = false,
     path = "/Users/mochi/.local/share/nvim/site/pack/packer/opt/cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
   },
   ["cmp-cmdline"] = {
     after_files = { "/Users/mochi/.local/share/nvim/site/pack/packer/opt/cmp-cmdline/after/plugin/cmp_cmdline.lua" },
-    load_after = {},
-    loaded = true,
+    load_after = {
+      ["nvim-cmp"] = true
+    },
+    loaded = false,
     needs_bufread = false,
     path = "/Users/mochi/.local/share/nvim/site/pack/packer/opt/cmp-cmdline",
     url = "https://github.com/hrsh7th/cmp-cmdline"
   },
   ["cmp-emoji"] = {
     after_files = { "/Users/mochi/.local/share/nvim/site/pack/packer/opt/cmp-emoji/after/plugin/cmp_emoji.lua" },
-    load_after = {},
-    loaded = true,
+    load_after = {
+      ["nvim-cmp"] = true
+    },
+    loaded = false,
     needs_bufread = false,
     path = "/Users/mochi/.local/share/nvim/site/pack/packer/opt/cmp-emoji",
     url = "https://github.com/hrsh7th/cmp-emoji"
   },
   ["cmp-nvim-lsp"] = {
     after_files = { "/Users/mochi/.local/share/nvim/site/pack/packer/opt/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua" },
-    load_after = {},
-    loaded = true,
+    load_after = {
+      ["nvim-cmp"] = true
+    },
+    loaded = false,
     needs_bufread = false,
     path = "/Users/mochi/.local/share/nvim/site/pack/packer/opt/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   ["cmp-nvim-lsp-document-symbol"] = {
     after_files = { "/Users/mochi/.local/share/nvim/site/pack/packer/opt/cmp-nvim-lsp-document-symbol/after/plugin/cmp_nvim_lsp_document_symbol.lua" },
-    load_after = {},
-    loaded = true,
+    load_after = {
+      ["nvim-cmp"] = true
+    },
+    loaded = false,
     needs_bufread = false,
     path = "/Users/mochi/.local/share/nvim/site/pack/packer/opt/cmp-nvim-lsp-document-symbol",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp-document-symbol"
   },
   ["cmp-nvim-lsp-signature-help"] = {
     after_files = { "/Users/mochi/.local/share/nvim/site/pack/packer/opt/cmp-nvim-lsp-signature-help/after/plugin/cmp_nvim_lsp_signature_help.lua" },
-    load_after = {},
-    loaded = true,
+    load_after = {
+      ["nvim-cmp"] = true
+    },
+    loaded = false,
     needs_bufread = false,
     path = "/Users/mochi/.local/share/nvim/site/pack/packer/opt/cmp-nvim-lsp-signature-help",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp-signature-help"
   },
   ["cmp-nvim-lua"] = {
     after_files = { "/Users/mochi/.local/share/nvim/site/pack/packer/opt/cmp-nvim-lua/after/plugin/cmp_nvim_lua.lua" },
-    load_after = {},
-    loaded = true,
+    load_after = {
+      ["nvim-cmp"] = true
+    },
+    loaded = false,
     needs_bufread = false,
     path = "/Users/mochi/.local/share/nvim/site/pack/packer/opt/cmp-nvim-lua",
     url = "https://github.com/hrsh7th/cmp-nvim-lua"
   },
   ["cmp-path"] = {
     after_files = { "/Users/mochi/.local/share/nvim/site/pack/packer/opt/cmp-path/after/plugin/cmp_path.lua" },
-    load_after = {},
-    loaded = true,
+    load_after = {
+      ["nvim-cmp"] = true
+    },
+    loaded = false,
     needs_bufread = false,
     path = "/Users/mochi/.local/share/nvim/site/pack/packer/opt/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
@@ -136,8 +152,10 @@ _G.packer_plugins = {
   ["cmp-tabnine"] = {
     after_files = { "/Users/mochi/.local/share/nvim/site/pack/packer/opt/cmp-tabnine/after/plugin/cmp-tabnine.lua" },
     config = { "\27LJ\2\n6\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\27plugconfig/cmp-tabnine\frequire\0" },
-    load_after = {},
-    loaded = true,
+    load_after = {
+      ["nvim-cmp"] = true
+    },
+    loaded = false,
     needs_bufread = false,
     path = "/Users/mochi/.local/share/nvim/site/pack/packer/opt/cmp-tabnine",
     url = "https://github.com/tzachar/cmp-tabnine"
@@ -147,10 +165,60 @@ _G.packer_plugins = {
     path = "/Users/mochi/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
+  ["fern-bookmark.vim"] = {
+    load_after = {
+      ["fern.vim"] = true
+    },
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/mochi/.local/share/nvim/site/pack/packer/opt/fern-bookmark.vim",
+    url = "https://github.com/lambdalisue/fern-bookmark.vim"
+  },
+  ["fern-git-status.vim"] = {
+    load_after = {
+      ["fern.vim"] = true
+    },
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/mochi/.local/share/nvim/site/pack/packer/opt/fern-git-status.vim",
+    url = "https://github.com/lambdalisue/fern-git-status.vim"
+  },
+  ["fern-renderer-nerdfont.vim"] = {
+    load_after = {
+      ["fern.vim"] = true
+    },
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/mochi/.local/share/nvim/site/pack/packer/opt/fern-renderer-nerdfont.vim",
+    url = "https://github.com/lambdalisue/fern-renderer-nerdfont.vim"
+  },
+  ["fern.vim"] = {
+    after = { "fern-bookmark.vim", "fern-git-status.vim", "fern-renderer-nerdfont.vim", "glyph-palette.vim" },
+    config = { "\27LJ\2\n/\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\20plugconfig/fern\frequire\0" },
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/Users/mochi/.local/share/nvim/site/pack/packer/opt/fern.vim",
+    url = "https://github.com/lambdalisue/fern.vim"
+  },
   fzf = {
     loaded = true,
     path = "/Users/mochi/.local/share/nvim/site/pack/packer/start/fzf",
     url = "https://github.com/junegunn/fzf"
+  },
+  ["glyph-palette.vim"] = {
+    load_after = {
+      ["fern.vim"] = true
+    },
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/mochi/.local/share/nvim/site/pack/packer/opt/glyph-palette.vim",
+    url = "https://github.com/lambdalisue/glyph-palette.vim"
+  },
+  ["nerdfont.vim"] = {
+    loaded = true,
+    path = "/Users/mochi/.local/share/nvim/site/pack/packer/start/nerdfont.vim",
+    url = "https://github.com/lambdalisue/nerdfont.vim"
   },
   ["null-ls.nvim"] = {
     config = { "\27LJ\2\n2\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\23plugconfig/null_ls\frequire\0" },
@@ -159,9 +227,13 @@ _G.packer_plugins = {
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-cmp"] = {
-    after = { "cmp-tabnine", "cmp-cmdline", "cmp-nvim-lsp", "cmp-nvim-lsp-document-symbol", "cmp-nvim-lsp-signature-help", "cmp-emoji", "cmp-path", "cmp-buffer", "cmp-nvim-lua" },
-    loaded = true,
-    only_config = true
+    after = { "cmp-path", "cmp-buffer", "cmp-tabnine", "cmp-nvim-lua", "cmp-cmdline", "cmp-nvim-lsp", "cmp-nvim-lsp-document-symbol", "cmp-nvim-lsp-signature-help", "cmp-emoji" },
+    config = { "\27LJ\2\n3\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\24plugconfig/nvim_cmp\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/mochi/.local/share/nvim/site/pack/packer/opt/nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lsp-installer"] = {
     loaded = true,
@@ -197,34 +269,21 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: null-ls.nvim
-time([[Config for null-ls.nvim]], true)
-try_loadstring("\27LJ\2\n2\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\23plugconfig/null_ls\frequire\0", "config", "null-ls.nvim")
-time([[Config for null-ls.nvim]], false)
--- Config for: nvim-cmp
-time([[Config for nvim-cmp]], true)
-try_loadstring("\27LJ\2\n3\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\24plugconfig/nvim_cmp\frequire\0", "config", "nvim-cmp")
-time([[Config for nvim-cmp]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
 try_loadstring("\27LJ\2\n4\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\25plugconfig/telescope\frequire\0", "config", "telescope.nvim")
 time([[Config for telescope.nvim]], false)
--- Load plugins in order defined by `after`
-time([[Sequenced loading]], true)
-vim.cmd [[ packadd cmp-nvim-lsp-document-symbol ]]
-vim.cmd [[ packadd cmp-buffer ]]
-vim.cmd [[ packadd cmp-path ]]
-vim.cmd [[ packadd cmp-cmdline ]]
-vim.cmd [[ packadd cmp-nvim-lsp ]]
-vim.cmd [[ packadd cmp-nvim-lua ]]
-vim.cmd [[ packadd cmp-emoji ]]
-vim.cmd [[ packadd cmp-nvim-lsp-signature-help ]]
-vim.cmd [[ packadd cmp-tabnine ]]
-
--- Config for: cmp-tabnine
-try_loadstring("\27LJ\2\n6\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\27plugconfig/cmp-tabnine\frequire\0", "config", "cmp-tabnine")
-
-time([[Sequenced loading]], false)
+-- Config for: null-ls.nvim
+time([[Config for null-ls.nvim]], true)
+try_loadstring("\27LJ\2\n2\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\23plugconfig/null_ls\frequire\0", "config", "null-ls.nvim")
+time([[Config for null-ls.nvim]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Event lazy-loads
+time([[Defining lazy-load event autocommands]], true)
+vim.cmd [[au VimEnter * ++once lua require("packer.load")({'nvim-cmp', 'fern.vim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
+time([[Defining lazy-load event autocommands]], false)
+vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
 end)

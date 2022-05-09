@@ -20,6 +20,8 @@ return require("packer").startup(function()
 		config = function()
 			require("plugconfig/nvim_cmp")
 		end,
+		opt = true,
+		event = "VimEnter",
 	})
 	use({ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
@@ -53,14 +55,21 @@ return require("packer").startup(function()
 		after = "nvim-cpm",
 		requires = "hrsh7th/nvim-cmp",
 	})
+	-- use({
+	-- 	"hrsh7th/cmp-vsnip",
+	-- 	"hrsh7th/vim-vsnip",
+	-- 	after = "nvim-cpm",
+	-- 	config = function()
+	-- 		require("plugconfig/vsnip")
+	-- 	end,
+	-- })
 	use({
-		"hrsh7th/cmp-vsnip",
 		"hrsh7th/vim-vsnip",
-		after = "nvim-cpm",
 		config = function()
 			require("plugconfig/vsnip")
 		end,
 	})
+	use({ "hrsh7th/cmp-vsnip", requires = { "hrsh7th/vim-vsnip" }, after = "nvim-cpm" })
 	-- format and linter
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
@@ -68,6 +77,21 @@ return require("packer").startup(function()
 			require("plugconfig/null_ls")
 		end,
 	})
+	--use({"lambdalisue/fern.vim" , opt = true, cmd = {'Fern'}})
+	use({
+		"lambdalisue/fern.vim",
+		opt = true,
+		event = "VimEnter",
+
+		config = function()
+			require("plugconfig/fern")
+		end,
+	})
+	use({ "lambdalisue/fern-git-status.vim", after = "fern.vim" })
+	-- use({ "lambdalisue/nerdfont.vim", after = "fern.vim" })
+	use({ "lambdalisue/fern-renderer-nerdfont.vim", after = "fern.vim", requires = { "lambdalisue/nerdfont.vim" } })
+	use({ "lambdalisue/glyph-palette.vim", after = "fern.vim" })
+	use({ "lambdalisue/fern-bookmark.vim", after = "fern.vim" })
 
 	-- file tree
 end)
