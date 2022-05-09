@@ -31,6 +31,7 @@ return require("packer").startup(function()
 	use({ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-emoji", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-nvim-lsp-document-symbol", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-vsnip" })
 	use({
 		"tzachar/cmp-tabnine",
 		after = "nvim-cmp",
@@ -69,7 +70,7 @@ return require("packer").startup(function()
 			require("plugconfig/vsnip")
 		end,
 	})
-	use({ "hrsh7th/cmp-vsnip", requires = { "hrsh7th/vim-vsnip" }, after = "nvim-cpm" })
+	--use({ "hrsh7th/cmp-vsnip", after = "nvim-cpm" })
 	-- format and linter
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
@@ -92,6 +93,34 @@ return require("packer").startup(function()
 	use({ "lambdalisue/fern-renderer-nerdfont.vim", after = "fern.vim", requires = { "lambdalisue/nerdfont.vim" } })
 	use({ "lambdalisue/glyph-palette.vim", after = "fern.vim" })
 	use({ "lambdalisue/fern-bookmark.vim", after = "fern.vim" })
+	use({
+		"t9md/vim-quickhl",
+		opt = true,
+		event = "VimEnter",
+		config = function()
+			require("plugconfig/vim_quickhl")
+		end,
+	})
+	use({
+		"terryma/vim-expand-region",
+		opt = true,
+		event = "VimEnter",
+		config = function()
+			require("plugconfig/vim_expand_region")
+		end,
+	})
+	use({ "segeljakt/vim-silicon", opt = true, event = "VimEnter" })
+	use({ "dracula/vim", as = "dracula" })
+	use({
+		"vim-scripts/vim-auto-save",
+		opt = true,
+		event = "VimEnter",
+		config = function()
+			require("plugconfig/vim_auto_save")
+		end,
+	})
+
+	--use({ "lambdalisue/gina.vim"  })
 
 	-- file tree
 end)

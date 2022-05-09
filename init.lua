@@ -48,12 +48,12 @@ call jetpack#begin()
   ""Jetpack 'lambdalisue/fern-bookmark.vim',{'on': 'Fern'}
   ""Jetpack 'lambdalisue/fern-hijack.vim' 
 
-  Jetpack 'lambdalisue/gina.vim', {'on': ['VimEnter']}
+""  Jetpack 'lambdalisue/gina.vim', {'on': ['VimEnter']}
 
-  Jetpack 't9md/vim-quickhl',{'on': ['<Plug>(quickhl-manual-this)','<Plug>(quickhl-manual-reset)']}
-  Jetpack 'terryma/vim-expand-region',{'on':[ '<Plug>(expand_region_expand)','<Plug>(expand_region_shrink)']}
-  Jetpack 'segeljakt/vim-silicon', { 'on': 'Silicon' }
-  Jetpack 'dracula/vim', { 'as': 'dracula' }
+""  Jetpack 't9md/vim-quickhl',{'on': ['<Plug>(quickhl-manual-this)','<Plug>(quickhl-manual-reset)']}
+  ""Jetpack 'terryma/vim-expand-region',{'on':[ '<Plug>(expand_region_expand)','<Plug>(expand_region_shrink)']}
+  ""Jetpack 'segeljakt/vim-silicon', { 'on': 'Silicon' }
+  ""Jetpack 'dracula/vim', { 'as': 'dracula' }
   Jetpack 'vim-scripts/vim-auto-save', {'on': ['VimEnter']}
   Jetpack 'vim-jp/vimdoc-ja'
   " Jetpack 'vim-airline/vim-airline' , {'on': ['VimEnter']}
@@ -127,10 +127,6 @@ tnoremap <Esc> <C-\><C-n>
 ":T コマンドでVSCodeみたいにターミナルを起動する
 command! -nargs=* T split | wincmd j | resize 15 | terminal <args>
 "
-nmap <Space>m <Plug>(quickhl-manual-this)
-xmap <Space>m <Plug>(quickhl-manual-this)
-nmap <Space>M <Plug>(quickhl-manual-reset)
-xmap <Space>M <Plug>(quickhl-manual-reset)
 
 "--------------------------------
 " ヤンクしたときにhighlightする

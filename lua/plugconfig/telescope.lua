@@ -34,7 +34,7 @@ telescope.setup({
 				["<C-h>"] = "which_key",
 				["<C-j>"] = "move_selection_next",
 				["<C-k>"] = "move_selection_previous",
-				["<esc>"] = actions.close,
+				["<C-q>"] = actions.close,
 			},
 		},
 	},

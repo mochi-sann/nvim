@@ -165,6 +165,11 @@ _G.packer_plugins = {
     path = "/Users/mochi/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
+  dracula = {
+    loaded = true,
+    path = "/Users/mochi/.local/share/nvim/site/pack/packer/start/dracula",
+    url = "https://github.com/dracula/vim"
+  },
   ["fern-bookmark.vim"] = {
     load_after = {
       ["fern.vim"] = true
@@ -193,7 +198,7 @@ _G.packer_plugins = {
     url = "https://github.com/lambdalisue/fern-renderer-nerdfont.vim"
   },
   ["fern.vim"] = {
-    after = { "fern-bookmark.vim", "fern-git-status.vim", "fern-renderer-nerdfont.vim", "glyph-palette.vim" },
+    after = { "fern-bookmark.vim", "fern-git-status.vim", "glyph-palette.vim", "fern-renderer-nerdfont.vim" },
     config = { "\27LJ\2\n/\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\20plugconfig/fern\frequire\0" },
     loaded = false,
     needs_bufread = true,
@@ -227,7 +232,7 @@ _G.packer_plugins = {
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-cmp"] = {
-    after = { "cmp-path", "cmp-buffer", "cmp-tabnine", "cmp-nvim-lua", "cmp-cmdline", "cmp-nvim-lsp", "cmp-nvim-lsp-document-symbol", "cmp-nvim-lsp-signature-help", "cmp-emoji" },
+    after = { "cmp-buffer", "cmp-tabnine", "cmp-cmdline", "cmp-emoji", "cmp-nvim-lsp", "cmp-nvim-lsp-document-symbol", "cmp-nvim-lsp-signature-help", "cmp-nvim-lua", "cmp-path" },
     config = { "\27LJ\2\n3\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\24plugconfig/nvim_cmp\frequire\0" },
     loaded = false,
     needs_bufread = false,
@@ -261,7 +266,39 @@ _G.packer_plugins = {
     path = "/Users/mochi/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["vim-auto-save"] = {
+    config = { "\27LJ\2\n8\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\29plugconfig/vim_auto_save\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/mochi/.local/share/nvim/site/pack/packer/opt/vim-auto-save",
+    url = "https://github.com/vim-scripts/vim-auto-save"
+  },
+  ["vim-expand-region"] = {
+    config = { "\27LJ\2\n<\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0!plugconfig/vim_expand_region\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/mochi/.local/share/nvim/site/pack/packer/opt/vim-expand-region",
+    url = "https://github.com/terryma/vim-expand-region"
+  },
+  ["vim-quickhl"] = {
+    config = { "\27LJ\2\n6\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\27plugconfig/vim_quickhl\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/mochi/.local/share/nvim/site/pack/packer/opt/vim-quickhl",
+    url = "https://github.com/t9md/vim-quickhl"
+  },
+  ["vim-silicon"] = {
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/mochi/.local/share/nvim/site/pack/packer/opt/vim-silicon",
+    url = "https://github.com/segeljakt/vim-silicon"
+  },
   ["vim-vsnip"] = {
+    config = { "\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21plugconfig/vsnip\frequire\0" },
     loaded = true,
     path = "/Users/mochi/.local/share/nvim/site/pack/packer/start/vim-vsnip",
     url = "https://github.com/hrsh7th/vim-vsnip"
@@ -269,6 +306,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: vim-vsnip
+time([[Config for vim-vsnip]], true)
+try_loadstring("\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21plugconfig/vsnip\frequire\0", "config", "vim-vsnip")
+time([[Config for vim-vsnip]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
 try_loadstring("\27LJ\2\n4\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\25plugconfig/telescope\frequire\0", "config", "telescope.nvim")
@@ -281,7 +322,7 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au VimEnter * ++once lua require("packer.load")({'nvim-cmp', 'fern.vim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au VimEnter * ++once lua require("packer.load")({'vim-quickhl', 'nvim-cmp', 'vim-silicon', 'fern.vim', 'vim-auto-save', 'vim-expand-region'}, { event = "VimEnter *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
