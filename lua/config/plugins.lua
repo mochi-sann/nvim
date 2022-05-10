@@ -183,7 +183,23 @@ return require("packer").startup(function()
 			require("plugconfig/mini")
 		end,
 	})
+	use("tversteeg/registers.nvim")
+	use({
+		"folke/which-key.nvim",
+		config = function()
+			require("plugconfig/whichi_key")
+		end,
+	})
+	use("ryanoasis/vim-devicons")
+	use({
+		"relastle/vim-colorrange",
+		opt = true,
+		event = "VimEnter",
+	})
+	use({ "lilydjwg/colorizer", opt = true, event = "VimEnter" })
+	use({ "machakann/vim-highlightedyank" })
 
+	use({ "t9md/vim-choosewin", opt = true, event = "VimEnter" })
 	-- file tree
 end)
 --vim.cmd([[autocmd BufWritePost config/plugins.lua PackerCompile]])

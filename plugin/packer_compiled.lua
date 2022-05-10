@@ -170,6 +170,13 @@ _G.packer_plugins = {
     path = "/Users/mochi/.local/share/nvim/site/pack/packer/opt/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
+  colorizer = {
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/mochi/.local/share/nvim/site/pack/packer/opt/colorizer",
+    url = "https://github.com/lilydjwg/colorizer"
+  },
   ["denops.vim"] = {
     loaded = true,
     path = "/Users/mochi/.local/share/nvim/site/pack/packer/start/denops.vim",
@@ -208,7 +215,7 @@ _G.packer_plugins = {
     url = "https://github.com/lambdalisue/fern-renderer-nerdfont.vim"
   },
   ["fern.vim"] = {
-    after = { "fern-git-status.vim", "fern-renderer-nerdfont.vim", "glyph-palette.vim", "fern-bookmark.vim" },
+    after = { "fern-git-status.vim", "glyph-palette.vim", "fern-bookmark.vim", "fern-renderer-nerdfont.vim" },
     config = { "\27LJ\2\n/\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\20plugconfig/fern\frequire\0" },
     loaded = false,
     needs_bufread = true,
@@ -276,7 +283,7 @@ _G.packer_plugins = {
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-cmp"] = {
-    after = { "cmp-path", "cmp-tabnine", "cmp-vsnip", "cmp-buffer", "cmp-cmdline", "cmp-emoji", "cmp-nvim-lsp", "cmp-nvim-lsp-document-symbol", "cmp-nvim-lsp-signature-help", "cmp-nvim-lua" },
+    after = { "cmp-buffer", "cmp-cmdline", "cmp-emoji", "cmp-nvim-lsp", "cmp-nvim-lsp-document-symbol", "cmp-nvim-lua", "cmp-tabnine", "cmp-nvim-lsp-signature-help", "cmp-vsnip", "cmp-path" },
     config = { "\27LJ\2\n3\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\24plugconfig/nvim_cmp\frequire\0" },
     loaded = false,
     needs_bufread = false,
@@ -331,6 +338,11 @@ _G.packer_plugins = {
     path = "/Users/mochi/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["registers.nvim"] = {
+    loaded = true,
+    path = "/Users/mochi/.local/share/nvim/site/pack/packer/start/registers.nvim",
+    url = "https://github.com/tversteeg/registers.nvim"
+  },
   ["telescope.nvim"] = {
     config = { "\27LJ\2\n4\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\25plugconfig/telescope\frequire\0" },
     loaded = true,
@@ -351,12 +363,31 @@ _G.packer_plugins = {
     path = "/Users/mochi/.local/share/nvim/site/pack/packer/opt/vim-auto-save",
     url = "https://github.com/vim-scripts/vim-auto-save"
   },
+  ["vim-choosewin"] = {
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/mochi/.local/share/nvim/site/pack/packer/opt/vim-choosewin",
+    url = "https://github.com/t9md/vim-choosewin"
+  },
   ["vim-closetag"] = {
     loaded = false,
     needs_bufread = false,
     only_cond = false,
     path = "/Users/mochi/.local/share/nvim/site/pack/packer/opt/vim-closetag",
     url = "https://github.com/alvan/vim-closetag"
+  },
+  ["vim-colorrange"] = {
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/mochi/.local/share/nvim/site/pack/packer/opt/vim-colorrange",
+    url = "https://github.com/relastle/vim-colorrange"
+  },
+  ["vim-devicons"] = {
+    loaded = true,
+    path = "/Users/mochi/.local/share/nvim/site/pack/packer/start/vim-devicons",
+    url = "https://github.com/ryanoasis/vim-devicons"
   },
   ["vim-expand-region"] = {
     config = { "\27LJ\2\n<\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0!plugconfig/vim_expand_region\frequire\0" },
@@ -365,6 +396,11 @@ _G.packer_plugins = {
     only_cond = false,
     path = "/Users/mochi/.local/share/nvim/site/pack/packer/opt/vim-expand-region",
     url = "https://github.com/terryma/vim-expand-region"
+  },
+  ["vim-highlightedyank"] = {
+    loaded = true,
+    path = "/Users/mochi/.local/share/nvim/site/pack/packer/start/vim-highlightedyank",
+    url = "https://github.com/machakann/vim-highlightedyank"
   },
   ["vim-quickhl"] = {
     config = { "\27LJ\2\n5\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\26plugconfig/vim_quichl\frequire\0" },
@@ -392,6 +428,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/mochi/.local/share/nvim/site/pack/packer/start/vimdoc-ja",
     url = "https://github.com/vim-jp/vimdoc-ja"
+  },
+  ["which-key.nvim"] = {
+    config = { "\27LJ\2\n5\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\26plugconfig/whichi_key\frequire\0" },
+    loaded = true,
+    path = "/Users/mochi/.local/share/nvim/site/pack/packer/start/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
   }
 }
 
@@ -400,14 +442,14 @@ time([[Defining packer_plugins]], false)
 time([[Config for vimdoc-ja]], true)
 try_loadstring("\27LJ\2\n4\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\25plugconfig/vimdoc_ja\frequire\0", "config", "vimdoc-ja")
 time([[Config for vimdoc-ja]], false)
--- Config for: mini.nvim
-time([[Config for mini.nvim]], true)
-try_loadstring("\27LJ\2\n/\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\20plugconfig/mini\frequire\0", "config", "mini.nvim")
-time([[Config for mini.nvim]], false)
 -- Config for: null-ls.nvim
 time([[Config for null-ls.nvim]], true)
 try_loadstring("\27LJ\2\n2\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\23plugconfig/null_ls\frequire\0", "config", "null-ls.nvim")
 time([[Config for null-ls.nvim]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\26plugconfig/toggleterm\frequire\0", "config", "toggleterm.nvim")
+time([[Config for toggleterm.nvim]], false)
 -- Config for: indent-blankline.nvim
 time([[Config for indent-blankline.nvim]], true)
 try_loadstring("\27LJ\2\n;\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0 plugconfig/indent_blankline\frequire\0", "config", "indent-blankline.nvim")
@@ -416,28 +458,32 @@ time([[Config for indent-blankline.nvim]], false)
 time([[Config for vim-vsnip]], true)
 try_loadstring("\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21plugconfig/vsnip\frequire\0", "config", "vim-vsnip")
 time([[Config for vim-vsnip]], false)
--- Config for: toggleterm.nvim
-time([[Config for toggleterm.nvim]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\26plugconfig/toggleterm\frequire\0", "config", "toggleterm.nvim")
-time([[Config for toggleterm.nvim]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\26plugconfig/whichi_key\frequire\0", "config", "which-key.nvim")
+time([[Config for which-key.nvim]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
 try_loadstring("\27LJ\2\n4\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\25plugconfig/telescope\frequire\0", "config", "telescope.nvim")
 time([[Config for telescope.nvim]], false)
+-- Config for: mini.nvim
+time([[Config for mini.nvim]], true)
+try_loadstring("\27LJ\2\n/\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\20plugconfig/mini\frequire\0", "config", "mini.nvim")
+time([[Config for mini.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType vue ++once lua require("packer.load")({'vim-closetag'}, { ft = "vue" }, _G.packer_plugins)]]
-vim.cmd [[au FileType javascript ++once lua require("packer.load")({'vim-closetag'}, { ft = "javascript" }, _G.packer_plugins)]]
-vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'vim-closetag'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
 vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'vim-closetag'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
 vim.cmd [[au FileType typescript ++once lua require("packer.load")({'vim-closetag'}, { ft = "typescript" }, _G.packer_plugins)]]
 vim.cmd [[au FileType html ++once lua require("packer.load")({'vim-closetag'}, { ft = "html" }, _G.packer_plugins)]]
+vim.cmd [[au FileType vue ++once lua require("packer.load")({'vim-closetag'}, { ft = "vue" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascript ++once lua require("packer.load")({'vim-closetag'}, { ft = "javascript" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'vim-closetag'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au VimEnter * ++once lua require("packer.load")({'vim-auto-save', 'vim-expand-region', 'vim-quickhl', 'vim-silicon', 'nvim-treesitter', 'nvim-cmp', 'lualine.nvim', 'fern.vim', 'gitsigns.nvim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au VimEnter * ++once lua require("packer.load")({'nvim-cmp', 'vim-auto-save', 'gitsigns.nvim', 'vim-colorrange', 'vim-quickhl', 'vim-silicon', 'vim-expand-region', 'fern.vim', 'colorizer', 'lualine.nvim', 'vim-choosewin', 'nvim-treesitter'}, { event = "VimEnter *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end

@@ -17,93 +17,6 @@ nmap     +        [ff]
 xmap     +        [ff]
 " nmap    <C-g>        [fzf-p]
 " xmap     <C-g>        [fzf-p]
-call jetpack#begin()
-  ""Jetpack 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
-
-  ""Jetpack 'neovim/nvim-lspconfig'
-
-""  Jetpack 'williamboman/nvim-lsp-installer'
-""
-""  Jetpack 'hrsh7th/cmp-buffer'
-""  Jetpack 'hrsh7th/cmp-path'
-""  Jetpack 'hrsh7th/cmp-cmdline'
-""  Jetpack 'hrsh7th/nvim-cmp'
-""  Jetpack 'hrsh7th/cmp-nvim-lsp-signature-help'
-""  Jetpack 'hrsh7th/cmp-emoji'
-""  Jetpack 'hrsh7th/cmp-nvim-lsp-document-symbol'
-""  Jetpack 'tzachar/cmp-tabnine', { 'do': './install.sh' }
-""  Jetpack 'onsails/lspkind.nvim'
-
-""  Jetpack 'hrsh7th/cmp-vsnip'
-""  Jetpack 'hrsh7th/vim-vsnip'
-
-  ""Jetpack 'jose-elias-alvarez/null-ls.nvim'
-""  Jetpack 'nvim-lua/plenary.nvim'
-
-""  Jetpack 'lambdalisue/fern.vim',{'on': 'Fern'}
-""  Jetpack 'lambdalisue/fern-git-status.vim',{'on': 'Fern'}
- "" Jetpack 'lambdalisue/nerdfont.vim',{'on': 'Fern'}
- "" Jetpack 'lambdalisue/fern-renderer-nerdfont.vim',{'on': 'Fern'}
-  ""Jetpack 'lambdalisue/glyph-palette.vim',{'on':'Fern'}
-  ""Jetpack 'lambdalisue/fern-bookmark.vim',{'on': 'Fern'}
-  ""Jetpack 'lambdalisue/fern-hijack.vim' 
-
-""  Jetpack 'lambdalisue/gina.vim', {'on': ['VimEnter']}
-
-""  Jetpack 't9md/vim-quickhl',{'on': ['<Plug>(quickhl-manual-this)','<Plug>(quickhl-manual-reset)']}
-  ""Jetpack 'terryma/vim-expand-region',{'on':[ '<Plug>(expand_region_expand)','<Plug>(expand_region_shrink)']}
-  ""Jetpack 'segeljakt/vim-silicon', { 'on': 'Silicon' }
-  ""Jetpack 'dracula/vim', { 'as': 'dracula' }
-  ""Jetpack 'vim-scripts/vim-auto-save', {'on': ['VimEnter']}
-  ""Jetpack 'vim-jp/vimdoc-ja'
-  " Jetpack 'vim-airline/vim-airline' , {'on': ['VimEnter']}
-  " Jetpack 'vim-airline/vim-airline-themes' , {'on': ['VimEnter']}
-  " jetpack 'github/copilot.vim'
-  " jetpack 'cohama/lexima.vim'
-  " jetpack 'neoclide/coc.nvim', {'branch': 'release'}
-  ""Jetpack 'akinsho/toggleterm.nvim',{'tag': 'v1.*'}
-
-  ""Jetpack 'vim-denops/denops.vim'
-
-  ""Jetpack 'alvan/vim-closetag',{'for': ['html','vue','javascript','javascriptreact','typescriptreact','typescript']}
-  ""Jetpack 'lukas-reineke/indent-blankline.nvim'
-  ""Jetpack 'p00f/nvim-ts-rainbow'
-  " jetpack 'nvim-treesitter/nvim-treesitter' , {'on':[]}
-  ""Jetpack 'nvim-treesitter/nvim-treesitter'
-
-  " jetpack 'tomtom/tcomment_vim'
-  ""Jetpack 'airblade/vim-gitgutter', {'on': ['VimEnter']}
-  " jetpack 'RRethy/vim-illuminate'
-  ""Jetpack 'MunifTanjim/nui.nvim'
-  " jetpack 'editorconfig/editorconfig-vim'
-  ""Jetpack 'windwp/nvim-ts-autotag' , {'on': ['VimEnter']}
-  ""Jetpack 'nvim-lualine/lualine.nvim'
-
-  ""Jetpack 'kyazdani42/nvim-web-devicons'
- "" Jetpack 'echasnovski/mini.nvim', { 'branch': 'stable' }
-  Jetpack 'tversteeg/registers.nvim', { 'branch': 'main' }
-  " jetpack 'mhinz/vim-startify'
-  Jetpack 'folke/which-key.nvim'
-  Jetpack 'ryanoasis/vim-devicons'
-  Jetpack 'relastle/vim-colorrange', { 'on': ['ColorrangeIncrement' , 'ColorrangeDecrement'] }
-  Jetpack 'lilydjwg/colorizer'
-  Jetpack 'machakann/vim-highlightedyank', {'on':['<Plug>(highlightedyank)']}
-  Jetpack 'heavenshell/vim-jsdoc', {
-  \ 'for': ['javascript', 'javascript.jsx','typescript'],
-  \ 'do': 'make install',
-  \ 'on': ['JsDoc']
-  \}
-  " Jetpack 'tyru/open-browser.vim'
-  Jetpack 't9md/vim-choosewin' , {'on': ['<Plug>(choosewin)']}
-  Jetpack 'mhinz/vim-startify'
-  Jetpack 'rmagatti/auto-session'
-  " jetpack 'skanehira/vsession'
-  " jetpack 'atelierbra/vim-colors_duotones'
-  " jetpack 'uloco/vim-bluloco-dark'
-  Jetpack 'skanehira/jumpcursor.vim', {'on': ['<Plug>(jumpcursor-jump)']}
-  " jetpack 'petertriho/nvim-scrollbar'
- call jetpack#end()
- let g:jetpack#optimization=2
 
 
 " source ~/.config/nvim/config/airline.vim
@@ -275,10 +188,10 @@ let g:choosewin_overlay_enable          = 1
 
 ]])
 --require("mini")
-require("whichikey")
+-- require("whichikey")
 --require("nvim-cmp")
 --require("treesitter")
 --require("indent-blank-line")
 --require("nvim-lualine")
-require("nvim-auto-session")
+--require("nvim-auto-session")
 -- require("nvim-null-ls")
