@@ -31,7 +31,7 @@ return require("packer").startup(function()
 	use({ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-emoji", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-nvim-lsp-document-symbol", after = "nvim-cmp" })
-	use({ "hrsh7th/cmp-vsnip" })
+	use({ "hrsh7th/cmp-vsnip", after = "nvim-cmp" })
 	use({
 		"tzachar/cmp-tabnine",
 		after = "nvim-cmp",
@@ -98,7 +98,7 @@ return require("packer").startup(function()
 		opt = true,
 		event = "VimEnter",
 		config = function()
-			require("plugconfig/vim_quickhl")
+			require("plugconfig/vim_quichl")
 		end,
 	})
 	use({
