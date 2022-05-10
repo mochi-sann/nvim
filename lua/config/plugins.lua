@@ -157,6 +157,33 @@ return require("packer").startup(function()
 		end,
 	})
 	use({ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" })
+	use({
+		"lewis6991/gitsigns.nvim",
+		opt = true,
+		event = "VimEnter",
+		config = function()
+			require("gitsigns").setup()
+		end,
+	})
+	use({ "MunifTanjim/nui.nvim" })
+
+	use({
+		"nvim-lualine/lualine.nvim",
+		opt = true,
+		event = "VimEnter",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		config = function()
+			require("plugconfig/lualine")
+		end,
+	})
+	use({
+		"echasnovski/mini.nvim",
+		branch = "stable",
+		config = function()
+			require("plugconfig/mini")
+		end,
+	})
+
 	-- file tree
 end)
 --vim.cmd([[autocmd BufWritePost config/plugins.lua PackerCompile]])

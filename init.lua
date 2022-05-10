@@ -72,15 +72,15 @@ call jetpack#begin()
   ""Jetpack 'nvim-treesitter/nvim-treesitter'
 
   " jetpack 'tomtom/tcomment_vim'
-  Jetpack 'airblade/vim-gitgutter', {'on': ['VimEnter']}
+  ""Jetpack 'airblade/vim-gitgutter', {'on': ['VimEnter']}
   " jetpack 'RRethy/vim-illuminate'
-  Jetpack 'MunifTanjim/nui.nvim'
+  ""Jetpack 'MunifTanjim/nui.nvim'
   " jetpack 'editorconfig/editorconfig-vim'
-  Jetpack 'windwp/nvim-ts-autotag' , {'on': ['VimEnter']}
-  Jetpack 'nvim-lualine/lualine.nvim'
+  ""Jetpack 'windwp/nvim-ts-autotag' , {'on': ['VimEnter']}
+  ""Jetpack 'nvim-lualine/lualine.nvim'
 
-  Jetpack 'kyazdani42/nvim-web-devicons'
-  Jetpack 'echasnovski/mini.nvim', { 'branch': 'stable' }
+  ""Jetpack 'kyazdani42/nvim-web-devicons'
+ "" Jetpack 'echasnovski/mini.nvim', { 'branch': 'stable' }
   Jetpack 'tversteeg/registers.nvim', { 'branch': 'main' }
   " jetpack 'mhinz/vim-startify'
   Jetpack 'folke/which-key.nvim'
@@ -274,11 +274,11 @@ let g:choosewin_overlay_enable          = 1
 
 
 ]])
-require("mini")
+--require("mini")
 require("whichikey")
 --require("nvim-cmp")
 --require("treesitter")
 --require("indent-blank-line")
-require("nvim-lualine")
+--require("nvim-lualine")
 require("nvim-auto-session")
 -- require("nvim-null-ls")
