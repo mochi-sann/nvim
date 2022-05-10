@@ -20,7 +20,6 @@ return require("packer").startup(function()
 		config = function()
 			require("plugconfig/nvim_cmp")
 		end,
-		opt = true,
 		event = "VimEnter",
 	})
 	use({ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" })
@@ -121,12 +120,6 @@ return require("packer").startup(function()
 	})
 
 	use({
-		"vim-scripts/vim-auto-save",
-		config = function()
-			require("plugconfig/vim_auto_save")
-		end,
-	})
-	use({
 		"vim-jp/vimdoc-ja",
 		config = function()
 			require("plugconfig/vimdoc_ja")
@@ -155,6 +148,15 @@ return require("packer").startup(function()
 		end,
 	})
 
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		opt = true,
+    event = "VimEnter"
+		config = function()
+			require("plugconfig/treesitter")
+		end,
+	})
+	use({ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" })
 	-- file tree
 end)
 --vim.cmd([[autocmd BufWritePost config/plugins.lua PackerCompile]])

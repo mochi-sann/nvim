@@ -66,10 +66,10 @@ call jetpack#begin()
   ""Jetpack 'vim-denops/denops.vim'
 
   ""Jetpack 'alvan/vim-closetag',{'for': ['html','vue','javascript','javascriptreact','typescriptreact','typescript']}
-  Jetpack 'lukas-reineke/indent-blankline.nvim'
-  Jetpack 'p00f/nvim-ts-rainbow'
+  ""Jetpack 'lukas-reineke/indent-blankline.nvim'
+  ""Jetpack 'p00f/nvim-ts-rainbow'
   " jetpack 'nvim-treesitter/nvim-treesitter' , {'on':[]}
-  Jetpack 'nvim-treesitter/nvim-treesitter'
+  ""Jetpack 'nvim-treesitter/nvim-treesitter'
 
   " jetpack 'tomtom/tcomment_vim'
   Jetpack 'airblade/vim-gitgutter', {'on': ['VimEnter']}
@@ -277,7 +277,7 @@ let g:choosewin_overlay_enable          = 1
 require("mini")
 require("whichikey")
 --require("nvim-cmp")
-require("treesitter")
+--require("treesitter")
 --require("indent-blank-line")
 require("nvim-lualine")
 require("nvim-auto-session")
