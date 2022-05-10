@@ -5,7 +5,6 @@ require("nvim-treesitter.configs").setup({
 	ensure_installed = {
 		"c",
 		"lua",
-		"rust",
 		"astro",
 		"bash",
 		"cmake",
@@ -16,7 +15,6 @@ require("nvim-treesitter.configs").setup({
 		"json",
 		"json5",
 		"latex",
-		"lua",
 		"markdown",
 		"php",
 		"prisma",
