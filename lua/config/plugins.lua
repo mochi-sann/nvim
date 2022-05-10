@@ -120,7 +120,40 @@ return require("packer").startup(function()
 		end,
 	})
 
+	use({
+		"vim-scripts/vim-auto-save",
+		config = function()
+			require("plugconfig/vim_auto_save")
+		end,
+	})
+	use({
+		"vim-jp/vimdoc-ja",
+		config = function()
+			require("plugconfig/vimdoc_ja")
+		end,
+	})
+	-- terminal
+	use({
+		"akinsho/toggleterm.nvim",
+		tag = "v1.*",
+		config = function()
+			require("plugconfig/toggleterm")
+		end,
+	})
+
+	use({ "vim-denops/denops.vim" })
 	--use({ "lambdalisue/gina.vim"  })
+	use({
+		"alvan/vim-closetag",
+		ft = { "html", "vue", "javascript", "javascriptreact", "typescriptreact", "typescript" },
+	})
+
+	use({
+		"lukas-reineke/indent-blankline.nvim",
+		config = function()
+			require("plugconfig/indent_blankline")
+		end,
+	})
 
 	-- file tree
 end)

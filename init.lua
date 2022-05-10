@@ -54,18 +54,18 @@ call jetpack#begin()
   ""Jetpack 'terryma/vim-expand-region',{'on':[ '<Plug>(expand_region_expand)','<Plug>(expand_region_shrink)']}
   ""Jetpack 'segeljakt/vim-silicon', { 'on': 'Silicon' }
   ""Jetpack 'dracula/vim', { 'as': 'dracula' }
-  Jetpack 'vim-scripts/vim-auto-save', {'on': ['VimEnter']}
-  Jetpack 'vim-jp/vimdoc-ja'
+  ""Jetpack 'vim-scripts/vim-auto-save', {'on': ['VimEnter']}
+  ""Jetpack 'vim-jp/vimdoc-ja'
   " Jetpack 'vim-airline/vim-airline' , {'on': ['VimEnter']}
   " Jetpack 'vim-airline/vim-airline-themes' , {'on': ['VimEnter']}
   " jetpack 'github/copilot.vim'
   " jetpack 'cohama/lexima.vim'
   " jetpack 'neoclide/coc.nvim', {'branch': 'release'}
-  Jetpack 'akinsho/toggleterm.nvim',{'tag': 'v1.*'}
+  ""Jetpack 'akinsho/toggleterm.nvim',{'tag': 'v1.*'}
 
-  Jetpack 'vim-denops/denops.vim'
+  ""Jetpack 'vim-denops/denops.vim'
 
-  Jetpack 'alvan/vim-closetag',{'for': ['html','vue','javascript','javascriptreact','typescriptreact','typescript']}
+  ""Jetpack 'alvan/vim-closetag',{'for': ['html','vue','javascript','javascriptreact','typescriptreact','typescript']}
   Jetpack 'lukas-reineke/indent-blankline.nvim'
   Jetpack 'p00f/nvim-ts-rainbow'
   " jetpack 'nvim-treesitter/nvim-treesitter' , {'on':[]}
@@ -113,7 +113,7 @@ call jetpack#begin()
 " -------------------- 
 " --------------------  vsnip
 " help の言語を日本語にする
-set helplang=ja
+""set helplan""g=ja
 
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 "検索結果のハイライトを、ESC キー連打で解除する。"
@@ -278,7 +278,7 @@ require("mini")
 require("whichikey")
 --require("nvim-cmp")
 require("treesitter")
-require("indent-blank-line")
+--require("indent-blank-line")
 require("nvim-lualine")
 require("nvim-auto-session")
 -- require("nvim-null-ls")
