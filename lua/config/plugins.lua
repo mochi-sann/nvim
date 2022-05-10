@@ -151,7 +151,7 @@ return require("packer").startup(function()
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		opt = true,
-    event = "VimEnter"
+		event = "VimEnter",
 		config = function()
 			require("plugconfig/treesitter")
 		end,
