@@ -20,6 +20,8 @@ return require("packer").startup(function()
 		config = function()
 			require("plugconfig/nvim_cmp")
 		end,
+		requires = { "hrsh7th/vim-vsnip" },
+		after = "vsnip",
 		event = "VimEnter",
 	})
 	use({ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" })
@@ -65,6 +67,7 @@ return require("packer").startup(function()
 	-- })
 	use({
 		"hrsh7th/vim-vsnip",
+		requires = { "hrsh7th/vim-vsnip-integ" },
 		config = function()
 			require("plugconfig/vsnip")
 		end,
