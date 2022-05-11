@@ -3,7 +3,7 @@ vim.cmd([[packadd packer.nvim]])
 return require("packer").startup(function()
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
-	use({ "junegunn/fzf", run = ":call fzf#install()" })
+	--use({ "junegunn/fzf", run = ":call fzf#install()" })
 
 	-- fizzy finder
 	use({
@@ -20,22 +20,19 @@ return require("packer").startup(function()
 		config = function()
 			require("plugconfig/nvim_cmp")
 		end,
-		event = "VimEnter",
 	})
 	use({ "hrsh7th/cmp-nvim-lsp" })
-	use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
-	use({ "hrsh7th/cmp-path", after = "nvim-cmp" })
-	use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" })
-	use({ "hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp" })
-	use({ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" })
-	use({ "hrsh7th/cmp-emoji", after = "nvim-cmp" })
-	use({ "hrsh7th/cmp-nvim-lsp-document-symbol", after = "nvim-cmp" })
-	use({ "hrsh7th/cmp-vsnip", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-buffer" })
+	use({ "hrsh7th/cmp-path" })
+	use({ "hrsh7th/cmp-cmdline" })
+	use({ "hrsh7th/cmp-nvim-lsp-signature-help" })
+	use({ "hrsh7th/cmp-nvim-lua" })
+	use({ "hrsh7th/cmp-emoji" })
+	use({ "hrsh7th/cmp-nvim-lsp-document-symbol" })
+	use({ "hrsh7th/cmp-vsnip" })
 	use({
 		"tzachar/cmp-tabnine",
-		after = "nvim-cmp",
 		run = "./install.sh",
-		requires = "hrsh7th/nvim-cmp",
 		config = function()
 			require("plugconfig/cmp-tabnine")
 		end,
@@ -52,8 +49,6 @@ return require("packer").startup(function()
 	use({
 		"williamboman/nvim-lsp-installer",
 		"neovim/nvim-lspconfig",
-		after = "nvim-cmp",
-		requires = "hrsh7th/nvim-cmp",
 	})
 	-- use({
 	-- 	"hrsh7th/cmp-vsnip",
@@ -69,7 +64,7 @@ return require("packer").startup(function()
 			require("plugconfig/vsnip")
 		end,
 		requires = {
-			{ "hrsh7th/vim-vsnip-integ", after = "vim-vsnip" },
+			{ "hrsh7th/vim-vsnip-integ" },
 		},
 	})
 	--use({ "hrsh7th/cmp-vsnip", after = "nvim-cpm" })
@@ -132,6 +127,8 @@ return require("packer").startup(function()
 	use({
 		"akinsho/toggleterm.nvim",
 		tag = "v1.*",
+		opt = true,
+		event = "VimEnter",
 		config = function()
 			require("plugconfig/toggleterm")
 		end,
@@ -141,7 +138,6 @@ return require("packer").startup(function()
 	--use({ "lambdalisue/gina.vim"  })
 	use({
 		"alvan/vim-closetag",
-		ft = { "html", "vue", "javascript", "javascriptreact", "typescriptreact", "typescript" },
 	})
 
 	use({
