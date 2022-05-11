@@ -20,11 +20,9 @@ return require("packer").startup(function()
 		config = function()
 			require("plugconfig/nvim_cmp")
 		end,
-		requires = { "hrsh7th/vim-vsnip" },
-		after = "vsnip",
 		event = "VimEnter",
 	})
-	use({ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-nvim-lsp" })
 	use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-path", after = "nvim-cmp" })
 	use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" })
@@ -54,7 +52,7 @@ return require("packer").startup(function()
 	use({
 		"williamboman/nvim-lsp-installer",
 		"neovim/nvim-lspconfig",
-		after = "nvim-cpm",
+		after = "nvim-cmp",
 		requires = "hrsh7th/nvim-cmp",
 	})
 	-- use({
@@ -67,10 +65,12 @@ return require("packer").startup(function()
 	-- })
 	use({
 		"hrsh7th/vim-vsnip",
-		requires = { "hrsh7th/vim-vsnip-integ" },
 		config = function()
 			require("plugconfig/vsnip")
 		end,
+		requires = {
+			{ "hrsh7th/vim-vsnip-integ", after = "vim-vsnip" },
+		},
 	})
 	--use({ "hrsh7th/cmp-vsnip", after = "nvim-cpm" })
 	-- format and linter
@@ -155,6 +155,7 @@ return require("packer").startup(function()
 		"nvim-treesitter/nvim-treesitter",
 		opt = true,
 		event = "VimEnter",
+		run = ":TSUpdate",
 		config = function()
 			require("plugconfig/treesitter")
 		end,
