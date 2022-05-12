@@ -3,7 +3,7 @@ vim.cmd([[
 let g:fern#renderer = 'nerdfont'
 let g:fern#disable_drawer_auto_restore_focus = 1
 let g:fern#renderer#default#leading = "hogehogeho "
-nnoremap <C-n> :Fern . -reveal=% -drawer -right -width=35  <CR>
+nnoremap <C-k> :Fern . -reveal=% -drawer -right -width=35  <CR>
 let g:fern#default_hidden=1 "不可視ファイルを表示する
 
 
