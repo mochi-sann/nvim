@@ -1,7 +1,3 @@
-require("config/options")
-require("config/plugins")
---vim.cmd([[autocmd BufWritePost config/plugins.lua PackerCompile]])
-
 vim.cmd([[
 nnoremap <Leader> <Nop>
 xnoremap <Leader> <Nop>
@@ -15,6 +11,13 @@ nnoremap [ff]     <Nop>
 xnoremap [ff]     <Nop>
 nmap     +        [ff]
 xmap     +        [ff]
+
+]])
+require("config/options")
+require("config/plugins")
+--vim.cmd([[autocmd BufWritePost config/plugins.lua PackerCompile]])
+
+vim.cmd([[
 " nmap    <C-g>        [fzf-p]
 " xmap     <C-g>        [fzf-p]
 
