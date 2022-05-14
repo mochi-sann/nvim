@@ -38,6 +38,16 @@ return require("packer").startup(function()
     end,
   })
 
+  use({
+    "TimUntersberger/neogit",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("plugconfig/neogit")
+    end,
+    opt = true,
+    event = "VimEnter",
+  })
+
   -- use({
   -- 	"onsails/lspkind.nvim",
   -- 	after = "nvim-cmp",
@@ -143,8 +153,24 @@ return require("packer").startup(function()
 
   use({ "vim-denops/denops.vim" })
   --use({ "lambdalisue/gina.vim"  })
+  -- use({
+  --   "alvan/vim-closetag",
+  --   config = function()
+  --     require("plugconfig/vim_closetag")
+  --   end,
+  -- })
+
+  -- use({
+  --   "rchaser53/insertclosetag",
+  --   config = function()
+  --     require("plugconfig/insertclosetag")
+  --   end,
+  -- })
   use({
-    "alvan/vim-closetag",
+    "steelsojka/pears.nvim",
+    config = function()
+      require("plugconfig/pears")
+    end,
   })
 
   use({
@@ -193,6 +219,8 @@ return require("packer").startup(function()
   use("tversteeg/registers.nvim")
   use({
     "folke/which-key.nvim",
+    opt = true,
+    event = "vimenter",
     config = function()
       require("plugconfig/whichi_key")
     end,
@@ -201,7 +229,7 @@ return require("packer").startup(function()
   use({
     "relastle/vim-colorrange",
     opt = true,
-    event = "VimEnter",
+    event = "vimenter",
   })
   use({ "lilydjwg/colorizer", opt = true, event = "VimEnter" })
   use({ "machakann/vim-highlightedyank" })
