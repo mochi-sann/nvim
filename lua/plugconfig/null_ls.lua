@@ -66,6 +66,7 @@ null_ls.setup({
     null_ls.builtins.diagnostics.eslint,
     null_ls.builtins.formatting.shfmt,
     null_ls.builtins.diagnostics.shellcheck,
+    null_ls.builtins.formatting.clang_format,
     -- null_ls.builtins.diagnostics.codespell,
     null_ls.builtins.formatting.markdownlint,
     null_ls.builtins.code_actions.gitsigns,

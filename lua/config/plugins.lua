@@ -132,6 +132,8 @@ return require("packer").startup(function()
     config = function()
       require("plugconfig/auto_save_nvim")
     end,
+    opt = true,
+    event = "VimEnter",
   })
 
   use({
@@ -179,7 +181,7 @@ return require("packer").startup(function()
       require("plugconfig/indent_blankline")
     end,
   })
-
+  -- treesitter settins
   use({
     "nvim-treesitter/nvim-treesitter",
     opt = true,
@@ -190,6 +192,8 @@ return require("packer").startup(function()
     end,
   })
   use({ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" })
+  use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })
+
   use({
     "lewis6991/gitsigns.nvim",
     opt = true,
@@ -229,7 +233,7 @@ return require("packer").startup(function()
   use({
     "relastle/vim-colorrange",
     opt = true,
-    event = "vimenter",
+    event = "VimEnter",
   })
   use({ "lilydjwg/colorizer", opt = true, event = "VimEnter" })
   use({ "machakann/vim-highlightedyank" })
