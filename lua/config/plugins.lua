@@ -36,16 +36,20 @@ return require("packer").startup(function()
     config = function()
       require("plugconfig/cmp-tabnine")
     end,
+    pluins,
   })
 
   use({
     "TimUntersberger/neogit",
-    requires = "nvim-lua/plenary.nvim",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+    },
     config = function()
       require("plugconfig/neogit")
     end,
-    opt = true,
-    event = "VimEnter",
+    -- opt = true,
+    -- event = "VimEnter",
   })
 
   -- use({
@@ -117,7 +121,10 @@ return require("packer").startup(function()
     end,
   })
   use({ "segeljakt/vim-silicon", opt = true, event = "VimEnter" })
+  -- colorschem
   use({ "dracula/vim", as = "dracula" })
+  --use("rebelot/kanagawa.nvim")
+
   -- use({
   --   "vim-scripts/vim-auto-save",
   --   opt = true,
