@@ -70,6 +70,7 @@ null_ls.setup({
     -- null_ls.builtins.diagnostics.codespell,
     null_ls.builtins.formatting.markdownlint,
     null_ls.builtins.code_actions.gitsigns,
+    null_ls.builtins.formatting.gofmt,
     -- LuaFormatter on
   },
   on_attach = on_attach,
