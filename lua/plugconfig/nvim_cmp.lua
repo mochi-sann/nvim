@@ -206,7 +206,6 @@ require("nvim-lsp-installer").setup({
     "emmet_ls",
     "jsonls",
     "tsserver",
-    "remark_ls",
     "pylsp",
     "svelte",
     "tailwindcss",
