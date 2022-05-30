@@ -198,7 +198,8 @@ return require("packer").startup(function()
       require("plugconfig/treesitter")
     end,
   })
-  use({ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" })
+  use({ "p00f/nvim-ts-rainbow" ,after = "nvim-treesitter"})
+  
   use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })
 
   use({
@@ -246,6 +247,9 @@ return require("packer").startup(function()
   use({ "machakann/vim-highlightedyank" })
 
   use({ "t9md/vim-choosewin", opt = true, event = "VimEnter" })
+
+  use({ "davidgranstrom/nvim-markdown-preview" , opt = true,event = "VimEnter"})
+  
   -- file tree
 end)
 --vim.cmd([[autocmd BufWritePost config/plugins.lua PackerCompile]])

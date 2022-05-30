@@ -1,45 +1,34 @@
 local null_ls = require("null-ls")
 
 local lsp_formatting = function(bufnr)
-  vim.lsp.buf.format({
-    filter = function(clients)
-      -- filter out clients that you don't want to use
-      return vim.tbl_filter(function(client)
-        return client.name ~= "tsserver"
-      end, clients)
-    end,
-    bufnr = bufnr,
-  })
+    vim.lsp.buf.format({
+        filter = function(client)
+            -- apply whatever logic you want (in this example, we'll only use null-ls)
+            return client.name == "null-ls"
+        end,
+        bufnr = bufnr,
+    })
 end
+
 
 -- if you want to set up formatting on save, you can use this as a callback
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 local opts = { noremap = true, silent = true }
 -- add to your shared on_attach callback
-
 local on_attach = function(client, bufnr)
-  if client.supports_method("textDocument/formatting") then
-    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      group = augroup,
-      buffer = bufnr,
-      callback = function()
-        lsp_formatting(bufnr)
-      end,
-    })
-    -- vim.api.nvim_buf_set_keymap("i", "<space>f", function()
-    --   lsp_formatting(bufnr)
-    -- end, { expr = true })
-    -- vim.api.nvim_buf_set_keymap({ group = augroup, buffer = bufnr }, "n", "<space>f", {
-    --   group = augroup,
-    --   buffer = bufnr,
-    --   callback = function()
-    --     lsp_formatting(bufnr)
-    --   end,
-    -- }, opts)
-  end
+    if client.supports_method("textDocument/formatting") then
+        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            group = augroup,
+            buffer = bufnr,
+            callback = function()
+                lsp_formatting(bufnr)
+            end,
+        })
+    end
 end
+
 
 null_ls.setup({
   sources = {
