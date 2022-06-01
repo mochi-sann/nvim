@@ -1,5 +1,6 @@
 vim.cmd([[
 
+
 let g:fern#renderer = 'nerdfont'
 let g:fern#disable_drawer_auto_restore_focus = 1
 let g:fern#renderer#default#leading = "hogehogeho "
