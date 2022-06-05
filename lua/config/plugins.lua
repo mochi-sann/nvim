@@ -14,6 +14,15 @@ return require("packer").startup(function()
 		end,
 	})
 
+	use({
+		"rmagatti/session-lens",
+		requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
+		config = function()
+			require("session-lens").setup({--[[your custom config--]]
+			})
+		end,
+	})
+
 	-- LSP settings
 	use({
 		"hrsh7th/nvim-cmp",
@@ -30,6 +39,20 @@ return require("packer").startup(function()
 	use({ "hrsh7th/cmp-emoji" })
 	use({ "hrsh7th/cmp-nvim-lsp-document-symbol" })
 	use({ "hrsh7th/cmp-vsnip" })
+	use({
+		"zbirenbaum/copilot-cmp",
+		after = { "copilot.lua", "nvim-cmp" },
+	})
+	use({
+		"zbirenbaum/copilot.lua",
+		event = { "VimEnter" },
+		config = function()
+			vim.defer_fn(function()
+				require("copilot").setup()
+			end, 100)
+		end,
+	})
+
 	use({
 		"tzachar/cmp-tabnine",
 		run = "./install.sh",
@@ -141,6 +164,12 @@ return require("packer").startup(function()
 		end,
 		opt = true,
 		event = "VimEnter",
+	})
+	use({
+		"rmagatti/auto-session",
+		config = function()
+			require("plugconfig/auto_session")
+		end,
 	})
 
 	use({

@@ -67,10 +67,10 @@ colorschem dracula
 
 " 背景をなくす
 ""hi Normal guibg=NONE ctermbg=NONE
-""augroup TransparentBG
-""  autocmd!
-""  autocmd Colorscheme * hi Normal guibg=NONE ctermbg=NONE
-""augroup END
+augroup TransparentBG
+  autocmd!
+  autocmd Colorscheme * hi Normal guibg=NONE ctermbg=NONE
+augroup END
 
 
 
@@ -131,12 +131,6 @@ function! s:my_tabline()  "{{{
 endfunction "}}}
 let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
 
-" The prefix key.
-" Tab jump
-" for n in range(1, 9)
-"   execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
-" endfor
-" t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
 
 map <silent> [Tag]c :tablast <bar> tabnew<CR>
 " tc 新しいタブを一番右に作る
@@ -147,46 +141,12 @@ map <silent> [Tag]n :tabnext<CR>
 map <silent> [Tag]p :tabprevious<CR>
 " tp 前のタブ
 
-
-"------------------------------------------------------"
-"定義元にジャンプする
-
-" 定義にジャンプする https://zenn.dev/skanehira/articles/2021-12-12-vim-coc-nvim-jump-split
-" [
-"   {"text": "(e)dit", "value": "edit"}
-"   {"text": "(n)ew", "value": "new"}
-" ]
-" NOTE: text must contains '()' to detect input and its must be 1 character
-""function! ChoseAction(actions) abort
-""  echo join(map(copy(a:actions), { _, v -> v.text }), ", ") .. ": "
-""  let result = getcharstr()
-""  let result = filter(a:actions, { _, v -> v.text =~# printf(".*\(%s\).*", result)})
-""  return len(result) ? result[0].value : ""
-""endfunction
-""
-""function! CocJumpAction() abort
-""  let actions = [
-""        \ {"text": "(s)plit", "value": "split"},
-""        \ {"text": "(v)slit", "value": "vsplit"},
-""        \ {"text": "(t)ab", "value": "tabedit"},
-""        \ ]
-""  return ChoseAction(actions)
-""endfunction
-
 " -------------------------"
 "               t9md/vim-choosewin                "
 " ----------------------------------------------------------------------------""
 nmap  -  <Plug>(choosewin)
 " オーバーレイ機能を有効にしたい場合
 let g:choosewin_overlay_enable          = 1
-
-" オーバーレイ・フォントをマルチバイト文字を含むバッファでも綺麗に表示する。
-" let g:choosewin_overlay_clear_multibyte = 1
-
-
-"------------------------- fzf-preivew の設定
-" let $BAT_THEME                     = 'Dracula'
-""nnoremap <silent> mf           :lua vim.lsp.buf.formatting()<CR>
 
 
 ]])
