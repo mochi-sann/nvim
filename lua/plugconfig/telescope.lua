@@ -81,5 +81,7 @@ nnoremap [tel-p]h <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap [tel-p]ba <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap [tel-p]c <cmd>lua require('telescope.builtin').command_history()<cr>
 nnoremap [tel-p]s <cmd>lua require('session-lens').search_session() <cr>
+nnoremap [tel-p]gb <cmd>lua require('telescope.builtin').git_branches() <cr>
+nnoremap [tel-p]gs <cmd>lua require('telescope.builtin').git_status() <cr>
 
 ]])

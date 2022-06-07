@@ -74,6 +74,19 @@ return require("packer").startup(function()
 		-- opt = true,
 		-- event = "VimEnter",
 	})
+	use({
+		"pwntester/octo.nvim",
+		opt = true,
+		event = "VimEnter",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+			"kyazdani42/nvim-web-devicons",
+		},
+		config = function()
+			require("octo").setup()
+		end,
+	})
 
 	-- use({
 	-- 	"onsails/lspkind.nvim",
@@ -277,7 +290,17 @@ return require("packer").startup(function()
 
 	use({ "t9md/vim-choosewin", opt = true, event = "VimEnter" })
 
-	use({ "davidgranstrom/nvim-markdown-preview", opt = true, event = "VimEnter" })
+	-- use({ "davidgranstrom/nvim-markdown-preview", opt = true, event = "VimEnter" })
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		opt = true,
+		event = "VimEnter",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	})
 
 	-- file tree
 end)
