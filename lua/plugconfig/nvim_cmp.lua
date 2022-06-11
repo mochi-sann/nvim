@@ -60,7 +60,7 @@ cmp.setup({
 		{ name = "emoji", group_index = 4 },
 		{ name = "nvim_lsp_document_symbol" },
 		{ name = "nvim_lua" },
-		{ name = "skkeleton", group_index = 2 },
+		 ---{ name = "skkeleton", group_index = 2 },
 
 		-- { name = "copilot", group_index = 2 },
 
