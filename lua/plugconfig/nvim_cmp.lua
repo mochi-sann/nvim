@@ -54,12 +54,15 @@ cmp.setup({
 	sources = cmp.config.sources({
 		-- { name = "copilot", group_index = 2 },
 
-		{ name = "nvim_lsp" },
-		{ name = "vsnip" }, -- For vsnip users.
+		{ name = "nvim_lsp", group_index = 2 },
+		{ name = "vsnip", group_index = 3 }, -- For vsnip users.
 		{ name = "nvim_lsp_signature_help" },
-		{ name = "emoji" },
+		{ name = "emoji", group_index = 4 },
 		{ name = "nvim_lsp_document_symbol" },
 		{ name = "nvim_lua" },
+		{ name = "skkeleton", group_index = 2 },
+
+		-- { name = "copilot", group_index = 2 },
 
 		-- { name = 'luasnip' }, -- For luasnip users.
 		-- { name = 'ultisnips' }, -- For ultisnips users.

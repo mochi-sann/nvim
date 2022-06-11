@@ -52,6 +52,8 @@ return require("packer").startup(function()
 			end, 100)
 		end,
 	})
+	use({ "vim-skk/skkeleton", requires = { "vim-denops/denops.vim" } })
+	use({ "rinx/cmp-skkeleton", after = { "nvim-cmp", "skkeleton" } })
 
 	use({
 		"tzachar/cmp-tabnine",
