@@ -14,15 +14,6 @@ return require("packer").startup(function()
 		end,
 	})
 
-	use({
-		"rmagatti/session-lens",
-		requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
-		config = function()
-			require("session-lens").setup({--[[your custom config--]]
-			})
-		end,
-	})
-
 	-- LSP settings
 	use({
 		"hrsh7th/nvim-cmp",
@@ -184,6 +175,14 @@ return require("packer").startup(function()
 		"rmagatti/auto-session",
 		config = function()
 			require("plugconfig/auto_session")
+		end,
+	})
+	use({
+		"rmagatti/session-lens",
+		requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
+		config = function()
+			require("session-lens").setup({--[[your custom config--]]
+			})
 		end,
 	})
 
