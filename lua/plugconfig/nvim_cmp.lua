@@ -220,8 +220,6 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
 		})
 	end
 end
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-local nvim_lsp = require("lspconfig")
 
 require("nvim-lsp-installer").setup({
 	ui = {
