@@ -34,6 +34,7 @@ null_ls.setup({
 		-- null_ls.builtins.completion.spell,
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.black,
+
 		null_ls.builtins.formatting.deno_fmt.with({
 			condition = function(utils)
 				return not (utils.has_file({ ".prettierrc", ".prettierrc.js", "deno.json", "deno.jsonc" }))
@@ -57,7 +58,7 @@ null_ls.setup({
 		-- null_ls.builtins.diagnostics.codespell,
 		null_ls.builtins.formatting.markdownlint,
 		null_ls.builtins.code_actions.gitsigns,
-		-- null_ls.builtins.formatting.gofmt,
+		null_ls.builtins.formatting.gofmt,
 		-- LuaFormatter on
 	},
 	on_attach = on_attach,
