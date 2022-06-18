@@ -7,6 +7,8 @@ local feedkey = function(key, mode)
 	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
 end
 
+local lsp_installer = require("nvim-lsp-installer")
+local lspconfig = require("lspconfig")
 local cmp = require("cmp")
 vim.opt.completeopt = "menu,menuone,noselect"
 
@@ -60,7 +62,7 @@ cmp.setup({
 		{ name = "emoji", group_index = 4 },
 		{ name = "nvim_lsp_document_symbol" },
 		{ name = "nvim_lua" },
-		 ---{ name = "skkeleton", group_index = 2 },
+		---{ name = "skkeleton", group_index = 2 },
 
 		-- { name = "copilot", group_index = 2 },
 
@@ -196,37 +198,32 @@ local on_attach = function(client, bufnr)
 	-- }, opts)
 end
 
-local lsp_installer = require("nvim-lsp-installer")
-local lspconfig = require("lspconfig")
 lsp_installer.setup()
 for _, server in ipairs(lsp_installer.get_installed_servers()) do
-	lspconfig[server.name].setup({
-		on_attach = on_attach,
-	})
-end
+	-- print(server.name)
+	if server.name == "denols" then
+		lspconfig["denols"].setup({
+			root_dir = lspconfig.util.root_pattern("deno.json"),
 
+			on_attach = on_attach,
+		})
+	elseif
+		lspconfig["tsserver"].setup({
+			root_dir = lspconfig.util.root_pattern("package.json"),
+
+			on_attach = on_attach,
+		})
+	then
+	else
+		lspconfig[server.name].setup({
+			on_attach = on_attach,
+		})
+	end
+end
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local nvim_lsp = require("lspconfig")
 
 require("nvim-lsp-installer").setup({
-	ensure_installed = {
-		"rust_analyzer",
-		"sumneko_lua",
-		"bashls",
-		"clangd",
-		"cssls",
-		"codeqlls",
-		"dartls",
-		"emmet_ls",
-		"jsonls",
-		"tsserver",
-		"pylsp",
-		"svelte",
-		"tailwindcss",
-		"volar",
-		"vimls",
-		"yamlls",
-	}, -- ensure these servers are always installed
-	automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
 	ui = {
 		icons = {
 			server_installed = "✓",
