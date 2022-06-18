@@ -214,6 +214,13 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
 			on_attach = on_attach,
 		})
 	then
+	elseif
+		lspconfig["eslint"].setup({
+			root_dir = lspconfig.util.root_pattern("package.json"),
+
+			on_attach = on_attach,
+		})
+	then
 	else
 		lspconfig[server.name].setup({
 			on_attach = on_attach,
