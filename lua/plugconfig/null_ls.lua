@@ -37,7 +37,7 @@ null_ls.setup({
 
 		null_ls.builtins.formatting.deno_fmt.with({
 			condition = function(utils)
-				return not (utils.has_file({ ".prettierrc", ".prettierrc.js", "deno.json", "deno.jsonc" }))
+				return not (utils.has_file({ ".prettierrc", ".prettierrc.js" }))
 			end,
 		}),
 		null_ls.builtins.formatting.prettier.with({
