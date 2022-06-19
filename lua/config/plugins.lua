@@ -150,6 +150,8 @@ return require("packer").startup(function()
 	use({ "segeljakt/vim-silicon", opt = true, event = "VimEnter" })
 	-- colorschem
 	use({ "dracula/vim", as = "dracula" })
+	use({ "sainnhe/sonokai" })
+
 	--use("rebelot/kanagawa.nvim")
 
 	-- use({
@@ -273,7 +275,7 @@ return require("packer").startup(function()
 	use({
 		"folke/which-key.nvim",
 		opt = true,
-		event = "vimenter",
+		event = "VimEnter",
 		config = function()
 			require("plugconfig/whichi_key")
 		end,
