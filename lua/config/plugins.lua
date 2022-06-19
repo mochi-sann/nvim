@@ -81,14 +81,12 @@ return require("packer").startup(function()
 		end,
 	})
 
-	-- use({
-	-- 	"onsails/lspkind.nvim",
-	-- 	after = "nvim-cmp",
-	-- 	requires = "hrsh7th/nvim-cmp",
-	-- 	config = function()
-	-- 		require("plugconfig/lspkind")
-	-- 	end,
-	-- })
+	use({
+		"onsails/lspkind.nvim",
+		config = function()
+			require("plugconfig/lspkind")
+		end,
+	})
 	use({
 		"williamboman/nvim-lsp-installer",
 		"neovim/nvim-lspconfig",
