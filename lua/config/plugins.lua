@@ -1,8 +1,7 @@
 vim.cmd([[packadd packer.nvim]])
-
 return require("packer").startup(function()
 	-- Packer can manage itself
-	use("wbthomason/packer.nvim")
+	use({ "wbthomason/packer.nvim" })
 	--use({ "junegunn/fzf", run = ":call fzf#install()" })
 
 	-- fizzy finder
@@ -52,7 +51,6 @@ return require("packer").startup(function()
 		config = function()
 			require("plugconfig/cmp-tabnine")
 		end,
-		pluins,
 	})
 
 	use({
@@ -218,6 +216,13 @@ return require("packer").startup(function()
 	--     require("plugconfig/insertclosetag")
 	--   end,
 	-- })
+	use({
+		"heavenshell/vim-jsdoc",
+		opt = true,
+		cmd = { "JsDoc" },
+		ft = { "typescript", "typescriptreact", "javascript", "javascriptreact", "vue" },
+	})
+
 	use({
 		"steelsojka/pears.nvim",
 		config = function()

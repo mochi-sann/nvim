@@ -68,10 +68,10 @@ colorschem  sonokai
 
 " 背景をなくす
 ""hi Normal guibg=NONE ctermbg=NONE
-augroup TransparentBG
-  autocmd!
-  autocmd Colorscheme * hi Normal guibg=NONE ctermbg=NONE
-augroup END
+""augroup TransparentBG
+""  autocmd!
+""  autocmd Colorscheme * hi Normal guibg=NONE ctermbg=NONE
+""augroup END
 
 
 
@@ -151,11 +151,3 @@ let g:choosewin_overlay_enable          = 1
 
 
 ]])
---require("mini")
--- require("whichikey")
---require("nvim-cmp")
---require("treesitter")
---require("indent-blank-line")
---require("nvim-lualine")
---require("nvim-auto-session")
--- require("nvim-null-ls")
