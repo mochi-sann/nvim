@@ -312,5 +312,3 @@ return require("packer").startup(function()
 	-- file tree
 end)
 --vim.cmd([[autocmd BufWritePost config/plugins.lua PackerCompile]])
-
--- 設定ファイルがアップデートしたら自動でコンパイルする
