@@ -59,7 +59,7 @@ vim.o.hls = true -- 検索結果を強調表示
 vim.o.ignorecase = true -- 大文字小文字を無視して検索する
 vim.o.smartcase = true -- 大文字を含んでいる時は完全一致で検索
 vim.o.backup = false --バックアップを作らない
-vim.o.cmdheight = 0 -- コマンドラインの高さを0にする
+vim.o.cmdheight = 1 -- コマンドラインの高さを0にする
 -- vim.o.completeopt
 
 vim.o.synmaxcol = 200
