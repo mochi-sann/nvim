@@ -41,7 +41,7 @@ vim.g.did_load_filetypes = 0
 
 vim.opt.number = true -- 行番号を表示
 vim.opt.laststatus = 3 -- ステータスラインを画面いっぱいにする
-vim.o.cursorline = false -- カーソルラインを非表示
+vim.o.cursorline = true -- カーソルラインを非表示
 vim.o.showtabline = 2 --タブバーを常時表示
 vim.o.autoindent = true -- "改行時に自動でインデントする
 vim.o.clipboard = "unnamed" -- ヤンクしたときにクリップボードに自動コピー
@@ -71,7 +71,7 @@ vim.o.background = "dark"
 vim.o.display = "lastline" -- 長い行も一行で収まるように
 vim.o.showmode = false
 vim.o.showmatch = true -- 括弧の対応をハイライト
-vim.o.matchtime = 1 -- 括弧の対を見つけるミリ秒数
+vim.o.matchtime = 8 -- 括弧の対を見つけるミリ秒数
 vim.o.showcmd = true -- 入力中のコマンドを表示
 -- vim.o.relativenumber = true
 vim.o.wrap = true -- 画面幅で折り返す
