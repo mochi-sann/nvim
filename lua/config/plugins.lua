@@ -42,6 +42,7 @@ return require("packer").startup(function()
 			end, 100)
 		end,
 	})
+	use({ "github/copilot.vim" })
 	-- use({ "vim-skk/skkeleton", requires = { "vim-denops/denops.vim" } })
 	-- use({ "rinx/cmp-skkeleton", after = { "nvim-cmp", "skkeleton" } })
 
@@ -148,7 +149,7 @@ return require("packer").startup(function()
 	use({ "segeljakt/vim-silicon", opt = true, event = "VimEnter" })
 	-- colorschem
 	use({ "dracula/vim", as = "dracula" })
-	use({ "sainnhe/sonokai" })
+	-- use({ "sainnhe/sonokai" })
 
 	--use("rebelot/kanagawa.nvim")
 

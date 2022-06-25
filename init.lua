@@ -63,8 +63,8 @@ nmap [j <Plug>(jumpcursor-jump)
 "--------------------------------
 "  colorschem settings 
 "
-"" colorschem dracula
-colorschem  sonokai 
+colorschem dracula
+""colorschem  sonokai 
 
 " 背景をなくす
 ""hi Normal guibg=NONE ctermbg=NONE
