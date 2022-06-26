@@ -41,7 +41,7 @@ vim.g.did_load_filetypes = 0
 
 vim.opt.number = true -- 行番号を表示
 vim.opt.laststatus = 3 -- ステータスラインを画面いっぱいにする
-vim.o.cursorline = true -- カーソルラインを非表示
+vim.o.cursorline = false -- カーソルラインを非表示
 vim.o.showtabline = 2 --タブバーを常時表示
 vim.o.autoindent = true -- "改行時に自動でインデントする
 vim.o.clipboard = "unnamed" -- ヤンクしたときにクリップボードに自動コピー
@@ -60,6 +60,8 @@ vim.o.ignorecase = true -- 大文字小文字を無視して検索する
 vim.o.smartcase = true -- 大文字を含んでいる時は完全一致で検索
 vim.o.backup = false --バックアップを作らない
 vim.o.cmdheight = 1 -- コマンドラインの高さを0にする
+vim.o.guifont = "JetBrainsMono Nerd Font:h15"
+
 -- vim.o.completeopt
 
 vim.o.synmaxcol = 200
