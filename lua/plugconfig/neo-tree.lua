@@ -27,8 +27,8 @@ require("neo-tree").setup({
 			enable_character_fade = true,
 		},
 		indent = {
-			indent_size = 1,
-			padding = 1, -- extra padding on left hand side
+			indent_size = 2,
+			padding = 0, -- extra padding on left hand side
 			-- indent guides
 			with_markers = true,
 			indent_marker = "│",
@@ -76,7 +76,7 @@ require("neo-tree").setup({
 	},
 	window = {
 		position = "right",
-		width = 35,
+		width = 40,
 		mapping_options = {
 			noremap = true,
 			nowait = true,
@@ -88,6 +88,7 @@ require("neo-tree").setup({
 			},
 			["<2-LeftMouse>"] = "open",
 			["<cr>"] = "open",
+			["l"] = "open",
 			["S"] = "open_split",
 			["s"] = "open_vsplit",
 			-- ["S"] = "split_with_window_picker",
@@ -95,6 +96,7 @@ require("neo-tree").setup({
 			["t"] = "open_tabnew",
 			["w"] = "open_with_window_picker",
 			["C"] = "close_node",
+			["h"] = "close_node",
 			["a"] = {
 				"add",
 				-- some commands may take optional config options, see `:h neo-tree-mappings` for details
@@ -126,7 +128,7 @@ require("neo-tree").setup({
 		filtered_items = {
 			visible = true, -- when true, they will just be displayed differently than normal items
 			hide_dotfiles = false,
-			hide_gitignored = false,
+			hide_gitignored = true,
 			hide_hidden = true, -- only works on Windows for hidden files/directories
 			hide_by_name = {
 				"node_modules",
@@ -190,5 +192,4 @@ require("neo-tree").setup({
 		},
 	},
 })
-
-vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
+vim.cmd([[nnoremap <C-n> :Neotree reveal toggle<CR>]])

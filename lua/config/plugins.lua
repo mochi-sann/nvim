@@ -131,20 +131,20 @@ return require("packer").startup(function()
 			require("plugconfig/neo-tree")
 		end,
 	})
-	use({
-		"lambdalisue/fern.vim",
-		opt = true,
-		event = "VimEnter",
-
-		config = function()
-			require("plugconfig/fern")
-		end,
-	})
-	use({ "lambdalisue/fern-git-status.vim", after = "fern.vim" })
-	-- use({ "lambdalisue/nerdfont.vim", after = "fern.vim" })
-	use({ "lambdalisue/fern-renderer-nerdfont.vim", after = "fern.vim", requires = { "lambdalisue/nerdfont.vim" } })
-	use({ "lambdalisue/glyph-palette.vim", after = "fern.vim" })
-	use({ "lambdalisue/fern-bookmark.vim", after = "fern.vim" })
+	-- use({
+	-- 	"lambdalisue/fern.vim",
+	-- 	opt = true,
+	-- 	event = "VimEnter",
+	--
+	-- 	config = function()
+	-- 		require("plugconfig/fern")
+	-- 	end,
+	-- })
+	-- use({ "lambdalisue/fern-git-status.vim", after = "fern.vim" })
+	-- -- use({ "lambdalisue/nerdfont.vim", after = "fern.vim" })
+	-- use({ "lambdalisue/fern-renderer-nerdfont.vim", after = "fern.vim", requires = { "lambdalisue/nerdfont.vim" } })
+	-- use({ "lambdalisue/glyph-palette.vim", after = "fern.vim" })
+	-- use({ "lambdalisue/fern-bookmark.vim", after = "fern.vim" })
 	use({
 		"t9md/vim-quickhl",
 		opt = true,
