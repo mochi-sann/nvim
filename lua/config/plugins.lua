@@ -3,7 +3,6 @@ return require("packer").startup(function()
 	-- Packer can manage itself
 	use({ "wbthomason/packer.nvim" })
 	--use({ "junegunn/fzf", run = ":call fzf#install()" })
-
 	-- fizzy finder
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -20,6 +19,7 @@ return require("packer").startup(function()
 			require("plugconfig/nvim_cmp")
 		end,
 	})
+
 	use({ "hrsh7th/cmp-nvim-lsp" })
 	use({ "hrsh7th/cmp-buffer" })
 	use({ "hrsh7th/cmp-path" })
@@ -116,6 +116,21 @@ return require("packer").startup(function()
 		end,
 	})
 	--use({"lambdalisue/fern.vim" , opt = true, cmd = {'Fern'}})
+
+	use({
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v2.x",
+		opt = true,
+		event = "VimEnter",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+		},
+		config = function()
+			require("plugconfig/neo-tree")
+		end,
+	})
 	use({
 		"lambdalisue/fern.vim",
 		opt = true,
@@ -311,4 +326,5 @@ return require("packer").startup(function()
 
 	-- file tree
 end)
---vim.cmd([[autocmd BufWritePost config/plugins.lua PackerCompile]])
+
+-- vim.cmd([[autocmd BufWritePost lua/config/plugins.lua PackerCompile]])
