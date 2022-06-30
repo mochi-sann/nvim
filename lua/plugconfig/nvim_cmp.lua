@@ -75,7 +75,7 @@ cmp.setup({
 		{ name = "nvim_lua" },
 		---{ name = "skkeleton", group_index = 2 },
 
-		{ name = "copilot", group_index = 2 },
+		-- { name = "copilot", group_index = 2 },
 
 		-- { name = 'luasnip' }, -- For luasnip users.
 		-- { name = 'ultisnips' }, -- For ultisnips users.

@@ -29,20 +29,20 @@ return require("packer").startup(function()
 	use({ "hrsh7th/cmp-emoji" })
 	use({ "hrsh7th/cmp-nvim-lsp-document-symbol" })
 	use({ "hrsh7th/cmp-vsnip" })
-	use({
-		"zbirenbaum/copilot-cmp",
-		after = { "copilot.lua", "nvim-cmp" },
-	})
-	use({
-		"zbirenbaum/copilot.lua",
-		event = { "VimEnter" },
-		config = function()
-			vim.defer_fn(function()
-				require("copilot").setup()
-			end, 100)
-		end,
-	})
-	use({ "github/copilot.vim" })
+	-- use({
+	-- 	"zbirenbaum/copilot-cmp",
+	-- 	after = { "copilot.lua", "nvim-cmp" },
+	-- })
+	-- use({
+	-- 	"zbirenbaum/copilot.lua",
+	-- 	event = { "VimEnter" },
+	-- 	config = function()
+	-- 		vim.defer_fn(function()
+	-- 			require("copilot").setup()
+	-- 		end, 100)
+	-- 	end,
+	-- })
+	-- use({ "github/copilot.vim" })
 	-- use({ "vim-skk/skkeleton", requires = { "vim-denops/denops.vim" } })
 	-- use({ "rinx/cmp-skkeleton", after = { "nvim-cmp", "skkeleton" } })
 
