@@ -75,7 +75,7 @@ cmp.setup({
 		{ name = "nvim_lua" },
 		---{ name = "skkeleton", group_index = 2 },
 
-		-- { name = "copilot", group_index = 2 },
+		{ name = "copilot", group_index = 3 },
 
 		-- { name = 'luasnip' }, -- For luasnip users.
 		-- { name = 'ultisnips' }, -- For ultisnips users.
@@ -163,6 +163,11 @@ local on_attach = function(client, bufnr)
 	-- }, opts)
 end
 
+require("copilot").setup({
+	panel = {
+		enabled = false,
+	},
+})
 lsp_installer.setup()
 for _, server in ipairs(lsp_installer.get_installed_servers()) do
 	-- print(server.name)
