@@ -29,6 +29,15 @@ cmp.setup({
 		-- documentation = cmp.config.window.bordered(),
 	},
 	formatting = {
+		-- format = function(entry, vim_item)
+		-- 	if entry.source.name == "copilot" then
+		-- 		vim_item.kind = "[] Copilot"
+		-- 		vim_item.kind_hl_group = "CmpItemKindCopilot"
+		-- 		return vim_item
+		-- 	end
+		-- 	return lspkind.cmp_format({ with_text = false, maxwidth = 50 })(entry, vim_item)
+		-- end,
+
 		format = lspkind.cmp_format({
 			mode = "symbol", -- show only symbol annotations
 			maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
@@ -75,7 +84,7 @@ cmp.setup({
 		{ name = "nvim_lua" },
 		---{ name = "skkeleton", group_index = 2 },
 
-		{ name = "copilot", group_index = 3 },
+		-- { name = "copilot", group_index = 2 },
 
 		-- { name = 'luasnip' }, -- For luasnip users.
 		-- { name = 'ultisnips' }, -- For ultisnips users.
@@ -163,11 +172,11 @@ local on_attach = function(client, bufnr)
 	-- }, opts)
 end
 
-require("copilot").setup({
-	panel = {
-		enabled = false,
-	},
-})
+-- require("copilot").setup({
+-- 	panel = {
+-- 		enabled = false,
+-- 	},
+-- })
 lsp_installer.setup()
 for _, server in ipairs(lsp_installer.get_installed_servers()) do
 	-- print(server.name)
