@@ -307,7 +307,16 @@ return require("packer").startup(function()
 		opt = true,
 		event = "VimEnter",
 	})
-	use({ "lilydjwg/colorizer", opt = true, event = "VimEnter" })
+	-- use({ "lilydjwg/colorizer", opt = true, event = "VimEnter" })
+	use({
+		"norcalli/nvim-colorizer.lua",
+		opt = true,
+		event = "VimEnter",
+		config = function()
+			require("plugconfig/nvim-colorizer")
+		end,
+	})
+
 	use({ "machakann/vim-highlightedyank" })
 
 	use({ "t9md/vim-choosewin", opt = true, event = "VimEnter" })
