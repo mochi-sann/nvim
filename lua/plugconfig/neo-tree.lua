@@ -97,7 +97,7 @@ require("neo-tree").setup({
 			["w"] = "open_with_window_picker",
 			["C"] = "close_node",
 			["h"] = "close_node",
-			["a"] = {
+			["N"] = {
 				"add",
 				-- some commands may take optional config options, see `:h neo-tree-mappings` for details
 				config = {
