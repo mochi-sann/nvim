@@ -55,18 +55,18 @@ return require("packer").startup(function()
 		end,
 	})
 
-	use({
-		"TimUntersberger/neogit",
-		requires = {
-			"nvim-lua/plenary.nvim",
-			"sindrets/diffview.nvim",
-		},
-		config = function()
-			require("plugconfig/neogit")
-		end,
-		-- opt = true,
-		-- event = "VimEnter",
-	})
+	-- use({
+	-- 	"TimUntersberger/neogit",
+	-- 	requires = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"sindrets/diffview.nvim",
+	-- 	},
+	-- 	config = function()
+	-- 		require("plugconfig/neogit")
+	-- 	end,
+	-- 	-- opt = true,
+	-- 	-- event = "VimEnter",
+	-- })
 	use({
 		"pwntester/octo.nvim",
 		opt = true,
@@ -204,7 +204,6 @@ return require("packer").startup(function()
 
 	use({
 		"vim-jp/vimdoc-ja",
-		"neovim/nvim-lspconfig",
 		config = function()
 			require("plugconfig/vimdoc_ja")
 		end,
