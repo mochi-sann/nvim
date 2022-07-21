@@ -11,4 +11,4 @@ function _lazygit_toggle()
 	lazygit:toggle()
 end
 
-vim.api.nvim_set_keymap("n", "lg", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-l>g", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
