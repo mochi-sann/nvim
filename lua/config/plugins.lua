@@ -2,7 +2,8 @@ vim.cmd([[packadd packer.nvim]])
 return require("packer").startup(function()
 	-- Packer can manage itself
 	use({ "wbthomason/packer.nvim" })
-	--use({ "junegunn/fzf", run = ":call fzf#install()" })
+
+	use({ "junegunn/fzf", run = ":call fzf#install()" })
 	-- fizzy finder
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -79,7 +80,7 @@ return require("packer").startup(function()
 			require("octo").setup()
 		end,
 	})
-
+	--
 	use({
 		"onsails/lspkind.nvim",
 		config = function()
@@ -88,8 +89,9 @@ return require("packer").startup(function()
 	})
 	use({
 		"williamboman/nvim-lsp-installer",
-		"neovim/nvim-lspconfig",
 	})
+	use({ "neovim/nvim-lspconfig" })
+
 	-- use({
 	-- 	"hrsh7th/cmp-vsnip",
 	-- 	"hrsh7th/vim-vsnip",
@@ -202,6 +204,7 @@ return require("packer").startup(function()
 
 	use({
 		"vim-jp/vimdoc-ja",
+		"neovim/nvim-lspconfig",
 		config = function()
 			require("plugconfig/vimdoc_ja")
 		end,
@@ -209,13 +212,15 @@ return require("packer").startup(function()
 	-- terminal
 	use({
 		"akinsho/toggleterm.nvim",
-		tag = "v1.*",
+		tag = "v2.*",
 		opt = true,
 		event = "VimEnter",
 		config = function()
 			require("plugconfig/toggleterm")
 		end,
 	})
+
+	use({ "alaviss/nim.nvim", opt = true, event = "VimEnter" })
 
 	-- use({ "vim-denops/denops.vim" })
 	--use({ "lambdalisue/gina.vim"  })

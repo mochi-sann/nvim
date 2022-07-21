@@ -183,8 +183,10 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
 	-- print(server.name)
 	if server.name == "denols" then
 		lspconfig["denols"].setup({
+			-- root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc", "deps.ts", "import_map.json"),
 			root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc", "deps.ts", "import_map.json"),
 
+			-- root_dir = not lspconfig.util.find_node_modules_ancestor,
 			init_options = {
 				lint = true,
 				unstable = true,
@@ -200,13 +202,13 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
 			},
 			on_attach = on_attach,
 		})
-	elseif
+	elseif server.name == "tsserver" then
 		lspconfig["tsserver"].setup({
 			root_dir = lspconfig.util.root_pattern("package.json"),
+			-- root_dir = lspconfig.util.find_json_ancestor,
 
 			on_attach = on_attach,
 		})
-	then
 	else
 		lspconfig[server.name].setup({
 			on_attach = on_attach,

@@ -28,7 +28,7 @@ require("neo-tree").setup({
 		},
 		indent = {
 			indent_size = 2,
-			padding = 1, -- extra padding on left hand side
+			padding = 0, -- extra padding on left hand side
 			-- indent guides
 			with_markers = true,
 			indent_marker = "│",
@@ -61,8 +61,8 @@ require("neo-tree").setup({
 		git_status = {
 			symbols = {
 				-- Change type
-				added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-				modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
+				added = "✚", -- or "✚", but this is redundant info if you use git_status_colors on the name
+				modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
 				deleted = "✖", -- this can only be used in the git_status source
 				renamed = "", -- this can only be used in the git_status source
 				-- Status type
@@ -76,7 +76,7 @@ require("neo-tree").setup({
 	},
 	window = {
 		position = "right",
-		width = 40,
+		width = 30,
 		mapping_options = {
 			noremap = true,
 			nowait = true,

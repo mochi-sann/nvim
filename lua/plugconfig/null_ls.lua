@@ -37,12 +37,12 @@ null_ls.setup({
 
 		null_ls.builtins.formatting.deno_fmt.with({
 			condition = function(utils)
-				return not (utils.has_file({ ".prettierrc", ".prettierrc.js" }))
+				return not (utils.has_file({ ".prettierrc", ".prettierrc.js", "package.json" }))
 			end,
 		}),
 		null_ls.builtins.formatting.prettier.with({
 			condition = function(utils)
-				return utils.has_file({ ".prettierrc", ".prettierrc.js" })
+				return utils.has_file({ ".prettierrc", ".prettierrc.js", "package.json" })
 			end,
 			prefer_local = "node_modules/.bin",
 		}),
