@@ -213,13 +213,13 @@ return require("packer").startup(function()
 		end,
 	})
 	-- git
-	use({
-		"kdheepak/lazygit.nvim",
-		event = "VimEnter",
-		config = function()
-			require("plugconfig/lazygit")
-		end,
-	})
+	-- use({
+	-- 	"kdheepak/lazygit.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("plugconfig/lazygit")
+	-- 	end,
+	-- })
 
 	use({ "alaviss/nim.nvim", event = "VimEnter" })
 
@@ -313,6 +313,14 @@ return require("packer").startup(function()
 		event = "VimEnter",
 		config = function()
 			require("plugconfig/nvim-colorizer")
+		end,
+	})
+	use({
+		"folke/todo-comments.nvim",
+		requires = "nvim-lua/plenary.nvim",
+		event = "VimEnter",
+		config = function()
+			require("plugconfig/todo-comments")
 		end,
 	})
 
