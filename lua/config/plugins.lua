@@ -218,6 +218,15 @@ return require("packer").startup(function()
 			require("plugconfig/toggleterm")
 		end,
 	})
+	-- git
+	use({
+		"kdheepak/lazygit.nvim",
+		opt = true,
+		event = "VimEnter",
+		config = function()
+			require("plugconfig/lazygit")
+		end,
+	})
 
 	use({ "alaviss/nim.nvim", opt = true, event = "VimEnter" })
 
