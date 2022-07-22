@@ -69,7 +69,6 @@ return require("packer").startup(function()
 	-- })
 	use({
 		"pwntester/octo.nvim",
-		opt = true,
 		event = "VimEnter",
 		requires = {
 			"nvim-lua/plenary.nvim",
@@ -122,7 +121,6 @@ return require("packer").startup(function()
 	use({
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",
-		opt = true,
 		event = "VimEnter",
 		requires = {
 			"nvim-lua/plenary.nvim",
@@ -149,7 +147,6 @@ return require("packer").startup(function()
 	-- use({ "lambdalisue/fern-bookmark.vim", after = "fern.vim" })
 	use({
 		"t9md/vim-quickhl",
-		opt = true,
 		event = "VimEnter",
 		config = function()
 			require("plugconfig/vim_quichl")
@@ -157,13 +154,12 @@ return require("packer").startup(function()
 	})
 	use({
 		"terryma/vim-expand-region",
-		opt = true,
 		event = "VimEnter",
 		config = function()
 			require("plugconfig/vim_expand_region")
 		end,
 	})
-	use({ "segeljakt/vim-silicon", opt = true, event = "VimEnter" })
+	use({ "segeljakt/vim-silicon", event = "VimEnter" })
 	-- colorschem
 	use({ "dracula/vim", as = "dracula" })
 	-- use({ "sainnhe/sonokai" })
@@ -184,7 +180,6 @@ return require("packer").startup(function()
 		config = function()
 			require("plugconfig/auto_save_nvim")
 		end,
-		opt = true,
 		event = "VimEnter",
 	})
 	use({
@@ -212,7 +207,6 @@ return require("packer").startup(function()
 	use({
 		"akinsho/toggleterm.nvim",
 		tag = "v2.*",
-		opt = true,
 		event = "VimEnter",
 		config = function()
 			require("plugconfig/toggleterm")
@@ -221,14 +215,13 @@ return require("packer").startup(function()
 	-- git
 	use({
 		"kdheepak/lazygit.nvim",
-		opt = true,
 		event = "VimEnter",
 		config = function()
 			require("plugconfig/lazygit")
 		end,
 	})
 
-	use({ "alaviss/nim.nvim", opt = true, event = "VimEnter" })
+	use({ "alaviss/nim.nvim", event = "VimEnter" })
 
 	-- use({ "vim-denops/denops.vim" })
 	--use({ "lambdalisue/gina.vim"  })
@@ -247,7 +240,6 @@ return require("packer").startup(function()
 	-- })
 	use({
 		"heavenshell/vim-jsdoc",
-		opt = true,
 		cmd = { "JsDoc" },
 		ft = { "typescript", "typescriptreact", "javascript", "javascriptreact", "vue" },
 	})
@@ -268,7 +260,6 @@ return require("packer").startup(function()
 	-- treesitter settins
 	use({
 		"nvim-treesitter/nvim-treesitter",
-		opt = true,
 		event = "VimEnter",
 		run = ":TSUpdate",
 		config = function()
@@ -281,7 +272,6 @@ return require("packer").startup(function()
 
 	use({
 		"lewis6991/gitsigns.nvim",
-		opt = true,
 		event = "VimEnter",
 		config = function()
 			require("gitsigns").setup()
@@ -291,7 +281,6 @@ return require("packer").startup(function()
 
 	use({
 		"nvim-lualine/lualine.nvim",
-		opt = true,
 		event = "VimEnter",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 		config = function()
@@ -308,7 +297,6 @@ return require("packer").startup(function()
 	use("tversteeg/registers.nvim")
 	use({
 		"folke/which-key.nvim",
-		opt = true,
 		event = "VimEnter",
 		config = function()
 			require("plugconfig/whichi_key")
@@ -317,13 +305,11 @@ return require("packer").startup(function()
 	use("ryanoasis/vim-devicons")
 	use({
 		"relastle/vim-colorrange",
-		opt = true,
 		event = "VimEnter",
 	})
 	-- use({ "lilydjwg/colorizer", opt = true, event = "VimEnter" })
 	use({
 		"norcalli/nvim-colorizer.lua",
-		opt = true,
 		event = "VimEnter",
 		config = function()
 			require("plugconfig/nvim-colorizer")
@@ -332,13 +318,12 @@ return require("packer").startup(function()
 
 	use({ "machakann/vim-highlightedyank" })
 
-	use({ "t9md/vim-choosewin", opt = true, event = "VimEnter" })
+	use({ "t9md/vim-choosewin", event = "VimEnter" })
 
 	-- use({ "davidgranstrom/nvim-markdown-preview", opt = true, event = "VimEnter" })
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
-		opt = true,
 		event = "VimEnter",
 		setup = function()
 			vim.g.mkdp_filetypes = { "markdown" }
