@@ -79,6 +79,15 @@ return require("packer").startup(function()
 			require("octo").setup()
 		end,
 	})
+	use({
+		"phaazon/hop.nvim",
+		branch = "v2", -- optional but strongly recommended
+		event = "VimEnter",
+		config = function()
+			require("plugconfig/hop")
+		end,
+	})
+
 	--
 	use({
 		"onsails/lspkind.nvim",
