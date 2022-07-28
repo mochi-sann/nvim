@@ -196,42 +196,42 @@ lsp_installer.setup()
 -- for _, server in ipairs(lsp_installer.get_installed_servers()) do
  mason_lspconfig.setup_handlers({ function(server_name)
 
-	-- print(server.name)
-	-- if server_name == "deno" or server_name == "denols" then
-	-- 	lspconfig["deno"].setup({
-	-- 		-- root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc", "deps.ts", "import_map.json"),
-	-- 		root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc", "deps.ts", "import_map.json"),
-	--
-	-- 		-- root_dir = not lspconfig.util.find_node_modules_ancestor,
-	-- 		init_options = {
-	-- 			lint = true,
-	-- 			unstable = true,
-	-- 			suggest = {
-	-- 				imports = {
-	-- 					hosts = {
-	-- 						["https://deno.land"] = true,
-	-- 						["https://cdn.nest.land"] = true,
-	-- 						["https://crux.land"] = true,
-	-- 					},
-	-- 				},
-	-- 			},
-	-- 		},
-	-- 		on_attach = on_attach,
-	-- 	})
-	-- elseif server_name == "tsserver" or "typescript-language-server" then
-	-- 	lspconfig["tsserver"].setup({
-	-- 		root_dir = lspconfig.util.root_pattern("package.json"),
-	-- 		-- root_dir = lspconfig.util.find_json_ancestor,
-	--
-	-- 		on_attach = on_attach,
-	-- 	})
-	-- else
+	if server_name == "denols"  then
+		lspconfig["denols"].setup({
+			root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc", "deps.ts", "import_map.json"),
+    
+			init_options = {
+				lint = true,
+				unstable = true,
+				suggest = {
+					imports = {
+						hosts = {
+							["https://deno.land"] = true,
+							["https://cdn.nest.land"] = true,
+							["https://crux.land"] = true,
+						},
+					},
+				},
+			},
+      capabilities = capabilities,
+			on_attach = on_attach,
+      -- autostart = false
+		})
+	elseif server_name == "tsserver"  then
+		lspconfig["tsserver"].setup({
+			root_dir = lspconfig.util.root_pattern("package.json"),
+			-- root_dir = lspconfig.util.find_json_ancestor,
+
+      capabilities = capabilities,
+			on_attach = on_attach,
+		})
+	else
  	lspconfig[server_name].setup({
  		on_attach = on_attach,
       capabilities = capabilities
 
  	})
-	-- end
+	end
 end})
 
 require("mason").setup({
