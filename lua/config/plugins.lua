@@ -95,10 +95,13 @@ return require("packer").startup(function()
 			require("plugconfig/lspkind")
 		end,
 	})
-	use({
-		"williamboman/nvim-lsp-installer",
-	})
+	-- use({
+	-- 	"williamboman/nvim-lsp-installer",
+	-- }),
 	use({ "neovim/nvim-lspconfig" })
+  use( { "williamboman/mason.nvim" })
+  use( { "williamboman/mason-lspconfig.nvim" })
+
 
 	-- use({
 	-- 	"hrsh7th/cmp-vsnip",

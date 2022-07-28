@@ -7,15 +7,18 @@ local feedkey = function(key, mode)
 	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
 end
 
-local lsp_installer = require("nvim-lsp-installer")
+local lsp_installer = require("mason-lspconfig")
 local lspconfig = require("lspconfig")
+local mason_lspconfig = require('mason-lspconfig')
+
+-- local lspconfig = require("mason-lspconfig")
 local cmp = require("cmp")
-local lspkind = require("lspkind")
 
 vim.opt.completeopt = "menu,menuone,noselect"
 
 cmp.setup({
 	snippet = {
+
 		-- REQUIRED - you must specify a snippet engine
 		expand = function(args)
 			vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
@@ -28,24 +31,32 @@ cmp.setup({
 		-- completion = cmp.config.window.bordered(),
 		-- documentation = cmp.config.window.bordered(),
 	},
-	formatting = {
-		-- format = function(entry, vim_item)
-		-- 	if entry.source.name == "copilot" then
-		-- 		vim_item.kind = "[] Copilot"
-		-- 		vim_item.kind_hl_group = "CmpItemKindCopilot"
-		-- 		return vim_item
-		-- 	end
-		-- 	return lspkind.cmp_format({ with_text = false, maxwidth = 50 })(entry, vim_item)
-		-- end,
-
-		format = lspkind.cmp_format({
-			mode = "symbol", -- show only symbol annotations
-			maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-
-			-- The function below will be called before any actual modifications from lspkind
-			-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+  	formatting = {
+		-- fields = {'abbr', 'kind', 'menu'},
+		format = require("lspkind").cmp_format({
+			with_text = true,
+    menu ={
+				buffer = "[Buffer]",
+				nvim_lsp = "[LSP]",
+				cmp_tabnine = "[TabNine]",
+				copilot = "[Copilot]",
+				luasnip = "[LuaSnip]",
+				nvim_lua = "[NeovimLua]",
+				latex_symbols = "[LaTeX]",
+				path = "[Path]",
+				omni = "[Omni]",
+				spell = "[Spell]",
+				emoji = "[Emoji]",
+				calc = "[Calc]",
+				rg = "[Rg]",
+				treesitter = "[TS]",
+				dictionary = "[Dictionary]",
+				mocword = "[mocword]",
+				cmdline_history = "[History]",
+  }
 		}),
 	},
+
 
 	mapping = cmp.mapping.preset.insert({
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -80,7 +91,7 @@ cmp.setup({
 		{ name = "vsnip", group_index = 3 }, -- For vsnip users.
 		{ name = "nvim_lsp_signature_help" },
 		{ name = "emoji", group_index = 4 },
-		{ name = "nvim_lsp_document_symbol" },
+		-- { name = "nvim_lsp_document_symbol" },
 		{ name = "nvim_lua" },
 		{ name = "cmp_tabnine", group_index = 2 },
 		---{ name = "skkeleton", group_index = 2 },
@@ -179,49 +190,51 @@ end
 -- 	},
 -- })
 lsp_installer.setup()
-for _, server in ipairs(lsp_installer.get_installed_servers()) do
+-- for _, server in ipairs(lsp_installer.get_installed_servers()) do
+ mason_lspconfig.setup_handlers({ function(server_name)
+
 	-- print(server.name)
-	if server.name == "denols" then
-		lspconfig["denols"].setup({
-			-- root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc", "deps.ts", "import_map.json"),
-			root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc", "deps.ts", "import_map.json"),
+	-- if server_name == "deno" or server_name == "denols" then
+	-- 	lspconfig["deno"].setup({
+	-- 		-- root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc", "deps.ts", "import_map.json"),
+	-- 		root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc", "deps.ts", "import_map.json"),
+	--
+	-- 		-- root_dir = not lspconfig.util.find_node_modules_ancestor,
+	-- 		init_options = {
+	-- 			lint = true,
+	-- 			unstable = true,
+	-- 			suggest = {
+	-- 				imports = {
+	-- 					hosts = {
+	-- 						["https://deno.land"] = true,
+	-- 						["https://cdn.nest.land"] = true,
+	-- 						["https://crux.land"] = true,
+	-- 					},
+	-- 				},
+	-- 			},
+	-- 		},
+	-- 		on_attach = on_attach,
+	-- 	})
+	-- elseif server_name == "tsserver" or "typescript-language-server" then
+	-- 	lspconfig["tsserver"].setup({
+	-- 		root_dir = lspconfig.util.root_pattern("package.json"),
+	-- 		-- root_dir = lspconfig.util.find_json_ancestor,
+	--
+	-- 		on_attach = on_attach,
+	-- 	})
+	-- else
+ 	lspconfig[server_name].setup({
+ 		on_attach = on_attach,
+ 	})
+	-- end
+end})
 
-			-- root_dir = not lspconfig.util.find_node_modules_ancestor,
-			init_options = {
-				lint = true,
-				unstable = true,
-				suggest = {
-					imports = {
-						hosts = {
-							["https://deno.land"] = true,
-							["https://cdn.nest.land"] = true,
-							["https://crux.land"] = true,
-						},
-					},
-				},
-			},
-			on_attach = on_attach,
-		})
-	elseif server.name == "tsserver" then
-		lspconfig["tsserver"].setup({
-			root_dir = lspconfig.util.root_pattern("package.json"),
-			-- root_dir = lspconfig.util.find_json_ancestor,
-
-			on_attach = on_attach,
-		})
-	else
-		lspconfig[server.name].setup({
-			on_attach = on_attach,
-		})
-	end
-end
-
-require("nvim-lsp-installer").setup({
+require("mason").setup({
 	ui = {
 		icons = {
-			server_installed = "✓",
-			server_pending = "➜",
-			server_uninstalled = "✗",
+			       package_installed = "✓",
+       package_pending = "➜",
+       package_uninstalled = "✗"
 		},
 	},
 })
