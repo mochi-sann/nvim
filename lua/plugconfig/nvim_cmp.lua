@@ -189,6 +189,9 @@ end
 -- 		enabled = false,
 -- 	},
 -- })
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+
 lsp_installer.setup()
 -- for _, server in ipairs(lsp_installer.get_installed_servers()) do
  mason_lspconfig.setup_handlers({ function(server_name)
@@ -225,6 +228,8 @@ lsp_installer.setup()
 	-- else
  	lspconfig[server_name].setup({
  		on_attach = on_attach,
+      capabilities = capabilities
+
  	})
 	-- end
 end})
