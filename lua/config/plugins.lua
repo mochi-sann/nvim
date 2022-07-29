@@ -225,13 +225,13 @@ return require("packer").startup(function()
 		end,
 	})
 	-- git
-	-- use({
-	-- 	"kdheepak/lazygit.nvim",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		require("plugconfig/lazygit")
-	-- 	end,
-	-- })
+	use({
+		"kdheepak/lazygit.nvim",
+		event = "VimEnter",
+		config = function()
+			require("plugconfig/lazygit")
+		end,
+	})
 
 	use({ "alaviss/nim.nvim", event = "VimEnter" })
 

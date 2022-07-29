@@ -1,5 +1,5 @@
 vim.cmd([[
-map K <Plug>(expand_region_expand)
-map J <Plug>(expand_region_shrink)
+map <C-K> <Plug>(expand_region_expand)
+map <C-J> <Plug>(expand_region_shrink)
 
 ]])
