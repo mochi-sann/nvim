@@ -29,6 +29,8 @@ vim.cmd([[
 " --------------------  vsnip
 " help の言語を日本語にする
 ""set helplan""g=ja
+autocmd BufRead,BufEnter *.astro set filetype=astro
+
 
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 "検索結果のハイライトを、ESC キー連打で解除する。"

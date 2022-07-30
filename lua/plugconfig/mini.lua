@@ -53,6 +53,12 @@ require("mini.surround").setup({
 })
 require("mini.comment").setup({
 	-- Module mappings. Use `''` (empty string) to disable one.
+  hooks = {
+    pre = function()
+      require('ts_context_commentstring.internal').update_commentstring()
+    end,
+  },
+
 	mappings = {
 		-- Toggle comment (like `gcip` - comment inner paragraph) for both
 		-- Normal and Visual modes

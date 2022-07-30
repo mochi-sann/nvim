@@ -281,6 +281,7 @@ return require("packer").startup(function()
 	use({ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" })
 
 	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })
+  use({"JoosepAlviste/nvim-ts-context-commentstring", after = {"nvim-treesitter", "mini.nvim"}})
 
 	use({
 		"lewis6991/gitsigns.nvim",
