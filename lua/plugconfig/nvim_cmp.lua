@@ -198,23 +198,25 @@ lsp_installer.setup()
 
 	if server_name == "denols"  then
 		lspconfig["denols"].setup({
-			root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc", "deps.ts", "import_map.json"),
-    
-			init_options = {
-				lint = true,
-				unstable = true,
-				suggest = {
-					imports = {
-						hosts = {
-							["https://deno.land"] = true,
-							["https://cdn.nest.land"] = true,
-							["https://crux.land"] = true,
-						},
-					},
-				},
-			},
       capabilities = capabilities,
 			on_attach = on_attach,
+      root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc", "deps.ts", "import_map.json"),
+      autostart = lspconfig.util.root_pattern("deno.json", "deno.jsonc", "deps.ts", "import_map.json"),
+      init_options = {
+        lint = true,
+        unstable = true,
+        suggest = {
+          imports = {
+            hosts = {
+              ["https://deno.land"] = true,
+              ["https://cdn.nest.land"] = true,
+              ["https://crux.land"] = true
+            }
+          }
+        }
+      },
+
+
       -- autostart = false
 		})
 	elseif server_name == "tsserver"  then

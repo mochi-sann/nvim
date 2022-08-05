@@ -9,6 +9,7 @@ return require("packer").startup(function()
   -- fizzy finder
   use({
     "nvim-telescope/telescope.nvim",
+    event = "VimEnter",
     requires = { "nvim-lua/plenary.nvim" },
     config = function()
       require("plugconfig/telescope")
@@ -127,6 +128,7 @@ return require("packer").startup(function()
   -- format and linter
   use({
     "jose-elias-alvarez/null-ls.nvim",
+    event = "VimEnter",
     config = function()
       require("plugconfig/null_ls")
     end,
@@ -176,7 +178,10 @@ return require("packer").startup(function()
   })
   use({ "segeljakt/vim-silicon", event = "VimEnter" })
   -- colorschem
-  use({ "dracula/vim", as = "dracula" })
+  use({ 
+    "dracula/vim",
+     as = "dracula"
+   })
   -- use({ "sainnhe/sonokai" })
 
   --use("rebelot/kanagawa.nvim")
@@ -214,6 +219,7 @@ return require("packer").startup(function()
 
   use({
     "vim-jp/vimdoc-ja",
+    event = "VimEnter",
     config = function()
       require("plugconfig/vimdoc_ja")
     end,
@@ -255,6 +261,7 @@ return require("packer").startup(function()
   -- })
   use({
     "heavenshell/vim-jsdoc",
+    event = "VimEnter",
     cmd = { "JsDoc" },
     ft = { "typescript", "typescriptreact", "javascript", "javascriptreact", "vue" },
   })
@@ -268,6 +275,7 @@ return require("packer").startup(function()
 
   use({
     "lukas-reineke/indent-blankline.nvim",
+    event = "VimEnter",
     config = function()
       require("plugconfig/indent_blankline")
     end,
@@ -341,7 +349,7 @@ return require("packer").startup(function()
     end,
   })
 
-  use({ "machakann/vim-highlightedyank" })
+  use({ "machakann/vim-highlightedyank"  , event = "VimEnter"})
 
   use({ "t9md/vim-choosewin", event = "VimEnter" })
 

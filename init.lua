@@ -1,34 +1,22 @@
-vim.cmd([[
-nnoremap <Leader> <Nop>
-xnoremap <Leader> <Nop>
-nnoremap [dev]    <Nop>
-xnoremap [dev]    <Nop>
-nnoremap    [Tag]   <Nop>
-nmap    t [Tag]
-nmap     m        [dev]
-xmap     m        [dev]
-nnoremap [ff]     <Nop>
-xnoremap [ff]     <Nop>
-nmap     +        [ff]
-xmap     +        [ff]
-
-]])
+-- vim.cmd([[
+-- "" nnoremap <Leader> <Nop>
+-- "" xnoremap <Leader> <Nop>
+-- nnoremap [dev]    <Nop>
+-- xnoremap [dev]    <Nop>
+-- nnoremap    [Tag]   <Nop>
+-- nmap    t [Tag]
+-- nmap     m        [dev]
+-- xmap     m        [dev]
+-- nnoremap [ff]     <Nop>
+-- xnoremap [ff]     <Nop>
+-- nmap     +        [ff]
+-- xmap     +        [ff]
+--
+-- ]])
 require("config/options")
 require("config/plugins")
 --  vim.cmd([[autocmd BufWritePost config/plugins.lua PackerCompile]])
 vim.cmd([[
-" nmap    <C-g>        [fzf-p]
-" xmap     <C-g>        [fzf-p]
-
-
-" source ~/.config/nvim/config/airline.vim
-"
-"--------------------------------
-" 小規模プラグインは先に書く
-" -------------------- 
-" --------------------  vsnip
-" help の言語を日本語にする
-""set helplan""g=ja
 autocmd BufRead,BufEnter *.astro set filetype=astro
 
 
@@ -56,9 +44,6 @@ let g:highlightedyank_highlight_duration = 500
 "----------------------------
 "------------------------------------------------
 " skanehira/jumpcursor.vim
-nmap [j <Plug>(jumpcursor-jump)
-
-
 
 
 "--------------------------------
@@ -67,17 +52,6 @@ nmap [j <Plug>(jumpcursor-jump)
 colorschem dracula
 ""colorschem  sonokai 
 
-" 背景をなくす
-""hi Normal guibg=NONE ctermbg=NONE
-""augroup TransparentBG
-""  autocmd!
-""  autocmd Colorscheme * hi Normal guibg=NONE ctermbg=NONE
-""augroup END
-
-
-
-"-------------------------------------------
-" インデントにいろをつけるところ
 
 
 "------------------------------------------------------"
@@ -90,19 +64,6 @@ nnoremap <A-x> :ColorrangeDecrement<CR>
 
 
 "------------------------------------------------------"
-" カーソル下の単語をGoogleで検索する
-function! s:search_by_google() 
-    let line = line(".")
-    let col  = col(".")
-    let searchWord = expand("<cword>")
-    if searchWord  != ''
-        execute 'read !open https://www.google.co.jp/search\?q\=' . searchWord
-        execute 'call cursor(' . line . ',' . col . ')'
-    endif
-endfunction
-command! SearchByGoogle call s:search_by_google()
-nnoremap <silent> <Space>g :SearchByGoogle<CR>
-
 "------------------------------------------------------"
 " タブを使いやすくする設定
 
@@ -112,6 +73,8 @@ function! s:SID_PREFIX()
   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
 endfunction
 
+ nnoremap    [Tag]   <Nop>
+ nmap    t [Tag]
 " Set tabline.
 function! s:my_tabline()  "{{{
   let s = ''
