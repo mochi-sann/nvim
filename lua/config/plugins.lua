@@ -27,7 +27,7 @@ return require("packer").startup(function()
 
   use({ "hrsh7th/cmp-nvim-lsp" })
   use({ "hrsh7th/cmp-buffer" })
-                  use({ "hrsh7th/cmp-path" })
+  use({ "hrsh7th/cmp-path" })
   use({ "hrsh7th/cmp-cmdline" })
   use({ "hrsh7th/cmp-nvim-lsp-signature-help" })
   use({ "hrsh7th/cmp-nvim-lua" })
@@ -178,10 +178,10 @@ return require("packer").startup(function()
   })
   use({ "segeljakt/vim-silicon", event = "VimEnter" })
   -- colorschem
-  use({ 
+  use({
     "dracula/vim",
-     as = "dracula"
-   })
+    as = "dracula"
+  })
   -- use({ "sainnhe/sonokai" })
 
   --use("rebelot/kanagawa.nvim")
@@ -290,6 +290,9 @@ return require("packer").startup(function()
     end,
   })
   use({ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" })
+  use({ "nvim-treesitter/nvim-treesitter-context", after = "nvim-treesitter", config = function()
+    require("plugconfig/treesitter-context")
+  end, })
 
   use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })
   use({ "JoosepAlviste/nvim-ts-context-commentstring", after = { "nvim-treesitter", "mini.nvim" } })
@@ -349,7 +352,7 @@ return require("packer").startup(function()
     end,
   })
 
-  use({ "machakann/vim-highlightedyank"  , event = "VimEnter"})
+  use({ "machakann/vim-highlightedyank", event = "VimEnter" })
 
   use({ "t9md/vim-choosewin", event = "VimEnter" })
 
