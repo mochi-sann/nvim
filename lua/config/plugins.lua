@@ -196,7 +196,7 @@ return require("packer").startup(function()
   -- })
 
   use({
-    "Pocco81/AutoSave.nvim",
+    "Pocco81/auto-save.nvim",
     config = function()
       require("plugconfig/auto_save_nvim")
     end,
