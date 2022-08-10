@@ -7,9 +7,6 @@ local feedkey = function(key, mode)
 	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
 end
 
-local lsp_installer = require("mason-lspconfig")
-local lspconfig = require("lspconfig")
-local mason_lspconfig = require('mason-lspconfig')
 
 -- local lspconfig = require("mason-lspconfig")
 local cmp = require("cmp")
@@ -140,6 +137,17 @@ cmp.setup.cmdline(":", {
 --
 -- -- if you want to set up formatting on save, you can use this as a callback
 -- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+-- require("copilot").setup({
+-- 	panel = {
+-- 		enabled = false,
+-- 	},
+-- })
+
+local lsp_installer = require("mason-lspconfig")
+local lspconfig = require("lspconfig")
+local mason_lspconfig = require('mason-lspconfig')
+
 local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
@@ -154,6 +162,7 @@ local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	-- LSPサーバーのフォーマット機能を無効にする
+  --
 	-- client.resolved_capabilities.document_formatting = false
 
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -183,12 +192,6 @@ local on_attach = function(client, bufnr)
 	--   end,
 	-- }, opts)
 end
-
--- require("copilot").setup({
--- 	panel = {
--- 		enabled = false,
--- 	},
--- })
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
@@ -239,9 +242,12 @@ end})
 require("mason").setup({
 	ui = {
 		icons = {
-			       package_installed = "✓",
+			 package_installed = "✓",
        package_pending = "➜",
        package_uninstalled = "✗"
 		},
 	},
 })
+
+
+

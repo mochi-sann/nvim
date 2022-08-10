@@ -1,4 +1,5 @@
 vim.cmd([[packadd packer.nvim]])
+
 return require("packer").startup(function()
   -- Packer can manage itself
   use({ "wbthomason/packer.nvim" })
@@ -19,7 +20,6 @@ return require("packer").startup(function()
   -- LSP settings
   use({
     "hrsh7th/nvim-cmp",
-    event = "VimEnter",
     config = function()
       require("plugconfig/nvim_cmp")
     end,
@@ -35,6 +35,15 @@ return require("packer").startup(function()
   use({ "hrsh7th/cmp-emoji" })
   use({ "hrsh7th/cmp-nvim-lsp-document-symbol" })
   use({ "hrsh7th/cmp-vsnip" })
+
+  use({ "neovim/nvim-lspconfig" })
+  use({ "williamboman/mason.nvim" })
+  use({ "williamboman/mason-lspconfig.nvim" ,    config = function()
+
+      require("plugconfig/mason-lsp")
+    end,
+ })
+
   -- use({
   -- 	"zbirenbaum/copilot-cmp",
   -- 	after = { "copilot.lua", "nvim-cmp" },
@@ -103,9 +112,6 @@ return require("packer").startup(function()
   -- use({
   -- 	"williamboman/nvim-lsp-installer",
   -- }),
-  use({ "neovim/nvim-lspconfig" })
-  use({ "williamboman/mason.nvim" })
-  use({ "williamboman/mason-lspconfig.nvim" })
 
 
   -- use({
