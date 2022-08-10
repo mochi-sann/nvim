@@ -19,6 +19,7 @@ return require("packer").startup(function()
   -- LSP settings
   use({
     "hrsh7th/nvim-cmp",
+    event = "VimEnter",
     config = function()
       require("plugconfig/nvim_cmp")
     end,

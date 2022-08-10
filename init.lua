@@ -15,6 +15,7 @@
 -- ]])
 require("config/options")
 require("config/plugins")
+
 --  vim.cmd([[autocmd BufWritePost config/plugins.lua PackerCompile]])
 vim.cmd([[
 autocmd BufRead,BufEnter *.astro set filetype=astro
