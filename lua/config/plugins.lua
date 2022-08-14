@@ -201,14 +201,6 @@ return require("packer").startup(function()
 
   --use("rebelot/kanagawa.nvim")
 
-  -- use({
-  --   "vim-scripts/vim-auto-save",
-  --   opt = true,
-  --   event = "VimEnter",
-  --   config = function()
-  --     require("plugconfig/vim_auto_save")
-  --   end,
-  -- })
 
   use({
     "Pocco81/auto-save.nvim",
