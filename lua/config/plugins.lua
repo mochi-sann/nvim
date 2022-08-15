@@ -284,6 +284,7 @@ return require("packer").startup(function()
 
   use({
     "steelsojka/pears.nvim",
+    event = "VimEnter",
     config = function()
       require("plugconfig/pears")
     end,
@@ -338,7 +339,8 @@ return require("packer").startup(function()
       require("plugconfig/mini")
     end,
   })
-  use("tversteeg/registers.nvim")
+  use({"tversteeg/registers.nvim" ,
+  event = "VimEnter",})
   use({
     "folke/which-key.nvim",
     event = "VimEnter",
@@ -387,11 +389,12 @@ return require("packer").startup(function()
   --     require("plugconfig/cursorline")
   --   end, })
 
-  use({ 'ekickx/clipboard-image.nvim',
-    event = "VimEnter",
-    config = function()
-      require("plugconfig/clipboard-image")
-    end, })
+  -- use({ 'ekickx/clipboard-image.nvim',
+  --   event = "VimEnter",
+  --   config = function()
+  --     require("plugconfig/clipboard-image")
+  --   end,
+  -- })
 
   -- file tree
 end)
