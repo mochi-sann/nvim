@@ -38,10 +38,10 @@ return require("packer").startup(function()
 
   use({ "neovim/nvim-lspconfig" })
   use({ "williamboman/mason.nvim" })
-  use({ "williamboman/mason-lspconfig.nvim" ,    config = function()
+  use({ "williamboman/mason-lspconfig.nvim", config = function()
 
-      require("plugconfig/mason-lsp")
-    end,
+    require("plugconfig/mason-lsp")
+  end,
   })
   -- use({
   --   "glepnir/lspsaga.nvim",
@@ -202,13 +202,13 @@ return require("packer").startup(function()
   --use("rebelot/kanagawa.nvim")
 
 
-  use({
-    "Pocco81/auto-save.nvim",
-    config = function()
-      require("plugconfig/auto_save_nvim")
-    end,
-    event = "VimEnter",
-  })
+  -- use({
+  --   "Pocco81/auto-save.nvim",
+  --   config = function()
+  --     require("plugconfig/auto_save_nvim")
+  --   end,
+  --   event = "VimEnter",
+  -- })
   -- use({
   -- 	"rmagatti/auto-session",
   -- 	config = function()
@@ -223,6 +223,15 @@ return require("packer").startup(function()
   -- 		})
   -- 	end,
   -- })
+
+  use({
+    'alvarosevilla95/luatab.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
+    event = "VimEnter",
+    config = function()
+      require("plugconfig/luatab")
+    end,
+  })
 
   use({
     "vim-jp/vimdoc-ja",
