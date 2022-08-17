@@ -150,19 +150,29 @@ return require("packer").startup(function()
   })
   --use({"lambdalisue/fern.vim" , opt = true, cmd = {'Fern'}})
 
-  use({
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
-    event = "VimEnter",
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-    },
+  -- use({
+  --   "nvim-neo-tree/neo-tree.nvim",
+  --   branch = "v2.x",
+  --   event = "VimEnter",
+  --   requires = {
+  --     "nvim-lua/plenary.nvim",
+  --     "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+  --     "MunifTanjim/nui.nvim",
+  --   },
+  --   config = function()
+  --     require("plugconfig/neo-tree")
+  --   end,
+  -- })
+  use({ "kyazdani42/nvim-tree.lua" ,
+  requires = {
+    'kyazdani42/nvim-web-devicons', -- optional, for file icons
+  },
+  tag = 'nightly' ,-- optional, updated every week. (see issue #1193)
     config = function()
-      require("plugconfig/neo-tree")
+      require("plugconfig/nvim-tree")
     end,
-  })
+})
+  
   -- use({
   -- 	"lambdalisue/fern.vim",
   -- 	opt = true,
