@@ -35,5 +35,5 @@ local config = {
   }
 }
 
-vim.api.nvim_set_keymap("n", "<C-h>", ":NvimTreeToggle<cr>", { silent = true, noremap = true })
+vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeOpen<cr>", { silent = true, noremap = true })
 require("nvim-tree").setup(config)
