@@ -53,5 +53,7 @@ require("lspkind").init({
     range = "r",
 		TypeParameter = "",
 		cmp_tabnine = "[TN]",
+    Copilot = "",
+
 	},
 })
