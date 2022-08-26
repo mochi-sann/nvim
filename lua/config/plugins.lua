@@ -43,13 +43,6 @@ return require("packer").startup(function()
     require("plugconfig/mason-lsp")
   end,
   })
-  -- use({
-  --   "glepnir/lspsaga.nvim",
-  --   branch = "main",
-  --   config = function()
-  --     require("plugconfig/lspsaga")
-  --   end,
-  -- })
 
 
   use ({
@@ -67,21 +60,6 @@ return require("packer").startup(function()
   })
 
 
-  -- use({
-  -- 	"zbirenbaum/copilot-cmp",
-  -- 	after = { "copilot.lua", "nvim-cmp" },
-  -- })
-  -- use({
-  -- 	"zbirenbaum/copilot.lua",
-  -- 	config = function()
-  -- 		vim.defer_fn(function()
-  -- 			require("copilot").setup()
-  -- 		end, 100)
-  -- 	end,
-  -- })
-  -- use({ "github/copilot.vim" })
-  -- use({ "vim-skk/skkeleton", requires = { "vim-denops/denops.vim" } })
-  -- use({ "rinx/cmp-skkeleton", after = { "nvim-cmp", "skkeleton" } })
 
   use({
     "tzachar/cmp-tabnine",
@@ -92,18 +70,6 @@ return require("packer").startup(function()
     end,
   })
 
-  -- use({
-  -- 	"TimUntersberger/neogit",
-  -- 	requires = {
-  -- 		"nvim-lua/plenary.nvim",
-  -- 		"sindrets/diffview.nvim",
-  -- 	},
-  -- 	config = function()
-  -- 		require("plugconfig/neogit")
-  -- 	end,
-  -- 	-- opt = true,
-  -- 	-- event = "VimEnter",
-  -- })
   use({
     "pwntester/octo.nvim",
     event = "VimEnter",
@@ -132,19 +98,8 @@ return require("packer").startup(function()
       require("plugconfig/lspkind")
     end,
   })
-  -- use({
-  -- 	"williamboman/nvim-lsp-installer",
-  -- }),
 
 
-  -- use({
-  -- 	"hrsh7th/cmp-vsnip",
-  -- 	"hrsh7th/vim-vsnip",
-  -- 	after = "nvim-cpm",
-  -- 	config = function()
-  -- 		require("plugconfig/vsnip")
-  -- 	end,
-  -- })
   use({
     "hrsh7th/vim-vsnip",
     config = function()
@@ -154,7 +109,6 @@ return require("packer").startup(function()
       { "hrsh7th/vim-vsnip-integ" },
     },
   })
-  --use({ "hrsh7th/cmp-vsnip", after = "nvim-cpm" })
   -- format and linter
   use({
     "jose-elias-alvarez/null-ls.nvim",
@@ -188,20 +142,6 @@ return require("packer").startup(function()
     end,
 })
   
-  -- use({
-  -- 	"lambdalisue/fern.vim",
-  -- 	opt = true,
-  -- 	event = "VimEnter",
-  --
-  -- 	config = function()
-  -- 		require("plugconfig/fern")
-  -- 	end,
-  -- })
-  -- use({ "lambdalisue/fern-git-status.vim", after = "fern.vim" })
-  -- -- use({ "lambdalisue/nerdfont.vim", after = "fern.vim" })
-  -- use({ "lambdalisue/fern-renderer-nerdfont.vim", after = "fern.vim", requires = { "lambdalisue/nerdfont.vim" } })
-  -- use({ "lambdalisue/glyph-palette.vim", after = "fern.vim" })
-  -- use({ "lambdalisue/fern-bookmark.vim", after = "fern.vim" })
   use({
     "t9md/vim-quickhl",
     event = "VimEnter",
@@ -226,28 +166,6 @@ return require("packer").startup(function()
 
   --use("rebelot/kanagawa.nvim")
 
-
-  -- use({
-  --   "Pocco81/auto-save.nvim",
-  --   config = function()
-  --     require("plugconfig/auto_save_nvim")
-  --   end,
-  --   event = "VimEnter",
-  -- })
-  -- use({
-  -- 	"rmagatti/auto-session",
-  -- 	config = function()
-  -- 		require("plugconfig/auto_session")
-  -- 	end,
-  -- })
-  -- use({
-  -- 	"rmagatti/session-lens",
-  -- 	requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
-  -- 	config = function()
-  -- 		require("session-lens").setup({--[[your custom config--]]
-  -- 		})
-  -- 	end,
-  -- })
 
   use({
     'alvarosevilla95/luatab.nvim',
@@ -285,21 +203,6 @@ return require("packer").startup(function()
 
   use({ "alaviss/nim.nvim", event = "VimEnter" })
 
-  -- use({ "vim-denops/denops.vim" })
-  --use({ "lambdalisue/gina.vim"  })
-  -- use({
-  --   "alvan/vim-closetag",
-  --   config = function()
-  --     require("plugconfig/vim_closetag")
-  --   end,
-  -- })
-
-  -- use({
-  --   "rchaser53/insertclosetag",
-  --   config = function()
-  --     require("plugconfig/insertclosetag")
-  --   end,
-  -- })
   use({
     "heavenshell/vim-jsdoc",
     event = "VimEnter",
@@ -409,17 +312,7 @@ return require("packer").startup(function()
     end,
     ft = { "markdown" },
   })
-  -- use({ "yamatsum/nvim-cursorline", event = "VimEnter",
-  --   config = function()
-  --     require("plugconfig/cursorline")
-  --   end, })
 
-  -- use({ 'ekickx/clipboard-image.nvim',
-  --   event = "VimEnter",
-  --   config = function()
-  --     require("plugconfig/clipboard-image")
-  --   end,
-  -- })
 
   -- file tree
 end)
