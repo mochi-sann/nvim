@@ -50,10 +50,9 @@ require("lspkind").init({
 		Struct = "פּ",
 		Event = "",
 		Operator = "",
-    range = "r",
+		range = "r",
 		TypeParameter = "",
 		cmp_tabnine = "[TN]",
-    Copilot = "",
-
+		Copilot = "",
 	},
 })

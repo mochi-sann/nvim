@@ -7,16 +7,17 @@ local feedkey = function(key, mode)
 	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
 end
 
-
 -- local lspconfig = require("mason-lspconfig")
 local cmp = require("cmp")
 
 vim.opt.completeopt = "menu,menuone,noselect"
 
 local has_words_before = function()
-  if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_text(0, line-1, 0, line-1, col, {})[1]:match("^%s*$") == nil
+	if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
+		return false
+	end
+	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+	return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match("^%s*$") == nil
 end
 
 cmp.setup({
@@ -34,11 +35,11 @@ cmp.setup({
 		-- completion = cmp.config.window.bordered(),
 		-- documentation = cmp.config.window.bordered(),
 	},
-  	formatting = {
+	formatting = {
 		-- fields = {'abbr', 'kind', 'menu'},
 		format = require("lspkind").cmp_format({
 			with_text = true,
-    menu ={
+			menu = {
 				buffer = "[Buffer]",
 				nvim_lsp = "[LSP]",
 				cmp_tabnine = "[TabNine]",
@@ -56,10 +57,9 @@ cmp.setup({
 				dictionary = "[Dictionary]",
 				mocword = "[mocword]",
 				cmdline_history = "[History]",
-  }
+			},
 		}),
 	},
-
 
 	mapping = cmp.mapping.preset.insert({
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -68,9 +68,9 @@ cmp.setup({
 		["<C-e>"] = cmp.mapping.abort(),
 		["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 		["<Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() and has_words_before() then
-        cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-      elseif cmp.visible() then
+			if cmp.visible() and has_words_before() then
+				cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+			elseif cmp.visible() then
 				cmp.select_next_item()
 			elseif vim.fn["vsnip#available"](1) == 1 then
 				feedkey("<Plug>(vsnip-expand-or-jump)", "")
@@ -154,7 +154,7 @@ cmp.setup.cmdline(":", {
 
 local lsp_installer = require("mason-lspconfig")
 local lspconfig = require("lspconfig")
-local mason_lspconfig = require('mason-lspconfig')
+local mason_lspconfig = require("mason-lspconfig")
 
 local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
@@ -170,7 +170,7 @@ local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	-- LSPサーバーのフォーマット機能を無効にする
-  --
+	--
 	-- client.resolved_capabilities.document_formatting = false
 
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -205,57 +205,53 @@ capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 lsp_installer.setup()
 -- for _, server in ipairs(lsp_installer.get_installed_servers()) do
- mason_lspconfig.setup_handlers({ function(server_name)
+mason_lspconfig.setup_handlers({
+	function(server_name)
+		if server_name == "denols" then
+			lspconfig["denols"].setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+				single_file_support = false,
+				root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc", "deps.ts", "import_map.json"),
+				init_options = {
+					lint = true,
+					unstable = true,
+					suggest = {
+						imports = {
+							hosts = {
+								["https://deno.land"] = true,
+								["https://cdn.nest.land"] = true,
+								["https://crux.land"] = true,
+							},
+						},
+					},
+				},
 
-	if server_name == "denols"  then
-		lspconfig["denols"].setup({
-      capabilities = capabilities,
-			on_attach = on_attach,
-      single_file_support = false ,
-      root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc", "deps.ts", "import_map.json"),
-      init_options = {
-        lint = true,
-        unstable = true,
-        suggest = {
-          imports = {
-            hosts = {
-              ["https://deno.land"] = true,
-              ["https://cdn.nest.land"] = true,
-              ["https://crux.land"] = true
-            }
-          }
-        }
-      },
+				-- autostart = false
+			})
+		elseif server_name == "tsserver" then
+			lspconfig["tsserver"].setup({
+				root_dir = lspconfig.util.root_pattern("package.json"),
+				-- root_dir = lspconfig.util.find_json_ancestor,
 
-
-      -- autostart = false
-		})
-	elseif server_name == "tsserver"  then
-		lspconfig["tsserver"].setup({
-			root_dir = lspconfig.util.root_pattern("package.json"),
-			-- root_dir = lspconfig.util.find_json_ancestor,
-
-      capabilities = capabilities,
-			on_attach = on_attach,
-		})
-	else
- 	lspconfig[server_name].setup({
- 		on_attach = on_attach,
-      capabilities = capabilities
-
- 	})
-	end
-end})
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+		else
+			lspconfig[server_name].setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
+			})
+		end
+	end,
+})
 
 require("mason").setup({
 	ui = {
 		icons = {
-			 package_installed = "✓",
-       package_pending = "➜",
-       package_uninstalled = "✗"
+			package_installed = "✓",
+			package_pending = "➜",
+			package_uninstalled = "✗",
 		},
 	},
 })
-
-
-

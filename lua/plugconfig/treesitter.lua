@@ -30,10 +30,10 @@ require("nvim-treesitter.configs").setup({
 		"cpp",
 	},
 
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-  },
+	context_commentstring = {
+		enable = true,
+		enable_autocmd = false,
+	},
 
 	rainbow = {
 		enable = true,

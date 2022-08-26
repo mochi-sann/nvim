@@ -1,1 +1,1 @@
-require('luatab').setup({})
+require("luatab").setup({})
