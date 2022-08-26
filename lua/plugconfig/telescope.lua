@@ -12,6 +12,7 @@ telescope.setup({
       preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
     },
 
+    winblend = 8,
     prompt_title = "",
     results_title = "",
     preview_title = "",

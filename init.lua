@@ -1,18 +1,3 @@
--- vim.cmd([[
--- "" nnoremap <Leader> <Nop>
--- "" xnoremap <Leader> <Nop>
--- nnoremap [dev]    <Nop>
--- xnoremap [dev]    <Nop>
--- nnoremap    [Tag]   <Nop>
--- nmap    t [Tag]
--- nmap     m        [dev]
--- xmap     m        [dev]
--- nnoremap [ff]     <Nop>
--- xnoremap [ff]     <Nop>
--- nmap     +        [ff]
--- xmap     +        [ff]
---
--- ]])
 require("config/options")
 require("config/plugins")
 
@@ -74,45 +59,9 @@ function! s:SID_PREFIX()
   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
 endfunction
 
- nnoremap    [Tag]   <Nop>
- nmap    t [Tag]
-" Set tabline.
-" function! s:my_tabline()  "{{{
-"   let s = ''
-"   for i in range(1, tabpagenr('$'))
-"     let bufnrs = tabpagebuflist(i)
-"     let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
-"     let no = i  " display 0-origin tabpagenr.
-"     let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
-"     let title = fnamemodify(bufname(bufnr), ':t')
-"     let title = '[' . title . ']'
-"     let s .= '%'.i.'T'
-"     let s .= '%#' . (i == tabpagenr() ? 'TabLineSel' : 'TabLine') . '#'
-"     let s .= no . ':' . title
-"     let s .= mod
-"     let s .= '%#TabLineFill# '
-"   endfor
-"   let s .= '%#TabLineFill#%T%=%#TabLine#'
-"   return s
-" endfunction "}}}
-" let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
-
-
-map <silent> [Tag]c :tablast <bar> tabnew<CR>
-" tc 新しいタブを一番右に作る
-map <silent> [Tag]x :tabclose<CR>
-" tx タブを閉じる
-map <silent> [Tag]n :tabnext<CR>
-" tn 次のタブ
-map <silent> [Tag]p :tabprevious<CR>
-" tp 前のタブ
-
 " -------------------------"
 "               t9md/vim-choosewin                "
 " ----------------------------------------------------------------------------""
 nmap  -  <Plug>(choosewin)
-" オーバーレイ機能を有効にしたい場合
-let g:choosewin_overlay_enable          = 1
-
 
 ]])
