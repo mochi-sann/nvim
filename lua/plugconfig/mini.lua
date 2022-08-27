@@ -72,11 +72,15 @@ require("mini.comment").setup({
 	},
 })
 
-require("mini.cursorword").setup({
-	-- Delay (in ms) between when cursor moved and when highlighting appeared
-	delay = 100,
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "*",
+	callback = function()
+		require("mini.cursorword").setup({
+			-- Delay (in ms) between when cursor moved and when highlighting appeared
+			delay = 100,
+		})
+	end,
 })
-
 require("mini.trailspace").setup({
 	-- Highlight only in normal buffers (ones with empty 'buftype'). This is
 	-- useful to not show trailing whitespace where it usually doesn't matter.

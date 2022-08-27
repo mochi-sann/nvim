@@ -24,13 +24,21 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	pattern = "*",
 	callback = function()
 		vim.opt.termguicolors = true
-		vim.cmd([[highlight IndentBlanklineIndent1 guifg=#3F0D11 gui=nocombine]])
-		vim.cmd([[highlight IndentBlanklineIndent2 guifg=#664914 gui=nocombine]])
-		vim.cmd([[highlight IndentBlanklineIndent3 guifg=#324921 gui=nocombine]])
-		vim.cmd([[highlight IndentBlanklineIndent4 guifg=#215359 gui=nocombine]])
-		vim.cmd([[highlight IndentBlanklineIndent5 guifg=#1060A1 gui=nocombine]])
-		vim.cmd([[highlight IndentBlanklineIndent6 guifg=#67207D gui=nocombine]])
-
+		if vim.o.background == "dark" then
+			vim.cmd([[highlight IndentBlanklineIndent1 guifg=#3F0D11 gui=nocombine]])
+			vim.cmd([[highlight IndentBlanklineIndent2 guifg=#664914 gui=nocombine]])
+			vim.cmd([[highlight IndentBlanklineIndent3 guifg=#324921 gui=nocombine]])
+			vim.cmd([[highlight IndentBlanklineIndent4 guifg=#215359 gui=nocombine]])
+			vim.cmd([[highlight IndentBlanklineIndent5 guifg=#1060A1 gui=nocombine]])
+			vim.cmd([[highlight IndentBlanklineIndent6 guifg=#67207D gui=nocombine]])
+		else
+			vim.cmd([[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]])
+			vim.cmd([[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]])
+			vim.cmd([[highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine]])
+			vim.cmd([[highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine]])
+			vim.cmd([[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]])
+			vim.cmd([[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]])
+		end
 		-- vim.opt.list = true
 		vim.opt.listchars:append("space:⋅")
 
