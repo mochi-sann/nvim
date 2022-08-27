@@ -161,6 +161,13 @@ return require("packer").startup(function()
 		"dracula/vim",
 		as = "dracula",
 	})
+	use({ "NLKNguyen/papercolor-theme", as = "papercolor" })
+	use({
+		"f-person/auto-dark-mode.nvim",
+		config = function()
+			require("plugconfig/auto-dark-mode")
+		end,
+	})
 	-- use({ "sainnhe/sonokai" })
 
 	--use("rebelot/kanagawa.nvim")

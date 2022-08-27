@@ -35,7 +35,7 @@ let g:highlightedyank_highlight_duration = 500
 "--------------------------------
 "  colorschem settings 
 "
-colorschem dracula
+" colorschem dracula
 ""colorschem  sonokai 
 
 
