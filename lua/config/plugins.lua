@@ -233,7 +233,6 @@ return require("packer").startup(function()
 	-- treesitter settins
 	use({
 		"nvim-treesitter/nvim-treesitter",
-		event = "VimEnter",
 		run = ":TSUpdate",
 		config = function()
 			require("plugconfig/treesitter")

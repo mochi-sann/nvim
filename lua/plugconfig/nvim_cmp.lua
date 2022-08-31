@@ -90,7 +90,36 @@ cmp.setup({
 		end, { "i", "s" }),
 	}),
 	sources = cmp.config.sources({
-		{ name = "copilot", group_index = 2 },
+		{
+			name = "copilot",
+			group_index = 2,
+			max_item_count = 3,
+			trigger_characters = {
+				{
+					".",
+					":",
+					"(",
+					"'",
+					'"',
+					"[",
+					",",
+					"#",
+					"*",
+					"@",
+					"|",
+					"=",
+					"-",
+					"{",
+					"/",
+					"\\",
+					"+",
+					"?",
+					" ",
+					"\t",
+					"\n",
+				},
+			},
+		},
 
 		{ name = "nvim_lsp", group_index = 2 },
 		{ name = "vsnip", group_index = 3 }, -- For vsnip users.
