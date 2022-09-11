@@ -75,7 +75,7 @@ xmap [tel-p] <Nop>
 nmap <C-p> [tel-p]
 xmap <C-p> [tel-p]
 
-nnoremap [tel-p]p <cmd>lua require('telescope.builtin').find_files({hidden=true})<cr>
+nnoremap [tel-p]p <cmd>lua require('telescope.builtin').find_files({hidden=true ,})<cr>
 nnoremap [tel-p]gr <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap [tel-p]b <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap [tel-p]h <cmd>lua require('telescope.builtin').help_tags()<cr>

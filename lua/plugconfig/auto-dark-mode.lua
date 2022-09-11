@@ -7,8 +7,10 @@ auto_dark_mode.setup({
 		vim.cmd("colorscheme dracula")
 	end,
 	set_light_mode = function()
-		vim.api.nvim_set_option("background", "light")
-		vim.cmd("colorscheme PaperColor")
+		vim.api.nvim_set_option("background", "dark")
+		vim.cmd("colorscheme dracula")
+		-- vim.api.nvim_set_option("background", "light")
+		-- vim.cmd("colorscheme PaperColor")
 	end,
 })
 auto_dark_mode.init()

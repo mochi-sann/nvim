@@ -106,13 +106,7 @@ return require("packer").startup(function()
 		},
 	})
 	-- format and linter
-	use({
-		"jose-elias-alvarez/null-ls.nvim",
-		event = "VimEnter",
-		config = function()
-			require("plugconfig/null_ls")
-		end,
-	})
+
 	--use({"lambdalisue/fern.vim" , opt = true, cmd = {'Fern'}})
 
 	-- use({
@@ -284,10 +278,22 @@ return require("packer").startup(function()
 		end,
 	})
 	use("ryanoasis/vim-devicons")
+	-- use({
+	-- 	"relastle/vim-colorrange",
+	-- 	event = "VimEnter",
+	-- })
 	use({
-		"relastle/vim-colorrange",
+		"max397574/colortils.nvim",
+		-- cmd = "Colortils",
+		after = {
+			"telescope.nvim",
+		},
 		event = "VimEnter",
+		config = function()
+			require("plugconfig/colortils")
+		end,
 	})
+
 	-- use({ "lilydjwg/colorizer", opt = true, event = "VimEnter" })
 	use({
 		"norcalli/nvim-colorizer.lua",
@@ -309,6 +315,13 @@ return require("packer").startup(function()
 
 	use({ "t9md/vim-choosewin", event = "VimEnter" })
 
+	use({
+		"jose-elias-alvarez/null-ls.nvim",
+		event = "VimEnter",
+		config = function()
+			require("plugconfig/null_ls")
+		end,
+	})
 	-- use({ "davidgranstrom/nvim-markdown-preview", opt = true, event = "VimEnter" })
 	use({
 		"iamcco/markdown-preview.nvim",
@@ -322,5 +335,3 @@ return require("packer").startup(function()
 
 	-- file tree
 end)
-
--- vim.cmd([[autocmd BufWritePost lua/config/plugins.lua PackerCompile]])
