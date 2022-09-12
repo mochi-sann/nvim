@@ -169,6 +169,15 @@ return require("packer").startup(function()
 	-- use({ "sainnhe/sonokai" })
 
 	--use("rebelot/kanagawa.nvim")
+	use({ "kyazdani42/nvim-web-devicons" })
+	use({
+		"akinsho/bufferline.nvim",
+		tag = "v2.*",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("plugconfig/bufferline")
+		end,
+	})
 
 	use({
 		"alvarosevilla95/luatab.nvim",
@@ -178,7 +187,7 @@ return require("packer").startup(function()
 			require("plugconfig/luatab")
 		end,
 	})
-
+	--
 	use({
 		"vim-jp/vimdoc-ja",
 		event = "VimEnter",
