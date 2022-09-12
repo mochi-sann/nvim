@@ -1,4 +1,9 @@
 local config = {
+	filters = {
+		dotfiles = false,
+		exclude = { vim.fn.stdpath("config") .. "/lua/custom", ".git" },
+	},
+
 	renderer = {
 
 		indent_markers = {
@@ -15,6 +20,7 @@ local config = {
 	disable_netrw = true,
 	hijack_netrw = true,
 	open_on_setup = false,
+	hijack_cursor = true,
 	view = {
 		side = "right",
 
