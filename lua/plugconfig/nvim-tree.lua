@@ -12,6 +12,9 @@ local config = {
 			},
 		},
 	},
+	disable_netrw = true,
+	hijack_netrw = true,
+	open_on_setup = false,
 	view = {
 		side = "right",
 

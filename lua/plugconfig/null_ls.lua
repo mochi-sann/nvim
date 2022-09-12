@@ -64,6 +64,8 @@ null_ls.setup({
 		null_ls.builtins.formatting.gofmt,
 		-- LuaFormatter on
 		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.diagnostics.php,
+		null_ls.builtins.formatting.prismaFmt,
 	},
 	-- on_attach = on_attach,
 })

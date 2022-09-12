@@ -19,6 +19,18 @@ local has_words_before = function()
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
 	return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match("^%s*$") == nil
 end
+local function border(hl_name)
+	return {
+		{ "╭", hl_name },
+		{ "─", hl_name },
+		{ "╮", hl_name },
+		{ "│", hl_name },
+		{ "╯", hl_name },
+		{ "─", hl_name },
+		{ "╰", hl_name },
+		{ "│", hl_name },
+	}
+end
 
 cmp.setup({
 	snippet = {
@@ -32,6 +44,14 @@ cmp.setup({
 		end,
 	},
 	window = {
+		completion = {
+			border = border("CmpBorder"),
+			winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
+		},
+		documentation = {
+			border = border("CmpDocBorder"),
+		},
+
 		-- completion = cmp.config.window.bordered(),
 		-- documentation = cmp.config.window.bordered(),
 	},
