@@ -20,28 +20,40 @@ return require("packer").startup(function()
 	-- LSP settings
 	use({
 		"hrsh7th/nvim-cmp",
+		after = { "cmp-nvim-lsp" },
 		config = function()
 			require("plugconfig/nvim_cmp")
 		end,
 	})
 
 	use({ "hrsh7th/cmp-nvim-lsp" })
-	use({ "hrsh7th/cmp-buffer" })
-	use({ "hrsh7th/cmp-path" })
-	use({ "hrsh7th/cmp-cmdline" })
-	use({ "hrsh7th/cmp-nvim-lsp-signature-help" })
-	use({ "hrsh7th/cmp-nvim-lua" })
-	use({ "hrsh7th/cmp-emoji" })
-	use({ "hrsh7th/cmp-nvim-lsp-document-symbol" })
-	use({ "hrsh7th/cmp-vsnip" })
+	use({ "hrsh7th/cmp-buffer", after = { "cmp-nvim-lsp" } })
+	use({ "hrsh7th/cmp-path", after = { "cmp-buffer" } })
+	use({ "hrsh7th/cmp-cmdline", after = { "cmp-path" } })
+	use({ "hrsh7th/cmp-nvim-lsp-signature-help", after = { "cmp-cmdline" } })
+	use({ "hrsh7th/cmp-nvim-lua", after = { "cmp-nvim-lsp-signature-help" } })
+	use({ "hrsh7th/cmp-emoji", after = { "cmp-nvim-lua" } })
+	use({ "hrsh7th/cmp-nvim-lsp-document-symbol", after = { "cmp-emoji" } })
+	use({ "hrsh7th/cmp-vsnip", after = { "vim-vsnip", "cmp-nvim-lsp-document-symbol" } })
 
+	use({
+		"tzachar/cmp-tabnine",
+		run = "./install.sh",
+		after = { "cmp-vsnip" },
+		requires = "hrsh7th/nvim-cmp",
+		config = function()
+			require("plugconfig/cmp-tabnine")
+		end,
+	})
 	use({ "neovim/nvim-lspconfig" })
-	use({ "williamboman/mason.nvim" })
 	use({
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("plugconfig/mason-lsp")
 		end,
+	})
+	use({
+		"williamboman/mason.nvim",
 	})
 
 	-- use({
@@ -57,15 +69,6 @@ return require("packer").startup(function()
 	-- 		end, 100)
 	-- 	end,
 	-- })
-
-	use({
-		"tzachar/cmp-tabnine",
-		run = "./install.sh",
-		requires = "hrsh7th/nvim-cmp",
-		config = function()
-			require("plugconfig/cmp-tabnine")
-		end,
-	})
 
 	use({
 		"pwntester/octo.nvim",
@@ -98,6 +101,7 @@ return require("packer").startup(function()
 
 	use({
 		"hrsh7th/vim-vsnip",
+		event = "VimEnter",
 		config = function()
 			require("plugconfig/vsnip")
 		end,
@@ -297,7 +301,7 @@ return require("packer").startup(function()
 	-- use({ "lilydjwg/colorizer", opt = true, event = "VimEnter" })
 	use({
 		"norcalli/nvim-colorizer.lua",
-		event = "VimEnter",
+		after = { "telescope.nvim" },
 		config = function()
 			require("plugconfig/nvim-colorizer")
 		end,
