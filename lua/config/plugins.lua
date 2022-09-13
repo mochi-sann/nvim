@@ -346,5 +346,6 @@ return require("packer").startup(function()
 		ft = { "markdown" },
 	})
 
+	use({ "wakatime/vim-wakatime", event = "VimEnter" })
 	-- file tree
 end)
