@@ -35,7 +35,7 @@ let g:highlightedyank_highlight_duration = 500
 "--------------------------------
 "  colorschem settings 
 "
-" colorschem dracula
+ colorschem dracula
 ""colorschem  sonokai 
 
 
@@ -63,5 +63,9 @@ endfunction
 "               t9md/vim-choosewin                "
 " ----------------------------------------------------------------------------""
 nmap  -  <Plug>(choosewin)
+
+autocmd! ColorScheme * hi VertSplit ctermbg=none
+autocmd! VimEnter,ColorScheme * hi VertSplit ctermbg=none
+
 
 ]])
