@@ -353,25 +353,35 @@ return require("packer").startup(function()
 	-- 	event = "VimEnter",
 	-- })
 	use({
-		"max397574/colortils.nvim",
-		-- cmd = "Colortils",
+		"uga-rosa/ccc.nvim",
 		after = {
 			"telescope.nvim",
 		},
 		event = "VimEnter",
 		config = function()
-			require("plugconfig/colortils")
+			require("plugconfig/ccc-nvim")
 		end,
 	})
+	-- use({
+	-- 	"max397574/colortils.nvim",
+	-- 	-- cmd = "Colortils",
+	-- 	after = {
+	-- 		"telescope.nvim",
+	-- 	},
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("plugconfig/colortils")
+	-- 	end,
+	-- })
 
 	-- use({ "lilydjwg/colorizer", opt = true, event = "VimEnter" })
-	use({
-		"norcalli/nvim-colorizer.lua",
-		after = { "telescope.nvim" },
-		config = function()
-			require("plugconfig/nvim-colorizer")
-		end,
-	})
+	-- use({
+	-- 	"norcalli/nvim-colorizer.lua",
+	-- 	after = { "telescope.nvim" },
+	-- 	config = function()
+	-- 		require("plugconfig/nvim-colorizer")
+	-- 	end,
+	-- })
 	use({
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
