@@ -347,7 +347,13 @@ return require("packer").startup(function()
 			require("plugconfig/mini")
 		end,
 	})
-	use({ "tversteeg/registers.nvim", event = "VimEnter" })
+	use({
+		"tversteeg/registers.nvim",
+		event = "VimEnter",
+		config = function()
+			require("registers").setup()
+		end,
+	})
 	use({
 		"folke/which-key.nvim",
 		event = "VimEnter",
@@ -420,6 +426,14 @@ return require("packer").startup(function()
 		end,
 		ft = { "markdown" },
 	})
+	-- use({
+	-- 	"SmiteshP/nvim-navic",
+	-- 	config = function()
+	-- 		require("plugconfig/nvim_navic")
+	-- 	end,
+	--
+	-- 	requires = "neovim/nvim-lspconfig",
+	-- })
 
 	use({ "wakatime/vim-wakatime", event = "VimEnter" })
 	-- file tree
