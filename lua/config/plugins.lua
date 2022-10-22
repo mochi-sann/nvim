@@ -269,6 +269,14 @@ return require("packer").startup(function()
 			require("plugconfig/lazygit")
 		end,
 	})
+	use({
+		"akinsho/git-conflict.nvim",
+		event = "VimEnter",
+		tag = "*",
+		config = function()
+			require("git-conflict").setup()
+		end,
+	})
 
 	use({ "alaviss/nim.nvim", event = "VimEnter" })
 
