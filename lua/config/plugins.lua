@@ -347,9 +347,15 @@ return require("packer").startup(function()
 			require("plugconfig/mini")
 		end,
 	})
+	-- use({
+	-- 	"tversteeg/registers.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("registers").setup()
+	-- 	end,
+	-- })
 	use({
 		"tversteeg/registers.nvim",
-		event = "VimEnter",
 		config = function()
 			require("registers").setup()
 		end,
