@@ -12,6 +12,13 @@ return require("packer").startup(function()
 	})
 
 	use({
+		"rcarriga/nvim-notify",
+		config = function()
+			require("plugconfig/nvim-notify")
+		end,
+	})
+
+	use({
 		"nathom/filetype.nvim",
 		config = function()
 			require("filetype").setup({
