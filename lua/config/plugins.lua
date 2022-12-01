@@ -232,6 +232,16 @@ return require("packer").startup(function()
 	-- })
 	-- use({ "sainnhe/sonokai" })
 
+	use({
+		"rmagatti/auto-session",
+		config = function()
+			require("auto-session").setup({
+				log_level = "error",
+				auto_session_suppress_dirs = { "~/", "~/Downloads", "/" },
+			})
+		end,
+	})
+
 	--use("rebelot/kanagawa.nvim")
 	use({ "kyazdani42/nvim-web-devicons" })
 	use({
