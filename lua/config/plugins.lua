@@ -82,23 +82,37 @@ return require("packer").startup(function()
 	})
 
 	-- LSP settings
+--	use({
+--		"hrsh7th/nvim-cmp",
+--		after = { "cmp-nvim-lsp" },
+--		config = function()
+--			require("plugconfig/nvim_cmp")
+--		end,
+--	})
 	use({
 		"hrsh7th/nvim-cmp",
-		after = { "cmp-nvim-lsp" },
+		event = { "InsertEnter" },
+		requires = {
+			{ "hrsh7th/cmp-buffer", event = { "InsertEnter" } },
+			{ "hrsh7th/cmp-emoji", event = { "InsertEnter" } },
+			{ "hrsh7th/cmp-nvim-lsp", event = { "InsertEnter" } },
+			{ "hrsh7th/cmp-path", event = { "InsertEnter" } },
+			{ "hrsh7th/cmp-cmdline", event = { "InsertEnter" } },
+			{ "hrsh7th/cmp-nvim-lsp-signature-help", event = { "InsertEnter" } },
+			{ "hrsh7th/cmp-nvim-lua", event = { "InsertEnter" } },
+			{ "hrsh7th/cmp-emoji", event = { "InsertEnter" } },
+			{ "hrsh7th/cmp-nvim-lsp-document-symbol", event = { "InsertEnter" } },
+			{
+				"hrsh7th/cmp-vsnip",
+				requires = { "vim-vsnip", "cmp-nvim-lsp-document-symbol" },
+				event = { "InsertEnter" },
+			},
+
+		},
 		config = function()
 			require("plugconfig/nvim_cmp")
 		end,
 	})
-
-	use({ "hrsh7th/cmp-nvim-lsp" })
-	use({ "hrsh7th/cmp-buffer", after = { "cmp-nvim-lsp" } })
-	use({ "hrsh7th/cmp-path", after = { "cmp-buffer" } })
-	use({ "hrsh7th/cmp-cmdline", after = { "cmp-path" } })
-	use({ "hrsh7th/cmp-nvim-lsp-signature-help", after = { "cmp-cmdline" } })
-	use({ "hrsh7th/cmp-nvim-lua", after = { "cmp-nvim-lsp-signature-help" } })
-	use({ "hrsh7th/cmp-emoji", after = { "cmp-nvim-lua" } })
-	use({ "hrsh7th/cmp-nvim-lsp-document-symbol", after = { "cmp-emoji" } })
-	use({ "hrsh7th/cmp-vsnip", after = { "vim-vsnip", "cmp-nvim-lsp-document-symbol" } })
 
 	use({
 		"tzachar/cmp-tabnine",
