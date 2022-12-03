@@ -71,24 +71,68 @@ return require("packer").startup(function()
 	use({ "junegunn/fzf", run = ":call fzf#install()" })
 	use({ "nvim-lua/popup.nvim" })
 
-	-- fizzy finder
 	use({
 		"nvim-telescope/telescope.nvim",
-		event = "VimEnter",
-		requires = { "nvim-lua/plenary.nvim" },
+		module = { "telescope" },
+		requires = {
+			{ "nvim-telescope/telescope-ghq.nvim", opt = true },
+			{ "nvim-telescope/telescope-z.nvim", opt = true },
+			-- その他の拡張プラグイン……
+		},
+		wants = {
+			"telescope-ghq.nvim",
+			"telescope-z.nvim",
+			-- ……
+		},
+		setup = function()
+			local function builtin(name)
+				return function(opt)
+					return function()
+						return require("telescope.builtin")[name](opt or {})
+					end
+				end
+			end
+
+			local function extensions(name, prop)
+				return function(opt)
+					return function()
+						local telescope = require("telescope")
+						telescope.load_extension(name)
+						return telescope.extensions[name][prop](opt or {})
+					end
+				end
+			end
+
+			vim.cmd([[
+        nnoremap [tel-p] <Nop>
+        xmap [tel-p] <Nop>
+
+        nmap <C-p> [tel-p]
+        xmap <C-p> [tel-p]
+
+        nnoremap [tel-p]p <cmd>lua require('telescope.builtin').find_files({hidden=true ,})<cr>
+        nnoremap [tel-p]gr <cmd>lua require('telescope.builtin').live_grep()<cr>
+        nnoremap [tel-p]b <cmd>lua require('telescope.builtin').buffers()<cr>
+        nnoremap [tel-p]h <cmd>lua require('telescope.builtin').help_tags()<cr>
+        nnoremap [tel-p]ba <cmd>lua require('telescope.builtin').buffers()<cr>
+        nnoremap [tel-p]c <cmd>lua require('telescope.builtin').command_history()<cr>
+        nnoremap [tel-p]gb <cmd>lua require('telescope.builtin').git_branches() <cr>
+        nnoremap [tel-p]gs <cmd>lua require('telescope.builtin').git_status() <cr>
+
+      ]])
+			-- vim.keymap.set("n", "<Leader>f:", builtin("command_history")({}))
+			-- vim.keymap.set("n", "<Leader>fG", builtin("grep_string")({}))
+			-- vim.keymap.set("n", "<Leader>fH", builtin("help_tags")({ lang = "en" }))
+			-- vim.keymap.set("n", "<Leader>fm", builtin("man_pages")({ sections = { "ALL" } }))
+			-- vim.keymap.set("n", "<Leader>fq", extensions("ghq", "list")({}))
+			-- vim.keymap.set("n", "<Leader>fz", extensions("z", "list")({}))
+			-- ……以降設定が続く
+		end,
 		config = function()
 			require("plugconfig/telescope")
 		end,
 	})
 
-	-- LSP settings
---	use({
---		"hrsh7th/nvim-cmp",
---		after = { "cmp-nvim-lsp" },
---		config = function()
---			require("plugconfig/nvim_cmp")
---		end,
---	})
 	use({
 		"hrsh7th/nvim-cmp",
 		event = { "InsertEnter" },
@@ -107,7 +151,6 @@ return require("packer").startup(function()
 				requires = { "vim-vsnip", "cmp-nvim-lsp-document-symbol" },
 				event = { "InsertEnter" },
 			},
-
 		},
 		config = function()
 			require("plugconfig/nvim_cmp")
@@ -148,18 +191,18 @@ return require("packer").startup(function()
 	-- 	end,
 	-- })
 
-	use({
-		"pwntester/octo.nvim",
-		event = "VimEnter",
-		requires = {
-			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope.nvim",
-			"kyazdani42/nvim-web-devicons",
-		},
-		config = function()
-			require("octo").setup()
-		end,
-	})
+	-- use({
+	-- 	"pwntester/octo.nvim",
+	-- 	event = "VimEnter",
+	-- 	requires = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"nvim-telescope/telescope.nvim",
+	-- 		"kyazdani42/nvim-web-devicons",
+	-- 	},
+	-- 	config = function()
+	-- 		require("octo").setup()
+	-- 	end,
+	-- })
 	use({
 		"phaazon/hop.nvim",
 		branch = "v2", -- optional but strongly recommended
