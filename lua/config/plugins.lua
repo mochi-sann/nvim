@@ -506,6 +506,11 @@ return require("packer").startup(function()
 		end,
 		ft = { "markdown" },
 	})
+
+	use({
+		"rust-lang/rust.vim",
+		ft = { "rust" },
+	})
 	-- use({
 	-- 	"SmiteshP/nvim-navic",
 	-- 	config = function()
