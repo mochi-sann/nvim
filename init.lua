@@ -19,14 +19,7 @@ tnoremap <Esc> <C-\><C-n>
 command! -nargs=* T split | wincmd j | resize 15 | terminal <args>
 "
 
-"--------------------------------
-" ヤンクしたときにhighlightする
-""if !exists('##TextYankPost')
-  nmap y <Plug>(highlightedyank)
-  xmap y <Plug>(highlightedyank)
-  omap y <Plug>(highlightedyank)
-""endif
-let g:highlightedyank_highlight_duration = 500
+" let g:highlightedyank_highlight_duration = 500
 "----------------------------
 "------------------------------------------------
 " skanehira/jumpcursor.vim
@@ -36,21 +29,10 @@ let g:highlightedyank_highlight_duration = 500
 "  colorschem settings 
 "
  colorschem dracula
-""colorschem  sonokai 
+"colorschem  sonokai
 
 
 
-"------------------------------------------------------"
-"relastle/vim-colorrange
-"カラーコードを編集するところ
-
-nnoremap <A-a> :ColorrangeIncrement<CR>
-nnoremap <A-x> :ColorrangeDecrement<CR>
-
-
-
-"------------------------------------------------------"
-"------------------------------------------------------"
 " タブを使いやすくする設定
 
 " https://qiita.com/wadako111/items/755e753677dd72d8036d を参考にした

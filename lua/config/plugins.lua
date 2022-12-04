@@ -3,6 +3,38 @@ vim.cmd([[packadd packer.nvim]])
 return require("packer").startup(function()
 	-- Packer can manage itself
 	use({ "wbthomason/packer.nvim" })
+	-- use({ "wbthomason/packer.nvim", module = { "packer" }, setup = function() end })
+	--   use {
+	--   "wbthomason/packer.nvim",
+	--   module = { "packer" },
+	--   setup = function()
+	--     local packer
+	--     local function run_packer(method)
+	--       return function(opts)
+	--         if not packer then
+	--           vim.cmd.packadd "packer.nvim"
+	--           packer = require "packer"
+	--           packer.init {
+	--             -- 様々な設定
+	--           }
+	--           packer.use {
+	--             -- 様々なプラグイン
+	--           }
+	--         end
+	--       end
+	--
+	--       packer[method](opts)
+	--
+	--     vim.api.nvim_create_user_command("PackerInstall", run_packer "install", { desc = "[Packer] Install plugins" })
+	--     vim.api.nvim_create_user_command("PackerUpdate", run_packer "update", { desc = "[Packer] Update plugins" })
+	--     vim.api.nvim_create_user_command("PackerClean", run_packer "clean", { desc = "[Packer] Clean plugins" })
+	--     vim.api.nvim_create_user_command("PackerStatus", run_packer "status", { desc = "[Packer] Output plugins status" })
+	--     vim.api.nvim_create_user_command("PackerCompile", run_packer "compile", { desc = "[Packer] Output plugins status" })
+	--     vim.api.nvim_create_user_command("PackerSync", run_packer "sync", { desc = "[Packer] Update plugins" })
+	--     -- …… 以下、他のコマンドも定義する
+	--   end,
+	-- }
+
 	use({
 		"lewis6991/impatient.nvim",
 		config = function()
@@ -493,7 +525,16 @@ return require("packer").startup(function()
 		end,
 	})
 
-	use({ "machakann/vim-highlightedyank", event = "VimEnter" })
+	use({
+		"machakann/vim-highlightedyank",
+		event = "VimEnter",
+		config = function()
+			vim.keymap.set("n", "y", "<Plug>(highlightedyank)", { buffer = true })
+			vim.keymap.set("x", "y", "<Plug>(highlightedyank)", { buffer = true })
+			vim.keymap.set("o", "y", "<Plug>(highlightedyank)", { buffer = true })
+			vim.g.highlightedyank_highlight_duration = 500
+		end,
+	})
 
 	use({ "t9md/vim-choosewin", event = "VimEnter" })
 
