@@ -104,22 +104,30 @@ return require("packer").startup(function()
 			end
 
 			vim.cmd([[
-        nnoremap [tel-p] <Nop>
-        xmap [tel-p] <Nop>
+			     nnoremap [tel-p] <Nop>
+			     xmap [tel-p] <Nop>
 
-        nmap <C-p> [tel-p]
-        xmap <C-p> [tel-p]
+			     nmap <C-p> [tel-p]
+			     xmap <C-p> [tel-p]
 
-        nnoremap [tel-p]p <cmd>lua require('telescope.builtin').find_files({hidden=true ,})<cr>
-        nnoremap [tel-p]gr <cmd>lua require('telescope.builtin').live_grep()<cr>
-        nnoremap [tel-p]b <cmd>lua require('telescope.builtin').buffers()<cr>
-        nnoremap [tel-p]h <cmd>lua require('telescope.builtin').help_tags()<cr>
-        nnoremap [tel-p]ba <cmd>lua require('telescope.builtin').buffers()<cr>
-        nnoremap [tel-p]c <cmd>lua require('telescope.builtin').command_history()<cr>
-        nnoremap [tel-p]gb <cmd>lua require('telescope.builtin').git_branches() <cr>
-        nnoremap [tel-p]gs <cmd>lua require('telescope.builtin').git_status() <cr>
+           nnoremap [tel-p]p <cmd>lua require('telescope.builtin').find_files({hidden=true ,})<cr>
+           nnoremap [tel-p]gr <cmd>lua require('telescope.builtin').live_grep()<cr>
+           nnoremap [tel-p]b <cmd>lua require('telescope.builtin').buffers()<cr>
+           nnoremap [tel-p]h <cmd>lua require('telescope.builtin').help_tags()<cr>
+           nnoremap [tel-p]ba <cmd>lua require('telescope.builtin').buffers()<cr>
+           nnoremap [tel-p]c <cmd>lua require('telescope.builtin').command_history()<cr>
+			     nnoremap [tel-p]gb <cmd>lua require('telescope.builtin').git_branches() <cr>
+			     nnoremap [tel-p]gs <cmd>lua require('telescope.builtin').git_status() <cr>
 
-      ]])
+			   ]])
+			vim.keymap.set("n", "<Leader>pp", builtin("find_files")({ hidden = true }))
+			vim.keymap.set("n", "<Leader>pgr", builtin("live_grep")({}))
+			vim.keymap.set("n", "<Leader>ph", builtin("help_tags")({}))
+			vim.keymap.set("n", "<Leader>pb", builtin("buffers")({}))
+			vim.keymap.set("n", "<Leader>pba", builtin("buffers")({}))
+			vim.keymap.set("n", "<Leader>pc", builtin("command_history")({}))
+			vim.keymap.set("n", "<Leader>pg", extensions("ghq", "list")({}))
+			vim.keymap.set("n", "<Leader>pz", extensions("z", "list")({}))
 			-- vim.keymap.set("n", "<Leader>f:", builtin("command_history")({}))
 			-- vim.keymap.set("n", "<Leader>fG", builtin("grep_string")({}))
 			-- vim.keymap.set("n", "<Leader>fH", builtin("help_tags")({ lang = "en" }))
