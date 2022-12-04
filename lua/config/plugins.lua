@@ -34,7 +34,6 @@ return require("packer").startup(function()
 	--     -- …… 以下、他のコマンドも定義する
 	--   end,
 	-- }
-
 	use({
 		"lewis6991/impatient.nvim",
 		config = function()
@@ -175,21 +174,21 @@ return require("packer").startup(function()
 
 	use({
 		"hrsh7th/nvim-cmp",
-		event = { "InsertEnter" },
+		event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" },
 		requires = {
-			{ "hrsh7th/cmp-buffer", event = { "InsertEnter" } },
-			{ "hrsh7th/cmp-emoji", event = { "InsertEnter" } },
-			{ "hrsh7th/cmp-nvim-lsp", event = { "InsertEnter" } },
-			{ "hrsh7th/cmp-path", event = { "InsertEnter" } },
-			{ "hrsh7th/cmp-cmdline", event = { "InsertEnter" } },
-			{ "hrsh7th/cmp-nvim-lsp-signature-help", event = { "InsertEnter" } },
-			{ "hrsh7th/cmp-nvim-lua", event = { "InsertEnter" } },
-			{ "hrsh7th/cmp-emoji", event = { "InsertEnter" } },
-			{ "hrsh7th/cmp-nvim-lsp-document-symbol", event = { "InsertEnter" } },
+			{ "hrsh7th/cmp-buffer", event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" } },
+			{ "hrsh7th/cmp-emoji", event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" } },
+			{ "hrsh7th/cmp-nvim-lsp", event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" } },
+			{ "hrsh7th/cmp-path", event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" } },
+			{ "hrsh7th/cmp-cmdline", event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" } },
+			{ "hrsh7th/cmp-nvim-lsp-signature-help", event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" } },
+			{ "hrsh7th/cmp-nvim-lua", event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" } },
+			{ "hrsh7th/cmp-emoji", event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" } },
+			{ "hrsh7th/cmp-nvim-lsp-document-symbol", event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" } },
 			{
 				"hrsh7th/cmp-vsnip",
 				requires = { "vim-vsnip", "cmp-nvim-lsp-document-symbol" },
-				event = { "InsertEnter" },
+				event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" },
 			},
 		},
 		config = function()
@@ -420,6 +419,7 @@ return require("packer").startup(function()
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
+		event = "VimEnter",
 		config = function()
 			require("plugconfig/treesitter")
 		end,
