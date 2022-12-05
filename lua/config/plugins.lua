@@ -3,37 +3,6 @@ vim.cmd([[packadd packer.nvim]])
 return require("packer").startup(function()
 	-- Packer can manage itself
 	use({ "wbthomason/packer.nvim" })
-	-- use({ "wbthomason/packer.nvim", module = { "packer" }, setup = function() end })
-	--   use {
-	--   "wbthomason/packer.nvim",
-	--   module = { "packer" },
-	--   setup = function()
-	--     local packer
-	--     local function run_packer(method)
-	--       return function(opts)
-	--         if not packer then
-	--           vim.cmd.packadd "packer.nvim"
-	--           packer = require "packer"
-	--           packer.init {
-	--             -- 様々な設定
-	--           }
-	--           packer.use {
-	--             -- 様々なプラグイン
-	--           }
-	--         end
-	--       end
-	--
-	--       packer[method](opts)
-	--
-	--     vim.api.nvim_create_user_command("PackerInstall", run_packer "install", { desc = "[Packer] Install plugins" })
-	--     vim.api.nvim_create_user_command("PackerUpdate", run_packer "update", { desc = "[Packer] Update plugins" })
-	--     vim.api.nvim_create_user_command("PackerClean", run_packer "clean", { desc = "[Packer] Clean plugins" })
-	--     vim.api.nvim_create_user_command("PackerStatus", run_packer "status", { desc = "[Packer] Output plugins status" })
-	--     vim.api.nvim_create_user_command("PackerCompile", run_packer "compile", { desc = "[Packer] Output plugins status" })
-	--     vim.api.nvim_create_user_command("PackerSync", run_packer "sync", { desc = "[Packer] Update plugins" })
-	--     -- …… 以下、他のコマンドも定義する
-	--   end,
-	-- }
 	use({
 		"lewis6991/impatient.nvim",
 		config = function()
@@ -190,21 +159,33 @@ return require("packer").startup(function()
 				requires = { "vim-vsnip", "cmp-nvim-lsp-document-symbol" },
 				event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" },
 			},
+			{
+				"onsails/lspkind.nvim",
+				require = function()
+					require("plugconfig/lspkind")
+				end,
+				event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" },
+			},
+			{
+				"tzachar/cmp-tabnine",
+				config = function()
+					require("plugconfig/cmp-tabnine")
+				end,
+				run = "./install.sh",
+
+				event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" },
+			},
 		},
 		config = function()
 			require("plugconfig/nvim_cmp")
 		end,
 	})
 
-	use({
-		"tzachar/cmp-tabnine",
-		run = "./install.sh",
-		after = { "cmp-vsnip" },
-		requires = "hrsh7th/nvim-cmp",
-		config = function()
-			require("plugconfig/cmp-tabnine")
-		end,
-	})
+	-- use({
+	-- 	"tzachar/cmp-tabnine",
+	-- 	after = { "cmp-vsnip" },
+	-- 	requires = "hrsh7th/nvim-cmp",
+	-- })
 	use({ "neovim/nvim-lspconfig" })
 	use({
 		"williamboman/mason-lspconfig.nvim",
@@ -252,12 +233,6 @@ return require("packer").startup(function()
 	})
 
 	--
-	use({
-		"onsails/lspkind.nvim",
-		config = function()
-			require("plugconfig/lspkind")
-		end,
-	})
 
 	use({
 		"hrsh7th/vim-vsnip",
@@ -291,7 +266,6 @@ return require("packer").startup(function()
 		requires = {
 			"kyazdani42/nvim-web-devicons", -- optional, for file icons
 		},
-		opt = true,
 		event = "VimEnter",
 		tag = "nightly", -- optional, updated every week. (see issue #1193)
 		config = function()
@@ -317,6 +291,7 @@ return require("packer").startup(function()
 	-- colorschem
 	use({
 		"dracula/vim",
+		opt = false,
 		as = "dracula",
 	})
 	-- use({ "NLKNguyen/papercolor-theme", as = "papercolor" })
@@ -491,7 +466,7 @@ return require("packer").startup(function()
 		after = {
 			"telescope.nvim",
 		},
-		event = "VimEnter",
+		keys = { ":CccPick<cr>" },
 		config = function()
 			require("plugconfig/ccc-nvim")
 		end,

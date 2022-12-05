@@ -7,4 +7,4 @@ ccc.setup({
 	},
 })
 
-vim.api.nvim_set_keymap("n", "<Space>c", ":CccPick<cr>", { silent = true, noremap = true })
+vim.keymap.set("n", "<Space>c", ":CccPick<cr>", { silent = true, noremap = true })
