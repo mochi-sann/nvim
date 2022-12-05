@@ -181,11 +181,6 @@ return require("packer").startup(function()
 		end,
 	})
 
-	-- use({
-	-- 	"tzachar/cmp-tabnine",
-	-- 	after = { "cmp-vsnip" },
-	-- 	requires = "hrsh7th/nvim-cmp",
-	-- })
 	use({ "neovim/nvim-lspconfig" })
 	use({
 		"williamboman/mason-lspconfig.nvim",
@@ -197,32 +192,6 @@ return require("packer").startup(function()
 		"williamboman/mason.nvim",
 	})
 
-	-- use({
-	-- 	"zbirenbaum/copilot-cmp",
-	-- 	module = "copilot_cmp",
-	-- })
-	-- use({
-	-- 	"zbirenbaum/copilot.lua",
-	-- 	event = { "VimEnter" },
-	-- 	config = function()
-	-- 		vim.defer_fn(function()
-	-- 			require("copilot").setup()
-	-- 		end, 100)
-	-- 	end,
-	-- })
-
-	-- use({
-	-- 	"pwntester/octo.nvim",
-	-- 	event = "VimEnter",
-	-- 	requires = {
-	-- 		"nvim-lua/plenary.nvim",
-	-- 		"nvim-telescope/telescope.nvim",
-	-- 		"kyazdani42/nvim-web-devicons",
-	-- 	},
-	-- 	config = function()
-	-- 		require("octo").setup()
-	-- 	end,
-	-- })
 	use({
 		"phaazon/hop.nvim",
 		branch = "v2", -- optional but strongly recommended
