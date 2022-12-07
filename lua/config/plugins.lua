@@ -364,21 +364,24 @@ return require("packer").startup(function()
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 		event = "VimEnter",
+		requires = {
+			{ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" },
+			{
+				"nvim-treesitter/nvim-treesitter-context",
+				after = "nvim-treesitter",
+				config = function()
+					require("plugconfig/treesitter-context")
+				end,
+			},
+			{ "windwp/nvim-ts-autotag", after = "nvim-treesitter" },
+			{ "windwp/nvim-ts-autotag", after = "nvim-treesitter" },
+			{ "JoosepAlviste/nvim-ts-context-commentstring", after = { "nvim-treesitter", "mini.nvim" } },
+		},
 		config = function()
 			require("plugconfig/treesitter")
 		end,
 	})
-	use({ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" })
-	use({
-		"nvim-treesitter/nvim-treesitter-context",
-		after = "nvim-treesitter",
-		config = function()
-			require("plugconfig/treesitter-context")
-		end,
-	})
 
-	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })
-	use({ "JoosepAlviste/nvim-ts-context-commentstring", after = { "nvim-treesitter", "mini.nvim" } })
 
 	use({
 		"lewis6991/gitsigns.nvim",
