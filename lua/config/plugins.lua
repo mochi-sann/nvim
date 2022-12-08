@@ -74,14 +74,22 @@ return require("packer").startup(function()
 	use({
 		"nvim-telescope/telescope.nvim",
 		module = { "telescope" },
+		event = "VimEnter",
 		requires = {
 			{ "nvim-telescope/telescope-ghq.nvim", opt = true },
 			{ "nvim-telescope/telescope-z.nvim", opt = true },
+			use({
+				"nvim-telescope/telescope-frecency.nvim",
+				config = function() end,
+				requires = { "kkharji/sqlite.lua" },
+			}),
+
 			-- その他の拡張プラグイン……
 		},
 		wants = {
 			"telescope-ghq.nvim",
 			"telescope-z.nvim",
+			"telescope-frecency.nvim",
 			-- ……
 		},
 		setup = function()
@@ -235,8 +243,6 @@ return require("packer").startup(function()
 		requires = {
 			"kyazdani42/nvim-web-devicons", -- optional, for file icons
 		},
-		event = "VimEnter",
-		tag = "nightly", -- optional, updated every week. (see issue #1193)
 		config = function()
 			require("plugconfig/nvim-tree")
 		end,
@@ -245,6 +251,7 @@ return require("packer").startup(function()
 	use({
 		"t9md/vim-quickhl",
 		event = "VimEnter",
+		opt = true,
 		config = function()
 			require("plugconfig/vim_quichl")
 		end,
@@ -252,11 +259,12 @@ return require("packer").startup(function()
 	use({
 		"terryma/vim-expand-region",
 		event = "VimEnter",
+		opt = true,
 		config = function()
 			require("plugconfig/vim_expand_region")
 		end,
 	})
-	use({ "segeljakt/vim-silicon", event = "VimEnter" })
+	use({ "segeljakt/vim-silicon", opt = true, event = "VimEnter" })
 	-- colorschem
 	use({
 		"dracula/vim",
@@ -305,6 +313,7 @@ return require("packer").startup(function()
 	use({
 		"vim-jp/vimdoc-ja",
 		event = "VimEnter",
+		opt = false,
 		config = function()
 			require("plugconfig/vimdoc_ja")
 		end,
@@ -314,6 +323,7 @@ return require("packer").startup(function()
 		"akinsho/toggleterm.nvim",
 		tag = "v2.*",
 		event = "VimEnter",
+		opt = false,
 		config = function()
 			require("plugconfig/toggleterm")
 		end,
@@ -322,6 +332,7 @@ return require("packer").startup(function()
 	use({
 		"kdheepak/lazygit.nvim",
 		event = "VimEnter",
+		opt = false,
 		config = function()
 			require("plugconfig/lazygit")
 		end,
@@ -329,6 +340,7 @@ return require("packer").startup(function()
 	use({
 		"akinsho/git-conflict.nvim",
 		event = "VimEnter",
+		opt = false,
 		tag = "*",
 		config = function()
 			require("git-conflict").setup()
@@ -340,6 +352,7 @@ return require("packer").startup(function()
 	use({
 		"heavenshell/vim-jsdoc",
 		event = "VimEnter",
+		opt = false,
 		cmd = { "JsDoc" },
 		ft = { "typescript", "typescriptreact", "javascript", "javascriptreact", "vue" },
 	})
@@ -347,6 +360,7 @@ return require("packer").startup(function()
 	use({
 		"steelsojka/pears.nvim",
 		event = "VimEnter",
+		opt = false,
 		config = function()
 			require("plugconfig/pears")
 		end,
@@ -355,6 +369,7 @@ return require("packer").startup(function()
 	use({
 		"lukas-reineke/indent-blankline.nvim",
 		event = "VimEnter",
+		opt = false,
 		config = function()
 			require("plugconfig/indent_blankline")
 		end,
@@ -382,10 +397,10 @@ return require("packer").startup(function()
 		end,
 	})
 
-
 	use({
 		"lewis6991/gitsigns.nvim",
 		event = "VimEnter",
+		opt = true,
 		config = function()
 			require("gitsigns").setup()
 		end,
@@ -395,6 +410,7 @@ return require("packer").startup(function()
 	use({
 		"nvim-lualine/lualine.nvim",
 		event = "VimEnter",
+		opt = false,
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 		config = function()
 			require("plugconfig/lualine")
@@ -404,6 +420,7 @@ return require("packer").startup(function()
 		"echasnovski/mini.nvim",
 		branch = "stable",
 		event = "VimEnter",
+		opt = true,
 		config = function()
 			require("plugconfig/mini")
 		end,
@@ -424,6 +441,7 @@ return require("packer").startup(function()
 	use({
 		"folke/which-key.nvim",
 		event = "VimEnter",
+		opt = true,
 		config = function()
 			require("plugconfig/whichi_key")
 		end,
@@ -438,35 +456,17 @@ return require("packer").startup(function()
 		after = {
 			"telescope.nvim",
 		},
+		opt = true,
 		keys = { ":CccPick<cr>" },
 		config = function()
 			require("plugconfig/ccc-nvim")
 		end,
 	})
-	-- use({
-	-- 	"max397574/colortils.nvim",
-	-- 	-- cmd = "Colortils",
-	-- 	after = {
-	-- 		"telescope.nvim",
-	-- 	},
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		require("plugconfig/colortils")
-	-- 	end,
-	-- })
-
-	-- use({ "lilydjwg/colorizer", opt = true, event = "VimEnter" })
-	-- use({
-	-- 	"norcalli/nvim-colorizer.lua",
-	-- 	after = { "telescope.nvim" },
-	-- 	config = function()
-	-- 		require("plugconfig/nvim-colorizer")
-	-- 	end,
-	-- })
 	use({
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
 		event = "VimEnter",
+		opt = true,
 		config = function()
 			require("plugconfig/todo-comments")
 		end,
@@ -475,6 +475,7 @@ return require("packer").startup(function()
 	use({
 		"machakann/vim-highlightedyank",
 		event = "VimEnter",
+		opt = true,
 		config = function()
 			vim.keymap.set("n", "y", "<Plug>(highlightedyank)", { buffer = true })
 			vim.keymap.set("x", "y", "<Plug>(highlightedyank)", { buffer = true })
@@ -483,11 +484,12 @@ return require("packer").startup(function()
 		end,
 	})
 
-	use({ "t9md/vim-choosewin", event = "VimEnter" })
+	use({ "t9md/vim-choosewin", event = "VimEnter", opt = true })
 
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		event = "VimEnter",
+		opt = true,
 		config = function()
 			require("plugconfig/null_ls")
 		end,
@@ -497,6 +499,7 @@ return require("packer").startup(function()
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
 		event = "VimEnter",
+		opt = true,
 		setup = function()
 			vim.g.mkdp_filetypes = { "markdown" }
 		end,
@@ -505,6 +508,7 @@ return require("packer").startup(function()
 
 	use({
 		"rust-lang/rust.vim",
+		opt = true,
 		ft = { "rust" },
 	})
 	-- use({
@@ -516,6 +520,6 @@ return require("packer").startup(function()
 	-- 	requires = "neovim/nvim-lspconfig",
 	-- })
 
-	use({ "wakatime/vim-wakatime", event = "VimEnter" })
+	use({ "wakatime/vim-wakatime", event = "InsertEnter", opt = true })
 	-- file tree
 end)

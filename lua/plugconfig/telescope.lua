@@ -64,6 +64,7 @@ local full_theme = {
 	show_line = true,
 }
 
+telescope.load_extension("frecency")
 -- then use it on whatever picker you want
 -- ex:
 -- require("telescope.builtin").layout_strategies.cursor(full_theme)
