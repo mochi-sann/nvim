@@ -1,4 +1,5 @@
 -- 一部のプラグインの読み込みを無効化して読み込みを早くする
+local vim = vim
 vim.g.loaded_2html_plugin = 1
 vim.g.loaded_getscript = 1
 vim.g.loaded_getscriptPlugin = 1
@@ -42,7 +43,7 @@ vim.g.loaded_zipPlugin = 1
 
 vim.opt.number = true -- 行番号を表示
 vim.opt.laststatus = 3 -- ステータスラインを画面いっぱいにする
-vim.o.cursorline = true -- カーソルラインを非表示
+vim.o.cursorline = true -- カーソルラインを表示
 vim.o.showtabline = 2 --タブバーを常時表示
 vim.o.autoindent = true -- "改行時に自動でインデントする
 vim.o.clipboard = "unnamed" -- ヤンクしたときにクリップボードに自動コピー
@@ -64,6 +65,7 @@ vim.o.cmdheight = 1 -- コマンドラインの高さを0にする
 vim.o.guifont = "JetBrainsMono Nerd Font:h15"
 vim.o.pumblend = 11 -- ポップアップメニューをはん透明にする
 vim.o.winblend = 11 -- windowメニューをはん透明にする
+vim.g.mapleader = " "
 
 -- vim.o.completeopt
 

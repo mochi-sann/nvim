@@ -111,23 +111,6 @@ return require("packer").startup(function()
 				end
 			end
 
-			vim.cmd([[
-			     nnoremap [tel-p] <Nop>
-			     xmap [tel-p] <Nop>
-
-			     nmap <C-p> [tel-p]
-			     xmap <C-p> [tel-p]
-
-           nnoremap [tel-p]p <cmd>lua require('telescope.builtin').find_files({hidden=true ,})<cr>
-           nnoremap [tel-p]gr <cmd>lua require('telescope.builtin').live_grep()<cr>
-           nnoremap [tel-p]b <cmd>lua require('telescope.builtin').buffers()<cr>
-           nnoremap [tel-p]h <cmd>lua require('telescope.builtin').help_tags()<cr>
-           nnoremap [tel-p]ba <cmd>lua require('telescope.builtin').buffers()<cr>
-           nnoremap [tel-p]c <cmd>lua require('telescope.builtin').command_history()<cr>
-			     nnoremap [tel-p]gb <cmd>lua require('telescope.builtin').git_branches() <cr>
-			     nnoremap [tel-p]gs <cmd>lua require('telescope.builtin').git_status() <cr>
-
-			   ]])
 			vim.keymap.set("n", "<Leader>pp", builtin("find_files")({ hidden = true }))
 			vim.keymap.set("n", "<Leader>pgr", builtin("live_grep")({}))
 			vim.keymap.set("n", "<Leader>ph", builtin("help_tags")({}))
@@ -136,13 +119,6 @@ return require("packer").startup(function()
 			vim.keymap.set("n", "<Leader>pc", builtin("command_history")({}))
 			vim.keymap.set("n", "<Leader>pg", extensions("ghq", "list")({}))
 			vim.keymap.set("n", "<Leader>pz", extensions("z", "list")({}))
-			-- vim.keymap.set("n", "<Leader>f:", builtin("command_history")({}))
-			-- vim.keymap.set("n", "<Leader>fG", builtin("grep_string")({}))
-			-- vim.keymap.set("n", "<Leader>fH", builtin("help_tags")({ lang = "en" }))
-			-- vim.keymap.set("n", "<Leader>fm", builtin("man_pages")({ sections = { "ALL" } }))
-			-- vim.keymap.set("n", "<Leader>fq", extensions("ghq", "list")({}))
-			-- vim.keymap.set("n", "<Leader>fz", extensions("z", "list")({}))
-			-- ……以降設定が続く
 		end,
 		config = function()
 			require("plugconfig/telescope")
@@ -323,7 +299,6 @@ return require("packer").startup(function()
 		"akinsho/toggleterm.nvim",
 		tag = "v2.*",
 		event = "VimEnter",
-		opt = false,
 		config = function()
 			require("plugconfig/toggleterm")
 		end,
@@ -410,8 +385,7 @@ return require("packer").startup(function()
 	use({
 		"nvim-lualine/lualine.nvim",
 		event = "VimEnter",
-		opt = false,
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		requires = { "kyazdani42/nvim-web-devicons" },
 		config = function()
 			require("plugconfig/lualine")
 		end,
@@ -420,7 +394,6 @@ return require("packer").startup(function()
 		"echasnovski/mini.nvim",
 		branch = "stable",
 		event = "VimEnter",
-		opt = true,
 		config = function()
 			require("plugconfig/mini")
 		end,
@@ -441,7 +414,6 @@ return require("packer").startup(function()
 	use({
 		"folke/which-key.nvim",
 		event = "VimEnter",
-		opt = true,
 		config = function()
 			require("plugconfig/whichi_key")
 		end,
@@ -456,7 +428,6 @@ return require("packer").startup(function()
 		after = {
 			"telescope.nvim",
 		},
-		opt = true,
 		keys = { ":CccPick<cr>" },
 		config = function()
 			require("plugconfig/ccc-nvim")
@@ -466,7 +437,6 @@ return require("packer").startup(function()
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
 		event = "VimEnter",
-		opt = true,
 		config = function()
 			require("plugconfig/todo-comments")
 		end,
@@ -475,7 +445,6 @@ return require("packer").startup(function()
 	use({
 		"machakann/vim-highlightedyank",
 		event = "VimEnter",
-		opt = true,
 		config = function()
 			vim.keymap.set("n", "y", "<Plug>(highlightedyank)", { buffer = true })
 			vim.keymap.set("x", "y", "<Plug>(highlightedyank)", { buffer = true })
@@ -489,7 +458,6 @@ return require("packer").startup(function()
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		event = "VimEnter",
-		opt = true,
 		config = function()
 			require("plugconfig/null_ls")
 		end,
@@ -499,7 +467,6 @@ return require("packer").startup(function()
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
 		event = "VimEnter",
-		opt = true,
 		setup = function()
 			vim.g.mkdp_filetypes = { "markdown" }
 		end,
@@ -508,7 +475,6 @@ return require("packer").startup(function()
 
 	use({
 		"rust-lang/rust.vim",
-		opt = true,
 		ft = { "rust" },
 	})
 	-- use({
