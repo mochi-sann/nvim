@@ -411,13 +411,13 @@ return require("packer").startup(function()
 			require("registers").setup()
 		end,
 	})
-	use({
-		"folke/which-key.nvim",
-		event = "VimEnter",
-		config = function()
-			require("plugconfig/whichi_key")
-		end,
-	})
+	-- use({
+	-- 	"folke/which-key.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("plugconfig/whichi_key")
+	-- 	end,
+	-- })
 	use("ryanoasis/vim-devicons")
 	-- use({
 	-- 	"relastle/vim-colorrange",
