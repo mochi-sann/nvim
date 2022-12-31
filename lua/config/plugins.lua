@@ -487,5 +487,14 @@ return require("packer").startup(function()
 	-- })
 
 	use({ "wakatime/vim-wakatime", event = "InsertEnter", opt = true })
+
+	use({
+		"andweeb/presence.nvim",
+		event = "VimEnter",
+		config = function()
+			require("presence"):setup({ auto_update = false })
+		end,
+	})
+
 	-- file tree
 end)
