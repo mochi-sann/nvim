@@ -247,6 +247,11 @@ return require("packer").startup(function()
 		opt = false,
 		as = "dracula",
 	})
+	use({
+		"folke/tokyonight.nvim",
+		opt = false,
+		as = "tokyonight",
+	})
 	-- use({ "NLKNguyen/papercolor-theme", as = "papercolor" })
 	-- use({
 	-- 	"f-person/auto-dark-mode.nvim",
@@ -446,9 +451,9 @@ return require("packer").startup(function()
 		"machakann/vim-highlightedyank",
 		event = "VimEnter",
 		config = function()
-			vim.keymap.set("n", "y", "<Plug>(highlightedyank)", { buffer = true })
-			vim.keymap.set("x", "y", "<Plug>(highlightedyank)", { buffer = true })
-			vim.keymap.set("o", "y", "<Plug>(highlightedyank)", { buffer = true })
+			vim.keymap.set("n", "y", "<Plug>(highlightedyank)", { buffer = true, silent = true })
+			vim.keymap.set("x", "y", "<Plug>(highlightedyank)", { buffer = true, silent = true })
+			vim.keymap.set("o", "y", "<Plug>(highlightedyank)", { buffer = true, silent = true })
 			vim.g.highlightedyank_highlight_duration = 500
 		end,
 	})

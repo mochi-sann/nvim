@@ -1,14 +1,14 @@
 require("config/options")
 require("config/plugins")
 
-local function highlight_yank()
-	-- vim.api.nvim_command("autocmd! highlight_yank")
-	vim.api.nvim_command(
-		"autocmd TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }"
-	)
-end
-
-highlight_yank()
+-- local function highlight_yank()
+-- 	-- vim.api.nvim_command("autocmd! highlight_yank")
+-- 	vim.api.nvim_command(
+-- 		"autocmd TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }"
+-- 	)
+-- end
+--
+-- highlight_yank()
 
 --  vim.cmd([[autocmd BufWritePost config/plugins.lua PackerCompile]])
 vim.cmd([[
@@ -18,5 +18,6 @@ nmap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
 
 tnoremap <Esc> <C-\><C-n>
 "
- colorschem dracula
+ " colorschem dracula
+ colorschem tokyonight-moon
 ]])
