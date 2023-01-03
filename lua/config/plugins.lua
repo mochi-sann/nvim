@@ -242,11 +242,11 @@ return require("packer").startup(function()
 	})
 	use({ "segeljakt/vim-silicon", opt = true, event = "VimEnter" })
 	-- colorschem
-	use({
-		"dracula/vim",
-		opt = false,
-		as = "dracula",
-	})
+	-- use({
+	-- 	"dracula/vim",
+	-- 	opt = false,
+	-- 	as = "dracula",
+	-- })
 	use({
 		"folke/tokyonight.nvim",
 		opt = false,
