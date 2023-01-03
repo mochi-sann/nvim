@@ -12,7 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 return require("lazy").setup({ -- Packer can manage itself
-	{ "wbthomason/packer.nvim" },
 	{
 		"lewis6991/impatient.nvim",
 		config = function()
@@ -21,12 +20,12 @@ return require("lazy").setup({ -- Packer can manage itself
 		end,
 	},
 
-	{
-		"rcarriga/nvim-notify",
-		config = function()
-			require("plugconfig/nvim-notify")
-		end,
-	},
+	--	{
+	--		"rcarriga/nvim-notify",
+	--		config = function()
+	--			require("plugconfig/nvim-notify")
+	--		end,
+	--	},
 
 	{
 		"nathom/filetype.nvim",
@@ -85,58 +84,34 @@ return require("lazy").setup({ -- Packer can manage itself
 		"nvim-telescope/telescope.nvim",
 		module = { "telescope" },
 		event = "VimEnter",
-		requires = {
+		dependencies = {
 			{ "nvim-telescope/telescope-ghq.nvim" },
 			{ "nvim-telescope/telescope-z.nvim" },
 			{
 				"nvim-telescope/telescope-frecency.nvim",
-				requires = { "kkharji/sqlite.lua" },
+				dependencies = { "kkharji/sqlite.lua" },
 			},
-
-			-- その他の拡張プラグイン……
-		},
-		wants = {
 			"telescope-ghq.nvim",
 			"telescope-z.nvim",
 			"telescope-frecency.nvim",
-			-- ……
+
+			-- その他の拡張プラグイン……
 		},
-		setup = function()
-			local function builtin(name)
-				return function(opt)
-					return function()
-						return require("telescope.builtin")[name](opt or {})
-					end
-				end
-			end
-
-			local function extensions(name, prop)
-				return function(opt)
-					return function()
-						local telescope = require("telescope")
-						telescope.load_extension(name)
-						return telescope.extensions[name][prop](opt or {})
-					end
-				end
-			end
-
-			vim.keymap.set("n", "<Leader>pp", builtin("find_files")({ hidden = true }))
-			vim.keymap.set("n", "<Leader>pgr", builtin("live_grep")({}))
-			vim.keymap.set("n", "<Leader>ph", builtin("help_tags")({}))
-			vim.keymap.set("n", "<Leader>pb", builtin("buffers")({}))
-			vim.keymap.set("n", "<Leader>pba", builtin("buffers")({}))
-			vim.keymap.set("n", "<Leader>pc", builtin("command_history")({}))
-			vim.keymap.set("n", "<Leader>pg", extensions("ghq", "list")({}))
-			vim.keymap.set("n", "<Leader>pz", extensions("z", "list")({}))
-		end,
+		setup = function() end,
 		config = function()
 			require("plugconfig/telescope")
+		end,
+	},
+	{
+		"onsails/lspkind.nvim",
+		config = function()
+			require("plugconfig/lspkind")
 		end,
 	},
 
 	{
 		"hrsh7th/nvim-cmp",
-		requires = {
+		dependencies = {
 			{ "hrsh7th/cmp-buffer", event = "VimEnter" },
 			{ "hrsh7th/cmp-emoji", event = "VimEnter" },
 			{ "hrsh7th/cmp-nvim-lsp", event = "VimEnter" },
@@ -148,22 +123,19 @@ return require("lazy").setup({ -- Packer can manage itself
 			{ "hrsh7th/cmp-nvim-lsp-document-symbol", event = "VimEnter" },
 			{
 				"hrsh7th/cmp-vsnip",
+				event = "VimEnter",
 				requires = { "vim-vsnip", "cmp-nvim-lsp-document-symbol" },
 			},
 			{
-				"onsails/lspkind.nvim",
-				config = function()
-					require("plugconfig/lspkind")
-				end,
-			},
-			{
 				"tzachar/cmp-tabnine",
+				event = "VimEnter",
 				config = function()
 					require("plugconfig/cmp-tabnine")
 				end,
 				run = "./install.sh",
 			},
 		},
+		event = "VimEnter",
 		config = function()
 			require("plugconfig/nvim_cmp")
 		end,
@@ -279,7 +251,7 @@ return require("lazy").setup({ -- Packer can manage itself
 	{ "kyazdani42/nvim-web-devicons" },
 	{
 		"akinsho/bufferline.nvim",
-		tag = "v2.*",
+		version = "v2.*",
 		requires = "kyazdani42/nvim-web-devicons",
 		config = function()
 			vim.opt.termguicolors = true
@@ -307,7 +279,7 @@ return require("lazy").setup({ -- Packer can manage itself
 	-- terminal
 	{
 		"akinsho/toggleterm.nvim",
-		tag = "v2.*",
+		version = "v2.*",
 		event = "VimEnter",
 		config = function()
 			require("plugconfig/toggleterm")
@@ -326,7 +298,7 @@ return require("lazy").setup({ -- Packer can manage itself
 		"akinsho/git-conflict.nvim",
 		event = "VimEnter",
 		opt = false,
-		tag = "*",
+		version = "*",
 		config = function()
 			require("git-conflict").setup()
 		end,
@@ -364,7 +336,7 @@ return require("lazy").setup({ -- Packer can manage itself
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 		event = "VimEnter",
-		requires = {
+		dependencies = {
 			{ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" },
 			{
 				"nvim-treesitter/nvim-treesitter-context",
