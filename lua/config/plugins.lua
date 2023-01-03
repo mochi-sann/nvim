@@ -1,24 +1,34 @@
-vim.cmd([[packadd packer.nvim]])
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
+vim.opt.rtp:prepend(lazypath)
 
-return require("packer").startup(function()
-	-- Packer can manage itself
-	use({ "wbthomason/packer.nvim" })
-	use({
+return require("lazy").setup({ -- Packer can manage itself
+	{ "wbthomason/packer.nvim" },
+	{
 		"lewis6991/impatient.nvim",
 		config = function()
 			require("impatient")
 			require("impatient").enable_profile()
 		end,
-	})
+	},
 
-	use({
+	{
 		"rcarriga/nvim-notify",
 		config = function()
 			require("plugconfig/nvim-notify")
 		end,
-	})
+	},
 
-	use({
+	{
 		"nathom/filetype.nvim",
 		config = function()
 			require("filetype").setup({
@@ -67,22 +77,21 @@ return require("packer").startup(function()
 				},
 			})
 		end,
-	})
-	use({ "junegunn/fzf", run = ":call fzf#install()" })
-	use({ "nvim-lua/popup.nvim" })
+	},
+	{ "junegunn/fzf", run = ":call fzf#install()" },
+	{ "nvim-lua/popup.nvim" },
 
-	use({
+	{
 		"nvim-telescope/telescope.nvim",
 		module = { "telescope" },
 		event = "VimEnter",
 		requires = {
-			{ "nvim-telescope/telescope-ghq.nvim", opt = true },
-			{ "nvim-telescope/telescope-z.nvim", opt = true },
-			use({
+			{ "nvim-telescope/telescope-ghq.nvim" },
+			{ "nvim-telescope/telescope-z.nvim" },
+			{
 				"nvim-telescope/telescope-frecency.nvim",
-				config = function() end,
 				requires = { "kkharji/sqlite.lua" },
-			}),
+			},
 
 			-- その他の拡張プラグイン……
 		},
@@ -123,32 +132,29 @@ return require("packer").startup(function()
 		config = function()
 			require("plugconfig/telescope")
 		end,
-	})
+	},
 
-	use({
+	{
 		"hrsh7th/nvim-cmp",
-		event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" },
 		requires = {
-			{ "hrsh7th/cmp-buffer", event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" } },
-			{ "hrsh7th/cmp-emoji", event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" } },
-			{ "hrsh7th/cmp-nvim-lsp", event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" } },
-			{ "hrsh7th/cmp-path", event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" } },
-			{ "hrsh7th/cmp-cmdline", event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" } },
-			{ "hrsh7th/cmp-nvim-lsp-signature-help", event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" } },
-			{ "hrsh7th/cmp-nvim-lua", event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" } },
-			{ "hrsh7th/cmp-emoji", event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" } },
-			{ "hrsh7th/cmp-nvim-lsp-document-symbol", event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" } },
+			{ "hrsh7th/cmp-buffer", event = "VimEnter" },
+			{ "hrsh7th/cmp-emoji", event = "VimEnter" },
+			{ "hrsh7th/cmp-nvim-lsp", event = "VimEnter" },
+			{ "hrsh7th/cmp-path", event = "VimEnter" },
+			{ "hrsh7th/cmp-cmdline", event = "VimEnter" },
+			{ "hrsh7th/cmp-nvim-lsp-signature-help", event = "VimEnter" },
+			{ "hrsh7th/cmp-nvim-lua", event = "VimEnter" },
+			{ "hrsh7th/cmp-emoji", event = "VimEnter" },
+			{ "hrsh7th/cmp-nvim-lsp-document-symbol", event = "VimEnter" },
 			{
 				"hrsh7th/cmp-vsnip",
 				requires = { "vim-vsnip", "cmp-nvim-lsp-document-symbol" },
-				event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" },
 			},
 			{
 				"onsails/lspkind.nvim",
-				require = function()
+				config = function()
 					require("plugconfig/lspkind")
 				end,
-				event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" },
 			},
 			{
 				"tzachar/cmp-tabnine",
@@ -156,38 +162,36 @@ return require("packer").startup(function()
 					require("plugconfig/cmp-tabnine")
 				end,
 				run = "./install.sh",
-
-				event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" },
 			},
 		},
 		config = function()
 			require("plugconfig/nvim_cmp")
 		end,
-	})
+	},
 
-	use({ "neovim/nvim-lspconfig" })
-	use({
+	{ "neovim/nvim-lspconfig" },
+	{
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("plugconfig/mason-lsp")
 		end,
-	})
-	use({
+	},
+	{
 		"williamboman/mason.nvim",
-	})
+	},
 
-	use({
+	{
 		"phaazon/hop.nvim",
 		branch = "v2", -- optional but strongly recommended
 		event = "VimEnter",
 		config = function()
 			require("plugconfig/hop")
 		end,
-	})
+	},
 
 	--
 
-	use({
+	{
 		"hrsh7th/vim-vsnip",
 		event = "VimEnter",
 		config = function()
@@ -196,12 +200,12 @@ return require("packer").startup(function()
 		requires = {
 			{ "hrsh7th/vim-vsnip-integ" },
 		},
-	})
+	},
 	-- format and linter
 
-	--use({"lambdalisue/fern.vim" , opt = true, cmd = {'Fern'}})
+	--{"lambdalisue/fern.vim" , opt = true, cmd = {'Fern'}},
 
-	-- use({
+	-- {
 	--   "nvim-neo-tree/neo-tree.nvim",
 	--   branch = "v2.x",
 	--   event = "VimEnter",
@@ -213,8 +217,8 @@ return require("packer").startup(function()
 	--   config = function()
 	--     require("plugconfig/neo-tree")
 	--   end,
-	-- })
-	use({
+	-- },
+	{
 		"kyazdani42/nvim-tree.lua",
 		requires = {
 			"kyazdani42/nvim-web-devicons", -- optional, for file icons
@@ -222,102 +226,103 @@ return require("packer").startup(function()
 		config = function()
 			require("plugconfig/nvim-tree")
 		end,
-	})
+	},
 
-	use({
+	{
 		"t9md/vim-quickhl",
 		event = "VimEnter",
 		opt = true,
 		config = function()
 			require("plugconfig/vim_quichl")
 		end,
-	})
-	use({
+	},
+	{
 		"terryma/vim-expand-region",
 		event = "VimEnter",
 		opt = true,
 		config = function()
 			require("plugconfig/vim_expand_region")
 		end,
-	})
-	use({ "segeljakt/vim-silicon", opt = true, event = "VimEnter" })
+	},
+	{ "segeljakt/vim-silicon", opt = true, event = "VimEnter" },
 	-- colorschem
-	-- use({
+	-- {
 	-- 	"dracula/vim",
 	-- 	opt = false,
 	-- 	as = "dracula",
-	-- })
-	use({
+	-- },
+	{
 		"folke/tokyonight.nvim",
 		opt = false,
 		as = "tokyonight",
-	})
-	-- use({ "NLKNguyen/papercolor-theme", as = "papercolor" })
-	-- use({
+	},
+	-- { "NLKNguyen/papercolor-theme", as = "papercolor" },
+	-- {
 	-- 	"f-person/auto-dark-mode.nvim",
 	-- 	config = function()
 	-- 		require("plugconfig/auto-dark-mode")
 	-- 	end,
-	-- })
-	-- use({ "sainnhe/sonokai" })
+	-- },
+	-- { "sainnhe/sonokai" },
 
-	use({
-		"rmagatti/auto-session",
-		config = function()
-			require("auto-session").setup({
-				log_level = "error",
-				auto_session_suppress_dirs = { "~/", "~/Downloads", "/" },
-			})
-		end,
-	})
+	--	{
+	--		"rmagatti/auto-session",
+	--		config = function()
+	--			require("auto-session").setup({
+	--				log_level = "error",
+	--				auto_session_suppress_dirs = { "~/", "~/Downloads", "/" },
+	--			}),
+	--		end,
+	--	},
 
-	--use("rebelot/kanagawa.nvim")
-	use({ "kyazdani42/nvim-web-devicons" })
-	use({
+	--"rebelot/kanagawa.nvim")
+	{ "kyazdani42/nvim-web-devicons" },
+	{
 		"akinsho/bufferline.nvim",
 		tag = "v2.*",
 		requires = "kyazdani42/nvim-web-devicons",
 		config = function()
-			require("plugconfig/bufferline")
+			vim.opt.termguicolors = true
+			require("bufferline").setup({})
 		end,
-	})
+	},
 
-	use({
+	{
 		"alvarosevilla95/luatab.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
 		event = "VimEnter",
 		config = function()
 			require("plugconfig/luatab")
 		end,
-	})
+	},
 	--
-	use({
+	{
 		"vim-jp/vimdoc-ja",
 		event = "VimEnter",
 		opt = false,
 		config = function()
 			require("plugconfig/vimdoc_ja")
 		end,
-	})
+	},
 	-- terminal
-	use({
+	{
 		"akinsho/toggleterm.nvim",
 		tag = "v2.*",
 		event = "VimEnter",
 		config = function()
 			require("plugconfig/toggleterm")
 		end,
-	})
+	},
 	-- git
-	use({
+	{
 		"kdheepak/lazygit.nvim",
 		event = "VimEnter",
 		opt = false,
 		config = function()
 			require("plugconfig/lazygit")
 		end,
-	})
-	use({
+	},
+	{
 		"akinsho/git-conflict.nvim",
 		event = "VimEnter",
 		opt = false,
@@ -325,37 +330,37 @@ return require("packer").startup(function()
 		config = function()
 			require("git-conflict").setup()
 		end,
-	})
+	},
 
-	use({ "alaviss/nim.nvim", event = "VimEnter" })
+	{ "alaviss/nim.nvim", event = "VimEnter" },
 
-	use({
+	{
 		"heavenshell/vim-jsdoc",
 		event = "VimEnter",
 		opt = false,
 		cmd = { "JsDoc" },
 		ft = { "typescript", "typescriptreact", "javascript", "javascriptreact", "vue" },
-	})
+	},
 
-	use({
+	{
 		"steelsojka/pears.nvim",
 		event = "VimEnter",
 		opt = false,
 		config = function()
 			require("plugconfig/pears")
 		end,
-	})
+	},
 
-	use({
+	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = "VimEnter",
 		opt = false,
 		config = function()
 			require("plugconfig/indent_blankline")
 		end,
-	})
+	},
 	-- treesitter settins
-	use({
+	{
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 		event = "VimEnter",
@@ -375,60 +380,60 @@ return require("packer").startup(function()
 		config = function()
 			require("plugconfig/treesitter")
 		end,
-	})
+	},
 
-	use({
+	{
 		"lewis6991/gitsigns.nvim",
 		event = "VimEnter",
 		opt = true,
 		config = function()
 			require("gitsigns").setup()
 		end,
-	})
-	use({ "MunifTanjim/nui.nvim" })
+	},
+	{ "MunifTanjim/nui.nvim" },
 
-	use({
+	{
 		"nvim-lualine/lualine.nvim",
 		event = "VimEnter",
 		requires = { "kyazdani42/nvim-web-devicons" },
 		config = function()
 			require("plugconfig/lualine")
 		end,
-	})
-	use({
+	},
+	{
 		"echasnovski/mini.nvim",
 		branch = "stable",
 		event = "VimEnter",
 		config = function()
 			require("plugconfig/mini")
 		end,
-	})
-	-- use({
+	},
+	-- {
 	-- 	"tversteeg/registers.nvim",
 	-- 	event = "VimEnter",
 	-- 	config = function()
 	-- 		require("registers").setup()
 	-- 	end,
-	-- })
-	use({
+	-- },
+	{
 		"tversteeg/registers.nvim",
 		config = function()
 			require("registers").setup()
 		end,
-	})
-	-- use({
+	},
+	-- {
 	-- 	"folke/which-key.nvim",
 	-- 	event = "VimEnter",
 	-- 	config = function()
 	-- 		require("plugconfig/whichi_key")
 	-- 	end,
-	-- })
-	use("ryanoasis/vim-devicons")
-	-- use({
+	-- },
+	{ "ryanoasis/vim-devicons" },
+	-- {
 	-- 	"relastle/vim-colorrange",
 	-- 	event = "VimEnter",
-	-- })
-	use({
+	-- },
+	{
 		"uga-rosa/ccc.nvim",
 		after = {
 			"telescope.nvim",
@@ -437,17 +442,18 @@ return require("packer").startup(function()
 		config = function()
 			require("plugconfig/ccc-nvim")
 		end,
-	})
-	use({
+	},
+	{ "nvim-lua/plenary.nvim" },
+	{
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
 		event = "VimEnter",
 		config = function()
 			require("plugconfig/todo-comments")
 		end,
-	})
+	},
 
-	use({
+	{
 		"machakann/vim-highlightedyank",
 		event = "VimEnter",
 		config = function()
@@ -456,19 +462,19 @@ return require("packer").startup(function()
 			vim.keymap.set("o", "y", "<Plug>(highlightedyank)", { buffer = true, silent = true })
 			vim.g.highlightedyank_highlight_duration = 500
 		end,
-	})
+	},
 
-	use({ "t9md/vim-choosewin", event = "VimEnter", opt = true })
+	{ "t9md/vim-choosewin", event = "VimEnter", opt = true },
 
-	use({
+	{
 		"jose-elias-alvarez/null-ls.nvim",
 		event = "VimEnter",
 		config = function()
 			require("plugconfig/null_ls")
 		end,
-	})
-	-- use({ "davidgranstrom/nvim-markdown-preview", opt = true, event = "VimEnter" })
-	use({
+	},
+	-- { "davidgranstrom/nvim-markdown-preview", opt = true, event = "VimEnter" },
+	{
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
 		event = "VimEnter",
@@ -476,30 +482,30 @@ return require("packer").startup(function()
 			vim.g.mkdp_filetypes = { "markdown" }
 		end,
 		ft = { "markdown" },
-	})
+	},
 
-	use({
+	{
 		"rust-lang/rust.vim",
 		ft = { "rust" },
-	})
-	-- use({
+	},
+	-- {
 	-- 	"SmiteshP/nvim-navic",
 	-- 	config = function()
 	-- 		require("plugconfig/nvim_navic")
 	-- 	end,
 	--
 	-- 	requires = "neovim/nvim-lspconfig",
-	-- })
+	-- },
 
-	use({ "wakatime/vim-wakatime", event = "InsertEnter", opt = true })
+	{ "wakatime/vim-wakatime", event = "InsertEnter", opt = true },
 
-	use({
+	{
 		"andweeb/presence.nvim",
 		event = "VimEnter",
 		config = function()
 			require("presence"):setup({ auto_update = false })
 		end,
-	})
+	},
 
 	-- file tree
-end)
+})
