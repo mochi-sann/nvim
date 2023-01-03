@@ -77,7 +77,7 @@ return require("lazy").setup({ -- Packer can manage itself
 			})
 		end,
 	},
-	{ "junegunn/fzf", run = ":call fzf#install()" },
+	{ "junegunn/fzf", run = ":call fzf#install()", event = "VimEnter" },
 	{ "nvim-lua/popup.nvim" },
 
 	{
@@ -102,12 +102,6 @@ return require("lazy").setup({ -- Packer can manage itself
 			require("plugconfig/telescope")
 		end,
 	},
-	{
-		"onsails/lspkind.nvim",
-		config = function()
-			require("plugconfig/lspkind")
-		end,
-	},
 
 	{
 		"hrsh7th/nvim-cmp",
@@ -125,6 +119,12 @@ return require("lazy").setup({ -- Packer can manage itself
 				"hrsh7th/cmp-vsnip",
 				event = "VimEnter",
 				requires = { "vim-vsnip", "cmp-nvim-lsp-document-symbol" },
+			},
+			{
+				"onsails/lspkind.nvim",
+				config = function()
+					require("plugconfig/lspkind")
+				end,
 			},
 			{
 				"tzachar/cmp-tabnine",
@@ -193,8 +193,9 @@ return require("lazy").setup({ -- Packer can manage itself
 	{
 		"kyazdani42/nvim-tree.lua",
 		requires = {
-			"kyazdani42/nvim-web-devicons", -- optional, for file icons
+			{ "kyazdani42/nvim-web-devicons", event = "VimEnter" }, -- optional, for file icons
 		},
+		event = "VimEnter",
 		config = function()
 			require("plugconfig/nvim-tree")
 		end,
