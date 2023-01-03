@@ -17,6 +17,5 @@ nmap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
 
 tnoremap <Esc> <C-\><C-n>
 "
- " colorschem dracula
- colorschem tokyonight-moon
+colorschem tokyonight-moon
 ]])

@@ -12,13 +12,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 return require("lazy").setup({ -- Packer can manage itself
-	{
-		"lewis6991/impatient.nvim",
-		config = function()
-			require("impatient")
-			require("impatient").enable_profile()
-		end,
-	},
+	-- {
+	-- 	"lewis6991/impatient.nvim",
+	-- 	config = function()
+	-- 		require("impatient")
+	-- 	end,
+	-- },
 
 	--	{
 	--		"rcarriga/nvim-notify",
@@ -106,18 +105,17 @@ return require("lazy").setup({ -- Packer can manage itself
 	{
 		"hrsh7th/nvim-cmp",
 		dependencies = {
-			{ "hrsh7th/cmp-buffer", event = "VimEnter" },
-			{ "hrsh7th/cmp-emoji", event = "VimEnter" },
-			{ "hrsh7th/cmp-nvim-lsp", event = "VimEnter" },
-			{ "hrsh7th/cmp-path", event = "VimEnter" },
-			{ "hrsh7th/cmp-cmdline", event = "VimEnter" },
-			{ "hrsh7th/cmp-nvim-lsp-signature-help", event = "VimEnter" },
-			{ "hrsh7th/cmp-nvim-lua", event = "VimEnter" },
-			{ "hrsh7th/cmp-emoji", event = "VimEnter" },
-			{ "hrsh7th/cmp-nvim-lsp-document-symbol", event = "VimEnter" },
+			{ "hrsh7th/cmp-buffer" },
+			{ "hrsh7th/cmp-emoji" },
+			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "hrsh7th/cmp-path" },
+			{ "hrsh7th/cmp-cmdline" },
+			{ "hrsh7th/cmp-nvim-lsp-signature-help" },
+			{ "hrsh7th/cmp-nvim-lua" },
+			{ "hrsh7th/cmp-emoji" },
+			{ "hrsh7th/cmp-nvim-lsp-document-symbol" },
 			{
 				"hrsh7th/cmp-vsnip",
-				event = "VimEnter",
 				requires = { "vim-vsnip", "cmp-nvim-lsp-document-symbol" },
 			},
 			{
@@ -128,14 +126,13 @@ return require("lazy").setup({ -- Packer can manage itself
 			},
 			{
 				"tzachar/cmp-tabnine",
-				event = "VimEnter",
 				config = function()
 					require("plugconfig/cmp-tabnine")
 				end,
 				run = "./install.sh",
 			},
 		},
-		event = "VimEnter",
+		event = { "InsertEnter", "CmdwinEnter" },
 		config = function()
 			require("plugconfig/nvim_cmp")
 		end,
@@ -219,15 +216,17 @@ return require("lazy").setup({ -- Packer can manage itself
 	},
 	{ "segeljakt/vim-silicon", opt = true, event = "VimEnter" },
 	-- colorschem
-	-- {
-	-- 	"dracula/vim",
-	-- 	opt = false,
-	-- 	as = "dracula",
-	-- },
+	{
+		"dracula/vim",
+		name = "dracula",
+		lazy = true,
+	},
 	{
 		"folke/tokyonight.nvim",
-		opt = false,
-		as = "tokyonight",
+		lazy = true,
+		config = function()
+			vim.cmd([[colorschem tokyonight-moon]])
+		end,
 	},
 	-- { "NLKNguyen/papercolor-theme", as = "papercolor" },
 	-- {
@@ -258,6 +257,7 @@ return require("lazy").setup({ -- Packer can manage itself
 			vim.opt.termguicolors = true
 			require("bufferline").setup({})
 		end,
+		event = "VimEnter",
 	},
 
 	{
@@ -363,7 +363,7 @@ return require("lazy").setup({ -- Packer can manage itself
 			require("gitsigns").setup()
 		end,
 	},
-	{ "MunifTanjim/nui.nvim" },
+	{ "MunifTanjim/nui.nvim", event = "VimEnter" },
 
 	{
 		"nvim-lualine/lualine.nvim",
@@ -450,7 +450,6 @@ return require("lazy").setup({ -- Packer can manage itself
 	{
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
-		event = "VimEnter",
 		setup = function()
 			vim.g.mkdp_filetypes = { "markdown" }
 		end,
