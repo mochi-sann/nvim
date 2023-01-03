@@ -1,6 +1,6 @@
 vim.cmd([[packadd packer.nvim]])
 
-return require("packer").startup(function()
+return require("packer").startup(function(use)
 	-- Packer can manage itself
 	use({ "wbthomason/packer.nvim" })
 	use({
@@ -11,12 +11,13 @@ return require("packer").startup(function()
 		end,
 	})
 
-	use({
-		"rcarriga/nvim-notify",
-		config = function()
-			require("plugconfig/nvim-notify")
-		end,
-	})
+	-- use({
+	-- 	"rcarriga/nvim-notify",
+	-- 	config = function()
+	-- 		require("plugconfig/nvim-notify")
+	--
+	-- 	end,
+	-- })
 
 	use({
 		"nathom/filetype.nvim",
@@ -148,7 +149,6 @@ return require("packer").startup(function()
 				require = function()
 					require("plugconfig/lspkind")
 				end,
-				event = { "InsertEnter", "CmdlineEnter", "CmdwinEnter" },
 			},
 			{
 				"tzachar/cmp-tabnine",

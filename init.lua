@@ -9,7 +9,6 @@ require("config/plugins")
 -- end
 --
 -- highlight_yank()
-
 --  vim.cmd([[autocmd BufWritePost config/plugins.lua PackerCompile]])
 vim.cmd([[
 autocmd BufRead,BufEnter *.astro set filetype=astro
