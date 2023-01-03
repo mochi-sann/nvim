@@ -1,5 +1,33 @@
 local telescope = require("telescope")
 local actions = require("telescope.actions")
+local vim = vim
+
+local function builtin(name)
+	return function(opt)
+		return function()
+			return require("telescope.builtin")[name](opt or {})
+		end
+	end
+end
+
+local function extensions(name, prop)
+	return function(opt)
+		return function()
+			local telescope = require("telescope")
+			telescope.load_extension(name)
+			return telescope.extensions[name][prop](opt or {})
+		end
+	end
+end
+
+vim.keymap.set("n", "<Leader>pp", builtin("find_files")({ hidden = true }))
+vim.keymap.set("n", "<Leader>pgr", builtin("live_grep")({}))
+vim.keymap.set("n", "<Leader>ph", builtin("help_tags")({}))
+vim.keymap.set("n", "<Leader>pb", builtin("buffers")({}))
+vim.keymap.set("n", "<Leader>pba", builtin("buffers")({}))
+vim.keymap.set("n", "<Leader>pc", builtin("command_history")({}))
+vim.keymap.set("n", "<Leader>pg", extensions("ghq", "list")({}))
+vim.keymap.set("n", "<Leader>pz", extensions("z", "list")({}))
 
 telescope.setup({
 	defaults = {
