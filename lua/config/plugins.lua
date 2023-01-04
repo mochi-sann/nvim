@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local vim = vim
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
@@ -131,8 +132,14 @@ return require("lazy").setup({ -- Packer can manage itself
 				end,
 				run = "./install.sh",
 			},
+			{
+				"j-hui/fidget.nvim",
+				config = function()
+					require("fidget").setup({})
+				end,
+			},
 		},
-		event = { "InsertEnter", "CmdwinEnter" },
+		event = { "InsertEnter", "CmdwinEnter"  , "VimEnter"},
 		config = function()
 			require("plugconfig/nvim_cmp")
 		end,
@@ -257,7 +264,6 @@ return require("lazy").setup({ -- Packer can manage itself
 			vim.opt.termguicolors = true
 			require("bufferline").setup({})
 		end,
-		event = "VimEnter",
 	},
 
 	{
@@ -346,7 +352,6 @@ return require("lazy").setup({ -- Packer can manage itself
 					require("plugconfig/treesitter-context")
 				end,
 			},
-			{ "windwp/nvim-ts-autotag", after = "nvim-treesitter" },
 			{ "windwp/nvim-ts-autotag", after = "nvim-treesitter" },
 			{ "JoosepAlviste/nvim-ts-context-commentstring", after = { "nvim-treesitter", "mini.nvim" } },
 		},
@@ -439,12 +444,19 @@ return require("lazy").setup({ -- Packer can manage itself
 
 	{ "t9md/vim-choosewin", event = "VimEnter", opt = true },
 
+	-- {
+	-- 	"jose-elias-alvarez/null-ls.nvim",
+	-- 	onfig = function()
+	-- 		require("plugconfig/null_ls")
+	-- 	end,
+	-- },
 	{
 		"jose-elias-alvarez/null-ls.nvim",
 		event = "VimEnter",
-		config = function()
-			require("plugconfig/null_ls")
-		end,
+		dependencies = {
+			"jayp0521/mason-null-ls.nvim",
+			"williamboman/mason.nvim",
+		},
 	},
 	-- { "davidgranstrom/nvim-markdown-preview", opt = true, event = "VimEnter" },
 	{

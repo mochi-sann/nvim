@@ -22,6 +22,7 @@ end
 
 vim.keymap.set("n", "<Leader>pp", builtin("find_files")({ hidden = true }))
 vim.keymap.set("n", "<Leader>pgr", builtin("live_grep")({}))
+vim.keymap.set("n", "<Leader>pd", builtin("diagnostics")({}))
 vim.keymap.set("n", "<Leader>ph", builtin("help_tags")({}))
 vim.keymap.set("n", "<Leader>pb", builtin("buffers")({}))
 vim.keymap.set("n", "<Leader>pba", builtin("buffers")({}))
