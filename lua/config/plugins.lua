@@ -148,6 +148,16 @@ return require("lazy").setup({ -- Packer can manage itself
       {
         "williamboman/mason.nvim",
       },
+      {
+        "hrsh7th/vim-vsnip",
+        event = "VimEnter",
+        config = function()
+          require("plugconfig/vsnip")
+        end,
+        requires = {
+          { "hrsh7th/vim-vsnip-integ" },
+        },
+      },
 
     },
     event = { "InsertEnter", "CmdwinEnter", "VimEnter" },
@@ -167,16 +177,6 @@ return require("lazy").setup({ -- Packer can manage itself
 
   --
 
-  {
-    "hrsh7th/vim-vsnip",
-    event = "VimEnter",
-    config = function()
-      require("plugconfig/vsnip")
-    end,
-    requires = {
-      { "hrsh7th/vim-vsnip-integ" },
-    },
-  },
   -- format and linter
 
   --{"lambdalisue/fern.vim" , opt = true, cmd = {'Fern'}},
@@ -197,7 +197,7 @@ return require("lazy").setup({ -- Packer can manage itself
   {
     "kyazdani42/nvim-tree.lua",
     requires = {
-      { "kyazdani42/nvim-web-devicons", event = "VimEnter" }, -- optional, for file icons
+      { "kyazdani42/nvim-web-devicons" }, -- optional, for file icons
     },
     event = "VimEnter",
     config = function()
@@ -316,7 +316,6 @@ return require("lazy").setup({ -- Packer can manage itself
   {
     "heavenshell/vim-jsdoc",
     event = "VimEnter",
-    opt = false,
     cmd = { "JsDoc" },
     ft = { "typescript", "typescriptreact", "javascript", "javascriptreact", "vue" },
   },
@@ -324,7 +323,6 @@ return require("lazy").setup({ -- Packer can manage itself
   {
     "steelsojka/pears.nvim",
     event = "VimEnter",
-    opt = false,
     config = function()
       require("plugconfig/pears")
     end,
@@ -333,7 +331,6 @@ return require("lazy").setup({ -- Packer can manage itself
   {
     "lukas-reineke/indent-blankline.nvim",
     event = "VimEnter",
-    opt = false,
     config = function()
       require("plugconfig/indent_blankline")
     end,
@@ -363,7 +360,6 @@ return require("lazy").setup({ -- Packer can manage itself
   {
     "lewis6991/gitsigns.nvim",
     event = "VimEnter",
-    opt = true,
     config = function()
       require("gitsigns").setup()
     end,
@@ -395,6 +391,7 @@ return require("lazy").setup({ -- Packer can manage itself
   -- },
   {
     "tversteeg/registers.nvim",
+    event = "VimEnter",
     config = function()
       require("registers").setup()
     end,
@@ -439,7 +436,7 @@ return require("lazy").setup({ -- Packer can manage itself
       require("plugconfig/smartyank")
     end
   },
-  { "t9md/vim-choosewin", event = "VimEnter", opt = true },
+  { "t9md/vim-choosewin", event = "VimEnter" },
 
   -- {
   -- 	"jose-elias-alvarez/null-ls.nvim",
@@ -467,7 +464,7 @@ return require("lazy").setup({ -- Packer can manage itself
 
   {
     "rust-lang/rust.vim",
-    ft = { "rust" },
+    ft = { "rust", "toml" },
   },
   -- {
   -- 	"SmiteshP/nvim-navic",
