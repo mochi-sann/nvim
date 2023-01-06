@@ -130,7 +130,7 @@ return require("lazy").setup({ -- Packer can manage itself
 				config = function()
 					require("plugconfig/cmp-tabnine")
 				end,
-				run = "./install.sh",
+				build = "./install.sh",
 			},
 			{
 				"j-hui/fidget.nvim",
