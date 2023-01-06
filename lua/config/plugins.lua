@@ -138,22 +138,22 @@ return require("lazy").setup({ -- Packer can manage itself
           require("fidget").setup({})
         end,
       },
+      { "neovim/nvim-lspconfig" },
+      {
+        "williamboman/mason-lspconfig.nvim",
+        config = function()
+          require("plugconfig/mason-lsp")
+        end,
+      },
+      {
+        "williamboman/mason.nvim",
+      },
+
     },
     event = { "InsertEnter", "CmdwinEnter", "VimEnter" },
     config = function()
       require("plugconfig/nvim_cmp")
     end,
-  },
-
-  { "neovim/nvim-lspconfig" },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    config = function()
-      require("plugconfig/mason-lsp")
-    end,
-  },
-  {
-    "williamboman/mason.nvim",
   },
 
   {
