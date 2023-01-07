@@ -445,6 +445,9 @@ return require("lazy").setup({ -- Packer can manage itself
       "jayp0521/mason-null-ls.nvim",
       "williamboman/mason.nvim",
     },
+    onfig = function()
+      require("plugconfig/null_ls")
+    end,
   },
   -- { "davidgranstrom/nvim-markdown-preview", opt = true, event = "VimEnter" },
   {
