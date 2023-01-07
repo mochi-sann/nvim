@@ -77,7 +77,7 @@ return require("lazy").setup({ -- Packer can manage itself
       })
     end,
   },
-  { "junegunn/fzf", run = ":call fzf#install()", event = "VimEnter" },
+  { "junegunn/fzf", build = ":call fzf#install()", event = "VimEnter" },
   { "nvim-lua/popup.nvim" },
 
   {
@@ -97,7 +97,7 @@ return require("lazy").setup({ -- Packer can manage itself
 
       -- その他の拡張プラグイン……
     },
-    setup = function() end,
+    init = function() end,
     config = function()
       require("plugconfig/telescope")
     end,
@@ -117,7 +117,7 @@ return require("lazy").setup({ -- Packer can manage itself
       { "hrsh7th/cmp-nvim-lsp-document-symbol" },
       {
         "hrsh7th/cmp-vsnip",
-        requires = { "vim-vsnip", "cmp-nvim-lsp-document-symbol" },
+        dependencies = { "vim-vsnip", "cmp-nvim-lsp-document-symbol" },
       },
       {
         "onsails/lspkind.nvim",
@@ -154,7 +154,7 @@ return require("lazy").setup({ -- Packer can manage itself
         config = function()
           require("plugconfig/vsnip")
         end,
-        requires = {
+        dependencies = {
           { "hrsh7th/vim-vsnip-integ" },
         },
       },
@@ -196,7 +196,7 @@ return require("lazy").setup({ -- Packer can manage itself
   -- },
   {
     "kyazdani42/nvim-tree.lua",
-    requires = {
+    dependencies = {
       { "kyazdani42/nvim-web-devicons" }, -- optional, for file icons
     },
     event = "VimEnter",
@@ -208,7 +208,6 @@ return require("lazy").setup({ -- Packer can manage itself
   {
     "t9md/vim-quickhl",
     event = "VimEnter",
-    opt = true,
     config = function()
       require("plugconfig/vim_quichl")
     end,
@@ -216,12 +215,11 @@ return require("lazy").setup({ -- Packer can manage itself
   {
     "terryma/vim-expand-region",
     event = "VimEnter",
-    opt = true,
     config = function()
       require("plugconfig/vim_expand_region")
     end,
   },
-  { "segeljakt/vim-silicon", opt = true, event = "VimEnter" },
+  { "segeljakt/vim-silicon", event = "VimEnter" },
   -- colorschem
   {
     "dracula/vim",
@@ -259,7 +257,7 @@ return require("lazy").setup({ -- Packer can manage itself
   {
     "akinsho/bufferline.nvim",
     version = "v2.*",
-    requires = "kyazdani42/nvim-web-devicons",
+    dependencies = "kyazdani42/nvim-web-devicons",
     config = function()
       vim.opt.termguicolors = true
       require("bufferline").setup({})
@@ -268,7 +266,7 @@ return require("lazy").setup({ -- Packer can manage itself
 
   {
     "alvarosevilla95/luatab.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
+    dependencies = "kyazdani42/nvim-web-devicons",
     event = "VimEnter",
     config = function()
       require("plugconfig/luatab")
@@ -278,7 +276,6 @@ return require("lazy").setup({ -- Packer can manage itself
   {
     "vim-jp/vimdoc-ja",
     event = "VimEnter",
-    opt = false,
     config = function()
       require("plugconfig/vimdoc_ja")
     end,
@@ -296,7 +293,6 @@ return require("lazy").setup({ -- Packer can manage itself
   {
     "kdheepak/lazygit.nvim",
     event = "VimEnter",
-    opt = false,
     config = function()
       require("plugconfig/lazygit")
     end,
@@ -304,7 +300,6 @@ return require("lazy").setup({ -- Packer can manage itself
   {
     "akinsho/git-conflict.nvim",
     event = "VimEnter",
-    opt = false,
     version = "*",
     config = function()
       require("git-conflict").setup()
@@ -338,19 +333,18 @@ return require("lazy").setup({ -- Packer can manage itself
   -- treesitter settins
   {
     "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
+    build = ":TSUpdate",
     event = "VimEnter",
     dependencies = {
-      { "p00f/nvim-ts-rainbow", after = "nvim-treesitter" },
+      { "p00f/nvim-ts-rainbow" },
       {
         "nvim-treesitter/nvim-treesitter-context",
-        after = "nvim-treesitter",
         config = function()
           require("plugconfig/treesitter-context")
         end,
       },
-      { "windwp/nvim-ts-autotag", after = "nvim-treesitter" },
-      { "JoosepAlviste/nvim-ts-context-commentstring", after = { "nvim-treesitter", "mini.nvim" } },
+      { "windwp/nvim-ts-autotag" },
+      { "JoosepAlviste/nvim-ts-context-commentstring" },
     },
     config = function()
       require("plugconfig/treesitter")
@@ -369,7 +363,7 @@ return require("lazy").setup({ -- Packer can manage itself
   {
     "nvim-lualine/lualine.nvim",
     event = "VimEnter",
-    requires = { "kyazdani42/nvim-web-devicons" },
+    dependencies = { "kyazdani42/nvim-web-devicons" },
     config = function()
       require("plugconfig/lualine")
     end,
@@ -421,7 +415,7 @@ return require("lazy").setup({ -- Packer can manage itself
   { "nvim-lua/plenary.nvim" },
   {
     "folke/todo-comments.nvim",
-    requires = "nvim-lua/plenary.nvim",
+    dependencies = "nvim-lua/plenary.nvim",
     event = "VimEnter",
     config = function()
       require("plugconfig/todo-comments")
@@ -455,8 +449,8 @@ return require("lazy").setup({ -- Packer can manage itself
   -- { "davidgranstrom/nvim-markdown-preview", opt = true, event = "VimEnter" },
   {
     "iamcco/markdown-preview.nvim",
-    run = "cd app && npm install",
-    setup = function()
+    build = "cd app && npm install",
+    init = function()
       vim.g.mkdp_filetypes = { "markdown" }
     end,
     ft = { "markdown" },
