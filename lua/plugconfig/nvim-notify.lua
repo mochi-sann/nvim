@@ -8,7 +8,8 @@ notify.setup({
   -- ---@usage Function called when a window is closed
   on_close = nil,
   ---@usage timeout for notifications in ms, default 5000
-  timeout = 1600,
+  timeout = 1700,
+  top_down = false,
   -- -- Render function for notifications. See notify-render()
   render = "default",
   -- ---@usage highlight behind the window for stages that change opacity

@@ -7,6 +7,11 @@ require("noice").setup({
       ["cmp.entry.get_documentation"] = true,
     },
   },
+  messages = {
+    -- NOTE: If you enable messages, then the cmdline is enabled automatically.
+    -- This is a current Neovim limitation.
+    view_search = "mini", -- view for search count messages. Set to `false` to disable
+  },
   -- you can enable a preset for easier configuration
   presets = {
     bottom_search = true, -- use a classic bottom cmdline for search

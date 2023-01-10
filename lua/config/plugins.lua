@@ -488,9 +488,11 @@ return require("lazy").setup({ -- Packer can manage itself
     config = function()
       require("plugconfig/noice")
     end,
+    event = "VimEnter",
     dependencies = {
       "MunifTanjim/nui.nvim",
-      { "rcarriga/nvim-notify",
+      {
+        "rcarriga/nvim-notify",
         config = function()
           require("plugconfig/nvim-notify")
         end
