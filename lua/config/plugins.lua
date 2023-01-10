@@ -160,7 +160,7 @@ return require("lazy").setup({ -- Packer can manage itself
       },
 
     },
-    event = { "InsertEnter", "CmdwinEnter", "VimEnter" },
+    event = { "VimEnter" },
     config = function()
       require("plugconfig/nvim_cmp")
     end,
@@ -233,6 +233,7 @@ return require("lazy").setup({ -- Packer can manage itself
       vim.cmd([[colorschem tokyonight-moon]])
     end,
   },
+  ---------------------------------------------------------------------------
   -- { "NLKNguyen/papercolor-theme", as = "papercolor" },
   -- {
   -- 	"f-person/auto-dark-mode.nvim",
@@ -402,16 +403,16 @@ return require("lazy").setup({ -- Packer can manage itself
   -- 	"relastle/vim-colorrange",
   -- 	event = "VimEnter",
   -- },
-  {
-    "uga-rosa/ccc.nvim",
-    after = {
-      "telescope.nvim",
-    },
-    keys = { ":CccPick<cr>" },
-    config = function()
-      require("plugconfig/ccc-nvim")
-    end,
-  },
+  -- {
+  --   "uga-rosa/ccc.nvim",
+  --   after = {
+  --     "telescope.nvim",
+  --   },
+  --   keys = { ":CccPick<cr>" },
+  --   config = function()
+  --     require("plugconfig/ccc-nvim")
+  --   end,
+  -- },
   { "nvim-lua/plenary.nvim" },
   {
     "folke/todo-comments.nvim",
@@ -481,6 +482,21 @@ return require("lazy").setup({ -- Packer can manage itself
       require("presence"):setup({ auto_update = false })
     end,
   },
+  {
+
+    "folke/noice.nvim",
+    config = function()
+      require("plugconfig/noice")
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      { "rcarriga/nvim-notify",
+        config = function()
+          require("plugconfig/nvim-notify")
+        end
+      }
+    }
+  }
 
   -- file tree
 })
