@@ -13,19 +13,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 return require("lazy").setup({ -- Packer can manage itself
-  -- {
-  -- 	"lewis6991/impatient.nvim",
-  -- 	config = function()
-  -- 		require("impatient")
-  -- 	end,
-  -- },
-
-  --	{
-  --		"rcarriga/nvim-notify",
-  --		config = function()
-  --			require("plugconfig/nvim-notify")
-  --		end,
-  --	},
 
   {
     "nathom/filetype.nvim",
@@ -175,25 +162,6 @@ return require("lazy").setup({ -- Packer can manage itself
     end,
   },
 
-  --
-
-  -- format and linter
-
-  --{"lambdalisue/fern.vim" , opt = true, cmd = {'Fern'}},
-
-  -- {
-  --   "nvim-neo-tree/neo-tree.nvim",
-  --   branch = "v2.x",
-  --   event = "VimEnter",
-  --   requires = {
-  --     "nvim-lua/plenary.nvim",
-  --     "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-  --     "MunifTanjim/nui.nvim",
-  --   },
-  --   config = function()
-  --     require("plugconfig/neo-tree")
-  --   end,
-  -- },
   {
     "kyazdani42/nvim-tree.lua",
     dependencies = {
@@ -453,7 +421,7 @@ return require("lazy").setup({ -- Packer can manage itself
   -- { "davidgranstrom/nvim-markdown-preview", opt = true, event = "VimEnter" },
   {
     "iamcco/markdown-preview.nvim",
-    build = "cd app && npm install",
+    build = "cd app && yarn install",
     init = function()
       vim.g.mkdp_filetypes = { "markdown" }
     end,
