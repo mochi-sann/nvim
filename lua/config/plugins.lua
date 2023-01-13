@@ -197,9 +197,6 @@ return require("lazy").setup({ -- Packer can manage itself
   {
     "folke/tokyonight.nvim",
     lazy = true,
-    config = function()
-      vim.cmd([[colorschem tokyonight-moon]])
-    end,
   },
   ---------------------------------------------------------------------------
   -- { "NLKNguyen/papercolor-theme", as = "papercolor" },
@@ -371,16 +368,17 @@ return require("lazy").setup({ -- Packer can manage itself
   -- 	"relastle/vim-colorrange",
   -- 	event = "VimEnter",
   -- },
-  -- {
-  --   "uga-rosa/ccc.nvim",
-  --   after = {
-  --     "telescope.nvim",
-  --   },
-  --   keys = { ":CccPick<cr>" },
-  --   config = function()
-  --     require("plugconfig/ccc-nvim")
-  --   end,
-  -- },
+  {
+    "uga-rosa/ccc.nvim",
+    event = { "VimEnter" },
+    dependenciek = {
+      "nvim-telescope/telescope.nvim",
+    },
+    -- keys = { ":CccPick<cr>" },
+    config = function()
+      require("plugconfig/ccc-nvim")
+    end,
+  },
   { "nvim-lua/plenary.nvim" },
   {
     "folke/todo-comments.nvim",
