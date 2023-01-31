@@ -1,6 +1,7 @@
 require("hop").setup({ keys = "etovqpdygfblzhkisuran" })
 local vim = vim
 
+vim.api.nvim_set_keymap("", "<C-w>", "<cmd>HopWord<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("", "<Space>wf", "<cmd>HopWord<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("", "<Space>wp", "<cmd>HopPattern<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("", "<Space>wa", "<cmd>HopAnywhere<cr>", { noremap = true, silent = true })
