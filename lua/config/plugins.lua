@@ -137,7 +137,6 @@ return require("lazy").setup({ -- Packer can manage itself
       },
       {
         "hrsh7th/vim-vsnip",
-        event = "VimEnter",
         config = function()
           require("plugconfig/vsnip")
         end,
@@ -198,6 +197,8 @@ return require("lazy").setup({ -- Packer can manage itself
     "folke/tokyonight.nvim",
     lazy = true,
   },
+  { "catppuccin/nvim", name = "catppuccin", lazy = true },
+
   ---------------------------------------------------------------------------
   -- { "NLKNguyen/papercolor-theme", as = "papercolor" },
   -- {
