@@ -1,24 +1,23 @@
 local null_ls = require("null-ls")
 
-require("mason-null-ls").setup({
-  ensure_installed = { "stylua", "jq", "prettier" , "rustfmt" },
-  automatic_installation = true
-})
+-- require("mason-null-ls").setup({
+--   ensure_installed = { "stylua", "jq", "prettier" , "rustfmt" },
+--   automatic_installation = true
+-- })
+-- require("mason-null-ls").setup_handlers({
+--   function(source_name, methods)
+--     -- all sources with no handler get passed here
+--
+--     -- To keep the original functionality of `automatic_setup = true`,
+--     -- please add the below.
+--     require("mason-null-ls.automatic_setup")(source_name, methods)
+--   end,
+--   stylua = function(source_name, methods)
+--     null_ls.register(null_ls.builtins.formatting.stylua)
+--   end,
+-- })
 
-require("mason-null-ls").setup_handlers({
-  function(source_name, methods)
-    -- all sources with no handler get passed here
-
-    -- To keep the original functionality of `automatic_setup = true`,
-    -- please add the below.
-    require("mason-null-ls.automatic_setup")(source_name, methods)
-  end,
-  stylua = function(source_name, methods)
-    null_ls.register(null_ls.builtins.formatting.stylua)
-  end,
-})
-
-local lsp_formatting = function(bufnr)
+                     local lsp_formatting = function(bufnr)
   vim.lsp.buf.format({
     timeout_ms = 2000,
 
@@ -85,5 +84,5 @@ null_ls.setup({
     null_ls.builtins.diagnostics.php,
     null_ls.builtins.formatting.prismaFmt,
   },
-  on_attach = on_attach,
+  -- on_attach = on_attach,
 })
