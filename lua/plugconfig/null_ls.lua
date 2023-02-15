@@ -17,7 +17,7 @@ local null_ls = require("null-ls")
 --   end,
 -- })
 
-                     local lsp_formatting = function(bufnr)
+local lsp_formatting = function(bufnr)
   vim.lsp.buf.format({
     timeout_ms = 2000,
 

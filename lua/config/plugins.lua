@@ -143,10 +143,24 @@ return require("lazy").setup({ -- Packer can manage itself
         dependencies = {
           { "hrsh7th/vim-vsnip-integ" },
         },
+
       },
+      {"zbirenbaum/copilot-cmp" ,
+        config = function ()
+    require("copilot_cmp").setup()
+  end
+}
+,{
+  "zbirenbaum/copilot.lua",
+  config = function()
+    require("copilot").setup({})
+  end,
+}
+
+
 
     },
-    event = { "VimEnter" },
+    event = { "UIEnter" },
     config = function()
       require("plugconfig/nvim_cmp")
     end,
@@ -282,13 +296,13 @@ return require("lazy").setup({ -- Packer can manage itself
     ft = { "typescript", "typescriptreact", "javascript", "javascriptreact", "vue" },
   },
 
-  {
-    "steelsojka/pears.nvim",
-    event = "VimEnter",
-    config = function()
-      require("plugconfig/pears")
-    end,
-  },
+  -- {
+  --   "steelsojka/pears.nvim",
+  --   event = "VimEnter",
+  --   config = function()
+  --     require("plugconfig/pears")
+  --   end,
+  -- },
 
   {
     "lukas-reineke/indent-blankline.nvim",
