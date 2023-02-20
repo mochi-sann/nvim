@@ -82,7 +82,7 @@ cmp.setup({
         buffer = "[Buffer]",
         nvim_lsp = "[LSP]",
         cmp_tabnine = "[TabNine]",
-        -- copilot = "[Copilot]",
+        copilot = "[Copilot]",
         luasnip = "[LuaSnip]",
         nvim_lua = "[NeovimLua]",
         latex_symbols = "[LaTeX]",
@@ -173,7 +173,7 @@ cmp.setup({
     { name = "cmp_tabnine", group_index = 2 },
     ---{ name = "skkeleton", group_index = 2 },
 
-    -- { name = "copilot", group_index = 2 },
+    { name = "copilot", group_index = 2 },
 
     -- { name = 'luasnip' }, -- For luasnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.
