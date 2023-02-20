@@ -4,7 +4,7 @@ require("toggleterm").setup({
 	direction = "float",
 	hide_numbers = false,
 	float_opts = {
-		winblend = 10,
+		winblend = 7,
 		border = "curved",
 	},
 })
