@@ -317,7 +317,7 @@ return require("lazy").setup({ -- Packer can manage itself
     build = ":TSUpdate",
     event = "VimEnter",
     dependencies = {
-      { "p00f/nvim-ts-rainbow" },
+      { "mrjones2014/nvim-ts-rainbow" },
       {
         "nvim-treesitter/nvim-treesitter-context",
         config = function()

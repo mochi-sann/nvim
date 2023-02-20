@@ -20,7 +20,6 @@ local null_ls = require("null-ls")
 local lsp_formatting = function(bufnr)
   vim.lsp.buf.format({
     timeout_ms = 2000,
-
     filter = function(client)
       --          apply whatever logic you want (in this example, we'll only use null-ls)
       return client.name == "null-ls"
@@ -47,7 +46,6 @@ null_ls.setup({
       })
     end
   end,
-
   sources = {
     -- LuaFormatter off
     -- null_ls.builtins.completion.spell,
@@ -83,6 +81,8 @@ null_ls.setup({
     null_ls.builtins.formatting.stylua,
     null_ls.builtins.diagnostics.php,
     null_ls.builtins.formatting.prismaFmt,
+
+    null_ls.builtins.formatting.phpcbf
   },
   -- on_attach = on_attach,
 })
