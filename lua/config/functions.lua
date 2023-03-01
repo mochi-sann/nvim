@@ -14,13 +14,22 @@ local function get_visual_selection()
   return table.concat(lines, '\n')
 end
 
-function search_selection_in_google()
-  local selected_text = get_visual_selection()
-  local base_url      = 'https://www.google.com/search?q='
-  local base_cmd      = 'open '
-  local new_url       = base_url .. selected_text
-  local open_cmd      = base_cmd .. '"' .. new_url .. '"'
-  print(open_cmd)
-  print(new_url)
-  vim.api.nvim_command("! " .. open_cmd)
+local function search_selection_in_google(text)
+  local selected_text     = text
+  local base_url          = 'https://www.google.com/search?q={search_text}'
+  local base_cmd          = 'open {open_url}'
+  local new_url           = base_url:gsub("{search_text}", selected_text)
+  local open_cmd          = base_cmd:gsub("{open_url}", '"' .. new_url .. '"')
+  local remove_line_break = open_cmd:gsub("\n", " ")
+  vim.api.nvim_command("! " .. remove_line_break)
 end
+
+vim.api.nvim_create_user_command(
+  'Selected2Google',
+  function()
+    local text = get_visual_selection()
+    print(text)
+    search_selection_in_google(text)
+  end,
+  { nargs = 0, range = true }
+)
