@@ -1,5 +1,6 @@
 require("config/options")
 require("config/plugins")
+require("config/functions")
 
 vim.cmd([[
 autocmd BufRead,BufEnter *.astro set filetype=astro
