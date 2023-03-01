@@ -458,7 +458,7 @@ return require("lazy").setup({ -- Packer can manage itself
 
   {
     "andweeb/presence.nvim",
-    event = "VimEnter",
+    event = "InsertEnter",
     config = function()
       require("presence"):setup({ auto_update = false })
     end,
