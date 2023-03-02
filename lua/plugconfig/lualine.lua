@@ -72,6 +72,6 @@ require("lualine").setup({
 		-- theme = bubbles_theme,
 		component_separators = "|",
 		section_separators = { left = "", right = "" },
-    globalstatus = true
+		globalstatus = true,
 	},
 })

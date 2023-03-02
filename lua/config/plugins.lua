@@ -64,7 +64,7 @@ return require("lazy").setup({ -- Packer can manage itself
       })
     end,
   },
-  { "junegunn/fzf", build = ":call fzf#install()", event = "VimEnter" },
+  { "junegunn/fzf",       build = ":call fzf#install()", event = "VimEnter" },
   { "nvim-lua/popup.nvim" },
 
   {
@@ -84,7 +84,8 @@ return require("lazy").setup({ -- Packer can manage itself
 
       -- その他の拡張プラグイン……
     },
-    init = function() end,
+    init = function()
+    end,
     config = function()
       require("plugconfig/telescope")
     end,
@@ -143,22 +144,19 @@ return require("lazy").setup({ -- Packer can manage itself
         dependencies = {
           { "hrsh7th/vim-vsnip-integ" },
         },
-
       },
-      {"zbirenbaum/copilot-cmp" ,
-        config = function ()
-    require("copilot_cmp").setup()
-  end
-}
-,{
-  "zbirenbaum/copilot.lua",
-  config = function()
-    require("copilot").setup({})
-  end,
-}
-
-
-
+      {
+        "zbirenbaum/copilot-cmp",
+        config = function()
+          require("copilot_cmp").setup()
+        end,
+      },
+      {
+        "zbirenbaum/copilot.lua",
+        config = function()
+          require("copilot").setup({})
+        end,
+      },
     },
     event = { "UIEnter" },
     config = function()
@@ -200,7 +198,7 @@ return require("lazy").setup({ -- Packer can manage itself
       require("plugconfig/vim_expand_region")
     end,
   },
-  { "segeljakt/vim-silicon", event = "VimEnter" },
+  { "segeljakt/vim-silicon",       event = "VimEnter" },
   -- colorschem
   {
     "dracula/vim",
@@ -211,7 +209,7 @@ return require("lazy").setup({ -- Packer can manage itself
     "folke/tokyonight.nvim",
     lazy = true,
   },
-  { "catppuccin/nvim", name = "catppuccin", lazy = true },
+  { "catppuccin/nvim",             name = "catppuccin", lazy = true },
 
   ---------------------------------------------------------------------------
   -- { "NLKNguyen/papercolor-theme", as = "papercolor" },
@@ -287,7 +285,7 @@ return require("lazy").setup({ -- Packer can manage itself
     end,
   },
 
-  { "alaviss/nim.nvim", event = "VimEnter" },
+  { "alaviss/nim.nvim",     event = "VimEnter" },
 
   {
     "heavenshell/vim-jsdoc",
@@ -404,15 +402,14 @@ return require("lazy").setup({ -- Packer can manage itself
     end,
   },
 
-
   {
     "ibhagwan/smartyank.nvim",
     event = "VimEnter",
     config = function()
       require("plugconfig/smartyank")
-    end
+    end,
   },
-  { "t9md/vim-choosewin", event = "VimEnter" },
+  { "t9md/vim-choosewin",    event = "VimEnter" },
 
   -- {
   -- 	"jose-elias-alvarez/null-ls.nvim",
@@ -476,10 +473,26 @@ return require("lazy").setup({ -- Packer can manage itself
         "rcarriga/nvim-notify",
         config = function()
           require("plugconfig/nvim-notify")
-        end
-      }
-    }
+        end,
+      },
+    },
+  },
+  {
+    "mochi-sann/Select2Browser.nvim",
+    config = function()
+      require("Select2Browser").setup()
+      vim.api.nvim_set_keymap("", "<Leader>g", "<Cmd>Select2Browser<CR>", { noremap = true, silent = true })
+    end,
   }
+
+  -- {
+  --   dir = "~/codespace/github.com/mochi-sann/Selected2Browser.nvim",
+  --   dev = true,
+  --   config = function()
+  --     require("Select2Browser").setup()
+  --     vim.api.nvim_set_keymap("", "<Leader>g", "<Cmd>Select2Browser<CR>", { noremap = true, silent = true })
+  --   end,
+  -- },
 
   -- file tree
 })
