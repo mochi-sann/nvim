@@ -341,6 +341,7 @@ return require("lazy").setup({ -- Packer can manage itself
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "kyazdani42/nvim-web-devicons", "justinhj/battery.nvim", "nvim-lua/plenary.nvim" },
+		event = "VimEnter",
 		config = function()
 			require("plugconfig/lualine")
 		end,
