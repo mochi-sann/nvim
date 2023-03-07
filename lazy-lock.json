@@ -1,4 +1,5 @@
 {
+  "ChatGPT.nvim": { "branch": "main", "commit": "1ebbec2053a5d79bfbffc5291396fdbeea41329b" },
   "Select2Browser.nvim": { "branch": "main", "commit": "d1892630add2d662f0c4ccf524c2b4480d94e48f" },
   "battery.nvim": { "branch": "main", "commit": "f3119d730ba5cd8c6bbbe1a153896850c3f0edfb" },
   "bufferline.nvim": { "branch": "main", "commit": "5aa803aaa9d8bbbca77d0c8df8ddc0b62c19ff6a" },

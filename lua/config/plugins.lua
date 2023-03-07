@@ -70,7 +70,7 @@ return require("lazy").setup({ -- Packer can manage itself
 	{
 		"nvim-telescope/telescope.nvim",
 		module = { "telescope" },
-		event = "VimEnter",
+		event = "UIEnter",
 		dependencies = {
 			{ "nvim-telescope/telescope-ghq.nvim" },
 			{ "nvim-telescope/telescope-z.nvim" },
@@ -483,6 +483,20 @@ return require("lazy").setup({ -- Packer can manage itself
 			vim.api.nvim_set_keymap("", "<Leader>g", "<Cmd>Select2Browser<CR>", { noremap = true, silent = true })
 		end,
 	},
+
+	{
+		"jackMort/ChatGPT.nvim",
+		event = "VimEnter",
+		config = function()
+			require("plugconfig/chat-gpt-nvim")
+		end,
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
+	},
+
 
 	-- {
 	--   dir = "~/codespace/github.com/mochi-sann/Selected2Browser.nvim",
