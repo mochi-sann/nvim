@@ -26,6 +26,7 @@ vim.g.loaded_vimball = 1
 vim.g.loaded_vimballPlugin = 1
 vim.g.loaded_zip = 1
 vim.g.loaded_zipPlugin = 1
+vim.g.editorconfig = true
 
 vim.g.load_black = 1
 vim.g.loaded_fzf = 1

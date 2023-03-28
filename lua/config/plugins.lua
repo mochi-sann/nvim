@@ -112,13 +112,13 @@ return require("lazy").setup({ -- Packer can manage itself
 					require("plugconfig/lspkind")
 				end,
 			},
-			{
-				"tzachar/cmp-tabnine",
-				config = function()
-					require("plugconfig/cmp-tabnine")
-				end,
-				build = "./install.sh",
-			},
+			-- {
+			-- 	"tzachar/cmp-tabnine",
+			-- 	config = function()
+			-- 		require("plugconfig/cmp-tabnine")
+			-- 	end,
+			-- 	build = "./install.sh",
+			-- },
 			{
 				"j-hui/fidget.nvim",
 				config = function()
@@ -261,7 +261,7 @@ return require("lazy").setup({ -- Packer can manage itself
 	-- terminal
 	{
 		"akinsho/toggleterm.nvim",
-		version = "v2.*",
+		version = "*",
 		event = "VimEnter",
 		config = function()
 			require("plugconfig/toggleterm")
@@ -480,7 +480,7 @@ return require("lazy").setup({ -- Packer can manage itself
 		"mochi-sann/Select2Browser.nvim",
 		config = function()
 			require("Select2Browser").setup()
-			vim.api.nvim_set_keymap("", "<Leader>g", "<Cmd>Select2Browser<CR>", { noremap = true, silent = true })
+			vim.api.nvim_set_keymap("", "<Leader>gg", "<Cmd>Select2Browser<CR>", { noremap = true, silent = true })
 		end,
 	},
 
@@ -496,7 +496,6 @@ return require("lazy").setup({ -- Packer can manage itself
 			"nvim-telescope/telescope.nvim",
 		},
 	},
-
 
 	-- {
 	--   dir = "~/codespace/github.com/mochi-sann/Selected2Browser.nvim",

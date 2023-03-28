@@ -15,3 +15,11 @@ require("chatgpt").setup({
   },
   answer_sign = "ﮧ", -- 🤖
 })
+
+-- tk: talk to chatgpt
+-- tj: talk to chatgpt as
+-- tt: talk to chatgpt edit with instructions
+vim.keymap.set('n', '<Space>tk', '<cmd>:ChatGPT<cr>')
+vim.keymap.set('n', '<Space>tj', '<cmd>:ChatGPTActAs<cr>')
+vim.keymap.set('n', '<Space>tt', '<cmd>:ChatGPTEditWithInstructions<cr>')
+vim.keymap.set('v', '<Space>tt', '<cmd>:ChatGPTEditWithInstructions<cr>')

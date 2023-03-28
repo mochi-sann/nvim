@@ -103,7 +103,6 @@ cmp.setup({
 			end,
 		}),
 	},
-
 	mapping = cmp.mapping.preset.insert({
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
@@ -299,7 +298,6 @@ mason_lspconfig.setup_handlers({
 						},
 					},
 				},
-
 				-- autostart = false
 			})
 		elseif server_name == "tsserver" then
