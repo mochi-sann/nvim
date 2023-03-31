@@ -1,12 +1,9 @@
 require("toggleterm").setup({
-	open_mapping = [[<C-t>]],
-	size = 100,
-	direction = "float",
-	hide_numbers = false,
-	float_opts = {
-		winblend = 7,
-		border = "curved",
-	},
+  open_mapping = [[<C-t>]],
+  size = 100,
+  direction = "float",
+  hide_numbers = false,
+  float_opts = {winblend = 7, border = "curved"}
 })
 -- vim.api.nvim_set_keymap("n", "<A-t>", "ToggleTerm size=40 direction=horizontal", { noremap = true, silent = true })
 -- vim.cmd([[

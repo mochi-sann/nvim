@@ -1,7 +1,7 @@
 require("chatgpt").setup({
   -- optional configuration
   keymaps = {
-    close = { "<C-c>", "<Esc>" },
+    close = {"<C-c>", "<Esc>"},
     yank_last = "<C-y>",
     scroll_up = "<C-u>",
     scroll_down = "<C-d>",
@@ -11,9 +11,9 @@ require("chatgpt").setup({
     -- in the Sessions pane
     select_session = "<Space>",
     rename_session = "r",
-    delete_session = "d",
+    delete_session = "d"
   },
-  answer_sign = "ﮧ", -- 🤖
+  answer_sign = "ﮧ" -- 🤖
 })
 
 -- tk: talk to chatgpt
