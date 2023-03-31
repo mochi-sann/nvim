@@ -188,7 +188,7 @@ return require("lazy").setup({ -- Packer can manage itself
 		end,
 	},
 	{ "segeljakt/vim-silicon", event = "VimEnter" }, -- colorschem
-	{ "dracula/vim", name = "dracula", lazy = true },
+
 	{ "folke/tokyonight.nvim", lazy = true },
 	{ "catppuccin/nvim", name = "catppuccin", lazy = true },
 
@@ -219,7 +219,6 @@ return require("lazy").setup({ -- Packer can manage itself
 		version = "v2.*",
 		dependencies = "kyazdani42/nvim-web-devicons",
 		config = function()
-			vim.opt.termguicolors = true
 			require("bufferline").setup({})
 		end,
 	},
@@ -462,6 +461,7 @@ return require("lazy").setup({ -- Packer can manage itself
 	},
 	{
 		"mochi-sann/Select2Browser.nvim",
+		event = "VimEnter",
 		config = function()
 			require("Select2Browser").setup()
 			vim.api.nvim_set_keymap("", "<Leader>gg", "<Cmd>Select2Browser<CR>", { noremap = true, silent = true })
@@ -479,6 +479,7 @@ return require("lazy").setup({ -- Packer can manage itself
 			"nvim-telescope/telescope.nvim",
 		},
 	},
+	{ "Mofiqul/vscode.nvim" },
 
 	-- {
 	--   dir = "~/codespace/github.com/mochi-sann/Selected2Browser.nvim",
