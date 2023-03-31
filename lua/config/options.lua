@@ -87,4 +87,4 @@ vim.o.title = false -- タイトル書き換えない
 vim.o.scrolloff = 5
 vim.o.sidescrolloff = 5
 vim.cmd("set whichwrap+=<,>,[,],h,l")
-vim.api.nvim_set_hl(0, "VertSplit", {ctermbg = "NONE", bg = "NONE"})
+vim.api.nvim_set_hl(0, "VertSplit", { ctermbg = "NONE", bg = "NONE" })

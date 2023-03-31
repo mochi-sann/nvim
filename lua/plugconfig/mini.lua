@@ -29,59 +29,59 @@
 -- })
 require("mini.surround").setup({
 
-  -- Number of lines within which surrounding is searched
-  n_lines = 20,
+	-- Number of lines within which surrounding is searched
+	n_lines = 20,
 
-  -- Duration (in ms) of highlight when calling `MiniSurround.highlight()`
-  highlight_duration = 500,
+	-- Duration (in ms) of highlight when calling `MiniSurround.highlight()`
+	highlight_duration = 500,
 
-  -- Pattern to match function name in 'function call' surrounding
-  -- By default it is a string of letters, '_' or '.'
-  -- funname_pattern = "[%w_%.]+",
+	-- Pattern to match function name in 'function call' surrounding
+	-- By default it is a string of letters, '_' or '.'
+	-- funname_pattern = "[%w_%.]+",
 
-  -- Module mappings. Use `''` (empty string) to disable one.
-  mappings = {
-    add = "sa", -- Add surrounding
-    delete = "sd", -- Delete surrounding
-    find = "sf", -- Find surrounding (to the right)
-    find_left = "sF", -- Find surrounding (to the left)
-    highlight = "sh", -- Highlight surrounding
-    replace = "sr", -- Replace surrounding
-    update_n_lines = "sn" -- Update `n_lines`
-  }
+	-- Module mappings. Use `''` (empty string) to disable one.
+	mappings = {
+		add = "sa", -- Add surrounding
+		delete = "sd", -- Delete surrounding
+		find = "sf", -- Find surrounding (to the right)
+		find_left = "sF", -- Find surrounding (to the left)
+		highlight = "sh", -- Highlight surrounding
+		replace = "sr", -- Replace surrounding
+		update_n_lines = "sn", -- Update `n_lines`
+	},
 })
 require("mini.comment").setup({
-  -- Module mappings. Use `''` (empty string) to disable one.
-  hooks = {
-    pre = function()
-      require("ts_context_commentstring.internal").update_commentstring()
-    end
-  },
+	-- Module mappings. Use `''` (empty string) to disable one.
+	hooks = {
+		pre = function()
+			require("ts_context_commentstring.internal").update_commentstring()
+		end,
+	},
 
-  mappings = {
-    -- Toggle comment (like `gcip` - comment inner paragraph) for both
-    -- Normal and Visual modes
-    comment = "gc",
+	mappings = {
+		-- Toggle comment (like `gcip` - comment inner paragraph) for both
+		-- Normal and Visual modes
+		comment = "gc",
 
-    -- Toggle comment on current line
-    comment_line = "gcc",
+		-- Toggle comment on current line
+		comment_line = "gcc",
 
-    -- Define 'comment' textobject (like `dgc` - delete whole comment block)
-    textobject = "gc"
-  }
+		-- Define 'comment' textobject (like `dgc` - delete whole comment block)
+		textobject = "gc",
+	},
 })
 
 vim.api.nvim_create_autocmd("ColorScheme", {
-  pattern = "*",
-  callback = function()
-    require("mini.cursorword").setup({
-      -- Delay (in ms) between when cursor moved and when highlighting appeared
-      delay = 100
-    })
-  end
+	pattern = "*",
+	callback = function()
+		require("mini.cursorword").setup({
+			-- Delay (in ms) between when cursor moved and when highlighting appeared
+			delay = 100,
+		})
+	end,
 })
 require("mini.trailspace").setup({
-  -- Highlight only in normal buffers (ones with empty 'buftype'). This is
-  -- useful to not show trailing whitespace where it usually doesn't matter.
-  only_in_normal_buffers = true
+	-- Highlight only in normal buffers (ones with empty 'buftype'). This is
+	-- useful to not show trailing whitespace where it usually doesn't matter.
+	only_in_normal_buffers = true,
 })

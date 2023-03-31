@@ -8,5 +8,4 @@ let g:lazygit_use_neovim_remote = 1 " fallback to 0 if neovim-remote is not inst
 nnoremap <silent> <C-l>g :LazyGit<CR>
 
 ]])
-vim.api.nvim_set_keymap("", "<Space>lg", "<cmd>LazyGit<cr>",
-                        {noremap = true, silent = true})
+vim.api.nvim_set_keymap("", "<Space>lg", "<cmd>LazyGit<cr>", { noremap = true, silent = true })
