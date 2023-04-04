@@ -31,7 +31,6 @@ return require("lazy").setup({ -- Packer can manage itself
 						-- Set the filetype of any full filename matching the regex to gitconfig
 						[".*git/config"] = "gitconfig", -- Included in the plugin
 					},
-
 					-- The same as the ones above except the keys map to functions
 					function_extensions = {
 						["cpp"] = function()
@@ -55,7 +54,6 @@ return require("lazy").setup({ -- Packer can manage itself
 							vim.cmd("iabbrev $ $$")
 						end,
 					},
-
 					shebang = {
 						-- Set the filetype of files with a dash shebang to sh
 						dash = "sh",
@@ -104,6 +102,7 @@ return require("lazy").setup({ -- Packer can manage itself
 				"hrsh7th/cmp-vsnip",
 				dependencies = { "vim-vsnip", "cmp-nvim-lsp-document-symbol" },
 			},
+			{ "SmiteshP/nvim-navic" },
 			{
 				"onsails/lspkind.nvim",
 				config = function()
@@ -443,7 +442,6 @@ return require("lazy").setup({ -- Packer can manage itself
 		end,
 	},
 	{
-
 		"folke/noice.nvim",
 		config = function()
 			require("plugconfig/noice")
