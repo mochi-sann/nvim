@@ -62,7 +62,7 @@ return require("lazy").setup({ -- Packer can manage itself
 			})
 		end,
 	},
-	{ "junegunn/fzf", build = ":call fzf#install()", event = "VimEnter" },
+	-- { "junegunn/fzf", build = ":call fzf#install()", event = "VimEnter" },
 	{ "nvim-lua/popup.nvim" },
 	{
 		"nvim-telescope/telescope.nvim",
@@ -477,7 +477,18 @@ return require("lazy").setup({ -- Packer can manage itself
 			"nvim-telescope/telescope.nvim",
 		},
 	},
-	{ "Mofiqul/vscode.nvim" },
+	{
+		"folke/zen-mode.nvim",
+		event = "VimEnter",
+		config = function()
+			require("zen-mode").setup({
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			})
+			vim.api.nvim_set_keymap("", "<Leader>z", "<Cmd>ZenMode<CR>", { noremap = true, silent = true })
+		end,
+	},
 
 	-- {
 	--   dir = "~/codespace/github.com/mochi-sann/Selected2Browser.nvim",
