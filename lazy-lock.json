@@ -64,6 +64,7 @@
   "toggleterm.nvim": { "branch": "main", "commit": "026dff5e2b504941cf172691561a67ea362596aa" },
   "tokyonight.nvim": { "branch": "main", "commit": "1b0c88094548a62641ece1e668fa9a234e1c539e" },
   "vim-choosewin": { "branch": "master", "commit": "839da609d9b811370216bdd9d4512ec2d0ac8644" },
+  "vim-dadbod": { "branch": "master", "commit": "3f57c0cd41523423fd781422dfc833820095a3e8" },
   "vim-devicons": { "branch": "master", "commit": "71f239af28b7214eebb60d4ea5bd040291fb7e33" },
   "vim-expand-region": { "branch": "master", "commit": "966513543de0ddc2d673b5528a056269e7917276" },
   "vim-jsdoc": { "branch": "master", "commit": "9234b2e2590e973c06113c05abd180de0c9dbcc1" },

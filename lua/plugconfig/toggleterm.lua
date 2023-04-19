@@ -1,7 +1,7 @@
 require("toggleterm").setup({
 	open_mapping = [[<C-t>]],
 	size = 100,
-	direction = "float",
+	direction = "tab",
 	hide_numbers = false,
 	float_opts = { winblend = 7, border = "curved" },
 })
