@@ -246,6 +246,16 @@ return require("lazy").setup({ -- Packer can manage itself
 		end,
 	},
 	{
+		"willothy/flatten.nvim",
+		config = true,
+		-- or pass configuration with
+		-- opts = {  }
+		-- Ensure that it runs first to minimize delay when opening file from terminal
+		lazy = false,
+		priority = 1001,
+	},
+
+	{
 		"chomosuke/term-edit.nvim",
 		version = "1.*",
 		event = "UIEnter",
@@ -489,6 +499,7 @@ return require("lazy").setup({ -- Packer can manage itself
 			vim.api.nvim_set_keymap("", "<Leader>z", "<Cmd>ZenMode<CR>", { noremap = true, silent = true })
 		end,
 	},
+	{ "tpope/vim-dadbod" },
 
 	-- {
 	--   dir = "~/codespace/github.com/mochi-sann/Selected2Browser.nvim",
