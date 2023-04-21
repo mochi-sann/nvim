@@ -163,16 +163,6 @@ return require("lazy").setup({ -- Packer can manage itself
 		end,
 	},
 	{
-		"kyazdani42/nvim-tree.lua",
-		dependencies = {
-			{ "kyazdani42/nvim-web-devicons" }, -- optional, for file icons
-		},
-		event = "VimEnter",
-		config = function()
-			require("plugconfig/nvim-tree")
-		end,
-	},
-	{
 		"t9md/vim-quickhl",
 		event = "VimEnter",
 		config = function()
@@ -519,6 +509,28 @@ return require("lazy").setup({ -- Packer can manage itself
 		end,
 	},
 	{ "tpope/vim-dadbod" },
+	{
+		"rmagatti/auto-session",
+		config = function()
+			require("auto-session").setup({
+				log_level = "error",
+				auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+			})
+			vim.api.nvim_set_keymap("", "<Leader>ss", "<Cmd>SaveSession<CR>", { noremap = true, silent = true })
+			vim.api.nvim_set_keymap("", "<Leader>sd", "<Cmd>DeleteSession<CR>", { noremap = true, silent = true })
+			vim.api.nvim_set_keymap("", "<Leader>sr", "<Cmd>RestoreSession<CR>", { noremap = true, silent = true })
+		end,
+	},
+	{
+		"kyazdani42/nvim-tree.lua",
+		dependencies = {
+			{ "kyazdani42/nvim-web-devicons" }, -- optional, for file icons
+		},
+		-- event = "VimEnter",
+		config = function()
+			require("plugconfig/nvim-tree")
+		end,
+	},
 
 	-- {
 	--   dir = "~/codespace/github.com/mochi-sann/Selected2Browser.nvim",

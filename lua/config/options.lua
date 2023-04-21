@@ -88,3 +88,5 @@ vim.o.scrolloff = 5
 vim.o.sidescrolloff = 5
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.api.nvim_set_hl(0, "VertSplit", { ctermbg = "NONE", bg = "NONE" })
+
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"

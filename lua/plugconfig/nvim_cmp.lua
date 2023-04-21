@@ -210,7 +210,6 @@ cmp.setup.cmdline(":", {
 -- 	},
 -- })
 
-local lsp_installer = require("mason-lspconfig")
 local lspconfig = require("lspconfig")
 local mason_lspconfig = require("mason-lspconfig")
 
@@ -262,7 +261,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-lsp_installer.setup()
+-- mason_lspconfig.setup()
 -- for _, server in ipairs(lsp_installer.get_installed_servers()) do
 mason_lspconfig.setup_handlers({
 	function(server_name)
